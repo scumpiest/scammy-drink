@@ -23,26 +23,11 @@ layout_mode = 2
 
 [node name="WaterButton" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer" unique_id=812651647]
 layout_mode = 2
-text = "Add Water"
+text = "Craft Cedevita"
 
 [node name="OrangeButton" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer" unique_id=1253068119]
 layout_mode = 2
-text = "Add Orange
-"
-
-[node name="MilkButton" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer" unique_id=1873358550]
-layout_mode = 2
-text = "Add Milk
-"
-
-[node name="MangoButton" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer" unique_id=2068735463]
-layout_mode = 2
-text = "Add Mango
-"
-
-[node name="IceButton" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer" unique_id=792646223]
-layout_mode = 2
-text = "Add Ice
+text = "Add Es Teler
 "
 
 [node name="InventoryDisplay" type="RichTextLabel" parent="CanvasLayer/VBoxContainer" unique_id=423446511]
@@ -53,6 +38,3 @@ script = ExtResource("2_aa7oo")
 
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer/WaterButton" to="." method="_on_water_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer/OrangeButton" to="." method="_on_orange_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer/MilkButton" to="." method="_on_milk_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer/MangoButton" to="." method="_on_mango_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer/IceButton" to="." method="_on_ice_button_pressed"]

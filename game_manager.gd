@@ -1,8 +1,8 @@
 extends Node
 
-var inventory: Dictionary = {}
+var inventory: Dictionary = {"water": 1, "milk": 1, "ice": 1, "mango": 1, "orange": 1}
 
-
+# Uncomment to enable quantity
 func update_inventory(item: String, quantity: int):
 	if inventory.has(item):
 		inventory[item] += quantity
@@ -22,15 +22,7 @@ func create_recipe(recipe_key: String):
 		var ingredients: Dictionary = recipe["ingredients"]
 
 		if inventory.has_all(ingredients.keys()):
-			var obtained_ingredients: int = 0
-			for item in ingredients:
-				if inventory[item] >= ingredients[item]:
-					obtained_ingredients += 1
-
-			if obtained_ingredients == ingredients.size():
-				for item in ingredients:
-					update_inventory(item, -ingredients[item])
-				for item in product:
-					update_inventory(item, product[item])
+			update_inventory(product.keys()[0], product.values()[0])
+			print("Recipe created:", recipe_key)
 		else:
 			print("Not enough ingredients for recipe")
