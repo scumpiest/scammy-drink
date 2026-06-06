@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://omqlt0501aof"]
+
+[ext_resource type="Texture2D" uid="uid://bsfcilkaw3arm" path="res://crab_Customer.png" id="1_qvcdy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_05df7"]
+bg_color = Color(0.9610422, 0.9181441, 0.5864518, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pblyx"]
+bg_color = Color(0.7277993, 0.45740324, 0.2903557, 1)
+
+[node name="CounterUi" type="Control" unique_id=1949816307]
+layout_mode = 3
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1904052219]
+layout_mode = 1
+offset_right = 233.0
+offset_bottom = 304.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_05df7")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=1418897691]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=1318434372]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Make" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1075182540]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.77254903, 0.34509805, 0.15686275, 1)
+theme_override_font_sizes/font_size = 32
+text = "Make:"
+
+[node name="NameOfDrink" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1282639762]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.77254903, 0.34509805, 0.15686275, 1)
+theme_override_font_sizes/font_size = 32
+text = "FancyName"
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=2014243565]
+layout_mode = 2
+theme_override_constants/margin_top = 15
+
+[node name="Add" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer" unique_id=1511746277]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.77254903, 0.34509805, 0.15686275, 1)
+theme_override_font_sizes/font_size = 32
+text = "Add:"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=2070875041]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.7735775, 0.34469035, 0.15872201, 1)
+theme_override_font_sizes/normal_font_size = 24
+text = "-Milk
+-Orange
+-Ice"
+fit_content = true
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=939135140]
+layout_mode = 0
+offset_left = 684.0
+offset_top = -132.0
+offset_right = 1215.0
+offset_bottom = 605.0
+texture = ExtResource("1_qvcdy")
+expand_mode = 1
+
+[node name="ColorRect" type="PanelContainer" parent="." unique_id=673363285]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 438.0
+offset_right = 1149.0
+offset_bottom = 649.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_pblyx")
+
+[node name="Label" type="Label" parent="ColorRect" unique_id=123472754]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 64
+text = "Mix Mix here"
