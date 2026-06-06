@@ -27,7 +27,7 @@ func _get_total_ingredients() -> int:
 func _on_mix_pressed():
 	GameManager.create_recipe(crafting_ingredients)
 
-func _on_crafting_complete(recipe_key: String) -> void:
+func _on_crafting_complete(recipe_key) -> void:
 	mix_button.disabled = true
 	item_list.text += recipe_key + "\n"
 
