@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://c24hipub5mhbx"]
+
+[ext_resource type="Script" uid="uid://bc335bjjxb7nd" path="res://crafting_station.gd" id="1_4d4rx"]
+[ext_resource type="Script" uid="uid://bbqa2xaeqnyk1" path="res://inventory_display.gd" id="2_aa7oo"]
+
+[node name="CraftingStation" type="Control" unique_id=279321905]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4d4rx")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1307530361]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=70064522]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer" unique_id=1171525898]
+layout_mode = 2
+
+[node name="WaterButton" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer" unique_id=812651647]
+layout_mode = 2
+text = "Add Water"
+
+[node name="OrangeButton" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer" unique_id=1253068119]
+layout_mode = 2
+text = "Add Orange
+"
+
+[node name="MilkButton" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer" unique_id=1873358550]
+layout_mode = 2
+text = "Add Milk
+"
+
+[node name="MangoButton" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer" unique_id=2068735463]
+layout_mode = 2
+text = "Add Mango
+"
+
+[node name="IceButton" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer" unique_id=792646223]
+layout_mode = 2
+text = "Add Ice
+"
+
+[node name="InventoryDisplay" type="RichTextLabel" parent="CanvasLayer/VBoxContainer" unique_id=423446511]
+layout_mode = 2
+text = "asdasd"
+fit_content = true
+script = ExtResource("2_aa7oo")
+
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer/WaterButton" to="." method="_on_water_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer/OrangeButton" to="." method="_on_orange_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer/MilkButton" to="." method="_on_milk_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer/MangoButton" to="." method="_on_mango_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer/IceButton" to="." method="_on_ice_button_pressed"]

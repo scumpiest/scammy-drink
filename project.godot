@@ -11,8 +11,14 @@ config_version=5
 [application]
 
 config/name="scammy-drink"
+run/main_scene="uid://c24hipub5mhbx"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GameManager="*uid://xyr0lv1qs230"
+CraftingRecipe="*uid://4jt2wg3mt7fk"
 
 [physics]
 
