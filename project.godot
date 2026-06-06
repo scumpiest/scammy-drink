@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 GameManager="*uid://xyr0lv1qs230"
 CraftingRecipe="*uid://4jt2wg3mt7fk"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [input]
 
 select={

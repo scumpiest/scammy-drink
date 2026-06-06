@@ -6,9 +6,11 @@ signal request_failed
 @onready var bubble_background: PanelContainer = $BubbleBackground
 @onready var chat_bubble: Label = $BubbleBackground/ChatBubble
 
-var request: String = "cedevita"
+var request: String = ""
 
 func _ready() -> void:
+	request = CraftingRecipe.get_recipes().pick_random()
+	chat_bubble.text = "GIMME " + request.to_upper() + "!!"
 	GameManager.crafting_complete.connect(_on_crafting_complete)
 
 func _on_crafting_complete(_recipe_key) -> void:

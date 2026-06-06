@@ -18,7 +18,7 @@ var rebujito_recipe: Dictionary = {
 }
 
 var apfelschorle_recipe: Dictionary = {
-	"ingredients": {"apple": 1, "milk": 1, "ice": 1},
+	"ingredients": {"apple": 1, "soda": 1, "ice": 1},
 	"product": {"apfelschorle": 1}
 }
 
@@ -63,3 +63,9 @@ func _ready():
 	crafting_dict["coconut_mocktail"] = coconut_mocktail_recipe
 	crafting_dict["party_mix"] = party_mix_recipe
 	crafting_dict["es_teler"] = es_teler_recipe
+
+func get_recipes() -> Array:
+	var recipe_list: Array = []
+	for recipe in crafting_dict.keys():
+		recipe_list.append(recipe)
+	return recipe_list
