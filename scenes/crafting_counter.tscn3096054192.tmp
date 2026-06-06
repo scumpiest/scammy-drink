@@ -63,6 +63,7 @@ text = "Coconut Cream"
 
 [node name="MidContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=8302357]
 layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="Ice" type="Button" parent="MarginContainer/HBoxContainer/MidContainer" unique_id=1162243410 groups=["fluid_button"]]
 layout_mode = 2

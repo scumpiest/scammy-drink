@@ -31,6 +31,13 @@ func _on_crafting_complete(recipe_key: String) -> void:
 	mix_button.disabled = true
 	item_list.text += recipe_key + "\n"
 
+func _on_reset_pressed():
+	get_tree().call_group("fluid_button", "set", "disabled", false)
+	get_tree().call_group("fruit_button", "set", "disabled", false)
+	mix_button.disabled = false
+	item_list.text = ""
+	crafting_ingredients = {}
+
 # help me
 func _on_soda_pressed():  _add_ingredient("soda")
 func _on_milk_pressed():  _add_ingredient("milk")
