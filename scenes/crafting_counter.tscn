@@ -1,0 +1,136 @@
+[gd_scene format=3 uid="uid://baq4fejjo54v3"]
+
+[ext_resource type="Script" uid="uid://cvamqu51op1ak" path="res://scenes/crafting_counter.gd" id="1_tkddw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pblyx"]
+bg_color = Color(0.7277993, 0.45740324, 0.2903557, 1)
+
+[node name="CraftingCounter" type="PanelContainer" unique_id=1665070910]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -348.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_pblyx")
+script = ExtResource("1_tkddw")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=424579319]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=726580812]
+layout_mode = 2
+
+[node name="FluidContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=1181137842]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Soda" type="Button" parent="MarginContainer/HBoxContainer/FluidContainer" unique_id=1311358795 groups=["fluid_button"]]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Soda"
+
+[node name="Water" type="Button" parent="MarginContainer/HBoxContainer/FluidContainer" unique_id=1128563033 groups=["fluid_button"]]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Water"
+
+[node name="Milk" type="Button" parent="MarginContainer/HBoxContainer/FluidContainer" unique_id=1814541676 groups=["fluid_button"]]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Milk"
+
+[node name="WhiteWine" type="Button" parent="MarginContainer/HBoxContainer/FluidContainer" unique_id=1519073136 groups=["fluid_button"]]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "White Wine"
+
+[node name="LimeJuice" type="Button" parent="MarginContainer/HBoxContainer/FluidContainer" unique_id=168167473 groups=["fluid_button"]]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Lime Juice"
+
+[node name="CoconutCream" type="Button" parent="MarginContainer/HBoxContainer/FluidContainer" unique_id=1441620592 groups=["fluid_button"]]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Coconut Cream"
+
+[node name="MidContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=8302357]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Ice" type="Button" parent="MarginContainer/HBoxContainer/MidContainer" unique_id=1162243410 groups=["fluid_button"]]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "IceIceBaby"
+
+[node name="ItemList" type="RichTextLabel" parent="MarginContainer/HBoxContainer/MidContainer" unique_id=2025322958]
+custom_minimum_size = Vector2(400, 180)
+layout_mode = 2
+size_flags_horizontal = 4
+fit_content = true
+
+[node name="Mix" type="Button" parent="MarginContainer/HBoxContainer/MidContainer" unique_id=1106068344]
+layout_mode = 2
+text = "MIX THE DRINK!!!!!!"
+
+[node name="FruitContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=559673058]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MixedFruits" type="Button" parent="MarginContainer/HBoxContainer/FruitContainer" unique_id=1104248225 groups=["fruit_button"]]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Mixed Fruits"
+
+[node name="Orange" type="Button" parent="MarginContainer/HBoxContainer/FruitContainer" unique_id=324286144 groups=["fruit_button"]]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Orange"
+
+[node name="Pineapple" type="Button" parent="MarginContainer/HBoxContainer/FruitContainer" unique_id=551577166 groups=["fruit_button"]]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Pineapple"
+
+[node name="Apple" type="Button" parent="MarginContainer/HBoxContainer/FruitContainer" unique_id=679829749 groups=["fruit_button"]]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Apple"
+
+[node name="Lemon" type="Button" parent="MarginContainer/HBoxContainer/FruitContainer" unique_id=288405999 groups=["fruit_button"]]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Lemon"
+
+[node name="Mint" type="Button" parent="MarginContainer/HBoxContainer/FruitContainer" unique_id=1527531775 groups=["fruit_button"]]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Mint"
+
+[node name="Strawberry" type="Button" parent="MarginContainer/HBoxContainer/FruitContainer" unique_id=747608256 groups=["fruit_button"]]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Strawberry"
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/FluidContainer/Soda" to="." method="_on_soda_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/FluidContainer/Water" to="." method="_on_water_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/FluidContainer/Milk" to="." method="_on_milk_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/FluidContainer/WhiteWine" to="." method="_on_white_wine_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/FluidContainer/LimeJuice" to="." method="_on_lime_juice_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/FluidContainer/CoconutCream" to="." method="_on_coconut_cream_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/MidContainer/Ice" to="." method="_on_ice_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/MidContainer/Mix" to="." method="_on_mix_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/FruitContainer/MixedFruits" to="." method="_on_mixed_fruits_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/FruitContainer/Orange" to="." method="_on_orange_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/FruitContainer/Pineapple" to="." method="_on_pineapple_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/FruitContainer/Apple" to="." method="_on_apple_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/FruitContainer/Lemon" to="." method="_on_lemon_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/FruitContainer/Mint" to="." method="_on_mint_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/FruitContainer/Strawberry" to="." method="_on_strawberry_pressed"]

@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://c24hipub5mhbx"]
+
+[ext_resource type="PackedScene" uid="uid://dten0br76t2w6" path="res://scenes/crafting_slot.tscn" id="2_8oqcf"]
+[ext_resource type="PackedScene" uid="uid://d3aagl44tybxs" path="res://scenes/ingredient.tscn" id="3_swo07"]
+[ext_resource type="Script" uid="uid://bbqa2xaeqnyk1" path="res://scenes/inventory_display.gd" id="4_4jxqb"]
+
+[node name="CraftingStation" type="Control" unique_id=279321905]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1307530361]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=70064522]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer" unique_id=1171525898]
+layout_mode = 2
+
+[node name="CraftingSlot" parent="CanvasLayer/VBoxContainer/HBoxContainer" unique_id=272137850 instance=ExtResource("2_8oqcf")]
+layout_mode = 2
+
+[node name="CraftingSlot2" parent="CanvasLayer/VBoxContainer/HBoxContainer" unique_id=668903298 instance=ExtResource("2_8oqcf")]
+layout_mode = 2
+
+[node name="CraftingSlot3" parent="CanvasLayer/VBoxContainer/HBoxContainer" unique_id=1880500589 instance=ExtResource("2_8oqcf")]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/VBoxContainer/HBoxContainer" unique_id=2097086971]
+layout_mode = 2
+
+[node name="Ingredient" parent="CanvasLayer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=418293815 instance=ExtResource("3_swo07")]
+layout_mode = 2
+
+[node name="Ingredient2" parent="CanvasLayer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=472113062 instance=ExtResource("3_swo07")]
+layout_mode = 2
+
+[node name="Ingredient3" parent="CanvasLayer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=595319243 instance=ExtResource("3_swo07")]
+layout_mode = 2
+
+[node name="InventoryDisplay" type="RichTextLabel" parent="CanvasLayer/VBoxContainer" unique_id=423446511]
+layout_mode = 2
+text = "asdasd"
+fit_content = true
+script = ExtResource("4_4jxqb")

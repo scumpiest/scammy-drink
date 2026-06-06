@@ -1,6 +1,12 @@
 extends Node
 
-var inventory: Dictionary = {"water": 1, "milk": 1, "ice": 1, "mango": 1, "orange": 1}
+signal crafting_complete(recipe_key: String)
+
+var inventory: Dictionary = {
+	"soda": 1, "milk": 1, "ice": 1, "water": 1, "white_wine": 1,
+	"lime_juice": 1, "coconut_cream": 1, "mixed_fruits": 1,
+	"orange": 1, "pineapple": 1, "lemon": 1, "apple": 1,
+	"mint": 1, "strawberry": 1}
 
 func update_inventory(item: String, quantity: int):
 	if inventory.has(item):
@@ -11,15 +17,13 @@ func update_inventory(item: String, quantity: int):
 	if inventory[item] <= 0:
 		inventory.erase(item)
 
-func create_recipe(recipe_key: String):
-	var recipe: Dictionary = CraftingRecipe.crafting_dict[recipe_key]
-
-	if recipe:
-		var product: Dictionary = recipe["product"]
+func create_recipe(crafting_ingredients: Dictionary):
+	for recipe_key in CraftingRecipe.crafting_dict.keys():
+		var recipe: Dictionary = CraftingRecipe.crafting_dict[recipe_key]
 		var ingredients: Dictionary = recipe["ingredients"]
-
-		if inventory.has_all(ingredients.keys()):
-			update_inventory(product.keys()[0], product.values()[0])
-			print("Recipe created:", recipe_key)
-		else:
-			print("Not enough ingredients for recipe")
+		for ingredient in ingredients:
+			if crafting_ingredients == ingredients:
+				print("Recipe created:", recipe_key)
+				crafting_complete.emit(recipe_key)
+				return recipe_key
+	print("No recipe found")

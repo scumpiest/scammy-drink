@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="scammy-drink"
-run/main_scene="uid://c24hipub5mhbx"
+run/main_scene="uid://omqlt0501aof"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
