@@ -18,6 +18,7 @@ size_flags_horizontal = 4
 script = ExtResource("1_pblyx")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1904052219]
+visible = false
 layout_mode = 1
 offset_right = 233.0
 offset_bottom = 304.0
@@ -66,6 +67,7 @@ text = "-Milk
 fit_content = true
 
 [node name="Crabby" type="TextureRect" parent="." unique_id=939135140]
+z_index = -1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -80,6 +82,14 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_qvcdy")
 expand_mode = 1
+
+[node name="BubbleBackground" type="PanelContainer" parent="Crabby" unique_id=1850655481]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ChatBubble" type="Label" parent="Crabby/BubbleBackground" unique_id=1235354763]
+layout_mode = 2
 
 [node name="CraftingStation" parent="." unique_id=1665070910 instance=ExtResource("2_05df7")]
 layout_mode = 1
