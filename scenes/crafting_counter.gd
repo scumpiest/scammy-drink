@@ -36,6 +36,7 @@ func _on_mix_pressed():
 
 func _on_crafting_complete(recipe_key) -> void:
 	item_list.text += recipe_key + "\n"
+	reset()
 
 func _on_reset_pressed():
 	reset()
