@@ -17,7 +17,7 @@ func _on_crafting_complete(_recipe_key) -> void:
 	bubble_background.visible = true
 	if _recipe_key == request:
 		chat_bubble.text = "Thanks for the " + _recipe_key + "!"
-		await get_tree().create_timer(2.5).timeout
+		await get_tree().create_timer(1.5).timeout
 		request_completed.emit()
 		bubble_background.visible = false
 		request = ""

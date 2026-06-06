@@ -16,6 +16,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 script = ExtResource("1_pblyx")
+crabby = ExtResource("2_pblyx")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1904052219]
 visible = false
@@ -66,14 +67,14 @@ text = "-Milk
 -Ice"
 fit_content = true
 
-[node name="Crabby" parent="." unique_id=895804033 instance=ExtResource("2_pblyx")]
-position = Vector2(-428, 112)
-
 [node name="CraftingCounter" parent="." unique_id=1665070910 instance=ExtResource("2_05df7")]
 layout_mode = 1
 
+[node name="SpawnMarker" type="Marker2D" parent="." unique_id=531153033]
+position = Vector2(-429, 94)
+
 [node name="EnterMarker" type="Marker2D" parent="." unique_id=774304902]
-position = Vector2(394, 60)
+position = Vector2(372, 69)
 
 [node name="ExitMarker" type="Marker2D" parent="." unique_id=162336635]
 position = Vector2(1332, 96)
