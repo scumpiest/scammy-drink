@@ -10,8 +10,7 @@ bg_color = Color(0.7277993, 0.45740324, 0.2903557, 1)
 
 [node name="CounterUi" type="Control" unique_id=1949816307]
 layout_mode = 3
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
 size_flags_horizontal = 4
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1904052219]
@@ -64,23 +63,115 @@ fit_content = true
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=939135140]
 layout_mode = 0
-offset_left = 691.0
-offset_top = 39.0
-offset_right = 1051.0
-offset_bottom = 519.0
+offset_left = 703.0
+offset_top = 12.0
+offset_right = 1063.0
+offset_bottom = 492.0
 texture = ExtResource("1_qvcdy")
 expand_mode = 1
 
 [node name="ColorRect" type="PanelContainer" parent="." unique_id=673363285]
 layout_mode = 0
 offset_left = 1.0
-offset_top = 438.0
+offset_top = 357.0
 offset_right = 1149.0
 offset_bottom = 649.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_pblyx")
 
-[node name="Label" type="Label" parent="ColorRect" unique_id=123472754]
+[node name="MixMixHere" type="Label" parent="ColorRect" unique_id=123472754]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/font_size = 50
 text = "Mix Mix here"
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect" unique_id=296081384]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/MarginContainer" unique_id=94059108]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer/HBoxContainer" unique_id=1035577480]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Soda" type="Button" parent="ColorRect/MarginContainer/HBoxContainer/VBoxContainer" unique_id=2108446882]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Soda"
+
+[node name="Water" type="Button" parent="ColorRect/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1925422927]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Water"
+
+[node name="Milk" type="Button" parent="ColorRect/MarginContainer/HBoxContainer/VBoxContainer" unique_id=164193489]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Milk"
+
+[node name="WhiteWine" type="Button" parent="ColorRect/MarginContainer/HBoxContainer/VBoxContainer" unique_id=643447228]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "White Wine"
+
+[node name="LimeJuice" type="Button" parent="ColorRect/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1577668900]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Lime Juice"
+
+[node name="CoconutCream" type="Button" parent="ColorRect/MarginContainer/HBoxContainer/VBoxContainer" unique_id=2095039995]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Coconut Cream"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ColorRect/MarginContainer/HBoxContainer" unique_id=449463624]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Ice" type="Button" parent="ColorRect/MarginContainer/HBoxContainer/VBoxContainer2" unique_id=2037613516]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "IceIceBaby"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="ColorRect/MarginContainer/HBoxContainer" unique_id=446651733]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MixedFruits" type="Button" parent="ColorRect/MarginContainer/HBoxContainer/VBoxContainer3" unique_id=1212093672]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Mixed Fruits"
+
+[node name="Orange" type="Button" parent="ColorRect/MarginContainer/HBoxContainer/VBoxContainer3" unique_id=1114515193]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Orange"
+
+[node name="Pineapple" type="Button" parent="ColorRect/MarginContainer/HBoxContainer/VBoxContainer3" unique_id=1570954371]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Pineapple"
+
+[node name="Apple" type="Button" parent="ColorRect/MarginContainer/HBoxContainer/VBoxContainer3" unique_id=1976532012]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Apple"
+
+[node name="Lemon" type="Button" parent="ColorRect/MarginContainer/HBoxContainer/VBoxContainer3" unique_id=1313617127]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Lemon"
+
+[node name="Mint" type="Button" parent="ColorRect/MarginContainer/HBoxContainer/VBoxContainer3" unique_id=707638810]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Mint"
+
+[node name="Strawberry" type="Button" parent="ColorRect/MarginContainer/HBoxContainer/VBoxContainer3" unique_id=1479252118]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Strawberry"
