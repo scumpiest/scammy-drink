@@ -24,19 +24,21 @@ func _get_total_ingredients() -> int:
 		total += count
 	return total
 
+func reset() -> void:
+	crafting_ingredients.clear()
+
+	item_list.text = ""
+	get_tree().call_group("fluid_button", "set", "disabled", false)
+	get_tree().call_group("fruit_button", "set", "disabled", false)
+
 func _on_mix_pressed():
 	GameManager.create_recipe(crafting_ingredients)
 
 func _on_crafting_complete(recipe_key) -> void:
-	mix_button.disabled = true
 	item_list.text += recipe_key + "\n"
 
 func _on_reset_pressed():
-	get_tree().call_group("fluid_button", "set", "disabled", false)
-	get_tree().call_group("fruit_button", "set", "disabled", false)
-	mix_button.disabled = false
-	item_list.text = ""
-	crafting_ingredients = {}
+	reset()
 
 # help me
 func _on_soda_pressed():  _add_ingredient("soda")

@@ -18,6 +18,8 @@ func update_inventory(item: String, quantity: int):
 		inventory.erase(item)
 
 func create_recipe(crafting_ingredients: Dictionary):
+	if crafting_ingredients == {}:
+		return
 	for recipe_key in CraftingRecipe.crafting_dict.keys():
 		var recipe: Dictionary = CraftingRecipe.crafting_dict[recipe_key]
 		var ingredients: Dictionary = recipe["ingredients"]

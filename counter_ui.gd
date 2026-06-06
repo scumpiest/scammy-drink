@@ -1,18 +1,17 @@
 extends Control
 
-@onready var crabby: TextureRect = $Crabby
+@onready var crabby: Area2D = $Crabby
 @onready var enter_marker: Marker2D = $EnterMarker
 @onready var exit_marker: Marker2D = $ExitMarker
-@onready var bubble_background: PanelContainer = $Crabby/BubbleBackground
-@onready var chat_bubble: Label = $Crabby/BubbleBackground/ChatBubble
+@onready var crafting_counter: PanelContainer = $CraftingCounter
 
 var current_target: Marker2D = null
 
 @export var lerp_weight: float = 1.0
 
 func _ready() -> void:
-	GameManager.crafting_complete.connect(_on_crafting_complete)
-	bubble_background.visible = false
+	crabby.request_completed.connect(_on_request_completed)
+	crabby.request_failed.connect(_on_request_failed)
 	slide_to_marker(enter_marker)
 
 func _process(delta: float) -> void:
@@ -22,9 +21,8 @@ func _process(delta: float) -> void:
 func slide_to_marker(marker: Marker2D) -> void:
 	current_target = marker
 
-func _on_crafting_complete(_recipe_key) -> void:
-	bubble_background.visible = true
-	chat_bubble.text = "Thanks for the " + _recipe_key + "!"
-	await get_tree().create_timer(2.5).timeout
-	bubble_background.visible = false
+func _on_request_completed() -> void:
 	slide_to_marker(exit_marker)
+
+func _on_request_failed() -> void:
+	crafting_counter.reset()

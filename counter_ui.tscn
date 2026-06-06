@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://omqlt0501aof"]
 
 [ext_resource type="Script" uid="uid://cex85w4jk50o1" path="res://counter_ui.gd" id="1_pblyx"]
-[ext_resource type="Texture2D" uid="uid://bsfcilkaw3arm" path="res://crab_Customer.png" id="1_qvcdy"]
 [ext_resource type="PackedScene" uid="uid://baq4fejjo54v3" path="res://scenes/crafting_counter.tscn" id="2_05df7"]
+[ext_resource type="PackedScene" uid="uid://x6l2s2cjh6tm" path="res://crabby.tscn" id="2_pblyx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_05df7"]
 bg_color = Color(0.9610422, 0.9181441, 0.5864518, 1)
@@ -66,32 +66,10 @@ text = "-Milk
 -Ice"
 fit_content = true
 
-[node name="Crabby" type="TextureRect" parent="." unique_id=939135140]
-z_index = -1
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -955.0
-offset_top = -267.0
-offset_right = -595.0
-offset_bottom = 213.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_qvcdy")
-expand_mode = 1
+[node name="Crabby" parent="." unique_id=895804033 instance=ExtResource("2_pblyx")]
+position = Vector2(-428, 112)
 
-[node name="BubbleBackground" type="PanelContainer" parent="Crabby" unique_id=1850655481]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="ChatBubble" type="Label" parent="Crabby/BubbleBackground" unique_id=1235354763]
-layout_mode = 2
-
-[node name="CraftingStation" parent="." unique_id=1665070910 instance=ExtResource("2_05df7")]
+[node name="CraftingCounter" parent="." unique_id=1665070910 instance=ExtResource("2_05df7")]
 layout_mode = 1
 
 [node name="EnterMarker" type="Marker2D" parent="." unique_id=774304902]
