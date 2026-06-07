@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://b5gubmax0w5xe"]
+
+[ext_resource type="Shader" uid="uid://ckpyx5tuodvk0" path="res://shaders[EXPERIMENTAL]/liquid_shader.gdshader" id="1_b5kp8"]
+
+[resource]
+shader = ExtResource("1_b5kp8")
+shader_parameter/liquid_color = Color(0.9, 0.4, 0.4, 1)
+shader_parameter/fill_amount = 0.0
+shader_parameter/wave_frequency = 12.0
+shader_parameter/wave_speed = 4.0
+shader_parameter/wave_amplitude = 0.015

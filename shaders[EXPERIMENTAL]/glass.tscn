@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://cx2xywnut4m6a"]
+
+[ext_resource type="Material" uid="uid://b5gubmax0w5xe" path="res://shaders[EXPERIMENTAL]/liquid_shader.tres" id="1_fvmfx"]
+[ext_resource type="Script" uid="uid://dw31444jtwtd5" path="res://shaders[EXPERIMENTAL]/glass.gd" id="1_ykn3o"]
+[ext_resource type="AudioStream" uid="uid://b58qryyejjiwn" path="res://assets/slosh.mp3" id="3_b8qbv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fvmfx"]
+size = Vector2(104, 96)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ykn3o"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 35.0
+initial_velocity_min = 120.0
+initial_velocity_max = 180.0
+gravity = Vector3(0, 400, 0)
+scale_min = 2.0
+scale_max = 4.0
+
+[node name="Glass" type="Node2D" unique_id=2052105736]
+script = ExtResource("1_ykn3o")
+
+[node name="LiquidMask" type="Sprite2D" parent="." unique_id=755483308]
+clip_children = 1
+
+[node name="LiquidRect" type="ColorRect" parent="LiquidMask" unique_id=1488154227]
+material = ExtResource("1_fvmfx")
+offset_right = 100.0
+offset_bottom = 200.0
+color = Color(0, 0, 0.68235296, 1)
+
+[node name="WaterArea" type="Area2D" parent="." unique_id=1875172883]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WaterArea" unique_id=529932194]
+position = Vector2(52, 152)
+shape = SubResource("RectangleShape2D_fvmfx")
+
+[node name="SplashParticles" type="GPUParticles2D" parent="WaterArea" unique_id=642955457]
+position = Vector2(48, 104)
+emitting = false
+amount = 15
+one_shot = true
+explosiveness = 0.85
+process_material = SubResource("ParticleProcessMaterial_ykn3o")
+
+[node name="SloshSFX" type="AudioStreamPlayer2D" parent="." unique_id=606948022]
+stream = ExtResource("3_b8qbv")
+
+[connection signal="body_entered" from="WaterArea" to="." method="_on_water_area_body_entered"]

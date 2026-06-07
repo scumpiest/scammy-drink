@@ -10,12 +10,19 @@ var customer: Area2D = null
 
 @export var lerp_weight: float = 1.0
 @export var crabby: PackedScene = null
+@export var bomb: PackedScene = null
 
 func _ready() -> void:
 	customer = spawn_customer(crabby)
 	setup_customer(customer)
 
 func _process(delta: float) -> void:
+	if Input.is_action_pressed("spawn_item"):
+		print("spawn_item pressed")
+		var item = bomb.instantiate()
+		item.global_position = enter_marker.global_position
+		item.z_index = -1
+		add_child(item)
 	if current_target:
 		customer.position = customer.position.lerp(current_target.global_position, 1.0 - exp(-lerp_weight * delta))
 

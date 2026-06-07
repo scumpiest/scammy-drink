@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://coa1dds11ipit"]
+
+[ext_resource type="Texture2D" uid="uid://ovpe62gllxnf" path="res://assets/tile_0105.png" id="1_573fp"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4fn8o"]
+bounce = 0.2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nfxiy"]
+
+[node name="Bomb" type="RigidBody2D" unique_id=928584795]
+physics_material_override = SubResource("PhysicsMaterial_4fn8o")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2106326509]
+texture = ExtResource("1_573fp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=582439700]
+shape = SubResource("RectangleShape2D_nfxiy")

@@ -1,0 +1,69 @@
+extends Node2D
+
+@onready var liquid_rect = $LiquidMask/LiquidRect
+@onready var splash_particles = $WaterArea/SplashParticles
+@onready var water_area = $WaterArea
+@onready var slosh_sfx = $SloshSFX
+
+@export var float_force: float = 380.0
+@export var water_damp: float = 4.5
+
+var fill_level: float = 0.0
+var pour_speed: float = 0.25
+var base_wave_amp: float = 0.015
+
+func _ready():
+	# Initialize empty glass
+	assert(liquid_rect != null, "liquid_rect node not found — check the node path")
+	assert(liquid_rect.material != null, "LiquidRect has no material assigned")
+	liquid_rect.material.set_shader_parameter("fill_amount", 0.5)
+
+func _process(delta):
+	# Core Loop: Hold Spacebar/Click to pour liquid
+	if Input.is_action_pressed("ui_select"):
+		if fill_level < 1.0:
+			fill_level += pour_speed * delta
+			liquid_rect.material.set_shader_parameter("fill_amount", fill_level)
+
+			# Gently stir the waves while pouring
+			liquid_rect.material.set_shader_parameter("wave_amplitude", base_wave_amp * 1.5)
+	else:
+		# Return to normal calm waves when stop pouring
+		var current_amp = liquid_rect.material.get_shader_parameter("wave_amplitude")
+		liquid_rect.material.set_shader_parameter("wave_amplitude", lerp(current_amp, base_wave_amp, 0.1))
+
+func _physics_process(_delta):
+	# Apply upward buoyancy to anything in the water area
+	for body in water_area.get_overlapping_bodies():
+		if body is RigidBody2D:
+			# Calculate depth to push harder the deeper it goes
+			var depth = water_area.global_position.y - body.global_position.y
+			body.apply_central_force(Vector2.UP * float_force)
+
+# CONNECTED SIGNAL FROM WATERAREA
+func _on_water_area_body_entered(body):
+	if body is RigidBody2D:
+		# 1. Apply thick liquid dampening instantly
+		body.linear_damp = water_damp
+		body.angular_damp = water_damp
+
+		# 2. Trigger particle splash at the object's entry point
+		splash_particles.global_position.x = body.global_position.x
+		splash_particles.restart()
+
+		# 3. Slosh the liquid shader dynamically using a Tween
+		trigger_slosh()
+
+func trigger_slosh():
+	var tween = create_tween()
+
+	slosh_sfx.play()
+
+	liquid_rect.material.set_shader_parameter("wave_amplitude", 0.05) # Spike amplitude
+	tween.tween_property(liquid_rect.material, "shader_parameter/wave_amplitude", base_wave_amp, 1.2)\
+		.set_trans(Tween.TRANS_SINE)\
+		.set_ease(Tween.EASE_OUT)
+
+# Call this method when switching recipes!
+func change_drink_flavor(new_color: Color):
+	liquid_rect.material.set_shader_parameter("liquid_color", new_color)
