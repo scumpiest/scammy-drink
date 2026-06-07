@@ -1,17 +1,17 @@
-[gd_scene format=3 uid="uid://co832b38ik6yw"]
+[gd_scene format=3 uid="uid://bwofwgy3ygc0g"]
 
-[ext_resource type="Script" path="res://scenes/fruit_mix_2d.gd" id="1_yacmd"]
-[ext_resource type="PackedScene" path="res://scenes/ingredients/base_fruit.tscn" id="2_23fmx"]
-[ext_resource type="Texture2D" path="res://assets/ingredients/FruitsMix.png" id="3_ivp2k"]
+[ext_resource type="Script" uid="uid://dvafhi0fx5wyw" path="res://scenes/fruit_mix_2d.gd" id="1_yacmd"]
+[ext_resource type="PackedScene" uid="uid://bhbt3jq4hb8va" path="res://scenes/ingredients/base_fruit.tscn" id="2_23fmx"]
+[ext_resource type="Resource" uid="uid://ck1d2d7uo7wlq" path="res://resources/ingredients/mixed_fruits.tres" id="3_mixfrt"]
 
-[node name="FruitMix2D" type="TextureButton" unique_id=2092211543]
+[node name="FruitMix2D" type="TextureButton" unique_id=2092211543 groups=["fruit_button"]]
 custom_minimum_size = Vector2(90, 90)
 offset_right = 90.0
 offset_bottom = 90.0
 script = ExtResource("1_yacmd")
 item_to_spawn = ExtResource("2_23fmx")
+item_data = ExtResource("3_mixfrt")
 
-[node name="MixedFruits" type="Sprite2D" parent="." unique_id=1018548550]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1018548550]
 position = Vector2(40, 40)
 scale = Vector2(0.25, 0.25)
-texture = ExtResource("3_ivp2k")

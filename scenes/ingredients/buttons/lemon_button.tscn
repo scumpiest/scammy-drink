@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://d3fyak7wnqhc2"]
+
+[ext_resource type="PackedScene" uid="uid://bwofwgy3ygc0g" path="res://scenes/fruit_mix_2d.tscn" id="1_base"]
+[ext_resource type="Resource" uid="uid://b5y0uxmbmivd3" path="res://resources/ingredients/lemon.tres" id="2_data"]
+
+[node name="LemonButton" instance=ExtResource("1_base")]
+item_data = ExtResource("2_data")
