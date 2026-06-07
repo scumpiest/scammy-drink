@@ -45,5 +45,6 @@ process_material = SubResource("ParticleProcessMaterial_ykn3o")
 
 [node name="SloshSFX" type="AudioStreamPlayer2D" parent="." unique_id=606948022]
 stream = ExtResource("3_b8qbv")
+bus = &"SFX"
 
 [connection signal="body_entered" from="WaterArea" to="." method="_on_water_area_body_entered"]
