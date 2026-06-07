@@ -1,6 +1,6 @@
 shader_type canvas_item;
 
-uniform vec4 liquid_color : source_color = vec4(0.9, 0.4, 0.4, 1.0);
+uniform vec4 liquid_color : source_color = vec4(0.9, 0.4, 0.4, 0.1);
 uniform float fill_amount : hint_range(0.0, 1.0) = 0.5;
 uniform float wave_frequency = 12.0;
 uniform float wave_speed = 4.0;

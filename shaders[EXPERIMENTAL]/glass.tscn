@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://b58qryyejjiwn" path="res://assets/slosh.mp3" id="3_b8qbv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fvmfx"]
-size = Vector2(104, 96)
+size = Vector2(192, 128)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ykn3o"]
 particle_flag_disable_z = true
@@ -17,33 +17,66 @@ gravity = Vector3(0, 400, 0)
 scale_min = 2.0
 scale_max = 4.0
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7dmx5"]
+absorbent = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bottom"]
+size = Vector2(192, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_left"]
+size = Vector2(0, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_right"]
+size = Vector2(0, 128)
+
 [node name="Glass" type="Node2D" unique_id=2052105736]
 script = ExtResource("1_ykn3o")
 
 [node name="LiquidMask" type="Sprite2D" parent="." unique_id=755483308]
 clip_children = 1
+position = Vector2(0, -64)
 
 [node name="LiquidRect" type="ColorRect" parent="LiquidMask" unique_id=1488154227]
 material = ExtResource("1_fvmfx")
 offset_right = 100.0
 offset_bottom = 200.0
+scale = Vector2(1.926868, 1.2801067)
 color = Color(0, 0, 0.68235296, 1)
 
 [node name="WaterArea" type="Area2D" parent="." unique_id=1875172883]
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WaterArea" unique_id=529932194]
-position = Vector2(52, 152)
+position = Vector2(96, 128)
 shape = SubResource("RectangleShape2D_fvmfx")
 
 [node name="SplashParticles" type="GPUParticles2D" parent="WaterArea" unique_id=642955457]
-position = Vector2(48, 104)
+position = Vector2(96, 64)
 emitting = false
 amount = 15
 one_shot = true
 explosiveness = 0.85
 process_material = SubResource("ParticleProcessMaterial_ykn3o")
 
+[node name="GlassEdge" type="StaticBody2D" parent="." unique_id=394363795]
+position = Vector2(0, 40)
+collision_layer = 4
+physics_material_override = SubResource("PhysicsMaterial_7dmx5")
+
+[node name="BottomWall" type="CollisionShape2D" parent="GlassEdge" unique_id=1835783391]
+position = Vector2(96, 151)
+shape = SubResource("RectangleShape2D_bottom")
+
+[node name="LeftWall" type="CollisionShape2D" parent="GlassEdge" unique_id=1835783392]
+position = Vector2(0, 88)
+shape = SubResource("RectangleShape2D_left")
+
+[node name="RightWall" type="CollisionShape2D" parent="GlassEdge" unique_id=1835783393]
+position = Vector2(192, 88)
+shape = SubResource("RectangleShape2D_right")
+
 [node name="SloshSFX" type="AudioStreamPlayer2D" parent="." unique_id=606948022]
+position = Vector2(0, 104)
 stream = ExtResource("3_b8qbv")
 
 [connection signal="body_entered" from="WaterArea" to="." method="_on_water_area_body_entered"]

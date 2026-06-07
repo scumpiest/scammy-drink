@@ -1,14 +1,15 @@
 [gd_scene format=3 uid="uid://bhbt3jq4hb8va"]
 
 [ext_resource type="Script" uid="uid://dmsc0efj5ybtq" path="res://scenes/ingredients/base_fruit.gd" id="1_lodk8"]
-[ext_resource type="Script" uid="uid://cqu1p6334ylii" path="res://components/drag_and_drop.gd" id="3_dnd"]
-[ext_resource type="Script" uid="uid://hik5osyogdvs" path="res://components/velocity_based_rotation.gd" id="4_vbr"]
 [ext_resource type="Resource" uid="uid://ck1d2d7uo7wlq" path="res://resources/ingredients/mixed_fruits.tres" id="2_hugey"]
 [ext_resource type="Texture2D" uid="uid://dsp368iwwmoog" path="res://assets/ingredients/FruitsMix.png" id="2_lodk8"]
+[ext_resource type="Script" uid="uid://cqu1p6334ylii" path="res://components/drag_and_drop.gd" id="3_dnd"]
+[ext_resource type="Script" uid="uid://hik5osyogdvs" path="res://components/velocity_based_rotation.gd" id="4_vbr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dlvow"]
 
 [node name="BaseFruit" type="RigidBody2D" unique_id=1816019492]
+collision_mask = 6
 script = ExtResource("1_lodk8")
 data = ExtResource("2_hugey")
 

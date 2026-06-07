@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bv6j5n8trm4pw"]
+
+[ext_resource type="PackedScene" uid="uid://bwofwgy3ygc0g" path="res://scenes/fruit_mix_2d.tscn" id="1_base"]
+[ext_resource type="Resource" uid="uid://u58vrcktojgh" path="res://resources/ingredients/apple.tres" id="2_data"]
+
+[node name="AppleButton" instance=ExtResource("1_base")]
+item_data = ExtResource("2_data")
