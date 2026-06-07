@@ -22,6 +22,14 @@ script = ExtResource("1_pblyx")
 crabby = ExtResource("2_ccn5l")
 bomb = ExtResource("6_eeia2")
 
+[node name="MainMenuButton" type="Button" parent="." unique_id=1633707091]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 14.0
+offset_right = 87.0
+offset_bottom = 45.0
+text = "Menu"
+
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1904052219]
 visible = false
 layout_mode = 1
@@ -87,7 +95,14 @@ position = Vector2(1332, 96)
 stream = ExtResource("4_ccn5l")
 volume_db = -5.0
 autoplay = true
+bus = &"Music"
 parameters/looping = true
 
 [node name="Glass" parent="." unique_id=2052105736 instance=ExtResource("5_cotl3")]
+<<<<<<< Updated upstream
 position = Vector2(327, 103)
+=======
+position = Vector2(527, 327)
+
+[connection signal="pressed" from="MainMenuButton" to="." method="_on_settings_button_pressed"]
+>>>>>>> Stashed changes
