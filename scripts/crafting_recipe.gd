@@ -64,6 +64,11 @@ func _ready():
 	crafting_dict["party_mix"] = party_mix_recipe
 	crafting_dict["es_teler"] = es_teler_recipe
 
+func get_random_recipe() -> String:
+	var recipe_list: Array = get_recipes()
+	var random_index: int = randi() % recipe_list.size()
+	return recipe_list[random_index]
+
 func get_recipes() -> Array:
 	var recipe_list: Array = []
 	for recipe in crafting_dict.keys():

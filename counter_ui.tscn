@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cex85w4jk50o1" path="res://counter_ui.gd" id="1_pblyx"]
 [ext_resource type="PackedScene" uid="uid://baq4fejjo54v3" path="res://scenes/crafting_counter.tscn" id="2_05df7"]
-[ext_resource type="PackedScene" uid="uid://x6l2s2cjh6tm" path="res://crabby.tscn" id="2_pblyx"]
+[ext_resource type="PackedScene" uid="uid://x6l2s2cjh6tm" path="res://scenes/customers/crabby.tscn" id="2_ccn5l"]
+[ext_resource type="AudioStream" uid="uid://x5pn66qvwi4a" path="res://assets/Bossa Nova Beach.mp3" id="4_ccn5l"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_05df7"]
 bg_color = Color(0.9610422, 0.9181441, 0.5864518, 1)
@@ -16,7 +17,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 script = ExtResource("1_pblyx")
-crabby = ExtResource("2_pblyx")
+crabby = ExtResource("2_ccn5l")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1904052219]
 visible = false
@@ -78,3 +79,9 @@ position = Vector2(372, 69)
 
 [node name="ExitMarker" type="Marker2D" parent="." unique_id=162336635]
 position = Vector2(1332, 96)
+
+[node name="BGMusic" type="AudioStreamPlayer" parent="." unique_id=821602189]
+stream = ExtResource("4_ccn5l")
+volume_db = -5.0
+autoplay = true
+parameters/looping = true

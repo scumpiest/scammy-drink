@@ -9,9 +9,13 @@ signal request_failed
 var request: String = ""
 
 func _ready() -> void:
-	request = CraftingRecipe.get_recipes().pick_random()
+	GameManager.add_recipe_order()
+	request = GameManager.get_order()
 	chat_bubble.text = "GIMME " + request.to_upper() + "!!"
 	GameManager.crafting_complete.connect(_on_crafting_complete)
+	GameManager.crafting_failed.connect(_on_crafting_failed)
+	GameManager.crafting_wrong.connect(_on_crafting_wrong)
+
 
 func _on_crafting_complete(_recipe_key) -> void:
 	bubble_background.visible = true
@@ -21,7 +25,14 @@ func _on_crafting_complete(_recipe_key) -> void:
 		request_completed.emit()
 		bubble_background.visible = false
 		request = ""
-	else:
+
+func _on_crafting_failed(_missing_ingredients) -> void:
+	if _missing_ingredients != []:
+		var ingredients_str = ", ".join(_missing_ingredients)
+		chat_bubble.text = "You're missing ingredients: " + ingredients_str + " to make " + request + "!"
+
+func _on_crafting_wrong(_recipe_key) -> void:
+	if _recipe_key != request:
 		print("I DONT WANT THAT, GIVE ME " + request + "!!")
 		chat_bubble.text = "I DONT WANT THAT, GIVE ME " + request.to_upper() + "!!"
 		request_failed.emit()
