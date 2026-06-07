@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="IngredientData" format=3 uid="uid://b5y0uxmbmivd3"]
+
+[ext_resource type="Script" uid="uid://bok3lbj4tslb8" path="res://resources/item_data.gd" id="1_xad6x"]
+[ext_resource type="Texture2D" uid="uid://cexv2ik23xr0y" path="res://assets/ingredients/FruitsLemon.png" id="2_xad6x"]
+
+[resource]
+script = ExtResource("1_xad6x")
+name = "Lemon"
+sprite = ExtResource("2_xad6x")
+color = Color(0, 0, 0, 0)
+metadata/_custom_type_script = "uid://bok3lbj4tslb8"

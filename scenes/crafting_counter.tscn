@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://baq4fejjo54v3"]
 
 [ext_resource type="Script" uid="uid://cvamqu51op1ak" path="res://scenes/crafting_counter.gd" id="1_tkddw"]
-[ext_resource type="Texture2D" uid="uid://dsp368iwwmoog" path="res://FruitsMix.png" id="2_2uroy"]
-[ext_resource type="Texture2D" uid="uid://gmce5duer46i" path="res://FruitsOrange.png" id="3_mtexl"]
-[ext_resource type="Texture2D" uid="uid://cijmgr6p33oms" path="res://FruitsPineapple.png" id="4_5lmqa"]
-[ext_resource type="Texture2D" uid="uid://coiqsy0ortpdw" path="res://FruitsApple.png" id="5_w5hlu"]
-[ext_resource type="Texture2D" uid="uid://cexv2ik23xr0y" path="res://FruitsLemon.png" id="6_2efys"]
-[ext_resource type="Texture2D" uid="uid://cltd77iig3qti" path="res://FruitsMint.png" id="7_ut5sb"]
-[ext_resource type="Texture2D" uid="uid://dasy71h3yyrgv" path="res://FruitsStrawberry.png" id="8_8uf1j"]
+[ext_resource type="PackedScene" uid="uid://bwofwgy3ygc0g" path="res://scenes/fruit_mix_2d.tscn" id="2_2uroy"]
+[ext_resource type="Texture2D" uid="uid://gmce5duer46i" path="res://assets/ingredients/FruitsOrange.png" id="3_mtexl"]
+[ext_resource type="Texture2D" uid="uid://cijmgr6p33oms" path="res://assets/ingredients/FruitsPineapple.png" id="4_5lmqa"]
+[ext_resource type="Texture2D" uid="uid://coiqsy0ortpdw" path="res://assets/ingredients/FruitsApple.png" id="5_w5hlu"]
+[ext_resource type="Texture2D" uid="uid://cexv2ik23xr0y" path="res://assets/ingredients/FruitsLemon.png" id="6_2efys"]
+[ext_resource type="Texture2D" uid="uid://cltd77iig3qti" path="res://assets/ingredients/FruitsMint.png" id="7_ut5sb"]
+[ext_resource type="Texture2D" uid="uid://dasy71h3yyrgv" path="res://assets/ingredients/FruitsStrawberry.png" id="8_8uf1j"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pblyx"]
 bg_color = Color(0.7277993, 0.45740324, 0.2903557, 1)
@@ -25,6 +25,9 @@ grow_vertical = 0
 size_flags_horizontal = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_pblyx")
 script = ExtResource("1_tkddw")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=100562336]
+position = Vector2(-192, -244)
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=424579319]
 layout_mode = 2
@@ -96,16 +99,9 @@ text = "EMERGENCY RESET BUTTON"
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="FruitMix2D" type="Area2D" parent="MarginContainer/HBoxContainer/FruitContainer" unique_id=1823380472]
-position = Vector2(204, 37)
-
-[node name="MixedFruits" type="Sprite2D" parent="MarginContainer/HBoxContainer/FruitContainer/FruitMix2D" unique_id=1170315551]
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("2_2uroy")
-
-[node name="MixedFruitsCollision" type="CollisionShape2D" parent="MarginContainer/HBoxContainer/FruitContainer/FruitMix2D" unique_id=1308664204]
-scale = Vector2(4, 4)
-shape = SubResource("RectangleShape2D_c0u2o")
+[node name="FruitMix2D" parent="MarginContainer/HBoxContainer/FruitContainer" unique_id=2092211543 node_paths=PackedStringArray("marker") instance=ExtResource("2_2uroy")]
+layout_mode = 2
+marker = NodePath("../../../../Marker2D")
 
 [node name="Orange2D" type="Area2D" parent="MarginContainer/HBoxContainer/FruitContainer" unique_id=189096449]
 position = Vector2(204, 133)

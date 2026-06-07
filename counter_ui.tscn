@@ -73,6 +73,7 @@ fit_content = true
 
 [node name="CraftingCounter" parent="." unique_id=1665070910 instance=ExtResource("2_05df7")]
 layout_mode = 1
+mouse_filter = 1
 
 [node name="SpawnMarker" type="Marker2D" parent="." unique_id=531153033]
 position = Vector2(-429, 94)
@@ -90,4 +91,4 @@ autoplay = true
 parameters/looping = true
 
 [node name="Glass" parent="." unique_id=2052105736 instance=ExtResource("5_cotl3")]
-position = Vector2(327, 103)
+position = Vector2(527, 327)

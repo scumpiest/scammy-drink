@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://bhbt3jq4hb8va"]
+
+[ext_resource type="Script" uid="uid://dmsc0efj5ybtq" path="res://scenes/ingredients/base_fruit.gd" id="1_lodk8"]
+[ext_resource type="Script" uid="uid://cqu1p6334ylii" path="res://components/drag_and_drop.gd" id="3_dnd"]
+[ext_resource type="Script" uid="uid://hik5osyogdvs" path="res://components/velocity_based_rotation.gd" id="4_vbr"]
+[ext_resource type="Resource" uid="uid://ck1d2d7uo7wlq" path="res://resources/ingredients/mixed_fruits.tres" id="2_hugey"]
+[ext_resource type="Texture2D" uid="uid://dsp368iwwmoog" path="res://assets/ingredients/FruitsMix.png" id="2_lodk8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dlvow"]
+
+[node name="BaseFruit" type="RigidBody2D" unique_id=1816019492]
+script = ExtResource("1_lodk8")
+data = ExtResource("2_hugey")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=471895855]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_lodk8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=140510180]
+scale = Vector2(4, 4)
+shape = SubResource("RectangleShape2D_dlvow")
+
+[node name="DragAndDrop" type="Node" parent="." unique_id=600000001 node_paths=PackedStringArray("target")]
+script = ExtResource("3_dnd")
+target = NodePath("..")
+metadata/_custom_type_script = "uid://cqu1p6334ylii"
+
+[node name="VelocityBasedRotation" type="Node" parent="." unique_id=600000002 node_paths=PackedStringArray("target")]
+script = ExtResource("4_vbr")
+target = NodePath("../Sprite2D")
+metadata/_custom_type_script = "uid://hik5osyogdvs"
