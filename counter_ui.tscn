@@ -99,10 +99,7 @@ bus = &"Music"
 parameters/looping = true
 
 [node name="Glass" parent="." unique_id=2052105736 instance=ExtResource("5_cotl3")]
-<<<<<<< Updated upstream
-position = Vector2(327, 103)
-=======
+
 position = Vector2(527, 327)
 
 [connection signal="pressed" from="MainMenuButton" to="." method="_on_settings_button_pressed"]
->>>>>>> Stashed changes
