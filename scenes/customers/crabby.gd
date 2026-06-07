@@ -5,13 +5,17 @@ signal request_failed
 
 @onready var bubble_background: PanelContainer = $BubbleBackground
 @onready var chat_bubble: Label = $BubbleBackground/ChatBubble
+@onready var sprite: Sprite2D = $Sprite2D
 
 var request: String = ""
 
 func _ready() -> void:
+	sprite.modulate = Color(randf(), randf(), randf())
+
 	GameManager.add_recipe_order()
 	request = GameManager.get_order()
 	chat_bubble.text = "GIMME " + request.to_upper() + "!!"
+
 	GameManager.crafting_complete.connect(_on_crafting_complete)
 	GameManager.crafting_failed.connect(_on_crafting_failed)
 	GameManager.crafting_wrong.connect(_on_crafting_wrong)
