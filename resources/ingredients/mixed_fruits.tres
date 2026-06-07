@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="IngredientData" format=3 uid="uid://ck1d2d7uo7wlq"]
+
+[ext_resource type="Script" uid="uid://bok3lbj4tslb8" path="res://resources/ingredients/ingredient_data.gd" id="1_cf56n"]
+[ext_resource type="Texture2D" uid="uid://dsp368iwwmoog" path="res://assets/ingredients/FruitsMix.png" id="2_cf56n"]
+
+[resource]
+script = ExtResource("1_cf56n")
+name = "Mixed Fruits"
+sprite = ExtResource("2_cf56n")
+metadata = "mixed_fruits"
+metadata/_custom_type_script = "uid://bok3lbj4tslb8"

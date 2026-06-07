@@ -1,5 +1,5 @@
 extends Resource
-class_name ItemData
+class_name IngredientData
 
 @export var name: String
 @export var sprite: Texture2D

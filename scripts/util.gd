@@ -37,3 +37,11 @@ static func compare_dicts(dict_a: Dictionary, dict_b: Dictionary) -> Dictionary:
 			results["is_equal"] = false
 
 	return results
+
+static func clear_target_children(caller: Node, index: int):
+	# use the caller's parent instead of get_parent()
+	var target_node = caller.get_parent().get_child(index)
+
+	if target_node:
+		for child in target_node.get_children():
+			child.queue_free()

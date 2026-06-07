@@ -25,6 +25,10 @@ SceneManager="*uid://b6c1rw377sh4s"
 
 window/stretch/mode="canvas_items"
 
+[gui]
+
+theme/custom="uid://cyu53k4dsgmi8"
+
 [input]
 
 select={

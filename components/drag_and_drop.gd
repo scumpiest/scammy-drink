@@ -6,7 +6,7 @@ signal drag_started
 signal dropped(starting_position: Vector2)
 
 @export var enabled: bool = true
-@export var target: Area2D
+@export var target: CollisionObject2D
 
 var starting_position: Vector2
 var offset := Vector2.ZERO
@@ -48,6 +48,10 @@ func _start_dragging() -> void:
 	target.z_index = 99
 	offset = target.global_position - target.get_global_mouse_position()
 	drag_started.emit()
+
+
+func begin_drag() -> void:
+	_start_dragging()
 
 
 func _drop() -> void:
