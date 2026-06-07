@@ -139,6 +139,8 @@ item_data = null
 layout_mode = 2
 item_data = null
 
+[node name="GlassIngredients" type="Node" parent="." unique_id=1537012552]
+
 [connection signal="pressed" from="MarginContainer/HBoxContainer/FluidContainer/Soda" to="." method="_on_soda_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/FluidContainer/Water" to="." method="_on_water_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/FluidContainer/Milk" to="." method="_on_milk_pressed"]

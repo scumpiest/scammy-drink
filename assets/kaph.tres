@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://cyu53k4dsgmi8"]
+
+[ext_resource type="FontFile" uid="uid://bdk3olaqqt422" path="res://assets/Kaph-Regular.ttf" id="1_mwn8u"]
+
+[resource]
+default_font = ExtResource("1_mwn8u")
+default_font_size = 16

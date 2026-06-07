@@ -32,6 +32,8 @@ func _gui_input(event: InputEvent) -> void:
 		new_item.data = item_data
 	new_item.item_scale = Vector2(0.15, 0.15)
 	new_item.global_position = get_global_mouse_position()
-	get_tree().current_scene.add_child(new_item)
+
+	# TODO: Replace hardcoded index with a reference to the GlassIngredients node
+	get_tree().current_scene.get_child(6).add_child(new_item)
 	new_item.drag_and_drop.begin_drag()
 	get_viewport().set_input_as_handled()

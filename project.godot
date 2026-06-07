@@ -24,6 +24,10 @@ CraftingRecipe="*uid://4jt2wg3mt7fk"
 
 window/stretch/mode="canvas_items"
 
+[gui]
+
+theme/custom="uid://cyu53k4dsgmi8"
+
 [input]
 
 select={

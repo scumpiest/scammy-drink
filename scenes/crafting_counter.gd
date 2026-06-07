@@ -32,6 +32,7 @@ func _get_total_ingredients() -> int:
 
 func reset() -> void:
 	crafting_ingredients.clear()
+	Util.clear_target_children(self, 6)
 
 	item_list.text = ""
 	get_tree().call_group("fluid_button", "set", "disabled", false)
