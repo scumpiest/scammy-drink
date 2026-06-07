@@ -13,6 +13,7 @@ func _gui_input(event: InputEvent) -> void:
 		return
 
 	var new_item = item_to_spawn.instantiate()
+	new_item.item_scale = Vector2(0.15, 0.15)
 	new_item.global_position = get_global_mouse_position()
 	get_tree().current_scene.add_child(new_item)
 	new_item.drag_and_drop.begin_drag()

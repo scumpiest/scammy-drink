@@ -91,4 +91,5 @@ autoplay = true
 parameters/looping = true
 
 [node name="Glass" parent="." unique_id=2052105736 instance=ExtResource("5_cotl3")]
+z_index = 5
 position = Vector2(527, 327)

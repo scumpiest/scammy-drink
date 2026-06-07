@@ -1,12 +1,14 @@
 extends RigidBody2D
 
 @export var data: ItemData : set = _set_data
+@export var item_scale: Vector2 = Vector2(0.25, 0.25)
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var drag_and_drop: DragAndDrop = $DragAndDrop
 @onready var velocity_based_rotation: VelocityBasedRotation = $VelocityBasedRotation
 
 func _ready():
+	sprite.scale = item_scale
 	velocity_based_rotation.enabled = false
 	drag_and_drop.drag_started.connect(_on_drag_started)
 	drag_and_drop.dropped.connect(_on_dropped)
