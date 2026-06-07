@@ -1,9 +1,18 @@
 [gd_scene format=3 uid="uid://baq4fejjo54v3"]
 
 [ext_resource type="Script" uid="uid://cvamqu51op1ak" path="res://scenes/crafting_counter.gd" id="1_tkddw"]
+[ext_resource type="Texture2D" uid="uid://dsp368iwwmoog" path="res://FruitsMix.png" id="2_2uroy"]
+[ext_resource type="Texture2D" uid="uid://gmce5duer46i" path="res://FruitsOrange.png" id="3_mtexl"]
+[ext_resource type="Texture2D" uid="uid://cijmgr6p33oms" path="res://FruitsPineapple.png" id="4_5lmqa"]
+[ext_resource type="Texture2D" uid="uid://coiqsy0ortpdw" path="res://FruitsApple.png" id="5_w5hlu"]
+[ext_resource type="Texture2D" uid="uid://cexv2ik23xr0y" path="res://FruitsLemon.png" id="6_2efys"]
+[ext_resource type="Texture2D" uid="uid://cltd77iig3qti" path="res://FruitsMint.png" id="7_ut5sb"]
+[ext_resource type="Texture2D" uid="uid://dasy71h3yyrgv" path="res://FruitsStrawberry.png" id="8_8uf1j"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pblyx"]
 bg_color = Color(0.7277993, 0.45740324, 0.2903557, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c0u2o"]
 
 [node name="CraftingCounter" type="PanelContainer" unique_id=1665070910]
 anchors_preset = 12
@@ -87,40 +96,82 @@ text = "EMERGENCY RESET BUTTON"
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MixedFruits" type="Button" parent="MarginContainer/HBoxContainer/FruitContainer" unique_id=1104248225 groups=["fruit_button"]]
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "Mixed Fruits"
+[node name="FruitMix2D" type="Area2D" parent="MarginContainer/HBoxContainer/FruitContainer" unique_id=1823380472]
+position = Vector2(204, 37)
 
-[node name="Orange" type="Button" parent="MarginContainer/HBoxContainer/FruitContainer" unique_id=324286144 groups=["fruit_button"]]
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "Orange"
+[node name="MixedFruits" type="Sprite2D" parent="MarginContainer/HBoxContainer/FruitContainer/FruitMix2D" unique_id=1170315551]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_2uroy")
 
-[node name="Pineapple" type="Button" parent="MarginContainer/HBoxContainer/FruitContainer" unique_id=551577166 groups=["fruit_button"]]
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "Pineapple"
+[node name="MixedFruitsCollision" type="CollisionShape2D" parent="MarginContainer/HBoxContainer/FruitContainer/FruitMix2D" unique_id=1308664204]
+scale = Vector2(4, 4)
+shape = SubResource("RectangleShape2D_c0u2o")
 
-[node name="Apple" type="Button" parent="MarginContainer/HBoxContainer/FruitContainer" unique_id=679829749 groups=["fruit_button"]]
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "Apple"
+[node name="Orange2D" type="Area2D" parent="MarginContainer/HBoxContainer/FruitContainer" unique_id=189096449]
+position = Vector2(204, 133)
 
-[node name="Lemon" type="Button" parent="MarginContainer/HBoxContainer/FruitContainer" unique_id=288405999 groups=["fruit_button"]]
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "Lemon"
+[node name="Orange" type="Sprite2D" parent="MarginContainer/HBoxContainer/FruitContainer/Orange2D" unique_id=1936042898]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_mtexl")
 
-[node name="Mint" type="Button" parent="MarginContainer/HBoxContainer/FruitContainer" unique_id=1527531775 groups=["fruit_button"]]
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "Mint"
+[node name="OrangeCollision" type="CollisionShape2D" parent="MarginContainer/HBoxContainer/FruitContainer/Orange2D" unique_id=1358486536]
+scale = Vector2(4, 4)
+shape = SubResource("RectangleShape2D_c0u2o")
 
-[node name="Strawberry" type="Button" parent="MarginContainer/HBoxContainer/FruitContainer" unique_id=747608256 groups=["fruit_button"]]
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "Strawberry"
+[node name="Pineapple2D" type="Area2D" parent="MarginContainer/HBoxContainer/FruitContainer" unique_id=1734249100]
+position = Vector2(204, 229)
+
+[node name="Pineapple" type="Sprite2D" parent="MarginContainer/HBoxContainer/FruitContainer/Pineapple2D" unique_id=2119941072]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_5lmqa")
+
+[node name="PineappleCollision" type="CollisionShape2D" parent="MarginContainer/HBoxContainer/FruitContainer/Pineapple2D" unique_id=1905829654]
+scale = Vector2(4, 4)
+shape = SubResource("RectangleShape2D_c0u2o")
+
+[node name="Apple2D" type="Area2D" parent="MarginContainer/HBoxContainer/FruitContainer" unique_id=1279321145]
+position = Vector2(308, 37)
+
+[node name="Apple" type="Sprite2D" parent="MarginContainer/HBoxContainer/FruitContainer/Apple2D" unique_id=1539941384]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_w5hlu")
+
+[node name="AppleCollision" type="CollisionShape2D" parent="MarginContainer/HBoxContainer/FruitContainer/Apple2D" unique_id=1988599094]
+scale = Vector2(4, 4)
+shape = SubResource("RectangleShape2D_c0u2o")
+
+[node name="Lemon2D" type="Area2D" parent="MarginContainer/HBoxContainer/FruitContainer" unique_id=1545443687]
+position = Vector2(308, 133)
+
+[node name="Lemon" type="Sprite2D" parent="MarginContainer/HBoxContainer/FruitContainer/Lemon2D" unique_id=1268105773]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("6_2efys")
+
+[node name="LemonCollision" type="CollisionShape2D" parent="MarginContainer/HBoxContainer/FruitContainer/Lemon2D" unique_id=616059261]
+scale = Vector2(4, 4)
+shape = SubResource("RectangleShape2D_c0u2o")
+
+[node name="Mint2D" type="Area2D" parent="MarginContainer/HBoxContainer/FruitContainer" unique_id=229217971]
+position = Vector2(100, 37)
+
+[node name="Mint" type="Sprite2D" parent="MarginContainer/HBoxContainer/FruitContainer/Mint2D" unique_id=607223524]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("7_ut5sb")
+
+[node name="MintCollision" type="CollisionShape2D" parent="MarginContainer/HBoxContainer/FruitContainer/Mint2D" unique_id=268217756]
+scale = Vector2(4, 4)
+shape = SubResource("RectangleShape2D_c0u2o")
+
+[node name="Strawberry2D" type="Area2D" parent="MarginContainer/HBoxContainer/FruitContainer" unique_id=401091859]
+position = Vector2(308, 229)
+
+[node name="Strawberry" type="Sprite2D" parent="MarginContainer/HBoxContainer/FruitContainer/Strawberry2D" unique_id=1580730626]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("8_8uf1j")
+
+[node name="StrawberryCollision" type="CollisionShape2D" parent="MarginContainer/HBoxContainer/FruitContainer/Strawberry2D" unique_id=30926765]
+scale = Vector2(4, 4)
+shape = SubResource("RectangleShape2D_c0u2o")
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/FluidContainer/Soda" to="." method="_on_soda_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/FluidContainer/Water" to="." method="_on_water_pressed"]
@@ -131,10 +182,3 @@ text = "Strawberry"
 [connection signal="pressed" from="MarginContainer/HBoxContainer/MidContainer/Ice" to="." method="_on_ice_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/MidContainer/Mix" to="." method="_on_mix_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/MidContainer/Reset" to="." method="_on_reset_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/FruitContainer/MixedFruits" to="." method="_on_mixed_fruits_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/FruitContainer/Orange" to="." method="_on_orange_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/FruitContainer/Pineapple" to="." method="_on_pineapple_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/FruitContainer/Apple" to="." method="_on_apple_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/FruitContainer/Lemon" to="." method="_on_lemon_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/FruitContainer/Mint" to="." method="_on_mint_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/FruitContainer/Strawberry" to="." method="_on_strawberry_pressed"]
