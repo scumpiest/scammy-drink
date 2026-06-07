@@ -1,6 +1,14 @@
 [gd_scene format=3 uid="uid://baq4fejjo54v3"]
 
 [ext_resource type="Script" uid="uid://cvamqu51op1ak" path="res://scenes/crafting_counter.gd" id="1_tkddw"]
+[ext_resource type="PackedScene" uid="uid://bwofwgy3ygc0g" path="res://scenes/fruit_mix_2d.tscn" id="2_2uroy"]
+[ext_resource type="PackedScene" uid="uid://cx2xywnut4m6a" path="res://shaders[EXPERIMENTAL]/glass.tscn" id="2_mtexl"]
+[ext_resource type="PackedScene" uid="uid://c8pq4m2trnbs5" path="res://scenes/ingredients/buttons/mint_button.tscn" id="3_mint"]
+[ext_resource type="PackedScene" uid="uid://d3fyak7wnqhc2" path="res://scenes/ingredients/buttons/lemon_button.tscn" id="4_lemon"]
+[ext_resource type="PackedScene" uid="uid://bv6j5n8trm4pw" path="res://scenes/ingredients/buttons/apple_button.tscn" id="5_apple"]
+[ext_resource type="PackedScene" uid="uid://c4yt7p2mqsnx6" path="res://scenes/ingredients/buttons/orange_button.tscn" id="6_orange"]
+[ext_resource type="PackedScene" uid="uid://dk3w8f5rqhyn4" path="res://scenes/ingredients/buttons/pineapple_button.tscn" id="7_pineapple"]
+[ext_resource type="PackedScene" uid="uid://bm7v4yatnqkp2" path="res://scenes/ingredients/buttons/strawberry_button.tscn" id="8_strawberry"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pblyx"]
 bg_color = Color(0.7277993, 0.45740324, 0.2903557, 1)
@@ -83,44 +91,53 @@ text = "MIX THE DRINK!!!!!!"
 layout_mode = 2
 text = "EMERGENCY RESET BUTTON"
 
+[node name="Glass" parent="MarginContainer/HBoxContainer/MidContainer" unique_id=2052105736 instance=ExtResource("2_mtexl")]
+position = Vector2(104, 37)
+
 [node name="FruitContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=559673058]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MixedFruits" type="Button" parent="MarginContainer/HBoxContainer/FruitContainer" unique_id=1104248225 groups=["fruit_button"]]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/FruitContainer" unique_id=1420784380]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "Mixed Fruits"
+size_flags_horizontal = 8
 
-[node name="Orange" type="Button" parent="MarginContainer/HBoxContainer/FruitContainer" unique_id=324286144 groups=["fruit_button"]]
+[node name="Mint" parent="MarginContainer/HBoxContainer/FruitContainer/HBoxContainer" unique_id=2092211543 instance=ExtResource("3_mint")]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "Orange"
 
-[node name="Pineapple" type="Button" parent="MarginContainer/HBoxContainer/FruitContainer" unique_id=551577166 groups=["fruit_button"]]
+[node name="MixedFruits" parent="MarginContainer/HBoxContainer/FruitContainer/HBoxContainer" unique_id=1060702037 instance=ExtResource("2_2uroy")]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "Pineapple"
 
-[node name="Apple" type="Button" parent="MarginContainer/HBoxContainer/FruitContainer" unique_id=679829749 groups=["fruit_button"]]
+[node name="Lemon" parent="MarginContainer/HBoxContainer/FruitContainer/HBoxContainer" unique_id=406346567 instance=ExtResource("4_lemon")]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "Apple"
 
-[node name="Lemon" type="Button" parent="MarginContainer/HBoxContainer/FruitContainer" unique_id=288405999 groups=["fruit_button"]]
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/HBoxContainer/FruitContainer" unique_id=2107144651]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "Lemon"
+size_flags_horizontal = 8
 
-[node name="Mint" type="Button" parent="MarginContainer/HBoxContainer/FruitContainer" unique_id=1527531775 groups=["fruit_button"]]
+[node name="Apple" parent="MarginContainer/HBoxContainer/FruitContainer/HBoxContainer2" unique_id=1258887313 instance=ExtResource("5_apple")]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "Mint"
 
-[node name="Strawberry" type="Button" parent="MarginContainer/HBoxContainer/FruitContainer" unique_id=747608256 groups=["fruit_button"]]
+[node name="Orange" parent="MarginContainer/HBoxContainer/FruitContainer/HBoxContainer2" unique_id=246853421 instance=ExtResource("6_orange")]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "Strawberry"
+
+[node name="Pineapple" parent="MarginContainer/HBoxContainer/FruitContainer/HBoxContainer2" unique_id=1301951141 instance=ExtResource("7_pineapple")]
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/HBoxContainer/FruitContainer" unique_id=1830413303]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Strawberry" parent="MarginContainer/HBoxContainer/FruitContainer/HBoxContainer3" unique_id=945151062 instance=ExtResource("8_strawberry")]
+layout_mode = 2
+
+[node name="FruitMix2D" parent="MarginContainer/HBoxContainer/FruitContainer/HBoxContainer3" unique_id=470269319 instance=ExtResource("2_2uroy")]
+layout_mode = 2
+item_data = null
+
+[node name="FruitMix2D2" parent="MarginContainer/HBoxContainer/FruitContainer/HBoxContainer3" unique_id=636570044 instance=ExtResource("2_2uroy")]
+layout_mode = 2
+item_data = null
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/FluidContainer/Soda" to="." method="_on_soda_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/FluidContainer/Water" to="." method="_on_water_pressed"]
@@ -131,10 +148,3 @@ text = "Strawberry"
 [connection signal="pressed" from="MarginContainer/HBoxContainer/MidContainer/Ice" to="." method="_on_ice_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/MidContainer/Mix" to="." method="_on_mix_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/MidContainer/Reset" to="." method="_on_reset_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/FruitContainer/MixedFruits" to="." method="_on_mixed_fruits_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/FruitContainer/Orange" to="." method="_on_orange_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/FruitContainer/Pineapple" to="." method="_on_pineapple_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/FruitContainer/Apple" to="." method="_on_apple_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/FruitContainer/Lemon" to="." method="_on_lemon_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/FruitContainer/Mint" to="." method="_on_mint_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/FruitContainer/Strawberry" to="." method="_on_strawberry_pressed"]
