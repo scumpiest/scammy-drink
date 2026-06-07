@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="IngredientData" format=3 uid="uid://c0ptglubgoasa"]
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://c0ptglubgoasa"]
 
 [ext_resource type="Script" uid="uid://bok3lbj4tslb8" path="res://resources/item_data.gd" id="1_ak0x8"]
 [ext_resource type="Texture2D" uid="uid://dasy71h3yyrgv" path="res://assets/ingredients/FruitsStrawberry.png" id="2_ak0x8"]
@@ -7,5 +7,5 @@
 script = ExtResource("1_ak0x8")
 name = "Strawberry"
 sprite = ExtResource("2_ak0x8")
-color = Color(0, 0, 0, 0)
+metadata = "strawberry"
 metadata/_custom_type_script = "uid://bok3lbj4tslb8"

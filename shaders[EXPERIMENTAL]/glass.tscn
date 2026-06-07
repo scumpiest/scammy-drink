@@ -30,6 +30,7 @@ size = Vector2(0, 128)
 size = Vector2(0, 128)
 
 [node name="Glass" type="Node2D" unique_id=2052105736]
+z_index = 5
 script = ExtResource("1_ykn3o")
 
 [node name="LiquidMask" type="Sprite2D" parent="." unique_id=755483308]

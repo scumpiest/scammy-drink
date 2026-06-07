@@ -7,6 +7,8 @@ extends RigidBody2D
 @onready var drag_and_drop: DragAndDrop = $DragAndDrop
 @onready var velocity_based_rotation: VelocityBasedRotation = $VelocityBasedRotation
 
+var metadata: String = ""
+
 func _ready():
 	sprite.scale = item_scale
 	velocity_based_rotation.enabled = false
@@ -24,6 +26,7 @@ func _set_data(value: ItemData):
 
 	name = data.name
 	sprite.texture = data.sprite
+	metadata = data.metadata
 
 	# we need this for water modulation
 	# color = data.color

@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://baq4fejjo54v3" path="res://scenes/crafting_counter.tscn" id="2_05df7"]
 [ext_resource type="PackedScene" uid="uid://x6l2s2cjh6tm" path="res://scenes/customers/crabby.tscn" id="2_ccn5l"]
 [ext_resource type="AudioStream" uid="uid://x5pn66qvwi4a" path="res://assets/Bossa Nova Beach.mp3" id="4_ccn5l"]
-[ext_resource type="PackedScene" uid="uid://cx2xywnut4m6a" path="res://shaders[EXPERIMENTAL]/glass.tscn" id="5_cotl3"]
 [ext_resource type="PackedScene" uid="uid://coa1dds11ipit" path="res://shaders[EXPERIMENTAL]/bomb.tscn" id="6_eeia2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_05df7"]
@@ -89,7 +88,3 @@ stream = ExtResource("4_ccn5l")
 volume_db = -5.0
 autoplay = true
 parameters/looping = true
-
-[node name="Glass" parent="." unique_id=2052105736 instance=ExtResource("5_cotl3")]
-z_index = 5
-position = Vector2(527, 327)
