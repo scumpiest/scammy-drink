@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-@export var data: ItemData : set = _set_data
+@export var data: IngredientData : set = _set_data
 @export var item_scale: Vector2 = Vector2(0.25, 0.25)
 
 @onready var sprite: Sprite2D = $Sprite2D
@@ -18,7 +18,7 @@ func _ready():
 	if data:
 		_set_data(data)
 
-func _set_data(value: ItemData):
+func _set_data(value: IngredientData):
 	data = value
 
 	if not is_node_ready():

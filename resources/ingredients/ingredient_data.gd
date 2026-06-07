@@ -3,4 +3,4 @@ class_name IngredientData
 
 @export var name: String
 @export var sprite: Texture2D
-@export var color: Color
+@export var metadata: String

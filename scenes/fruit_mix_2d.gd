@@ -1,7 +1,7 @@
 class_name IngredientButton2D
 extends TextureButton
 
-@export var item_data: ItemData : set = _set_item_data
+@export var item_data: IngredientData : set = _set_item_data
 @export var item_to_spawn: PackedScene
 @export var marker: Marker2D
 
@@ -11,7 +11,7 @@ func _ready() -> void:
 	if item_data:
 		_set_item_data(item_data)
 
-func _set_item_data(value: ItemData) -> void:
+func _set_item_data(value: IngredientData) -> void:
 	item_data = value
 	if not is_node_ready():
 		return

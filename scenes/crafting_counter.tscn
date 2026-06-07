@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://baq4fejjo54v3"]
 
 [ext_resource type="Script" uid="uid://cvamqu51op1ak" path="res://scenes/crafting_counter.gd" id="1_tkddw"]
-[ext_resource type="PackedScene" uid="uid://bwofwgy3ygc0g" path="res://scenes/fruit_mix_2d.tscn" id="2_2uroy"]
+[ext_resource type="PackedScene" uid="uid://co832b38ik6yw" path="res://scenes/fruit_mix_2d.tscn" id="2_2uroy"]
 [ext_resource type="PackedScene" uid="uid://cx2xywnut4m6a" path="res://shaders[EXPERIMENTAL]/glass.tscn" id="2_mtexl"]
 [ext_resource type="PackedScene" uid="uid://c8pq4m2trnbs5" path="res://scenes/ingredients/buttons/mint_button.tscn" id="3_mint"]
 [ext_resource type="PackedScene" uid="uid://d3fyak7wnqhc2" path="res://scenes/ingredients/buttons/lemon_button.tscn" id="4_lemon"]
