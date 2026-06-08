@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ctrh7huvrvaws"]
 
-[ext_resource type="Script" uid="uid://bfn6568mm3o6y" path="res://scenes/main_menu.gd" id="1_ekxnf"]
-[ext_resource type="Texture2D" uid="uid://blcyr6wakh10m" path="res://icon.svg" id="1_l6cm7"]
+[ext_resource type="Script" uid="uid://b0b2rn6m4fxyk" path="res://main_menu.gd" id="1_7vrkn"]
+[ext_resource type="Texture2D" uid="uid://b3ared17pei6" path="res://icon.svg" id="1_l6cm7"]
 
 [node name="MainMenu" type="Control" unique_id=885048702]
 layout_mode = 3
@@ -10,7 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_ekxnf")
+script = ExtResource("1_7vrkn")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=605131397]
 layout_mode = 1
@@ -29,7 +29,7 @@ grow_vertical = 2
 [node name="Label" type="Label" parent="VBoxContainer2" unique_id=1080260714]
 layout_mode = 2
 theme_override_font_sizes/font_size = 100
-text = "COCONUT BALATRO"
+text = "Scammy Drink"
 
 [node name="CenterContainer" type="CenterContainer" parent="VBoxContainer2" unique_id=679909454]
 layout_mode = 2
@@ -41,14 +41,17 @@ theme_override_constants/separation = 25
 
 [node name="Play" type="Button" parent="VBoxContainer2/CenterContainer/VBoxContainer" unique_id=1351145941]
 layout_mode = 2
+text = "Play"
 icon = ExtResource("1_l6cm7")
 
 [node name="Settings" type="Button" parent="VBoxContainer2/CenterContainer/VBoxContainer" unique_id=1339250090]
 layout_mode = 2
+text = "Settings"
 icon = ExtResource("1_l6cm7")
 
 [node name="Quit" type="Button" parent="VBoxContainer2/CenterContainer/VBoxContainer" unique_id=1952061301]
 layout_mode = 2
+text = "Quit"
 icon = ExtResource("1_l6cm7")
 
 [connection signal="pressed" from="VBoxContainer2/CenterContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]

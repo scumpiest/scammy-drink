@@ -8,6 +8,9 @@ extends Control
 var current_target: Marker2D = null
 var customer: Area2D = null
 
+
+var main_menu_scene: String = "res://main_menu.tscn"
+
 @export var lerp_weight: float = 1.0
 @export var crabby: PackedScene = null
 @export var bomb: PackedScene = null
@@ -53,3 +56,7 @@ func _on_customer_exited() -> void:
 
 func _on_request_failed() -> void:
 	crafting_counter.reset()
+
+
+func _on_main_menu_button_pressed() -> void:
+	SceneManager.switch_scene(main_menu_scene)

@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameManager="*uid://xyr0lv1qs230"
 CraftingRecipe="*uid://4jt2wg3mt7fk"
+SceneManager="*uid://b6c1rw377sh4s"
 
 [display]
 
