@@ -1,6 +1,6 @@
 extends Control
 
-var main_menu_scene: String = "res://main_menu.tscn"
+var main_menu_scene: String = "uid://ctrh7huvrvaws"
 
 var bus_name: String
 var bus_index: int
@@ -14,7 +14,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-	
+
 
 
 func _on_back_button_pressed() -> void:

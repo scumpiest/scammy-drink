@@ -18,6 +18,7 @@ func _set_item_data(value: IngredientData) -> void:
 	if item_data and item_data.sprite:
 		_sprite.texture = item_data.sprite
 
+## Handles mouse input for the ingredient button, spawning the item on click.
 func _gui_input(event: InputEvent) -> void:
 	if not event is InputEventMouseButton:
 		return

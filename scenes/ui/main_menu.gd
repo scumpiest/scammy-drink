@@ -1,7 +1,7 @@
 extends Control
 
-var play_scene: String = "res://counter_ui.tscn"
-var settings_scene: String = "res://settings_menu.tscn"
+var play_scene: String = "uid://omqlt0501aof"
+var settings_scene: String = "uid://c86lgs72w0q84"
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.

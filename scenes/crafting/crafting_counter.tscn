@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://baq4fejjo54v3"]
 
-[ext_resource type="Script" uid="uid://cvamqu51op1ak" path="res://scenes/crafting_counter.gd" id="1_tkddw"]
-[ext_resource type="PackedScene" uid="uid://co832b38ik6yw" path="res://scenes/fruit_mix_2d.tscn" id="2_2uroy"]
+[ext_resource type="Script" uid="uid://cvamqu51op1ak" path="res://scenes/crafting/crafting_counter.gd" id="1_tkddw"]
 [ext_resource type="PackedScene" uid="uid://cx2xywnut4m6a" path="res://shaders[EXPERIMENTAL]/glass.tscn" id="2_mtexl"]
 [ext_resource type="PackedScene" uid="uid://c8pq4m2trnbs5" path="res://scenes/ingredients/buttons/mint_button.tscn" id="3_mint"]
+[ext_resource type="PackedScene" uid="uid://dus3dxr1vygwo" path="res://scenes/ingredients/buttons/mixed_fruits_button.tscn" id="4_gwn08"]
 [ext_resource type="PackedScene" uid="uid://d3fyak7wnqhc2" path="res://scenes/ingredients/buttons/lemon_button.tscn" id="4_lemon"]
 [ext_resource type="PackedScene" uid="uid://bv6j5n8trm4pw" path="res://scenes/ingredients/buttons/apple_button.tscn" id="5_apple"]
 [ext_resource type="PackedScene" uid="uid://c4yt7p2mqsnx6" path="res://scenes/ingredients/buttons/orange_button.tscn" id="6_orange"]
@@ -105,7 +105,7 @@ size_flags_horizontal = 8
 [node name="Mint" parent="MarginContainer/HBoxContainer/FruitContainer/HBoxContainer" unique_id=2092211543 instance=ExtResource("3_mint")]
 layout_mode = 2
 
-[node name="MixedFruits" parent="MarginContainer/HBoxContainer/FruitContainer/HBoxContainer" unique_id=1060702037 instance=ExtResource("2_2uroy")]
+[node name="MixedFruits" parent="MarginContainer/HBoxContainer/FruitContainer/HBoxContainer" unique_id=608711463 instance=ExtResource("4_gwn08")]
 layout_mode = 2
 
 [node name="Lemon" parent="MarginContainer/HBoxContainer/FruitContainer/HBoxContainer" unique_id=406346567 instance=ExtResource("4_lemon")]
@@ -130,14 +130,6 @@ size_flags_horizontal = 8
 
 [node name="Strawberry" parent="MarginContainer/HBoxContainer/FruitContainer/HBoxContainer3" unique_id=945151062 instance=ExtResource("8_strawberry")]
 layout_mode = 2
-
-[node name="FruitMix2D" parent="MarginContainer/HBoxContainer/FruitContainer/HBoxContainer3" unique_id=470269319 instance=ExtResource("2_2uroy")]
-layout_mode = 2
-item_data = null
-
-[node name="FruitMix2D2" parent="MarginContainer/HBoxContainer/FruitContainer/HBoxContainer3" unique_id=636570044 instance=ExtResource("2_2uroy")]
-layout_mode = 2
-item_data = null
 
 [node name="GlassIngredients" type="Node" parent="." unique_id=1537012552]
 

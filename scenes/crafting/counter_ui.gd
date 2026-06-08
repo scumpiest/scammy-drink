@@ -9,7 +9,7 @@ var current_target: Marker2D = null
 var customer: Area2D = null
 
 
-var main_menu_scene: String = "res://main_menu.tscn"
+var main_menu_scene: String = "uid://ctrh7huvrvaws"
 
 @export var lerp_weight: float = 1.0
 @export var crabby: PackedScene = null

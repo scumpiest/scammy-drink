@@ -22,7 +22,7 @@ func update_inventory(item: String, quantity: int):
 	if inventory[item] <= 0:
 		inventory.erase(item)
 
-
+## Adds a random recipe to the recipe orders.
 func add_recipe_order():
 	var new_recipe = CraftingRecipe.get_random_recipe()
 	recipe_orders.append(new_recipe)
@@ -30,12 +30,13 @@ func add_recipe_order():
 func get_order() -> String:
 	return recipe_orders[0]
 
-
+## Compares the crafting ingredients against the recipe ingredients and returns the comparison result.
 func _compare_ingredients(crafting_ingredients: Dictionary, recipe_ingredients: Dictionary) -> Dictionary:
 	var comparison_result: Dictionary = Util.compare_dicts(crafting_ingredients, recipe_ingredients)
 	return comparison_result
 
 
+## Creates a recipe based on the crafting ingredients and compares it against the current recipe order.
 func create_recipe(crafting_ingredients: Dictionary):
 	var recipe_key: String = get_order()
 	var recipe: Dictionary = CraftingRecipe.crafting_dict[recipe_key]

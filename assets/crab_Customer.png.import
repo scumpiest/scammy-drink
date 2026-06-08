@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsfcilkaw3arm"
-path="res://.godot/imported/crab_Customer.png-98904df1dbe9200034ada62299856318.ctex"
+uid="uid://co85a8qxwm0cd"
+path="res://.godot/imported/crab_Customer.png-74e96dcaf740c3626d1dc7cbadde707f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://crab_Customer.png"
-dest_files=["res://.godot/imported/crab_Customer.png-98904df1dbe9200034ada62299856318.ctex"]
+source_file="res://assets/crab_Customer.png"
+dest_files=["res://.godot/imported/crab_Customer.png-74e96dcaf740c3626d1dc7cbadde707f.ctex"]
 
 [params]
 
