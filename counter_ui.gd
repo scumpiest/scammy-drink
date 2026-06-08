@@ -58,5 +58,5 @@ func _on_request_failed() -> void:
 	crafting_counter.reset()
 
 
-func _on_settings_button_pressed() -> void:
+func _on_main_menu_button_pressed() -> void:
 	SceneManager.switch_scene(main_menu_scene)

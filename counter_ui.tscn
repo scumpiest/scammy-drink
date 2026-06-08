@@ -99,3 +99,5 @@ bus = &"Music"
 parameters/looping = true
 
 [node name="GlassIngredients" type="Node" parent="." unique_id=517205420]
+
+[connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]
