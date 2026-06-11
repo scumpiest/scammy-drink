@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cdfb52o54jm78"]
+
+[ext_resource type="Material" uid="uid://bwetih5ps8muh" path="res://shaders[EXPERIMENTAL]/water.tres" id="1_m5us4"]
+
+[node name="Water" type="Node2D" unique_id=178643531]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1823019843]
+material = ExtResource("1_m5us4")
+offset_right = 320.0
+offset_bottom = 288.0

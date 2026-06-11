@@ -10,7 +10,9 @@ signal ingredient_added(ingredient: String)
 @export var float_force: float = 380.0
 @export var water_damp: float = 4.5
 
-var fill_level: float = 0.0
+var current_fill : float = 0.5
+var target_fill : float = 1.0
+
 var pour_speed: float = 0.25
 var base_wave_amp: float = 0.015
 
@@ -20,16 +22,17 @@ func _ready():
 	liquid_rect.material.set_shader_parameter("fill_amount", 0.5)
 
 func _process(delta):
-	# pour liquid
-	if Input.is_action_pressed("ui_select"):
-		if fill_level < 1.0:
-			fill_level += pour_speed * delta
-			liquid_rect.material.set_shader_parameter("fill_amount", fill_level)
 
-			liquid_rect.material.set_shader_parameter("wave_amplitude", base_wave_amp * 1.5)
-	else:
-		var current_amp = liquid_rect.material.get_shader_parameter("wave_amplitude")
-		liquid_rect.material.set_shader_parameter("wave_amplitude", lerp(current_amp, base_wave_amp, 0.1))
+	# pour liquid
+	# if Input.is_action_pressed("ui_select"):
+	# 	if current_fill < 1.0:
+	# 		current_fill = lerp(current_fill, target_fill, delta * 5.0)
+	# 		liquid_rect.material.set_shader_parameter("fill_amount", current_fill)
+
+	# 		liquid_rect.material.set_shader_parameter("wave_amplitude", base_wave_amp * 1.5)
+	# else:
+	var current_amp = liquid_rect.material.get_shader_parameter("wave_amplitude")
+	# 	liquid_rect.material.set_shader_parameter("wave_amplitude", lerp(current_amp, base_wave_amp, 0.1))
 
 func _physics_process(_delta):
 	# apply upward buoyancy to anything in the water area
@@ -58,10 +61,10 @@ func trigger_slosh():
 
 	slosh_sfx.play()
 
-	liquid_rect.material.set_shader_parameter("wave_amplitude", 0.05) # Spike amplitude
-	tween.tween_property(liquid_rect.material, "shader_parameter/wave_amplitude", base_wave_amp, 1.2)\
-		.set_trans(Tween.TRANS_SINE)\
-		.set_ease(Tween.EASE_OUT)
+	liquid_rect.material.set_shader_parameter("splash_intensity", 1.0)
+	tween.tween_property(liquid_rect.material, "shader_parameter/splash_intensity", 0.0, 1.5)\
+			.set_trans(Tween.TRANS_SINE)\
+			.set_ease(Tween.EASE_OUT)
 
 # TODO: call this method when switching recipes!
 func change_drink_flavor(new_color: Color):

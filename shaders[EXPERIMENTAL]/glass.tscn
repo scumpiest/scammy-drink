@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cx2xywnut4m6a"]
 
-[ext_resource type="Material" uid="uid://b5gubmax0w5xe" path="res://shaders[EXPERIMENTAL]/liquid_shader.tres" id="1_fvmfx"]
 [ext_resource type="Script" uid="uid://dw31444jtwtd5" path="res://shaders[EXPERIMENTAL]/glass.gd" id="1_ykn3o"]
+[ext_resource type="Material" uid="uid://bwetih5ps8muh" path="res://shaders[EXPERIMENTAL]/water.tres" id="2_7dmx5"]
 [ext_resource type="AudioStream" uid="uid://b58qryyejjiwn" path="res://assets/slosh.mp3" id="3_b8qbv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fvmfx"]
@@ -38,7 +38,7 @@ clip_children = 1
 position = Vector2(0, -64)
 
 [node name="LiquidRect" type="ColorRect" parent="LiquidMask" unique_id=1488154227]
-material = ExtResource("1_fvmfx")
+material = ExtResource("2_7dmx5")
 offset_right = 100.0
 offset_bottom = 200.0
 scale = Vector2(1.926868, 1.2801067)

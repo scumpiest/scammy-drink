@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://omqlt0501aof"]
 
-[ext_resource type="Script" uid="uid://cex85w4jk50o1" path="res://counter_ui.gd" id="1_pblyx"]
-[ext_resource type="PackedScene" uid="uid://baq4fejjo54v3" path="res://scenes/crafting_counter.tscn" id="2_05df7"]
+[ext_resource type="Script" uid="uid://cex85w4jk50o1" path="res://scenes/crafting/counter_ui.gd" id="1_pblyx"]
+[ext_resource type="PackedScene" uid="uid://baq4fejjo54v3" path="res://scenes/crafting/crafting_counter.tscn" id="2_05df7"]
 [ext_resource type="PackedScene" uid="uid://x6l2s2cjh6tm" path="res://scenes/customers/crabby.tscn" id="2_ccn5l"]
 [ext_resource type="AudioStream" uid="uid://x5pn66qvwi4a" path="res://assets/Bossa Nova Beach.mp3" id="4_ccn5l"]
 

@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c4yt7p2mqsnx6" path="res://scenes/ingredients/buttons/orange_button.tscn" id="6_orange"]
 [ext_resource type="PackedScene" uid="uid://dk3w8f5rqhyn4" path="res://scenes/ingredients/buttons/pineapple_button.tscn" id="7_pineapple"]
 [ext_resource type="PackedScene" uid="uid://bm7v4yatnqkp2" path="res://scenes/ingredients/buttons/strawberry_button.tscn" id="8_strawberry"]
+[ext_resource type="PackedScene" uid="uid://cdfb52o54jm78" path="res://shaders[EXPERIMENTAL]/water.tscn" id="10_3njbq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pblyx"]
 bg_color = Color(0.7277993, 0.45740324, 0.2903557, 1)
@@ -130,6 +131,9 @@ size_flags_horizontal = 8
 
 [node name="Strawberry" parent="MarginContainer/HBoxContainer/FruitContainer/HBoxContainer3" unique_id=945151062 instance=ExtResource("8_strawberry")]
 layout_mode = 2
+
+[node name="Water" parent="." unique_id=178643531 instance=ExtResource("10_3njbq")]
+position = Vector2(848, 108)
 
 [node name="GlassIngredients" type="Node" parent="." unique_id=1537012552]
 
