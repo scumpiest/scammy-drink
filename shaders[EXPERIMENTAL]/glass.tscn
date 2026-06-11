@@ -69,7 +69,6 @@ position = Vector2(96, 151)
 shape = SubResource("RectangleShape2D_bottom")
 
 [node name="LeftWall" type="CollisionShape2D" parent="GlassEdge" unique_id=1835783392]
-light_mask = 2
 position = Vector2(0, 88)
 shape = SubResource("RectangleShape2D_left")
 

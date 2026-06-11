@@ -5,11 +5,6 @@ extends PanelContainer
 @onready var ingredient2: MarginContainer = $MarginContainer/VBoxContainer/VBoxContainer/Ingredient2
 @onready var ingredient3: MarginContainer = $MarginContainer/VBoxContainer/VBoxContainer/Ingredient3
 
-var current_value: String = ""
-var ingredient1_value: String = ""
-var ingredient2_value: String = ""
-var ingredient3_value: String = ""
-
 
 func update_display() -> void:
 	var order_data: Dictionary = get_order_data()
@@ -23,16 +18,12 @@ func get_order_data() -> Dictionary:
 	var recipe_key: String = GameManager.get_order()
 	var recipe_data: Dictionary = CraftingRecipe.crafting_dict[recipe_key]
 	var ingredients: Dictionary = recipe_data["ingredients"]
-	var ingredient_names: Array = ingredients.keys()
-	ingredient1_value = ingredient_names[0]
-	ingredient2_value = ingredient_names[1]
-	ingredient3_value = ingredient_names[2]
 
 	return {
 		"recipe_key": recipe_key,
-		"ingredient1": ingredient1_value,
-		"ingredient2": ingredient2_value,
-		"ingredient3": ingredient3_value,
+		"ingredient1": ingredients.keys()[0],
+		"ingredient2": ingredients.keys()[1],
+		"ingredient3": ingredients.keys()[2],
 	}
 
 
