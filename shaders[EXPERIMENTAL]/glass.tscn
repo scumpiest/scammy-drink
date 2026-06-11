@@ -69,6 +69,7 @@ position = Vector2(96, 151)
 shape = SubResource("RectangleShape2D_bottom")
 
 [node name="LeftWall" type="CollisionShape2D" parent="GlassEdge" unique_id=1835783392]
+light_mask = 2
 position = Vector2(0, 88)
 shape = SubResource("RectangleShape2D_left")
 
@@ -79,6 +80,5 @@ shape = SubResource("RectangleShape2D_right")
 [node name="SloshSFX" type="AudioStreamPlayer2D" parent="." unique_id=606948022]
 position = Vector2(0, 104)
 stream = ExtResource("3_b8qbv")
-bus = &"SFX"
 
 [connection signal="body_entered" from="WaterArea" to="." method="_on_water_area_body_entered"]

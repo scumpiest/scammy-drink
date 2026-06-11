@@ -1,12 +1,10 @@
 [gd_scene format=3 uid="uid://omqlt0501aof"]
 
-[ext_resource type="Script" uid="uid://cex85w4jk50o1" path="res://counter_ui.gd" id="1_pblyx"]
-[ext_resource type="PackedScene" uid="uid://baq4fejjo54v3" path="res://scenes/crafting_counter.tscn" id="2_05df7"]
+[ext_resource type="Script" uid="uid://cex85w4jk50o1" path="res://scenes/crafting/counter_ui.gd" id="1_pblyx"]
+[ext_resource type="PackedScene" uid="uid://baq4fejjo54v3" path="res://scenes/crafting/crafting_counter.tscn" id="2_05df7"]
 [ext_resource type="PackedScene" uid="uid://x6l2s2cjh6tm" path="res://scenes/customers/crabby.tscn" id="2_ccn5l"]
+[ext_resource type="PackedScene" uid="uid://0dr0j1p35u0x" path="res://scenes/crafting/notes.tscn" id="3_8ubsl"]
 [ext_resource type="AudioStream" uid="uid://x5pn66qvwi4a" path="res://assets/Bossa Nova Beach.mp3" id="4_ccn5l"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_05df7"]
-bg_color = Color(0.9610422, 0.9181441, 0.5864518, 1)
 
 [node name="CounterUi" type="Control" unique_id=1949816307]
 layout_mode = 3
@@ -21,60 +19,16 @@ crabby = ExtResource("2_ccn5l")
 
 [node name="MainMenuButton" type="Button" parent="." unique_id=1633707091]
 layout_mode = 0
-offset_left = 17.0
-offset_top = 14.0
-offset_right = 87.0
-offset_bottom = 45.0
+offset_left = 1064.0
+offset_top = 16.0
+offset_right = 1134.0
+offset_bottom = 47.0
 text = "Menu"
 
-[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1904052219]
-visible = false
-layout_mode = 1
-offset_right = 233.0
-offset_bottom = 304.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_05df7")
-
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=1418897691]
-layout_mode = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
-
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=1318434372]
-layout_mode = 2
-theme_override_constants/separation = 4
-
-[node name="Make" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1075182540]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.77254903, 0.34509805, 0.15686275, 1)
-theme_override_font_sizes/font_size = 32
-text = "Make:"
-
-[node name="NameOfDrink" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1282639762]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.77254903, 0.34509805, 0.15686275, 1)
-theme_override_font_sizes/font_size = 32
-text = "FancyName"
-
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=2014243565]
-layout_mode = 2
-theme_override_constants/margin_top = 15
-
-[node name="Add" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer" unique_id=1511746277]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.77254903, 0.34509805, 0.15686275, 1)
-theme_override_font_sizes/font_size = 32
-text = "Add:"
-
-[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=2070875041]
-layout_mode = 2
-theme_override_colors/default_color = Color(0.7735775, 0.34469035, 0.15872201, 1)
-theme_override_font_sizes/normal_font_size = 24
-text = "-Milk
--Orange
--Ice"
-fit_content = true
+[node name="Notes" parent="." unique_id=566353611 instance=ExtResource("3_8ubsl")]
+layout_mode = 0
+offset_right = 282.0
+metadata/_edit_group_ = true
 
 [node name="CraftingCounter" parent="." unique_id=1665070910 instance=ExtResource("2_05df7")]
 layout_mode = 1
@@ -93,7 +47,6 @@ position = Vector2(1332, 96)
 stream = ExtResource("4_ccn5l")
 volume_db = -5.0
 autoplay = true
-bus = &"Music"
 parameters/looping = true
 
 [node name="GlassIngredients" type="Node" parent="." unique_id=517205420]
