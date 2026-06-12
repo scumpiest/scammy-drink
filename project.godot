@@ -48,6 +48,12 @@ spawn_item={
 ]
 }
 
+[layer_names]
+
+2d_render/layer_1="fruits"
+2d_physics/layer_1="fruits"
+2d_physics/layer_3="detector"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

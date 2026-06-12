@@ -13,6 +13,7 @@ signal ingredient_added(ingredient: String)
 var fill_level: float = 0.0
 var pour_speed: float = 0.25
 var base_wave_amp: float = 0.015
+var _added_fruits: Array[RigidBody2D] = []
 
 func _ready():
 	assert(liquid_rect != null, "liquid_rect node not found — check the node path")
@@ -50,8 +51,18 @@ func _on_water_area_body_entered(body):
 		splash_particles.global_position.x = body.global_position.x
 		splash_particles.restart()
 
-		ingredient_added.emit(body.metadata)
 		trigger_slosh()
+
+func _on_bottom_area_body_entered(body: Node2D) -> void:
+	if not body is RigidBody2D:
+		return
+	if body in _added_fruits:
+		return
+	if body.metadata.is_empty():
+		return
+	_added_fruits.append(body)
+	ingredient_added.emit(body.metadata)
+	trigger_slosh()
 
 func trigger_slosh():
 	var tween = create_tween()
