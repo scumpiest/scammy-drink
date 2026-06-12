@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bwofwgy3ygc0g"]
 
-[ext_resource type="Script" uid="uid://dvafhi0fx5wyw" path="res://scenes/fruit_mix_2d.gd" id="1_yacmd"]
+[ext_resource type="Script" uid="uid://dvafhi0fx5wyw" path="res://scenes/ingredients/base_fruit_button.gd" id="1_yacmd"]
 [ext_resource type="PackedScene" uid="uid://bhbt3jq4hb8va" path="res://scenes/ingredients/base_fruit.tscn" id="2_23fmx"]
 [ext_resource type="Resource" uid="uid://ck1d2d7uo7wlq" path="res://resources/ingredients/mixed_fruits.tres" id="3_mixfrt"]
 

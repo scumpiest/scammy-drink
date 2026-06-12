@@ -1,5 +1,5 @@
 [gd_scene format=3 uid="uid://dus3dxr1vygwo"]
 
-[ext_resource type="PackedScene" uid="uid://bwofwgy3ygc0g" path="res://scenes/ingredients/fruit_mix_2d.tscn" id="1_base"]
+[ext_resource type="PackedScene" uid="uid://bwofwgy3ygc0g" path="res://scenes/ingredients/base_fruit_button.tscn" id="1_base"]
 
 [node name="MixedFruitsButton" unique_id=608711463 instance=ExtResource("1_base")]

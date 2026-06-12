@@ -48,6 +48,7 @@ func _start_dragging() -> void:
 	target.z_index = 99
 	offset = target.global_position - target.get_global_mouse_position()
 	drag_started.emit()
+	target.gravity_scale = 0
 
 
 func begin_drag() -> void:
@@ -57,7 +58,7 @@ func begin_drag() -> void:
 func _drop() -> void:
 	_end_dragging()
 	dropped.emit(starting_position)
-
+	target.gravity_scale = 1.0
 
 func _on_target_input_event(_viewport: Node, event: InputEvent) -> void:
 	if not enabled:
