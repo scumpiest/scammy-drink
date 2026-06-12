@@ -1,0 +1,105 @@
+[gd_scene format=3 uid="uid://da7amgp4n03hy"]
+
+[ext_resource type="Script" uid="uid://cm8holyvjei1f" path="res://scenes/ui/recipe_drink.gd" id="1_4yp0v"]
+[ext_resource type="Texture2D" uid="uid://bvjtrqphkctel" path="res://assets/Cedevita.jpeg" id="1_hbq0a"]
+[ext_resource type="Texture2D" uid="uid://cooqdx6shbe7o" path="res://assets/star_filled.png" id="3_ql266"]
+[ext_resource type="Texture2D" uid="uid://bgvgumy21wkrl" path="res://assets/star_empty.png" id="4_6olb0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_poj4g"]
+bg_color = Color(1, 0.83137256, 0.34901962, 1)
+
+[node name="RecipeDrink" type="PanelContainer" unique_id=1287656366]
+custom_minimum_size = Vector2(200, 200)
+offset_right = 146.0
+offset_bottom = 28.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_poj4g")
+script = ExtResource("1_4yp0v")
+new_sprite = ExtResource("1_hbq0a")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1506464893]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer" unique_id=30161871]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+
+[node name="DrinkName" type="Label" parent="VBoxContainer/MarginContainer2" unique_id=1374905147]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Cedevita"
+horizontal_alignment = 1
+
+[node name="DrinkSprite" type="TextureRect" parent="VBoxContainer" unique_id=1887264911]
+custom_minimum_size = Vector2(110, 150)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("1_hbq0a")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=1343480359]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer" unique_id=234189986]
+layout_mode = 2
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/HBoxContainer" unique_id=1219817706]
+layout_mode = 2
+
+[node name="Star1Filled" type="TextureRect" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer" unique_id=1249755921]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("3_ql266")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Star1Empty" type="TextureRect" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer" unique_id=1185383183]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("4_6olb0")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer/MarginContainer/HBoxContainer" unique_id=74927638]
+layout_mode = 2
+
+[node name="Star2Filled" type="TextureRect" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer3" unique_id=212637369]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("3_ql266")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Star2Empty" type="TextureRect" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer3" unique_id=253416231]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("4_6olb0")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/MarginContainer/HBoxContainer" unique_id=553345281]
+layout_mode = 2
+
+[node name="Star3Filled" type="TextureRect" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer2" unique_id=2088616222]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("3_ql266")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Star3Empty" type="TextureRect" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer2" unique_id=1854867896]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("4_6olb0")
+expand_mode = 1
+stretch_mode = 4
