@@ -5,6 +5,7 @@ extends Control
 @onready var exit_marker: Marker2D = $ExitMarker
 @onready var crafting_counter: PanelContainer = $CraftingCounter
 @onready var notes: PanelContainer = $Notes
+@onready var recipe_book: Control = $RecipeBook
 
 var current_target: Marker2D = null
 var customer: Area2D = null
@@ -30,7 +31,9 @@ func _process(delta: float) -> void:
 		add_child(item)
 	if current_target:
 		customer.position = customer.position.lerp(current_target.global_position, 1.0 - exp(-lerp_weight * delta))
-
+	if Input.is_action_pressed("close"):
+		recipe_book.visible = false
+	
 
 func spawn_customer(customer: PackedScene) -> Area2D:
 	var new_customer = customer.instantiate()
@@ -68,3 +71,7 @@ func _on_request_failed() -> void:
 
 func _on_main_menu_button_pressed() -> void:
 	SceneManager.switch_scene(main_menu_scene)
+
+
+func _on_recipe_button_pressed() -> void:
+	recipe_book.visible = true

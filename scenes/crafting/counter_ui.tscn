@@ -56,7 +56,7 @@ parameters/looping = true
 visible = false
 layout_mode = 1
 
-[node name="Button" type="Button" parent="." unique_id=1168115412]
+[node name="RecipeButton" type="Button" parent="." unique_id=1168115412]
 layout_mode = 0
 offset_left = 949.0
 offset_top = 20.0
@@ -65,3 +65,4 @@ offset_bottom = 47.0
 text = "Recipes"
 
 [connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="RecipeButton" to="." method="_on_recipe_button_pressed"]
