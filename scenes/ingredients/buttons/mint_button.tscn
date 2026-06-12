@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c8pq4m2trnbs5"]
 
-[ext_resource type="PackedScene" uid="uid://bwofwgy3ygc0g" path="res://scenes/fruit_mix_2d.tscn" id="1_base"]
+[ext_resource type="PackedScene" uid="uid://bwofwgy3ygc0g" path="res://scenes/ingredients/base_fruit_button.tscn" id="1_base"]
 [ext_resource type="Resource" uid="uid://bm1g2xodu4gl3" path="res://resources/ingredients/mint.tres" id="2_data"]
 
 [node name="MintButton" instance=ExtResource("1_base")]

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dk3w8f5rqhyn4"]
 
-[ext_resource type="PackedScene" uid="uid://bwofwgy3ygc0g" path="res://scenes/fruit_mix_2d.tscn" id="1_base"]
+[ext_resource type="PackedScene" uid="uid://bwofwgy3ygc0g" path="res://scenes/ingredients/base_fruit_button.tscn" id="1_base"]
 [ext_resource type="Resource" uid="uid://bt26x65owsk8t" path="res://resources/ingredients/pineapple.tres" id="2_data"]
 
 [node name="PineappleButton" instance=ExtResource("1_base")]
