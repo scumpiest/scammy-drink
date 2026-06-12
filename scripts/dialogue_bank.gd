@@ -23,5 +23,5 @@ var chat_templates: Dictionary = {
 	"nerd_my_drink?": "Excuse me!",
 	"nerd_wrong_ingredient": "So, I don’t want to be mean at all, but u know that mixing {old_item} in there leaves you with a weird taste, right?",
 	"nerd_no_ice": "Erm, actually I ordered a drink at room temperature, so no extra Ice!}",
-	"nerd_no_ice": "I´m certain that you did not utilize {new_item} yet, even though it clearly belongs into the drink I ordered!"
+	"nerd_right_ingredient": "I´m certain that you did not utilize {new_item} yet, even though it clearly belongs into the drink I ordered!"
 	}
