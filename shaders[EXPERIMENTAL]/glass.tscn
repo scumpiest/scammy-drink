@@ -35,8 +35,6 @@ size = Vector2(192, 10)
 [node name="Glass" type="Node2D" unique_id=2052105736]
 z_index = 5
 script = ExtResource("1_ykn3o")
-float_force = null
-water_damp = null
 
 [node name="LiquidMask" type="Sprite2D" parent="." unique_id=755483308]
 clip_children = 1

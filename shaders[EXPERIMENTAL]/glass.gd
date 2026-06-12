@@ -15,10 +15,12 @@ var pour_speed: float = 0.25
 var base_wave_amp: float = 0.015
 var _added_fruits: Array[RigidBody2D] = []
 
+
 func _ready():
 	assert(liquid_rect != null, "liquid_rect node not found — check the node path")
 	assert(liquid_rect.material != null, "LiquidRect has no material assigned")
 	liquid_rect.material.set_shader_parameter("fill_amount", 0.5)
+
 
 func _process(delta):
 	# pour liquid
@@ -32,6 +34,7 @@ func _process(delta):
 		var current_amp = liquid_rect.material.get_shader_parameter("wave_amplitude")
 		liquid_rect.material.set_shader_parameter("wave_amplitude", lerp(current_amp, base_wave_amp, 0.1))
 
+
 func _physics_process(_delta):
 	# apply upward buoyancy to anything in the water area
 	for body in water_area.get_overlapping_bodies():
@@ -39,6 +42,7 @@ func _physics_process(_delta):
 			# calculate depth to push harder the deeper it goes
 			var depth = water_area.global_position.y - body.global_position.y
 			body.apply_central_force(Vector2.UP * float_force)
+
 
 # CONNECTED SIGNAL FROM WATERAREA
 func _on_water_area_body_entered(body):
@@ -53,6 +57,7 @@ func _on_water_area_body_entered(body):
 
 		trigger_slosh()
 
+
 func _on_bottom_area_body_entered(body: Node2D) -> void:
 	if not body is RigidBody2D:
 		return
@@ -62,7 +67,7 @@ func _on_bottom_area_body_entered(body: Node2D) -> void:
 		return
 	_added_fruits.append(body)
 	ingredient_added.emit(body.metadata)
-	trigger_slosh()
+
 
 func trigger_slosh():
 	var tween = create_tween()
@@ -70,9 +75,10 @@ func trigger_slosh():
 	slosh_sfx.play()
 
 	liquid_rect.material.set_shader_parameter("wave_amplitude", 0.05) # Spike amplitude
-	tween.tween_property(liquid_rect.material, "shader_parameter/wave_amplitude", base_wave_amp, 1.2)\
-		.set_trans(Tween.TRANS_SINE)\
-		.set_ease(Tween.EASE_OUT)
+	tween.tween_property(liquid_rect.material, "shader_parameter/wave_amplitude", base_wave_amp, 1.2) \
+			.set_trans(Tween.TRANS_SINE) \
+			.set_ease(Tween.EASE_OUT)
+
 
 # TODO: call this method when switching recipes!
 func change_drink_flavor(new_color: Color):
