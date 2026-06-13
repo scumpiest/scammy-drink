@@ -2,19 +2,22 @@
 
 [ext_resource type="Texture2D" uid="uid://d2ldg6cutsgia" path="res://assets/Recipebook.png" id="1_nert6"]
 [ext_resource type="PackedScene" uid="uid://da7amgp4n03hy" path="res://scenes/ui/recipe_drink.tscn" id="2_at7yq"]
-[ext_resource type="Texture2D" uid="uid://bdgya53trigto" path="res://assets/Es_Teler.jpeg" id="3_ajw2t"]
-[ext_resource type="Texture2D" uid="uid://bmexo2b2e4u07" path="res://assets/Lemonade.jpeg" id="4_fts6g"]
-[ext_resource type="Texture2D" uid="uid://dvymx6k8wq45l" path="res://assets/Pina_Colada.jpeg" id="5_smri7"]
+[ext_resource type="Texture2D" uid="uid://cf3i3cjlxed4i" path="res://assets/Cedevita[1].png" id="3_fts6g"]
+[ext_resource type="Texture2D" uid="uid://orfxg6qodxjm" path="res://assets/Es_teler[1].png" id="4_fts6g"]
+[ext_resource type="Texture2D" uid="uid://jhus2r8xnh6a" path="res://assets/Lemonade[1].png" id="5_smri7"]
+[ext_resource type="Texture2D" uid="uid://b0hxi2c40mb3q" path="res://assets/Apfelschorle[1].png" id="6_smri7"]
+[ext_resource type="Texture2D" uid="uid://cpcvhavp7fcmb" path="res://assets/Mojito[1].png" id="7_ac8ls"]
 
 [node name="RecipeBook" type="Control" unique_id=1904256542]
+z_index = 10
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 3.0
-offset_top = 1.0
-offset_right = 3.0
-offset_bottom = 1.0
+offset_left = 4.0
+offset_top = -10.0
+offset_right = 4.0
+offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -24,45 +27,52 @@ offset_left = -4.0
 offset_top = 2.0
 offset_right = 1149.0
 offset_bottom = 652.0
+scale = Vector2(1.0011169, 1.0201482)
 texture = ExtResource("1_nert6")
 expand_mode = 1
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=1623077787]
 layout_mode = 0
+offset_top = 46.0
 offset_right = 1149.0
-offset_bottom = 648.0
+offset_bottom = 694.0
 
 [node name="MarginContainer" type="MarginContainer" parent="CenterContainer" unique_id=1842591488]
 layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/MarginContainer" unique_id=1850007432]
 layout_mode = 2
-theme_override_constants/separation = 50
+theme_override_constants/separation = 75
 
 [node name="GridContainer" type="GridContainer" parent="CenterContainer/MarginContainer/HBoxContainer" unique_id=1710452061]
 layout_mode = 2
-theme_override_constants/h_separation = 22
-theme_override_constants/v_separation = 22
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 16
 columns = 2
 
 [node name="Panel" parent="CenterContainer/MarginContainer/HBoxContainer/GridContainer" unique_id=1287656366 instance=ExtResource("2_at7yq")]
 layout_mode = 2
 new_name = "Cedevita"
+new_sprite = ExtResource("3_fts6g")
 
 [node name="Panel2" parent="CenterContainer/MarginContainer/HBoxContainer/GridContainer" unique_id=253644735 instance=ExtResource("2_at7yq")]
 layout_mode = 2
 new_name = "Es Teler"
-new_sprite = ExtResource("3_ajw2t")
+new_sprite = ExtResource("4_fts6g")
 
 [node name="Panel3" parent="CenterContainer/MarginContainer/HBoxContainer/GridContainer" unique_id=1855719380 instance=ExtResource("2_at7yq")]
 layout_mode = 2
 new_name = "Lemonade"
-new_sprite = ExtResource("4_fts6g")
+new_sprite = ExtResource("5_smri7")
 
 [node name="Panel4" parent="CenterContainer/MarginContainer/HBoxContainer/GridContainer" unique_id=1615912949 instance=ExtResource("2_at7yq")]
 layout_mode = 2
 new_name = "Pina Colada"
-new_sprite = ExtResource("5_smri7")
+
+[node name="Panel5" parent="CenterContainer/MarginContainer/HBoxContainer/GridContainer" unique_id=1433224932 instance=ExtResource("2_at7yq")]
+layout_mode = 2
+new_name = "Apfelschorle"
+new_sprite = ExtResource("6_smri7")
 
 [node name="GridContainer2" type="GridContainer" parent="CenterContainer/MarginContainer/HBoxContainer" unique_id=1153966631]
 layout_mode = 2
@@ -72,6 +82,8 @@ columns = 2
 
 [node name="Panel" parent="CenterContainer/MarginContainer/HBoxContainer/GridContainer2" unique_id=1936858861 instance=ExtResource("2_at7yq")]
 layout_mode = 2
+new_name = "Mojito"
+new_sprite = ExtResource("7_ac8ls")
 
 [node name="Panel2" parent="CenterContainer/MarginContainer/HBoxContainer/GridContainer2" unique_id=974716749 instance=ExtResource("2_at7yq")]
 layout_mode = 2

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvjtrqphkctel"
-path="res://.godot/imported/Cedevita.jpeg-96f1d3f300d2bfc180bcd39bf4cb5821.ctex"
+uid="uid://cf3i3cjlxed4i"
+path="res://.godot/imported/Cedevita[1].png-77fb56324d7f572bff7f818f15ccad0d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Cedevita.jpeg"
-dest_files=["res://.godot/imported/Cedevita.jpeg-96f1d3f300d2bfc180bcd39bf4cb5821.ctex"]
+source_file="res://assets/Cedevita[1].png"
+dest_files=["res://.godot/imported/Cedevita[1].png-77fb56324d7f572bff7f818f15ccad0d.ctex"]
 
 [params]
 

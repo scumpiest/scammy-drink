@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmexo2b2e4u07"
-path="res://.godot/imported/Lemonade.jpeg-e323a3e82f8a7a6264f15cc779a7f17f.ctex"
+uid="uid://0fmepb3mna05"
+path="res://.godot/imported/Piña_Colada[1].png-2642986688d84e07ddb1f83edaf09557.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Lemonade.jpeg"
-dest_files=["res://.godot/imported/Lemonade.jpeg-e323a3e82f8a7a6264f15cc779a7f17f.ctex"]
+source_file="res://assets/Piña_Colada[1].png"
+dest_files=["res://.godot/imported/Piña_Colada[1].png-2642986688d84e07ddb1f83edaf09557.ctex"]
 
 [params]
 
