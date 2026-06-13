@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bgvgumy21wkrl" path="res://assets/star_empty.png" id="4_6olb0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_poj4g"]
-bg_color = Color(1, 0.83137256, 0.34901962, 1)
+bg_color = Color(0.69803923, 0.5058824, 0.2, 0.48235294)
 
 [node name="RecipeDrink" type="PanelContainer" unique_id=1287656366]
 custom_minimum_size = Vector2(191, 150)
