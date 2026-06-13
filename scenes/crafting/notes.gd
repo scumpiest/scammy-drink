@@ -35,11 +35,18 @@ func update_ingredients(real_ingredients: Array, chance: float) -> void:
 	var inventory_keys: Array = GameManager.inventory.keys()
 	var ingredient_lines: Array[MarginContainer] = [ingredient1, ingredient2, ingredient3]
 
+	# fake ingredients safe guard
+	var has_fakes_available: bool = false
+	for key in inventory_keys:
+		if not real_ingredients.has(key):
+			has_fakes_available = true
+			break
+
 	for i in ingredient_lines.size():
 		var ingredient: String = ""
 		
 		# check if we should use the REAL ingredient
-		if randf() < chance:
+		if randf() < chance or not has_fakes_available:
 			ingredient = real_ingredients[i]
 		else:
 			# loop until we find an ingredient that is NOT in the real_ingredients list
