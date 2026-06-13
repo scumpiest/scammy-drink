@@ -15,6 +15,7 @@ extends PanelContainer
 
 
 func _ready() -> void:
+	# SignalBus.notes_saved.connect(_on_notes_saved)
 	drink_sprite.texture = new_sprite
 	_apply_lock_state()
 
@@ -35,7 +36,7 @@ func unlock_recipe() -> void:
 	drink_name.text = new_name
 	drink_sprite.modulate = Color(1.0, 1.0, 1.0, 1.0)
 
-# func update_recipe_ingredients(ingredients: Array) -> void:
+# func _on_notes_saved(notes_content: Array) -> void:
 # 	ingredient1.text = ingredients[0]
 # 	ingredient2.text = ingredients[1]
 # 	ingredient3.text = ingredients[2]

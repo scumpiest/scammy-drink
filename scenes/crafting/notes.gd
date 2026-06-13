@@ -19,7 +19,7 @@ func update_display() -> void:
 	drink_name.update_from_order(order_data["fake_name"])
 
 	update_ingredients(order_data["ingredients"], random_chance)
-	
+
 func update_notes_content() -> void:
 	notes_content.append(ingredient1.text)
 	notes_content.append(ingredient2.text)
@@ -86,4 +86,4 @@ func try_scratch_at_position(global_pos: Vector2, replacement: String) -> bool:
 
 func _on_save_pressed():
 	update_notes_content()
-	notes_saved.emit(notes_content)
+	SignalBus.notes_saved.emit(notes_content)
