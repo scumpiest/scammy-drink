@@ -33,18 +33,29 @@ func get_order_data() -> Dictionary:
 
 func update_ingredients(real_ingredients: Array, chance: float) -> void:
 	var inventory_keys: Array = GameManager.inventory.keys()
-
 	var ingredient_lines: Array[MarginContainer] = [ingredient1, ingredient2, ingredient3]
 
 	for i in ingredient_lines.size():
 		var ingredient: String = ""
-		var random_ingredient: String = ""
+		
+		# check if we should use the REAL ingredient
 		if randf() < chance:
-			random_ingredient = inventory_keys[randi_range(0, inventory_keys.size() - 1)]
-			if not real_ingredients.has(random_ingredient):
-				ingredient = random_ingredient
-		else:
 			ingredient = real_ingredients[i]
+		else:
+			# loop until we find an ingredient that is NOT in the real_ingredients list
+			var random_ingredient: String = ""
+			
+			while true:
+				# pick a random ingredient from inventory
+				var random_index: int = randi_range(0, inventory_keys.size() - 1)
+				random_ingredient = inventory_keys[random_index]
+				
+				# break the loop ONLY if it's a true fake (not in the recipe)
+				if not real_ingredients.has(random_ingredient):
+					break
+			
+			ingredient = random_ingredient
+			
 		ingredient_lines[i].update_from_order(ingredient)
 
 
