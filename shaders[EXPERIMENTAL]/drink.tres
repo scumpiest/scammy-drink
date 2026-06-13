@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://c7drinkmat001"]
+
+[ext_resource type="Shader" uid="uid://fw8o1kd75353" path="res://shaders[EXPERIMENTAL]/drink.gdshader" id="1_2iaif"]
+
+[resource]
+shader = ExtResource("1_2iaif")
+shader_parameter/dullness = 0.0
+shader_parameter/flatness = 0.0

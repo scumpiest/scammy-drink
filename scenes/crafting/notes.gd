@@ -13,7 +13,7 @@ func update_display() -> void:
 
 	random_chance = order_data["random_chance"]
 
-	drink_name.update_from_order(order_data["recipe_key"])
+	drink_name.update_from_order(order_data["fake_name"] + " (wrong)")
 
 	update_ingredients(order_data["ingredients"], random_chance)
 
@@ -22,12 +22,14 @@ func get_order_data() -> Dictionary:
 	var recipe_key: String = GameManager.get_order()
 	var recipe_data: Dictionary = CraftingRecipe.crafting_dict[recipe_key]
 	var ingredients: Dictionary = recipe_data["ingredients"]
+	var fake_name: String = recipe_data["fake_name"]
 	var ingredients_array: Array = ingredients.keys()
 
 	return {
 		"recipe_key": recipe_key,
 		"ingredients": ingredients_array,
 		"random_chance": recipe_data["random_chance"],
+		"fake_name": fake_name,
 	}
 
 
