@@ -50,26 +50,26 @@ theme_override_constants/h_separation = 16
 theme_override_constants/v_separation = 16
 columns = 2
 
-[node name="Panel" parent="CenterContainer/MarginContainer/HBoxContainer/GridContainer" unique_id=1287656366 instance=ExtResource("2_at7yq")]
+[node name="Cedevita" parent="CenterContainer/MarginContainer/HBoxContainer/GridContainer" unique_id=1287656366 instance=ExtResource("2_at7yq")]
 layout_mode = 2
 new_name = "Cedevita"
 new_sprite = ExtResource("3_fts6g")
 
-[node name="Panel2" parent="CenterContainer/MarginContainer/HBoxContainer/GridContainer" unique_id=253644735 instance=ExtResource("2_at7yq")]
+[node name="EsTeler" parent="CenterContainer/MarginContainer/HBoxContainer/GridContainer" unique_id=253644735 instance=ExtResource("2_at7yq")]
 layout_mode = 2
 new_name = "Es Teler"
 new_sprite = ExtResource("4_fts6g")
 
-[node name="Panel3" parent="CenterContainer/MarginContainer/HBoxContainer/GridContainer" unique_id=1855719380 instance=ExtResource("2_at7yq")]
+[node name="Lemonade" parent="CenterContainer/MarginContainer/HBoxContainer/GridContainer" unique_id=1855719380 instance=ExtResource("2_at7yq")]
 layout_mode = 2
 new_name = "Lemonade"
 new_sprite = ExtResource("5_smri7")
 
-[node name="Panel4" parent="CenterContainer/MarginContainer/HBoxContainer/GridContainer" unique_id=1615912949 instance=ExtResource("2_at7yq")]
+[node name="PinaColada" parent="CenterContainer/MarginContainer/HBoxContainer/GridContainer" unique_id=1615912949 instance=ExtResource("2_at7yq")]
 layout_mode = 2
 new_name = "Pina Colada"
 
-[node name="Panel5" parent="CenterContainer/MarginContainer/HBoxContainer/GridContainer" unique_id=1433224932 instance=ExtResource("2_at7yq")]
+[node name="Apfelschorle" parent="CenterContainer/MarginContainer/HBoxContainer/GridContainer" unique_id=1433224932 instance=ExtResource("2_at7yq")]
 layout_mode = 2
 new_name = "Apfelschorle"
 new_sprite = ExtResource("6_smri7")
@@ -80,7 +80,7 @@ theme_override_constants/h_separation = 22
 theme_override_constants/v_separation = 22
 columns = 2
 
-[node name="Panel" parent="CenterContainer/MarginContainer/HBoxContainer/GridContainer2" unique_id=1936858861 instance=ExtResource("2_at7yq")]
+[node name="Mojito" parent="CenterContainer/MarginContainer/HBoxContainer/GridContainer2" unique_id=1936858861 instance=ExtResource("2_at7yq")]
 layout_mode = 2
 new_name = "Mojito"
 new_sprite = ExtResource("7_ac8ls")

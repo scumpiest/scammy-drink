@@ -31,7 +31,7 @@ func _on_crafting_complete(_recipe_key) -> void:
 		request = ""
 
 ## Handles the crafting failed signal, showing the missing ingredients in the chat bubble.
-func _on_crafting_failed(_missing_ingredients) -> void:
+func _on_crafting_failed(_missing_ingredients, _total_missing_ingredients) -> void:
 	if _missing_ingredients != []:
 		var ingredients_str = ", ".join(_missing_ingredients)
 		chat_bubble.text = "You're missing ingredients: " + ingredients_str + " to make " + request + "!"

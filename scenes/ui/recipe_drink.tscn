@@ -52,6 +52,7 @@ alignment = 1
 layout_mode = 2
 
 [node name="Star1Filled" type="TextureRect" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer" unique_id=1249755921]
+visible = false
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -71,6 +72,7 @@ stretch_mode = 4
 layout_mode = 2
 
 [node name="Star2Filled" type="TextureRect" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer3" unique_id=212637369]
+visible = false
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -90,6 +92,7 @@ stretch_mode = 4
 layout_mode = 2
 
 [node name="Star3Filled" type="TextureRect" parent="VBoxContainer/MarginContainer/HBoxContainer/MarginContainer2" unique_id=2088616222]
+visible = false
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 3

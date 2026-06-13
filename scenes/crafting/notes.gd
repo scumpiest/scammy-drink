@@ -15,7 +15,7 @@ func update_display() -> void:
 
 	drink_name.update_from_order(order_data["recipe_key"])
 
-	update_ingredients(order_data["ingredients"])
+	update_ingredients(order_data["ingredients"], random_chance)
 
 
 func get_order_data() -> Dictionary:
@@ -31,7 +31,7 @@ func get_order_data() -> Dictionary:
 	}
 
 
-func update_ingredients(real_ingredients: Array) -> void:
+func update_ingredients(real_ingredients: Array, chance: float) -> void:
 	var inventory_keys: Array = GameManager.inventory.keys()
 
 	var ingredient_lines: Array[MarginContainer] = [ingredient1, ingredient2, ingredient3]
@@ -39,7 +39,7 @@ func update_ingredients(real_ingredients: Array) -> void:
 	for i in ingredient_lines.size():
 		var ingredient: String = ""
 		var random_ingredient: String = ""
-		if randf() < 0.5:
+		if randf() < chance:
 			random_ingredient = inventory_keys[randi_range(0, inventory_keys.size() - 1)]
 			if not real_ingredients.has(random_ingredient):
 				ingredient = random_ingredient

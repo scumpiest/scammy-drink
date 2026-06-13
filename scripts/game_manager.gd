@@ -2,16 +2,28 @@ extends Node
 
 signal crafting_complete(recipe_key: String)
 signal crafting_wrong(recipe_key: String)
-signal crafting_failed(missing_ingredients: Array)
+signal crafting_failed(missing_ingredients: Array, total_missing_ingredients: int)
 
 var inventory: Dictionary = {
-	"soda": 1, "milk": 1, "ice": 1, "water": 1, "white_wine": 1,
-	"lime_juice": 1, "coconut_cream": 1, "mixed_fruits": 1,
-	"orange": 1, "pineapple": 1, "lemon": 1, "apple": 1,
-	"mint": 1, "strawberry": 1}
+	"soda": 1,
+	"milk": 1,
+	"ice": 1,
+	"water": 1,
+	"white_wine": 1,
+	"lime_juice": 1,
+	"coconut_cream": 1,
+	"mixed_fruits": 1,
+	"orange": 1,
+	"pineapple": 1,
+	"lemon": 1,
+	"apple": 1,
+	"mint": 1,
+	"strawberry": 1,
+}
 
 var recipe_orders: Array = []
 var missing_ingredients: Array = []
+
 
 func update_inventory(item: String, quantity: int):
 	if inventory.has(item):
@@ -22,13 +34,16 @@ func update_inventory(item: String, quantity: int):
 	if inventory[item] <= 0:
 		inventory.erase(item)
 
+
 ## Adds a random recipe to the recipe orders.
 func add_recipe_order():
 	var new_recipe = CraftingRecipe.get_random_recipe()
 	recipe_orders.append(new_recipe)
 
+
 func get_order() -> String:
 	return recipe_orders[0]
+
 
 ## Compares the crafting ingredients against the recipe ingredients and returns the comparison result.
 func _compare_ingredients(crafting_ingredients: Dictionary, recipe_ingredients: Dictionary) -> Dictionary:
@@ -61,5 +76,6 @@ func create_recipe(crafting_ingredients: Dictionary):
 				return key
 
 		missing_ingredients = match_ingredients["missing_in_a"]
-		crafting_failed.emit(missing_ingredients)
+		var total_missing_ingredients = missing_ingredients.size()
+		crafting_failed.emit(missing_ingredients, total_missing_ingredients)
 		return ""

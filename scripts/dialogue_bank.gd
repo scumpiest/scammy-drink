@@ -18,7 +18,7 @@ var chat_templates: Dictionary = {
 	"confident_my_drink?": "Hey, soooo, who’s this drink for?",
 	"confident_wrong_ingredient": "Cause last time I checked I was the only one in here and the {old_item} you just put in there does not go into the drink I ordered!",
 	"confident_no_ice": "Because I just saw you put some Ice in there even though I especially ordered a drink without Ice!",
-	"confident_right_drink": "yeah, I don´t think you put {new item} in there yet, so you either do it now or this bar is gonna get a 1-Star rating!",
+	"confident_right_drink": "yeah, I don´t think you put {new_item} in there yet, so you either do it now or this bar is gonna get a 1-Star rating!",
 	
 	"nerd_my_drink?": "Excuse me!",
 	"nerd_wrong_ingredient": "So, I don’t want to be mean at all, but u know that mixing {old_item} in there leaves you with a weird taste, right?",
