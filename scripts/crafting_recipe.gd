@@ -74,15 +74,15 @@ var es_teler_recipe: Dictionary = {
 
 func _ready():
 	crafting_dict["cedevita"] = cedevita_recipe
-	crafting_dict["pina colada"] = pina_colada_recipe
+	crafting_dict["pina_colada"] = pina_colada_recipe
 	crafting_dict["rebujito"] = rebujito_recipe
 	crafting_dict["apfelschorle"] = apfelschorle_recipe
 	crafting_dict["lemonade"] = lemonade_recipe
 	crafting_dict["mojito"] = mojito_recipe
-	crafting_dict["strawberry milkshake"] = strawberry_milkshake_recipe
-	crafting_dict["coconut mocktail"] = coconut_mocktail_recipe
-	crafting_dict["party mix"] = party_mix_recipe
-	crafting_dict["es teler"] = es_teler_recipe
+	crafting_dict["strawberry_milkshake"] = strawberry_milkshake_recipe
+	crafting_dict["coconut_mocktail"] = coconut_mocktail_recipe
+	crafting_dict["party_mix"] = party_mix_recipe
+	crafting_dict["es_teler"] = es_teler_recipe
 
 func get_random_recipe() -> String:
 	var recipe_list: Array = get_recipes()

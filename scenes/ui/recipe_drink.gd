@@ -15,9 +15,6 @@ extends PanelContainer
 
 
 func _ready() -> void:
-	GameManager.crafting_failed.connect(_on_crafting_failed)
-	GameManager.crafting_complete.connect(_on_crafting_complete)
-	GameManager.recipe_unlocked.connect(_on_recipe_unlocked)
 	drink_sprite.texture = new_sprite
 	_apply_lock_state()
 
@@ -34,27 +31,6 @@ func set_stars(filled_count: int) -> void:
 	star3_filled.visible = filled_count >= 3
 
 
-func _on_recipe_unlocked(key: String) -> void:
-	print("recipe unlocked: ", key)
-	if key != recipe_key:
-		return
+func unlock_recipe() -> void:
 	drink_name.text = new_name
 	drink_sprite.modulate = Color(1.0, 1.0, 1.0, 1.0)
-
-
-func _on_crafting_complete(event_recipe_key: String) -> void:
-	if event_recipe_key != recipe_key:
-		return
-	set_stars(3)
-
-
-func _on_crafting_failed(_missing_ingredients: Array, total_missing_ingredients: int) -> void:
-	if GameManager.get_order() != recipe_key:
-		return
-	match total_missing_ingredients:
-		1:
-			set_stars(2)
-		2:
-			set_stars(1)
-		3:
-			set_stars(0)

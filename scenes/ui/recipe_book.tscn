@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://6i5g71ol7d6e"]
 
+[ext_resource type="Script" path="res://scenes/ui/recipe_book.gd" id="1_recipe_book"]
 [ext_resource type="Texture2D" uid="uid://d2ldg6cutsgia" path="res://assets/Recipebook.png" id="1_nert6"]
 [ext_resource type="PackedScene" uid="uid://da7amgp4n03hy" path="res://scenes/ui/recipe_drink.tscn" id="2_at7yq"]
 [ext_resource type="Texture2D" uid="uid://orfxg6qodxjm" path="res://assets/drinks/Es_teler[1].png" id="4_fts6g"]
@@ -14,6 +15,7 @@
 load_path = "res://.godot/imported/Cedevita[1].png-f1ad04e6178d2fe503f8f2dae08aa93f.ctex"
 
 [node name="RecipeBook" type="Control" unique_id=1904256542]
+script = ExtResource("1_recipe_book")
 z_index = 10
 layout_mode = 3
 anchors_preset = 15
