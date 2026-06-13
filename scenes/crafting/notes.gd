@@ -13,7 +13,7 @@ func update_display() -> void:
 
 	random_chance = order_data["random_chance"]
 
-	drink_name.update_from_order(order_data["fake_name"] + " (wrong)")
+	drink_name.update_from_order(order_data["fake_name"])
 
 	update_ingredients(order_data["ingredients"], random_chance)
 

@@ -5,7 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://cf3i3cjlxed4i" path="res://assets/drinks/Cedevita[1].png" id="3_6olb0"]
 [ext_resource type="Texture2D" uid="uid://cooqdx6shbe7o" path="res://assets/star_filled.png" id="3_ql266"]
 [ext_resource type="Texture2D" uid="uid://bgvgumy21wkrl" path="res://assets/star_empty.png" id="4_6olb0"]
-[ext_resource type="Material" uid="uid://c7drinkmat001" path="res://shaders[EXPERIMENTAL]/drink.tres" id="5_drink"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_poj4g"]
 bg_color = Color(0.69803923, 0.5058824, 0.2, 0.48235294)
@@ -32,7 +31,6 @@ text = "Pina Colada"
 horizontal_alignment = 1
 
 [node name="DrinkSprite" type="TextureRect" parent="VBoxContainer" unique_id=1887264911]
-material = ExtResource("5_drink")
 custom_minimum_size = Vector2(75, 100)
 layout_mode = 2
 size_flags_horizontal = 4
