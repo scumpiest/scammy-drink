@@ -44,6 +44,7 @@ text = "Add:"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=720761012]
 layout_mode = 2
+size_flags_horizontal = 0
 
 [node name="Ingredient1" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=102409475 instance=ExtResource("2_iy102")]
 layout_mode = 2

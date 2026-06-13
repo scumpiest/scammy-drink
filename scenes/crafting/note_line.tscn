@@ -15,7 +15,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="VBoxContainer/MarginContainer" unique_id=2109610019]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.77254903, 0.34509805, 0.15686275, 1)
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 24
 text = "FancyName"
 
 [node name="ScratchOverlay" type="TextureRect" parent="VBoxContainer/MarginContainer" unique_id=1213275371]
@@ -29,5 +29,5 @@ flip_h = true
 visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(0.77254903, 0.34509805, 0.15686275, 1)
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 24
 text = "FancyName"
