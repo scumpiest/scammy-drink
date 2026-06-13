@@ -54,3 +54,9 @@ layout_mode = 2
 
 [node name="Ingredient3" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=1873327330 instance=ExtResource("2_iy102")]
 layout_mode = 2
+
+[node name="Save" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=163273457]
+layout_mode = 2
+text = "save"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/Save" to="." method="_on_save_pressed"]

@@ -34,3 +34,8 @@ func set_stars(filled_count: int) -> void:
 func unlock_recipe() -> void:
 	drink_name.text = new_name
 	drink_sprite.modulate = Color(1.0, 1.0, 1.0, 1.0)
+
+# func update_recipe_ingredients(ingredients: Array) -> void:
+# 	ingredient1.text = ingredients[0]
+# 	ingredient2.text = ingredients[1]
+# 	ingredient3.text = ingredients[2]

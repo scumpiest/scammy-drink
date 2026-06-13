@@ -18,6 +18,7 @@ var main_menu_scene: String = "uid://ctrh7huvrvaws"
 
 
 func _ready() -> void:
+	recipe_book.notes_saved.connect(notes.update_recipe_ingredients)
 	customer = spawn_customer(crabby)
 	setup_customer(customer)
 
