@@ -11,6 +11,7 @@ extends PanelContainer
 
 @export var new_name: String
 @export var new_sprite: Texture
+@export var recipe_key: String = ""
 
 
 func _ready() -> void:
@@ -20,18 +21,25 @@ func _ready() -> void:
 	drink_sprite.texture = new_sprite
 
 
-func _on_crafting_complete(_recipe_key) -> void:
-	star1_filled.visible = true
-	star2_filled.visible = true
-	star3_filled.visible = true
+func set_stars(filled_count: int) -> void:
+	star1_filled.visible = filled_count >= 1
+	star2_filled.visible = filled_count >= 2
+	star3_filled.visible = filled_count >= 3
 
 
-func _on_crafting_failed(_missing_ingredients, _total_missing_ingredients) -> void:
-	match _total_missing_ingredients:
+func _on_crafting_complete(event_recipe_key: String) -> void:
+	if event_recipe_key != recipe_key:
+		return
+	set_stars(3)
+
+
+func _on_crafting_failed(_missing_ingredients: Array, total_missing_ingredients: int) -> void:
+	if GameManager.get_order() != recipe_key:
+		return
+	match total_missing_ingredients:
 		1:
-			star1_filled.visible = true
-			star2_filled.visible = true
+			set_stars(2)
 		2:
-			star1_filled.visible = true
+			set_stars(1)
 		3:
-			pass
+			set_stars(0)

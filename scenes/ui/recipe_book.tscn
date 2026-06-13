@@ -54,25 +54,30 @@ columns = 2
 layout_mode = 2
 new_name = "Cedevita"
 new_sprite = ExtResource("3_fts6g")
+recipe_key = "cedevita"
 
 [node name="EsTeler" parent="CenterContainer/MarginContainer/HBoxContainer/GridContainer" unique_id=253644735 instance=ExtResource("2_at7yq")]
 layout_mode = 2
 new_name = "Es Teler"
 new_sprite = ExtResource("4_fts6g")
+recipe_key = "es_teler"
 
 [node name="Lemonade" parent="CenterContainer/MarginContainer/HBoxContainer/GridContainer" unique_id=1855719380 instance=ExtResource("2_at7yq")]
 layout_mode = 2
 new_name = "Lemonade"
 new_sprite = ExtResource("5_smri7")
+recipe_key = "lemonade"
 
 [node name="PinaColada" parent="CenterContainer/MarginContainer/HBoxContainer/GridContainer" unique_id=1615912949 instance=ExtResource("2_at7yq")]
 layout_mode = 2
 new_name = "Pina Colada"
+recipe_key = "pina_colada"
 
 [node name="Apfelschorle" parent="CenterContainer/MarginContainer/HBoxContainer/GridContainer" unique_id=1433224932 instance=ExtResource("2_at7yq")]
 layout_mode = 2
 new_name = "Apfelschorle"
 new_sprite = ExtResource("6_smri7")
+recipe_key = "apfelschorle"
 
 [node name="GridContainer2" type="GridContainer" parent="CenterContainer/MarginContainer/HBoxContainer" unique_id=1153966631]
 layout_mode = 2
@@ -84,6 +89,7 @@ columns = 2
 layout_mode = 2
 new_name = "Mojito"
 new_sprite = ExtResource("7_ac8ls")
+recipe_key = "mojito"
 
 [node name="Panel2" parent="CenterContainer/MarginContainer/HBoxContainer/GridContainer2" unique_id=974716749 instance=ExtResource("2_at7yq")]
 layout_mode = 2
