@@ -27,6 +27,10 @@ func _apply_lock_state() -> void:
 	var is_unlocked: bool = GameManager.unlocked_recipes.has(recipe_key)
 	drink_name.text = new_name if is_unlocked else "?"
 	drink_sprite.modulate = Color(1.0, 1.0, 1.0, 1.0) if is_unlocked else Color(0.0, 0.0, 0.0, 1.0)
+	if not is_unlocked:
+		ingredient1.text = "?"
+		ingredient2.text = "?"
+		ingredient3.text = "?"
 
 
 func set_stars(filled_count: int) -> void:
@@ -40,11 +44,23 @@ func unlock_recipe() -> void:
 	drink_sprite.modulate = Color(1.0, 1.0, 1.0, 1.0)
 
 func _on_notes_saved(notes_content: Dictionary) -> void:
-	print(drink_name.text)
-	print(notes_content["recipe_key"])
-	if drink_name.text == notes_content["recipe_key"]:
-		ingredient1.text = notes_content["ingredients"][0]
-		ingredient2.text = notes_content["ingredients"][1]
-		ingredient3.text = notes_content["ingredients"][2]
-	else:
-		print("Recipe key does not match")
+	if recipe_key != notes_content["recipe_key"]:
+		return
+	if not _saved_ingredients_match_recipe(notes_content["ingredients"]):
+		_apply_lock_state()
+		return
+	GameManager.unlocked_recipes[recipe_key] = true
+	unlock_recipe()
+	ingredient1.text = notes_content["ingredients"][0]
+	ingredient2.text = notes_content["ingredients"][1]
+	ingredient3.text = notes_content["ingredients"][2]
+
+
+func _saved_ingredients_match_recipe(saved_ingredients: Array) -> bool:
+	var actual: Array = CraftingRecipe.crafting_dict[recipe_key]["ingredients"].keys()
+	if saved_ingredients.size() != actual.size():
+		return false
+	for i in actual.size():
+		if saved_ingredients[i] != actual[i]:
+			return false
+	return true

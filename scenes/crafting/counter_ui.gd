@@ -9,6 +9,8 @@ extends Control
 
 var current_target: Marker2D = null
 var customer: Area2D = null
+var _awaiting_notes_save: bool = false
+var _notes_saved_for_order: bool = false
 
 var main_menu_scene: String = "uid://ctrh7huvrvaws"
 
@@ -18,6 +20,7 @@ var main_menu_scene: String = "uid://ctrh7huvrvaws"
 
 
 func _ready() -> void:
+	SignalBus.notes_saved.connect(_on_notes_saved)
 	customer = spawn_customer(crabby)
 	setup_customer(customer)
 
@@ -29,7 +32,7 @@ func _process(delta: float) -> void:
 		item.global_position = enter_marker.global_position
 		item.z_index = -1
 		add_child(item)
-	if current_target:
+	if current_target and customer and is_instance_valid(customer):
 		customer.position = customer.position.lerp(current_target.global_position, 1.0 - exp(-lerp_weight * delta))
 	if Input.is_action_pressed("close"):
 		recipe_book.visible = false
@@ -45,6 +48,7 @@ func spawn_customer(customer: PackedScene) -> Area2D:
 func setup_customer(customer: Area2D) -> void:
 	customer.request_completed.connect(_on_request_completed)
 	customer.request_failed.connect(_on_request_failed)
+	_notes_saved_for_order = false
 	notes.update_display()
 	slide_to_marker(enter_marker)
 
@@ -61,6 +65,22 @@ func _on_request_completed() -> void:
 
 
 func _on_customer_exited() -> void:
+	current_target = null
+	if _notes_saved_for_order:
+		_spawn_next_customer()
+	else:
+		_awaiting_notes_save = true
+
+
+func _on_notes_saved(_notes_content: Dictionary) -> void:
+	_notes_saved_for_order = true
+	if _awaiting_notes_save:
+		_awaiting_notes_save = false
+		_spawn_next_customer()
+
+
+func _spawn_next_customer() -> void:
+	GameManager.complete_current_order()
 	customer = spawn_customer(crabby)
 	setup_customer(customer)
 

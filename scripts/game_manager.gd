@@ -2,7 +2,6 @@ extends Node
 
 signal crafting_complete(recipe_key: String)
 signal crafting_result(recipe_key: String, correct_count: int, missing_ingredients: Array)
-signal recipe_unlocked(recipe_key: String)
 
 var inventory: Dictionary = {
 	"soda": 1,
@@ -64,9 +63,10 @@ func create_recipe(crafting_ingredients: Dictionary):
 	crafting_complete.emit(recipe_key)
 	crafting_result.emit(recipe_key, correct_count, missing_ingredients)
 
-	if not unlocked_recipes.has(recipe_key):
-		unlocked_recipes[recipe_key] = true
-		recipe_unlocked.emit(recipe_key)
-
-	recipe_orders.erase(recipe_key)
 	return recipe_key
+
+
+func complete_current_order() -> void:
+	if recipe_orders.is_empty():
+		return
+	recipe_orders.pop_front()
