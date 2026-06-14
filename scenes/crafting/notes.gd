@@ -8,7 +8,7 @@ signal notes_saved(notes_content: Dictionary)
 @onready var ingredient3: MarginContainer = $MarginContainer/VBoxContainer/VBoxContainer/Ingredient3
 
 var random_chance: float = 0.0
-var notes_content: Array = []
+var notes_content: Dictionary = {}
 
 
 func update_display() -> void:
@@ -21,9 +21,10 @@ func update_display() -> void:
 	update_ingredients(order_data["ingredients"], random_chance)
 
 func update_notes_content() -> void:
-	notes_content.append(ingredient1.text)
-	notes_content.append(ingredient2.text)
-	notes_content.append(ingredient3.text)
+	notes_content = {
+		"recipe_key": GameManager.get_order(),
+		"ingredients": [ingredient1.text, ingredient2.text, ingredient3.text],
+	}
 
 func get_order_data() -> Dictionary:
 	var recipe_key: String = GameManager.get_order()

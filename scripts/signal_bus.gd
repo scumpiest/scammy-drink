@@ -1,3 +1,3 @@
 extends Node
 
-signal notes_saved(notes_content: Array)
+signal notes_saved(notes_content: Dictionary)

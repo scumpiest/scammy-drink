@@ -1,22 +1,21 @@
 [gd_scene format=3 uid="uid://6i5g71ol7d6e"]
 
-[ext_resource type="Script" path="res://scenes/ui/recipe_book.gd" id="1_recipe_book"]
 [ext_resource type="Texture2D" uid="uid://d2ldg6cutsgia" path="res://assets/Recipebook.png" id="1_nert6"]
+[ext_resource type="Script" uid="uid://byjiyc0qxoeyl" path="res://scenes/ui/recipe_book.gd" id="1_recipe_book"]
 [ext_resource type="PackedScene" uid="uid://da7amgp4n03hy" path="res://scenes/ui/recipe_drink.tscn" id="2_at7yq"]
 [ext_resource type="Texture2D" uid="uid://orfxg6qodxjm" path="res://assets/drinks/Es_teler[1].png" id="4_fts6g"]
+[ext_resource type="Texture2D" uid="uid://cf3i3cjlxed4i" path="res://assets/drinks/Cedevita[1].png" id="4_jchyn"]
 [ext_resource type="Texture2D" uid="uid://jhus2r8xnh6a" path="res://assets/drinks/Lemonade[1].png" id="5_smri7"]
-[ext_resource type="Texture2D" path="res://assets/Piña_Colada[1].png" id="6_ac8ls"]
 [ext_resource type="Texture2D" uid="uid://b0hxi2c40mb3q" path="res://assets/drinks/Apfelschorle[1].png" id="6_smri7"]
 [ext_resource type="Texture2D" uid="uid://cpcvhavp7fcmb" path="res://assets/drinks/Mojito[1].png" id="7_ac8ls"]
 [ext_resource type="Texture2D" uid="uid://mgwm10yflhoy" path="res://assets/drinks/Rebujito[1].png" id="8_ac8ls"]
 [ext_resource type="Texture2D" uid="uid://ckidru81cjdka" path="res://assets/drinks/Coconut_Mocktail.png" id="8_h057y"]
 [ext_resource type="Texture2D" uid="uid://dujfil0hhb7av" path="res://assets/drinks/Strawberry_Milkshake.png" id="9_h057y"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_smri7"]
-load_path = "res://.godot/imported/Cedevita[1].png-f1ad04e6178d2fe503f8f2dae08aa93f.ctex"
+[sub_resource type="Resource" id="Resource_paolu"]
+metadata/__load_path__ = "res://assets/Piña_Colada[1].png"
 
 [node name="RecipeBook" type="Control" unique_id=1904256542]
-script = ExtResource("1_recipe_book")
 z_index = 10
 layout_mode = 3
 anchors_preset = 15
@@ -28,6 +27,7 @@ offset_right = 4.0
 offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_recipe_book")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1044099752]
 layout_mode = 0
@@ -59,7 +59,7 @@ columns = 2
 [node name="Cedevita" parent="CenterContainer/MarginContainer/HBoxContainer/GridContainer" unique_id=1287656366 instance=ExtResource("2_at7yq")]
 layout_mode = 2
 new_name = "Cedevita"
-new_sprite = SubResource("CompressedTexture2D_smri7")
+new_sprite = ExtResource("4_jchyn")
 recipe_key = "cedevita"
 
 [node name="EsTeler" parent="CenterContainer/MarginContainer/HBoxContainer/GridContainer" unique_id=253644735 instance=ExtResource("2_at7yq")]
@@ -117,4 +117,4 @@ recipe_key = "strawberry_milkshake"
 
 [node name="Panel5" parent="CenterContainer/MarginContainer/HBoxContainer/GridContainer2" unique_id=1453878442 instance=ExtResource("2_at7yq")]
 layout_mode = 2
-new_sprite = ExtResource("6_ac8ls")
+new_sprite = SubResource("Resource_paolu")

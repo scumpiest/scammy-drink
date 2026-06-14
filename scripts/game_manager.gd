@@ -1,8 +1,7 @@
 extends Node
 
 signal crafting_complete(recipe_key: String)
-signal crafting_wrong(recipe_key: String)
-signal crafting_failed(missing_ingredients: Array, total_missing_ingredients: int)
+signal crafting_result(recipe_key: String, correct_count: int, missing_ingredients: Array)
 signal recipe_unlocked(recipe_key: String)
 
 var inventory: Dictionary = {
@@ -47,40 +46,27 @@ func get_order() -> String:
 	return recipe_orders[0]
 
 
-## Compares the crafting ingredients against the recipe ingredients and returns the comparison result.
-func _compare_ingredients(crafting_ingredients: Dictionary, recipe_ingredients: Dictionary) -> Dictionary:
-	var comparison_result: Dictionary = Util.compare_dicts(crafting_ingredients, recipe_ingredients)
-	return comparison_result
-
-
-## Creates a recipe based on the crafting ingredients and compares it against the current recipe order.
+## Creates a recipe based on the crafting ingredients and always completes the order.
+## Stars and missing ingredients are reported via crafting_result.
 func create_recipe(crafting_ingredients: Dictionary):
 	var recipe_key: String = get_order()
 	var recipe: Dictionary = CraftingRecipe.crafting_dict[recipe_key]
 	var recipe_ingredients: Dictionary = recipe["ingredients"]
-	var match_ingredients = _compare_ingredients(crafting_ingredients, recipe_ingredients)
 
-	if match_ingredients["is_equal"]:
-		print("Recipe created:", recipe_key)
-		crafting_complete.emit(recipe_key)
-		if not unlocked_recipes.has(recipe_key):
-			unlocked_recipes[recipe_key] = true
-			recipe_unlocked.emit(recipe_key)
-		recipe_orders.erase(recipe_key)
-		return recipe_key
-	else:
-		for key in CraftingRecipe.crafting_dict:
-			if key == recipe_key:
-				continue
+	var correct_count: int = 0
+	missing_ingredients = []
+	for ing in recipe_ingredients.keys():
+		if crafting_ingredients.has(ing):
+			correct_count += 1
+		else:
+			missing_ingredients.append(ing)
 
-			var other_ingredients = CraftingRecipe.crafting_dict[key]["ingredients"]
-			var other_match_recipe = _compare_ingredients(crafting_ingredients, other_ingredients)
+	crafting_complete.emit(recipe_key)
+	crafting_result.emit(recipe_key, correct_count, missing_ingredients)
 
-			if other_match_recipe["is_equal"]:
-				crafting_wrong.emit(key)
-				return key
+	if not unlocked_recipes.has(recipe_key):
+		unlocked_recipes[recipe_key] = true
+		recipe_unlocked.emit(recipe_key)
 
-		missing_ingredients = match_ingredients["missing_in_a"]
-		var total_missing_ingredients = missing_ingredients.size()
-		crafting_failed.emit(missing_ingredients, total_missing_ingredients)
-		return ""
+	recipe_orders.erase(recipe_key)
+	return recipe_key

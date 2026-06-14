@@ -8,6 +8,9 @@ extends PanelContainer
 @onready var star2_empty: TextureRect = $VBoxContainer/MarginContainer/HBoxContainer/MarginContainer3/Star2Empty
 @onready var star3_filled: TextureRect = $VBoxContainer/MarginContainer/HBoxContainer/MarginContainer2/Star3Filled
 @onready var star3_empty: TextureRect = $VBoxContainer/MarginContainer/HBoxContainer/MarginContainer2/Star3Empty
+@onready var ingredient1: Label = $VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/Ingredient1
+@onready var ingredient2: Label = $VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/Ingredient2
+@onready var ingredient3: Label = $VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/Ingredient3
 
 @export var new_name: String
 @export var new_sprite: Texture
@@ -15,7 +18,7 @@ extends PanelContainer
 
 
 func _ready() -> void:
-	# SignalBus.notes_saved.connect(_on_notes_saved)
+	SignalBus.notes_saved.connect(_on_notes_saved)
 	drink_sprite.texture = new_sprite
 	_apply_lock_state()
 
@@ -36,7 +39,12 @@ func unlock_recipe() -> void:
 	drink_name.text = new_name
 	drink_sprite.modulate = Color(1.0, 1.0, 1.0, 1.0)
 
-# func _on_notes_saved(notes_content: Array) -> void:
-# 	ingredient1.text = ingredients[0]
-# 	ingredient2.text = ingredients[1]
-# 	ingredient3.text = ingredients[2]
+func _on_notes_saved(notes_content: Dictionary) -> void:
+	print(drink_name.text)
+	print(notes_content["recipe_key"])
+	if drink_name.text == notes_content["recipe_key"]:
+		ingredient1.text = notes_content["ingredients"][0]
+		ingredient2.text = notes_content["ingredients"][1]
+		ingredient3.text = notes_content["ingredients"][2]
+	else:
+		print("Recipe key does not match")

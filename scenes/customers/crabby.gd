@@ -16,29 +16,19 @@ func _ready() -> void:
 	request = GameManager.get_order()
 	chat_bubble.text = "GIMME " + request.to_upper() + "!!"
 
-	GameManager.crafting_complete.connect(_on_crafting_complete)
-	GameManager.crafting_failed.connect(_on_crafting_failed)
-	GameManager.crafting_wrong.connect(_on_crafting_wrong)
+	GameManager.crafting_result.connect(_on_crafting_result)
 
-## Handles the crafting complete signal, showing the bubble and emitting the request_completed signal.
-func _on_crafting_complete(_recipe_key) -> void:
-	bubble_background.visible = true
-	if _recipe_key == request:
-		chat_bubble.text = "Thanks for the " + _recipe_key + "!"
-		await get_tree().create_timer(1.5).timeout
-		request_completed.emit()
-		bubble_background.visible = false
-		request = ""
-
-## Handles the crafting failed signal, showing the missing ingredients in the chat bubble.
-func _on_crafting_failed(_missing_ingredients, _total_missing_ingredients) -> void:
-	if _missing_ingredients != []:
-		var ingredients_str = ", ".join(_missing_ingredients)
-		chat_bubble.text = "You're missing ingredients: " + ingredients_str + " to make " + request + "!"
-
-## Handles the crafting wrong signal, showing the incorrect recipe in the chat bubble.
-func _on_crafting_wrong(_recipe_key) -> void:
+## Always accepts the drink; shows which ingredients were missing before leaving.
+func _on_crafting_result(_recipe_key: String, _correct_count: int, _missing_ingredients: Array) -> void:
 	if _recipe_key != request:
-		print("I DONT WANT THAT, GIVE ME " + request + "!!")
-		chat_bubble.text = "I DONT WANT THAT, GIVE ME " + request.to_upper() + "!!"
-		request_failed.emit()
+		return
+	bubble_background.visible = true
+	if _missing_ingredients.is_empty():
+		chat_bubble.text = "Thanks for the " + request + "!"
+	else:
+		var ingredients_str: String = ", ".join(_missing_ingredients)
+		chat_bubble.text = "You forgot " + ingredients_str + "... but I'll take it!"
+	await get_tree().create_timer(1.5).timeout
+	request_completed.emit()
+	bubble_background.visible = false
+	request = ""

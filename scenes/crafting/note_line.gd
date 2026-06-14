@@ -7,6 +7,10 @@ extends MarginContainer
 var current_value: String = ""
 var is_scratched: bool = false
 
+var text: String:
+	get:
+		return new_label.text if is_scratched else current_value
+
 
 func update_from_order(value: String) -> void:
 	current_value = value

@@ -52,17 +52,17 @@ text = "Ingredients:"
 [node name="Ingredient1" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer" unique_id=337252557]
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
-text = "I one"
+text = "?"
 
 [node name="Ingredient2" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer" unique_id=1050659707]
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
-text = "I two"
+text = "?"
 
 [node name="Ingredient3" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer" unique_id=1317980302]
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
-text = "I three"
+text = "?"
 
 [node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/HBoxContainer" unique_id=1807167098]
 layout_mode = 2
@@ -71,7 +71,7 @@ size_flags_stretch_ratio = 3.0
 theme_override_constants/margin_right = 5
 
 [node name="DrinkSprite" type="TextureRect" parent="VBoxContainer/HBoxContainer/MarginContainer2" unique_id=1887264911]
-material = ExtResource("5_drink")
+modulate = Color(0, 0, 0, 1)
 custom_minimum_size = Vector2(75, 100)
 layout_mode = 2
 size_flags_horizontal = 4
