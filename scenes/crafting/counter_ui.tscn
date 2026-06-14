@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cex85w4jk50o1" path="res://scenes/crafting/counter_ui.gd" id="1_pblyx"]
 [ext_resource type="PackedScene" uid="uid://baq4fejjo54v3" path="res://scenes/crafting/crafting_counter.tscn" id="2_05df7"]
-[ext_resource type="PackedScene" uid="uid://x6l2s2cjh6tm" path="res://scenes/customers/crabby.tscn" id="2_ccn5l"]
+[ext_resource type="PackedScene" uid="uid://x6l2s2cjh6tm" path="res://scenes/customers/customer.tscn" id="2_ccn5l"]
 [ext_resource type="PackedScene" uid="uid://0dr0j1p35u0x" path="res://scenes/crafting/notes.tscn" id="3_8ubsl"]
 [ext_resource type="AudioStream" uid="uid://x5pn66qvwi4a" path="res://assets/Bossa Nova Beach.mp3" id="4_ccn5l"]
 [ext_resource type="PackedScene" uid="uid://6i5g71ol7d6e" path="res://scenes/ui/recipe_book.tscn" id="6_p5jpt"]
@@ -16,7 +16,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 script = ExtResource("1_pblyx")
-crabby = ExtResource("2_ccn5l")
+customer_scene = ExtResource("2_ccn5l")
 
 [node name="MainMenuButton" type="Button" parent="." unique_id=1633707091]
 layout_mode = 0
@@ -33,13 +33,14 @@ metadata/_edit_group_ = true
 
 [node name="CraftingCounter" parent="." unique_id=1665070910 instance=ExtResource("2_05df7")]
 layout_mode = 1
+offset_top = -308.0
 mouse_filter = 1
 
 [node name="SpawnMarker" type="Marker2D" parent="." unique_id=531153033]
 position = Vector2(-429, 94)
 
 [node name="EnterMarker" type="Marker2D" parent="." unique_id=774304902]
-position = Vector2(372, 69)
+position = Vector2(392, 40)
 
 [node name="ExitMarker" type="Marker2D" parent="." unique_id=162336635]
 position = Vector2(1332, 96)

@@ -7,21 +7,22 @@ extends Control
 @onready var notes: PanelContainer = $Notes
 @onready var recipe_book: Control = $RecipeBook
 
+
 var current_target: Marker2D = null
-var customer: Area2D = null
 var _awaiting_notes_save: bool = false
 var _notes_saved_for_order: bool = false
+var customer: Customer = null
 
 var main_menu_scene: String = "uid://ctrh7huvrvaws"
 
 @export var lerp_weight: float = 1.0
-@export var crabby: PackedScene = null
+@export var customer_scene: PackedScene = null
 @export var bomb: PackedScene = null
 
 
 func _ready() -> void:
 	SignalBus.notes_saved.connect(_on_notes_saved)
-	customer = spawn_customer(crabby)
+	customer = spawn_customer()
 	setup_customer(customer)
 
 
@@ -38,16 +39,17 @@ func _process(delta: float) -> void:
 		recipe_book.visible = false
 	
 
-func spawn_customer(customer: PackedScene) -> Area2D:
-	var new_customer = customer.instantiate()
+func spawn_customer() -> Customer:
+	var new_customer := customer_scene.instantiate() as Customer
+	new_customer.customer_type = randi() % Customer.Type.size() as Customer.Type
 	new_customer.global_position = spawn_marker.global_position
 	add_child(new_customer)
 	return new_customer
 
 
-func setup_customer(customer: Area2D) -> void:
-	customer.request_completed.connect(_on_request_completed)
-	customer.request_failed.connect(_on_request_failed)
+func setup_customer(new_customer: Customer) -> void:
+	new_customer.request_completed.connect(_on_request_completed)
+	new_customer.request_failed.connect(_on_request_failed)
 	_notes_saved_for_order = false
 	notes.update_display()
 	slide_to_marker(enter_marker)
@@ -81,7 +83,7 @@ func _on_notes_saved(_notes_content: Dictionary) -> void:
 
 func _spawn_next_customer() -> void:
 	GameManager.complete_current_order()
-	customer = spawn_customer(crabby)
+	customer = spawn_customer()
 	setup_customer(customer)
 
 
