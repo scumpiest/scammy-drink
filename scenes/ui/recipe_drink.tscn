@@ -72,7 +72,6 @@ theme_override_constants/margin_right = 5
 
 [node name="DrinkSprite" type="TextureRect" parent="VBoxContainer/HBoxContainer/MarginContainer2" unique_id=1887264911]
 material = ExtResource("5_drink")
-[node name="DrinkSprite" type="TextureRect" parent="VBoxContainer" unique_id=1887264911]
 custom_minimum_size = Vector2(75, 100)
 layout_mode = 2
 size_flags_horizontal = 4
