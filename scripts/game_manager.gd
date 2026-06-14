@@ -3,6 +3,7 @@ extends Node
 signal crafting_complete(recipe_key: String)
 signal crafting_wrong(recipe_key: String)
 signal crafting_failed(missing_ingredients: Array, total_missing_ingredients: int)
+signal recipe_unlocked(recipe_key: String)
 
 var inventory: Dictionary = {
 	"soda": 1,
@@ -23,6 +24,7 @@ var inventory: Dictionary = {
 
 var recipe_orders: Array = []
 var missing_ingredients: Array = []
+var unlocked_recipes: Dictionary = {}
 
 
 func update_inventory(item: String, quantity: int):
@@ -61,6 +63,9 @@ func create_recipe(crafting_ingredients: Dictionary):
 	if match_ingredients["is_equal"]:
 		print("Recipe created:", recipe_key)
 		crafting_complete.emit(recipe_key)
+		if not unlocked_recipes.has(recipe_key):
+			unlocked_recipes[recipe_key] = true
+			recipe_unlocked.emit(recipe_key)
 		recipe_orders.erase(recipe_key)
 		return recipe_key
 	else:

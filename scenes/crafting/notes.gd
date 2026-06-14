@@ -1,11 +1,14 @@
 extends PanelContainer
 
+signal notes_saved(notes_content: Dictionary)
+
 @onready var drink_name: MarginContainer = $MarginContainer/VBoxContainer/DrinkName
 @onready var ingredient1: MarginContainer = $MarginContainer/VBoxContainer/VBoxContainer/Ingredient1
 @onready var ingredient2: MarginContainer = $MarginContainer/VBoxContainer/VBoxContainer/Ingredient2
 @onready var ingredient3: MarginContainer = $MarginContainer/VBoxContainer/VBoxContainer/Ingredient3
 
 var random_chance: float = 0.0
+var notes_content: Array = []
 
 
 func update_display() -> void:
@@ -13,10 +16,14 @@ func update_display() -> void:
 
 	random_chance = order_data["random_chance"]
 
-	drink_name.update_from_order(order_data["fake_name"] + " (wrong)")
+	drink_name.update_from_order(order_data["fake_name"])
 
 	update_ingredients(order_data["ingredients"], random_chance)
 
+func update_notes_content() -> void:
+	notes_content.append(ingredient1.text)
+	notes_content.append(ingredient2.text)
+	notes_content.append(ingredient3.text)
 
 func get_order_data() -> Dictionary:
 	var recipe_key: String = GameManager.get_order()
@@ -75,3 +82,8 @@ func try_scratch_at_position(global_pos: Vector2, replacement: String) -> bool:
 			line.scratch(replacement)
 			return true
 	return false
+
+
+func _on_save_pressed():
+	update_notes_content()
+	SignalBus.notes_saved.emit(notes_content)

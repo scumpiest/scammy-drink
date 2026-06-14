@@ -15,10 +15,15 @@ extends PanelContainer
 
 
 func _ready() -> void:
-	GameManager.crafting_failed.connect(_on_crafting_failed)
-	GameManager.crafting_complete.connect(_on_crafting_complete)
-	drink_name.text = new_name
+	# SignalBus.notes_saved.connect(_on_notes_saved)
 	drink_sprite.texture = new_sprite
+	_apply_lock_state()
+
+
+func _apply_lock_state() -> void:
+	var is_unlocked: bool = GameManager.unlocked_recipes.has(recipe_key)
+	drink_name.text = new_name if is_unlocked else "?"
+	drink_sprite.modulate = Color(1.0, 1.0, 1.0, 1.0) if is_unlocked else Color(0.0, 0.0, 0.0, 1.0)
 
 
 func set_stars(filled_count: int) -> void:
@@ -27,19 +32,11 @@ func set_stars(filled_count: int) -> void:
 	star3_filled.visible = filled_count >= 3
 
 
-func _on_crafting_complete(event_recipe_key: String) -> void:
-	if event_recipe_key != recipe_key:
-		return
-	set_stars(3)
+func unlock_recipe() -> void:
+	drink_name.text = new_name
+	drink_sprite.modulate = Color(1.0, 1.0, 1.0, 1.0)
 
-
-func _on_crafting_failed(_missing_ingredients: Array, total_missing_ingredients: int) -> void:
-	if GameManager.get_order() != recipe_key:
-		return
-	match total_missing_ingredients:
-		1:
-			set_stars(2)
-		2:
-			set_stars(1)
-		3:
-			set_stars(0)
+# func _on_notes_saved(notes_content: Array) -> void:
+# 	ingredient1.text = ingredients[0]
+# 	ingredient2.text = ingredients[1]
+# 	ingredient3.text = ingredients[2]
