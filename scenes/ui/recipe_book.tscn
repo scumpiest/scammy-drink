@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://da7amgp4n03hy" path="res://scenes/ui/recipe_drink.tscn" id="2_at7yq"]
 [ext_resource type="Texture2D" uid="uid://orfxg6qodxjm" path="res://assets/drinks/Es_teler[1].png" id="4_fts6g"]
 [ext_resource type="Texture2D" uid="uid://jhus2r8xnh6a" path="res://assets/drinks/Lemonade[1].png" id="5_smri7"]
+[ext_resource type="Texture2D" path="res://assets/Piña_Colada[1].png" id="6_ac8ls"]
 [ext_resource type="Texture2D" uid="uid://b0hxi2c40mb3q" path="res://assets/drinks/Apfelschorle[1].png" id="6_smri7"]
 [ext_resource type="Texture2D" uid="uid://cpcvhavp7fcmb" path="res://assets/drinks/Mojito[1].png" id="7_ac8ls"]
 [ext_resource type="Texture2D" uid="uid://mgwm10yflhoy" path="res://assets/drinks/Rebujito[1].png" id="8_ac8ls"]
@@ -28,11 +29,9 @@ grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1044099752]
 layout_mode = 0
-offset_left = -4.0
-offset_top = 2.0
-offset_right = 1149.0
-offset_bottom = 652.0
-scale = Vector2(1.0011169, 1.0201482)
+offset_right = 1153.0
+offset_bottom = 650.0
+scale = Vector2(0.9943632, 1.0462985)
 texture = ExtResource("1_nert6")
 expand_mode = 1
 
@@ -116,3 +115,4 @@ recipe_key = "strawberry_milkshake"
 
 [node name="Panel5" parent="CenterContainer/MarginContainer/HBoxContainer/GridContainer2" unique_id=1453878442 instance=ExtResource("2_at7yq")]
 layout_mode = 2
+new_sprite = ExtResource("6_ac8ls")

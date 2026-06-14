@@ -1,7 +1,7 @@
 extends PanelContainer
 
 @onready var drink_name: Label = $VBoxContainer/MarginContainer2/DrinkName
-@onready var drink_sprite: TextureRect = $VBoxContainer/DrinkSprite
+@onready var drink_sprite: TextureRect = $VBoxContainer/HBoxContainer/MarginContainer2/DrinkSprite
 @onready var star1_filled: TextureRect = $VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/Star1Filled
 @onready var star1_empty: TextureRect = $VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/Star1Empty
 @onready var star2_filled: TextureRect = $VBoxContainer/MarginContainer/HBoxContainer/MarginContainer3/Star2Filled

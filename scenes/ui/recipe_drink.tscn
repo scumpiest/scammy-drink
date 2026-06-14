@@ -14,6 +14,7 @@ bg_color = Color(0.69803923, 0.5058824, 0.2, 0.48235294)
 custom_minimum_size = Vector2(191, 150)
 offset_right = 146.0
 offset_bottom = 28.0
+scale = Vector2(1, 0.99791783)
 theme_override_styles/panel = SubResource("StyleBoxFlat_poj4g")
 script = ExtResource("1_4yp0v")
 new_sprite = ExtResource("2_ql266")
@@ -31,7 +32,46 @@ theme_override_font_sizes/font_size = 20
 text = "Pina Colada"
 horizontal_alignment = 1
 
-[node name="DrinkSprite" type="TextureRect" parent="VBoxContainer" unique_id=1887264911]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=73463506]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer" unique_id=495468139]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer" unique_id=1582837597]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="IngredientsText" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer" unique_id=461238478]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Ingredients:"
+
+[node name="Ingredient1" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer" unique_id=337252557]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "I one"
+
+[node name="Ingredient2" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer" unique_id=1050659707]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "I two"
+
+[node name="Ingredient3" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer" unique_id=1317980302]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "I three"
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/HBoxContainer" unique_id=1807167098]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+theme_override_constants/margin_right = 5
+
+[node name="DrinkSprite" type="TextureRect" parent="VBoxContainer/HBoxContainer/MarginContainer2" unique_id=1887264911]
 material = ExtResource("5_drink")
 custom_minimum_size = Vector2(75, 100)
 layout_mode = 2
@@ -44,7 +84,7 @@ stretch_mode = 4
 layout_mode = 2
 theme_override_constants/margin_left = 25
 theme_override_constants/margin_right = 25
-theme_override_constants/margin_bottom = 10
+theme_override_constants/margin_bottom = 5
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer" unique_id=234189986]
 layout_mode = 2
