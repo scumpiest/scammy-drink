@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://c86lgs72w0q84"]
 
-[ext_resource type="Script" uid="uid://bufqiahla6rg0" path="res://settings_menu.gd" id="1_0cmel"]
-[ext_resource type="Script" uid="uid://cggk3xkc2q78l" path="res://music_slider.gd" id="2_mlw3h"]
-[ext_resource type="Script" uid="uid://dgos26xh35sow" path="res://sounds_slider.gd" id="3_d0eu6"]
+[ext_resource type="Script" uid="uid://bufqiahla6rg0" path="res://scenes/ui/settings_menu.gd" id="1_0cmel"]
+[ext_resource type="Script" uid="uid://cggk3xkc2q78l" path="res://scenes/ui/music_slider.gd" id="2_mlw3h"]
+[ext_resource type="Script" uid="uid://dgos26xh35sow" path="res://scenes/ui/sounds_slider.gd" id="3_d0eu6"]
 
 [node name="SettingsMenu" type="Control" unique_id=1594010630]
 layout_mode = 3
