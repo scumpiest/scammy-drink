@@ -30,8 +30,6 @@ var _bop_time: float = 0.0
 
 
 func _ready() -> void:
-	var random_type = randi() % Customer.Type.size() as Customer.Type
-	customer_type = random_type
 	sprite.texture = SPRITES[customer_type]
 	_sprite_rest_y = sprite.position.y
 	_sprite_rest_scale = sprite.scale
@@ -39,6 +37,7 @@ func _ready() -> void:
 
 	GameManager.add_recipe_order()
 	request = GameManager.get_order()
+	# TODO: We shouldnt display the drink request(keep this for debugging)
 	chat_bubble.text = "GIMME " + request.to_upper() + "!!"
 
 	GameManager.crafting_result.connect(_on_crafting_result)

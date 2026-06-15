@@ -2,6 +2,7 @@ extends Node
 
 signal crafting_complete(recipe_key: String)
 signal crafting_result(recipe_key: String, correct_count: int, missing_ingredients: Array)
+signal all_recipes_three_star
 
 var inventory: Dictionary = {
 	"soda": 1,
@@ -23,6 +24,9 @@ var inventory: Dictionary = {
 var recipe_orders: Array = []
 var missing_ingredients: Array = []
 var unlocked_recipes: Dictionary = {}
+var unlocked_recipe_ingredients: Dictionary = {}
+var recipe_best_stars: Dictionary = {}
+var _all_three_star_emitted: bool = false
 
 
 func update_inventory(item: String, quantity: int):
@@ -60,6 +64,12 @@ func create_recipe(crafting_ingredients: Dictionary):
 		else:
 			missing_ingredients.append(ing)
 
+	_unlock_recipe_ingredients_from_craft(recipe_key, crafting_ingredients)
+
+	var previous_best: int = recipe_best_stars.get(recipe_key, 0)
+	recipe_best_stars[recipe_key] = maxi(previous_best, correct_count)
+	_check_all_recipes_three_star()
+
 	crafting_complete.emit(recipe_key)
 	crafting_result.emit(recipe_key, correct_count, missing_ingredients)
 
@@ -70,3 +80,65 @@ func complete_current_order() -> void:
 	if recipe_orders.is_empty():
 		return
 	recipe_orders.pop_front()
+
+
+func _ensure_recipe_ingredient_slots(recipe_key: String) -> Array:
+	if not unlocked_recipe_ingredients.has(recipe_key):
+		unlocked_recipe_ingredients[recipe_key] = [false, false, false]
+	return unlocked_recipe_ingredients[recipe_key]
+
+
+func unlock_recipe_ingredient_at(recipe_key: String, index: int) -> void:
+	var slots: Array = _ensure_recipe_ingredient_slots(recipe_key)
+	slots[index] = true
+	_update_recipe_unlock_state(recipe_key)
+
+
+func _unlock_recipe_ingredients_from_craft(recipe_key: String, crafting_ingredients: Dictionary) -> void:
+	var recipe_ingredient_keys: Array = CraftingRecipe.crafting_dict[recipe_key]["ingredients"].keys()
+	for i in recipe_ingredient_keys.size():
+		if crafting_ingredients.has(recipe_ingredient_keys[i]):
+			unlock_recipe_ingredient_at(recipe_key, i)
+
+
+func is_recipe_ingredient_unlocked(recipe_key: String, index: int) -> bool:
+	if not unlocked_recipe_ingredients.has(recipe_key):
+		return false
+	return unlocked_recipe_ingredients[recipe_key][index]
+
+
+func is_recipe_fully_unlocked(recipe_key: String) -> bool:
+	if not unlocked_recipe_ingredients.has(recipe_key):
+		return false
+	for unlocked in unlocked_recipe_ingredients[recipe_key]:
+		if not unlocked:
+			return false
+	return true
+
+
+func _update_recipe_unlock_state(recipe_key: String) -> void:
+	if is_recipe_fully_unlocked(recipe_key):
+		unlocked_recipes[recipe_key] = true
+
+
+func get_recipe_stars(recipe_key: String) -> int:
+	return recipe_best_stars.get(recipe_key, 0)
+
+
+func has_three_star(recipe_key: String) -> bool:
+	return get_recipe_stars(recipe_key) >= 3
+
+
+func are_all_recipes_three_star() -> bool:
+	for recipe_key in CraftingRecipe.get_recipes():
+		if get_recipe_stars(recipe_key) < 3:
+			return false
+	return true
+
+
+func _check_all_recipes_three_star() -> void:
+	if _all_three_star_emitted:
+		return
+	if are_all_recipes_three_star():
+		_all_three_star_emitted = true
+		all_recipes_three_star.emit()

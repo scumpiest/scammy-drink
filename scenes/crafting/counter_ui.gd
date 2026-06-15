@@ -11,28 +11,22 @@ extends Control
 var current_target: Marker2D = null
 var _awaiting_notes_save: bool = false
 var _notes_saved_for_order: bool = false
-var customer: Customer = null
+var customer: Customer
 
 var main_menu_scene: String = "uid://ctrh7huvrvaws"
 
+@export var customer_scene: PackedScene
 @export var lerp_weight: float = 1.0
-@export var customer_scene: PackedScene = null
-@export var bomb: PackedScene = null
 
 
 func _ready() -> void:
 	SignalBus.notes_saved.connect(_on_notes_saved)
+	GameManager.all_recipes_three_star.connect(_on_all_recipes_three_star)
 	customer = spawn_customer()
 	setup_customer(customer)
 
 
 func _process(delta: float) -> void:
-	if Input.is_action_pressed("spawn_item"):
-		print("spawn_item pressed")
-		var item = bomb.instantiate()
-		item.global_position = enter_marker.global_position
-		item.z_index = -1
-		add_child(item)
 	if current_target and customer and is_instance_valid(customer):
 		customer.position = customer.position.lerp(current_target.global_position, 1.0 - exp(-lerp_weight * delta))
 	if Input.is_action_pressed("close"):
@@ -40,7 +34,7 @@ func _process(delta: float) -> void:
 	
 
 func spawn_customer() -> Customer:
-	var new_customer := customer_scene.instantiate() as Customer
+	var new_customer: Customer = customer_scene.instantiate() as Customer
 	new_customer.customer_type = randi() % Customer.Type.size() as Customer.Type
 	new_customer.global_position = spawn_marker.global_position
 	add_child(new_customer)
@@ -96,4 +90,8 @@ func _on_main_menu_button_pressed() -> void:
 
 
 func _on_recipe_button_pressed() -> void:
+	recipe_book.visible = true
+
+# TODO: Add a victory screen
+func _on_all_recipes_three_star() -> void:
 	recipe_book.visible = true

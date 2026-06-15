@@ -12,9 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://ckidru81cjdka" path="res://assets/drinks/Coconut_Mocktail.png" id="8_h057y"]
 [ext_resource type="Texture2D" uid="uid://dujfil0hhb7av" path="res://assets/drinks/Strawberry_Milkshake.png" id="9_h057y"]
 
-[sub_resource type="Resource" id="Resource_paolu"]
-metadata/__load_path__ = "res://assets/Piña_Colada[1].png"
-
 [node name="RecipeBook" type="Control" unique_id=1904256542]
 z_index = 10
 layout_mode = 3
@@ -115,5 +112,8 @@ new_name = "Strawberry Milkshake"
 new_sprite = ExtResource("9_h057y")
 recipe_key = "strawberry_milkshake"
 
-[node name="Panel5" parent="CenterContainer/MarginContainer/HBoxContainer/GridContainer2" unique_id=1453878442 instance=ExtResource("2_at7yq")]
+[node name="PartyMix" parent="CenterContainer/MarginContainer/HBoxContainer/GridContainer2" unique_id=1453878442 instance=ExtResource("2_at7yq")]
 layout_mode = 2
+new_name = "Party Mix"
+new_sprite = ExtResource("4_fts6g")
+recipe_key = "party_mix"
