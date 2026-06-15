@@ -117,4 +117,3 @@ recipe_key = "strawberry_milkshake"
 
 [node name="Panel5" parent="CenterContainer/MarginContainer/HBoxContainer/GridContainer2" unique_id=1453878442 instance=ExtResource("2_at7yq")]
 layout_mode = 2
-new_sprite = SubResource("Resource_paolu")
