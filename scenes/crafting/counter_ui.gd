@@ -32,9 +32,12 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if current_target and customer and is_instance_valid(customer):
 		customer.position = customer.position.lerp(current_target.global_position, 1.0 - exp(-lerp_weight * delta))
-	if Input.is_action_pressed("close"):
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("close_recipe"):
 		recipe_book.visible = false
-	
+	if event.is_action_pressed("open_recipe"):
+		recipe_book.visible = true
 
 func spawn_customer() -> Customer:
 	var new_customer: Customer = customer_scene.instantiate() as Customer
