@@ -1,6 +1,7 @@
 extends PanelContainer
 
-@onready var drink_name: Label = $VBoxContainer/MarginContainer2/DrinkName
+@onready var drink_name: Label = $VBoxContainer/MarginContainer2/VBoxContainer/DrinkName
+@onready var actual_name: Label = $VBoxContainer/MarginContainer2/VBoxContainer/ActualName
 @onready var drink_sprite: TextureRect = $VBoxContainer/HBoxContainer/MarginContainer2/DrinkSprite
 @onready var star1_filled: TextureRect = $VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/Star1Filled
 @onready var star1_empty: TextureRect = $VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/Star1Empty
@@ -8,22 +9,52 @@ extends PanelContainer
 @onready var star2_empty: TextureRect = $VBoxContainer/MarginContainer/HBoxContainer/MarginContainer3/Star2Empty
 @onready var star3_filled: TextureRect = $VBoxContainer/MarginContainer/HBoxContainer/MarginContainer2/Star3Filled
 @onready var star3_empty: TextureRect = $VBoxContainer/MarginContainer/HBoxContainer/MarginContainer2/Star3Empty
+@onready var ingredient1: Label = $VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/Ingredient1
+@onready var ingredient2: Label = $VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/Ingredient2
+@onready var ingredient3: Label = $VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/Ingredient3
 
 @export var new_name: String
+@export var fake_name: String
 @export var new_sprite: Texture
 @export var recipe_key: String = ""
 
+var _ingredient_labels: Array[Label] = []
+
 
 func _ready() -> void:
-	# SignalBus.notes_saved.connect(_on_notes_saved)
+	_ingredient_labels = [ingredient1, ingredient2, ingredient3]
+	SignalBus.notes_saved.connect(_on_notes_saved)
+	drink_name.text = fake_name
 	drink_sprite.texture = new_sprite
 	_apply_lock_state()
 
 
 func _apply_lock_state() -> void:
-	var is_unlocked: bool = GameManager.unlocked_recipes.has(recipe_key)
-	drink_name.text = new_name if is_unlocked else "?"
-	drink_sprite.modulate = Color(1.0, 1.0, 1.0, 1.0) if is_unlocked else Color(0.0, 0.0, 0.0, 1.0)
+	if recipe_key.is_empty() or not CraftingRecipe.crafting_dict.has(recipe_key):
+		drink_sprite.modulate = Color(0.0, 0.0, 0.0, 1.0)
+		actual_name.text = "(?)"
+		for label in _ingredient_labels:
+			label.text = "?"
+		return
+
+	var is_fully_unlocked: bool = GameManager.is_recipe_fully_unlocked(recipe_key)
+	drink_sprite.modulate = Color(1.0, 1.0, 1.0, 1.0) if is_fully_unlocked else Color(0.0, 0.0, 0.0, 1.0)
+	actual_name.text = new_name if is_fully_unlocked else "(?)"
+	_refresh_ingredient_labels()
+
+
+func _refresh_ingredient_labels() -> void:
+	if recipe_key.is_empty() or not CraftingRecipe.crafting_dict.has(recipe_key):
+		return
+
+	var actual: Array = CraftingRecipe.crafting_dict[recipe_key]["ingredients"].keys()
+	for i in _ingredient_labels.size():
+		if i >= actual.size():
+			_ingredient_labels[i].text = "?"
+		elif GameManager.is_recipe_ingredient_unlocked(recipe_key, i):
+			_ingredient_labels[i].text = actual[i]
+		else:
+			_ingredient_labels[i].text = "?"
 
 
 func set_stars(filled_count: int) -> void:
@@ -32,11 +63,23 @@ func set_stars(filled_count: int) -> void:
 	star3_filled.visible = filled_count >= 3
 
 
-func unlock_recipe() -> void:
-	drink_name.text = new_name
-	drink_sprite.modulate = Color(1.0, 1.0, 1.0, 1.0)
+func refresh_display() -> void:
+	_apply_lock_state()
 
-# func _on_notes_saved(notes_content: Array) -> void:
-# 	ingredient1.text = ingredients[0]
-# 	ingredient2.text = ingredients[1]
-# 	ingredient3.text = ingredients[2]
+
+func _on_notes_saved(notes_content: Dictionary) -> void:
+	if recipe_key.is_empty() or not CraftingRecipe.crafting_dict.has(recipe_key):
+		return
+	if recipe_key != notes_content["recipe_key"]:
+		return
+
+	var actual: Array = CraftingRecipe.crafting_dict[recipe_key]["ingredients"].keys()
+	var saved_ingredients: Array = notes_content["ingredients"]
+	if saved_ingredients.size() != actual.size():
+		return
+
+	for i in actual.size():
+		if saved_ingredients[i] == actual[i]:
+			GameManager.unlock_recipe_ingredient_at(recipe_key, i)
+
+	_apply_lock_state()

@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://x6l2s2cjh6tm"]
+
+[ext_resource type="Script" uid="uid://4jpof6loeap4" path="res://scenes/customers/customer.gd" id="1_0p6h7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w188d"]
+size = Vector2(320, 432)
+
+[node name="Customer" type="Area2D" unique_id=912506872]
+z_index = -1
+script = ExtResource("1_0p6h7")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2091024564]
+position = Vector2(160, 216.00002)
+scale = Vector2(0.3, 0.3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=179281276]
+position = Vector2(160, 216)
+shape = SubResource("RectangleShape2D_w188d")
+
+[node name="BubbleBackground" type="PanelContainer" parent="." unique_id=1492331108]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ChatBubble" type="Label" parent="BubbleBackground" unique_id=802583772]
+layout_mode = 2

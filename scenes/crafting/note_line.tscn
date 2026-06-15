@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d1kp6jgpmdu0w" path="res://scenes/crafting/note_line.gd" id="1_nl8t4"]
 [ext_resource type="Texture2D" uid="uid://d3iax1p33poq2" path="res://assets/scribble.png" id="2_wl06w"]
+[ext_resource type="Texture2D" uid="uid://1oeoolw7rm3c" path="res://assets/rotate_ccw.png" id="3_np6mr"]
 
 [node name="NoteLine" type="MarginContainer" unique_id=1016414544]
 script = ExtResource("1_nl8t4")
@@ -9,21 +10,29 @@ script = ExtResource("1_nl8t4")
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1932110821]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=315975126]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1604237620]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/MarginContainer" unique_id=2109610019]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer" unique_id=315975126]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainer" unique_id=2109610019]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.77254903, 0.34509805, 0.15686275, 1)
 theme_override_font_sizes/font_size = 24
 text = "FancyName"
 
-[node name="ScratchOverlay" type="TextureRect" parent="VBoxContainer/MarginContainer" unique_id=1213275371]
+[node name="ScratchOverlay" type="TextureRect" parent="VBoxContainer/HBoxContainer/MarginContainer" unique_id=1213275371]
 layout_mode = 2
 texture = ExtResource("2_wl06w")
 expand_mode = 2
 stretch_mode = 4
 flip_h = true
+
+[node name="UndoButton" type="TextureButton" parent="VBoxContainer/HBoxContainer" unique_id=209952347]
+texture_filter = 1
+layout_mode = 2
+texture_normal = ExtResource("3_np6mr")
 
 [node name="NewLabel" type="Label" parent="VBoxContainer" unique_id=1124623761]
 visible = false

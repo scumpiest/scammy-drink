@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://ba2rpfg2awifo"]
+
+[ext_resource type="Script" uid="uid://c8k3m2n4p5q6r7" path="res://scenes/crafting/capy_notes.gd" id="1_cgd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cn1"]
+bg_color = Color(0.82, 0.9, 0.72, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="CapyNotes" type="PanelContainer"]
+offset_right = 220.0
+offset_bottom = 304.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_cn1")
+script = ExtResource("1_cgd")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.35, 0.15, 1)
+theme_override_font_sizes/font_size = 20
+text = "Capy Notes:"
+
+[node name="IngredientsContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4

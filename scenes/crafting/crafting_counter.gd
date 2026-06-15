@@ -1,5 +1,7 @@
 extends PanelContainer
 
+signal drink_ingredient_added(ingredient: String)
+
 @onready var item_list: RichTextLabel = $MarginContainer/HBoxContainer/MidContainer/ItemList
 @onready var mix_button: Button = $MarginContainer/HBoxContainer/MidContainer/Mix
 @onready var glass: Node2D = $MarginContainer/HBoxContainer/MidContainer/Glass
@@ -18,6 +20,7 @@ func _add_ingredient(ingredient: String) -> void:
 	if crafting_ingredients.size() < 3:
 		crafting_ingredients[ingredient] = crafting_ingredients.get(ingredient, 0) + 1
 		item_list.text += ingredient + "\n"
+		drink_ingredient_added.emit(ingredient)
 
 	if _get_total_ingredients() >= 3:
 			get_tree().call_group("fluid_button", "set", "disabled", true)
@@ -32,7 +35,9 @@ func _get_total_ingredients() -> int:
 
 func reset() -> void:
 	crafting_ingredients.clear()
-	Util.clear_target_children(self, 6)
+	var glass_ingredients: Node = get_parent().get_node("GlassIngredients")
+	for child in glass_ingredients.get_children():
+		child.queue_free()
 
 	item_list.text = ""
 	get_tree().call_group("fluid_button", "set", "disabled", false)

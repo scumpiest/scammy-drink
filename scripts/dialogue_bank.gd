@@ -5,15 +5,14 @@ var chat_templates: Dictionary = {
 	"scratch_name": "We aren't making a {old_item} anymore. Change the name to a {new_item}!",
 	"empty_line_fill": "Perfect, let's add some {new_item} to that blank line.",
 	
-	"bitchy_or_chill_my_drink?": "Heya, uhmm, is that MY drink?",
-	"bitchy_or_chill_wrong_ingredient": "Cause idk, I’m pretty sure you don’t normally put {old_item} in there…",
-	"bitchy_or_chill_no_ice": "Cause I actually don’t like my drink Ice cold, you know?",
-	"bitchy_or_chill_right_ingredient": "Just saying, but in the other bars they usually put some {new_item} in there!",
-	
-	"shy_my_drink?": "Oh, are you… working on my drink?",
-	"shy_wrong_ingredient": "You know, I don’t know much about drinks but I don’t think it tasted like {old_item} last time I had one…",
-	"shy_no_ice": "I just wanted to mention that I would prefer my drink to be just an average temperature… So, no need to put any Ice in there…",
-	"shy_right_ingredient": "I don´t know how to say this, but I think I remember this drink having some {new_item} mixed in, but I´m sure it´s gonna taste great no matter what.",
+	"seal_hello": "Heyaaa!",
+	"seal_my_drink?": "Uhmm, is that MY drink?",
+	"seal_wrong_ingredient": "Cause idk, I’m pretty sure you don’t normally put {old_item} in there…",
+	"seal_right_ingredient": "Cause I think you might´ve forgotten the {old_item}",
+	"seal_thx_1": "Yeh, thanks for the drink!",
+	"seal_thx_2": "Thanks for the dr..., hmm, this is good! Keep up tha good work!",
+	"seal_thx_3": "Thank you fo..., oh, this..., it´s too good, it´s perfect! Ya gotta make me such good drinks all the time!",
+	"seal_thx_failed": "Welp, it´s not that good, but don´t you worry, you´ll get there soon enough!",
 	
 	"confident_my_drink?": "Hey, soooo, who’s this drink for?",
 	"confident_wrong_ingredient": "Cause last time I checked I was the only one in here and the {old_item} you just put in there does not go into the drink I ordered!",

@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://btippanelscn1"]
+
+[ext_resource type="Script" uid="uid://btippanel0gd1" path="res://scenes/crafting/tip_panel.gd" id="1_tgd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tp1"]
+bg_color = Color(0.7, 0.85, 0.97, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="TipPanel" type="PanelContainer" groups=["tip_panel"]]
+visible = false
+offset_right = 220.0
+offset_bottom = 304.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_tp1")
+script = ExtResource("1_tgd")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.15, 0.3, 0.55, 1)
+theme_override_font_sizes/font_size = 20
+text = "Customer's Tip:"
+
+[node name="HintLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.25, 0.25, 0.45, 1)
+theme_override_font_sizes/font_size = 15
+text = ""
+autowrap_mode = 3
+
+[node name="ChipsContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 6
