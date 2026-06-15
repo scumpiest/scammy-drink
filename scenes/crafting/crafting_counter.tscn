@@ -1,144 +1,147 @@
 [gd_scene format=3 uid="uid://baq4fejjo54v3"]
 
+[ext_resource type="Texture2D" uid="uid://c58s4nvg5fyuf" path="res://assets/Counter UI/Counter2.png" id="1_3njbq"]
 [ext_resource type="Script" uid="uid://cvamqu51op1ak" path="res://scenes/crafting/crafting_counter.gd" id="1_tkddw"]
 [ext_resource type="PackedScene" uid="uid://cx2xywnut4m6a" path="res://shaders[EXPERIMENTAL]/glass.tscn" id="2_mtexl"]
 [ext_resource type="PackedScene" uid="uid://c8pq4m2trnbs5" path="res://scenes/ingredients/buttons/mint_button.tscn" id="3_mint"]
+[ext_resource type="Texture2D" uid="uid://q2lkpe530b6j" path="res://assets/Counter UI/Soda.png" id="3_txhfi"]
 [ext_resource type="PackedScene" uid="uid://dus3dxr1vygwo" path="res://scenes/ingredients/buttons/mixed_fruits_button.tscn" id="4_gwn08"]
+[ext_resource type="Texture2D" uid="uid://bsqibv746g70s" path="res://assets/Counter UI/Water.png" id="4_hfh2m"]
 [ext_resource type="PackedScene" uid="uid://d3fyak7wnqhc2" path="res://scenes/ingredients/buttons/lemon_button.tscn" id="4_lemon"]
+[ext_resource type="Texture2D" uid="uid://nb8g1uhmdg70" path="res://assets/Counter UI/Milkk.png" id="5_4xme1"]
 [ext_resource type="PackedScene" uid="uid://bv6j5n8trm4pw" path="res://scenes/ingredients/buttons/apple_button.tscn" id="5_apple"]
 [ext_resource type="PackedScene" uid="uid://c4yt7p2mqsnx6" path="res://scenes/ingredients/buttons/orange_button.tscn" id="6_orange"]
+[ext_resource type="Texture2D" uid="uid://c5qp7nesymj6d" path="res://assets/Counter UI/White_Wine.png" id="6_sh4g1"]
+[ext_resource type="Texture2D" uid="uid://rfruie3dwwkd" path="res://assets/Counter UI/LimeJuice.png" id="7_d6t5a"]
 [ext_resource type="PackedScene" uid="uid://dk3w8f5rqhyn4" path="res://scenes/ingredients/buttons/pineapple_button.tscn" id="7_pineapple"]
+[ext_resource type="Texture2D" uid="uid://bjd821s2t37fc" path="res://assets/Counter UI/Coco_Cream.png" id="8_auc77"]
 [ext_resource type="PackedScene" uid="uid://bm7v4yatnqkp2" path="res://scenes/ingredients/buttons/strawberry_button.tscn" id="8_strawberry"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pblyx"]
-bg_color = Color(0.7277993, 0.45740324, 0.2903557, 1)
-
-[node name="CraftingCounter" type="PanelContainer" unique_id=1665070910]
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -348.0
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_horizontal = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_pblyx")
+[node name="CraftingCounter" type="Node2D" unique_id=243429001]
 script = ExtResource("1_tkddw")
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=424579319]
-layout_mode = 2
-theme_override_constants/margin_left = 15
-theme_override_constants/margin_top = 15
-theme_override_constants/margin_right = 15
-theme_override_constants/margin_bottom = 15
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1071975145]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_3njbq")
+expand_mode = 1
+stretch_mode = 4
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=726580812]
-layout_mode = 2
+[node name="Soda" type="TextureButton" parent="." unique_id=940405912 groups=["fluid_button"]]
+offset_left = 241.0
+offset_top = 195.0
+offset_right = 386.0
+offset_bottom = 495.0
+texture_normal = ExtResource("3_txhfi")
 
-[node name="FluidContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=1181137842]
-layout_mode = 2
-size_flags_horizontal = 3
+[node name="Water" type="TextureButton" parent="." unique_id=1647639793 groups=["fluid_button"]]
+offset_left = 111.0
+offset_top = 180.0
+offset_right = 256.0
+offset_bottom = 480.0
+texture_normal = ExtResource("4_hfh2m")
 
-[node name="Soda" type="Button" parent="MarginContainer/HBoxContainer/FluidContainer" unique_id=1311358795 groups=["fluid_button"]]
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "Soda"
+[node name="Milk" type="TextureButton" parent="." unique_id=657344531 groups=["fluid_button"]]
+offset_left = 213.0
+offset_top = 303.0
+offset_right = 358.0
+offset_bottom = 538.0
+texture_normal = ExtResource("5_4xme1")
 
-[node name="Water" type="Button" parent="MarginContainer/HBoxContainer/FluidContainer" unique_id=1128563033 groups=["fluid_button"]]
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "Water"
+[node name="WhiteWine" type="TextureButton" parent="." unique_id=1061502408 groups=["fluid_button"]]
+offset_left = 80.0
+offset_top = 242.0
+offset_right = 225.0
+offset_bottom = 542.0
+texture_normal = ExtResource("6_sh4g1")
 
-[node name="Milk" type="Button" parent="MarginContainer/HBoxContainer/FluidContainer" unique_id=1814541676 groups=["fluid_button"]]
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "Milk"
+[node name="LimeJuice" type="TextureButton" parent="." unique_id=580097166 groups=["fluid_button"]]
+offset_left = 186.0
+offset_top = 450.0
+offset_right = 331.0
+offset_bottom = 595.0
+texture_normal = ExtResource("7_d6t5a")
 
-[node name="WhiteWine" type="Button" parent="MarginContainer/HBoxContainer/FluidContainer" unique_id=1519073136 groups=["fluid_button"]]
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "White Wine"
+[node name="CoconutCream" type="TextureButton" parent="." unique_id=374703512 groups=["fluid_button"]]
+offset_left = 63.0
+offset_top = 457.0
+offset_right = 208.0
+offset_bottom = 602.0
+texture_normal = ExtResource("8_auc77")
 
-[node name="LimeJuice" type="Button" parent="MarginContainer/HBoxContainer/FluidContainer" unique_id=168167473 groups=["fluid_button"]]
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "Lime Juice"
+[node name="Mint" parent="." unique_id=2092211543 instance=ExtResource("3_mint")]
+offset_left = 787.0
+offset_top = 371.0
+offset_right = 877.0
+offset_bottom = 461.0
 
-[node name="CoconutCream" type="Button" parent="MarginContainer/HBoxContainer/FluidContainer" unique_id=1441620592 groups=["fluid_button"]]
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "Coconut Cream"
+[node name="MixedFruits" parent="." unique_id=608711463 instance=ExtResource("4_gwn08")]
+offset_left = 841.0
+offset_top = 555.0
+offset_right = 931.0
+offset_bottom = 645.0
 
-[node name="MidContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=8302357]
-layout_mode = 2
+[node name="Lemon" parent="." unique_id=406346567 instance=ExtResource("4_lemon")]
+offset_left = 931.0
+offset_top = 371.0
+offset_right = 1021.0
+offset_bottom = 461.0
 
-[node name="Ice" type="Button" parent="MarginContainer/HBoxContainer/MidContainer" unique_id=1162243410 groups=["fluid_button"]]
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "IceIceBaby"
+[node name="Apple" parent="." unique_id=1258887313 instance=ExtResource("5_apple")]
+offset_left = 931.0
+offset_top = 432.0
+offset_right = 1021.0
+offset_bottom = 522.0
 
-[node name="ItemList" type="RichTextLabel" parent="MarginContainer/HBoxContainer/MidContainer" unique_id=2025322958]
-custom_minimum_size = Vector2(400, 180)
-layout_mode = 2
-size_flags_horizontal = 4
-fit_content = true
+[node name="Orange" parent="." unique_id=246853421 instance=ExtResource("6_orange")]
+offset_left = 788.0
+offset_top = 432.0
+offset_right = 878.0
+offset_bottom = 522.0
 
-[node name="Mix" type="Button" parent="MarginContainer/HBoxContainer/MidContainer" unique_id=1106068344]
-layout_mode = 2
+[node name="Pineapple" parent="." unique_id=1301951141 instance=ExtResource("7_pineapple")]
+offset_left = 808.0
+offset_top = 472.0
+offset_right = 898.0
+offset_bottom = 562.0
+
+[node name="Strawberry" parent="." unique_id=945151062 instance=ExtResource("8_strawberry")]
+offset_left = 971.0
+offset_top = 480.0
+offset_right = 1061.0
+offset_bottom = 570.0
+
+[node name="Ice" type="TextureButton" parent="." unique_id=395782904 groups=["fluid_button"]]
+offset_left = 1021.0
+offset_top = 538.0
+offset_right = 1021.0
+offset_bottom = 628.0
+
+[node name="Glass" parent="." unique_id=2052105736 instance=ExtResource("2_mtexl")]
+position = Vector2(595, 52)
+
+[node name="Mix" type="Button" parent="." unique_id=1106068344]
+offset_left = 509.0
+offset_top = 542.0
+offset_right = 678.0
+offset_bottom = 567.0
 text = "MIX THE DRINK!!!!!!"
 
-[node name="Reset" type="Button" parent="MarginContainer/HBoxContainer/MidContainer" unique_id=1219358859]
-layout_mode = 2
+[node name="Reset" type="Button" parent="." unique_id=1219358859]
+offset_left = 509.0
+offset_top = 571.0
+offset_right = 678.0
+offset_bottom = 596.0
 text = "EMERGENCY RESET BUTTON"
-
-[node name="Glass" parent="MarginContainer/HBoxContainer/MidContainer" unique_id=2052105736 instance=ExtResource("2_mtexl")]
-position = Vector2(104, 37)
-
-[node name="FruitContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=559673058]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/FruitContainer" unique_id=1420784380]
-layout_mode = 2
-size_flags_horizontal = 8
-
-[node name="Mint" parent="MarginContainer/HBoxContainer/FruitContainer/HBoxContainer" unique_id=2092211543 instance=ExtResource("3_mint")]
-layout_mode = 2
-
-[node name="MixedFruits" parent="MarginContainer/HBoxContainer/FruitContainer/HBoxContainer" unique_id=608711463 instance=ExtResource("4_gwn08")]
-layout_mode = 2
-
-[node name="Lemon" parent="MarginContainer/HBoxContainer/FruitContainer/HBoxContainer" unique_id=406346567 instance=ExtResource("4_lemon")]
-layout_mode = 2
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/HBoxContainer/FruitContainer" unique_id=2107144651]
-layout_mode = 2
-size_flags_horizontal = 8
-
-[node name="Apple" parent="MarginContainer/HBoxContainer/FruitContainer/HBoxContainer2" unique_id=1258887313 instance=ExtResource("5_apple")]
-layout_mode = 2
-
-[node name="Orange" parent="MarginContainer/HBoxContainer/FruitContainer/HBoxContainer2" unique_id=246853421 instance=ExtResource("6_orange")]
-layout_mode = 2
-
-[node name="Pineapple" parent="MarginContainer/HBoxContainer/FruitContainer/HBoxContainer2" unique_id=1301951141 instance=ExtResource("7_pineapple")]
-layout_mode = 2
-
-[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/HBoxContainer/FruitContainer" unique_id=1830413303]
-layout_mode = 2
-size_flags_horizontal = 8
-
-[node name="Strawberry" parent="MarginContainer/HBoxContainer/FruitContainer/HBoxContainer3" unique_id=945151062 instance=ExtResource("8_strawberry")]
-layout_mode = 2
 
 [node name="GlassIngredients" type="Node" parent="." unique_id=1537012552]
 
-[connection signal="pressed" from="MarginContainer/HBoxContainer/FluidContainer/Soda" to="." method="_on_soda_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/FluidContainer/Water" to="." method="_on_water_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/FluidContainer/Milk" to="." method="_on_milk_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/FluidContainer/WhiteWine" to="." method="_on_white_wine_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/FluidContainer/LimeJuice" to="." method="_on_lime_juice_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/FluidContainer/CoconutCream" to="." method="_on_coconut_cream_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/MidContainer/Ice" to="." method="_on_ice_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/MidContainer/Mix" to="." method="_on_mix_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/MidContainer/Reset" to="." method="_on_reset_pressed"]
+[connection signal="pressed" from="Soda" to="." method="_on_soda_pressed"]
+[connection signal="pressed" from="Water" to="." method="_on_water_pressed"]
+[connection signal="pressed" from="Milk" to="." method="_on_milk_pressed"]
+[connection signal="pressed" from="WhiteWine" to="." method="_on_white_wine_pressed"]
+[connection signal="pressed" from="LimeJuice" to="." method="_on_lime_juice_pressed"]
+[connection signal="pressed" from="CoconutCream" to="." method="_on_coconut_cream_pressed"]
+[connection signal="pressed" from="Ice" to="." method="_on_ice_pressed"]
+[connection signal="pressed" from="Mix" to="." method="_on_mix_pressed"]
+[connection signal="pressed" from="Reset" to="." method="_on_reset_pressed"]
