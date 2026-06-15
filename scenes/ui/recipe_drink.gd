@@ -1,6 +1,7 @@
 extends PanelContainer
 
-@onready var drink_name: Label = $VBoxContainer/MarginContainer2/DrinkName
+@onready var drink_name: Label = $VBoxContainer/MarginContainer2/VBoxContainer/DrinkName
+@onready var actual_name: Label = $VBoxContainer/MarginContainer2/VBoxContainer/ActualName
 @onready var drink_sprite: TextureRect = $VBoxContainer/HBoxContainer/MarginContainer2/DrinkSprite
 @onready var star1_filled: TextureRect = $VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/Star1Filled
 @onready var star1_empty: TextureRect = $VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/Star1Empty
@@ -13,6 +14,7 @@ extends PanelContainer
 @onready var ingredient3: Label = $VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/Ingredient3
 
 @export var new_name: String
+@export var fake_name: String
 @export var new_sprite: Texture
 @export var recipe_key: String = ""
 
@@ -22,21 +24,22 @@ var _ingredient_labels: Array[Label] = []
 func _ready() -> void:
 	_ingredient_labels = [ingredient1, ingredient2, ingredient3]
 	SignalBus.notes_saved.connect(_on_notes_saved)
+	drink_name.text = fake_name
 	drink_sprite.texture = new_sprite
 	_apply_lock_state()
 
 
 func _apply_lock_state() -> void:
 	if recipe_key.is_empty() or not CraftingRecipe.crafting_dict.has(recipe_key):
-		drink_name.text = "?"
 		drink_sprite.modulate = Color(0.0, 0.0, 0.0, 1.0)
+		actual_name.text = "(?)"
 		for label in _ingredient_labels:
 			label.text = "?"
 		return
 
 	var is_fully_unlocked: bool = GameManager.is_recipe_fully_unlocked(recipe_key)
-	drink_name.text = new_name if is_fully_unlocked else "?"
 	drink_sprite.modulate = Color(1.0, 1.0, 1.0, 1.0) if is_fully_unlocked else Color(0.0, 0.0, 0.0, 1.0)
+	actual_name.text = new_name if is_fully_unlocked else "(?)"
 	_refresh_ingredient_labels()
 
 
