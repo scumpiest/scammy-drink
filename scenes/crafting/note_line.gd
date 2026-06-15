@@ -1,3 +1,4 @@
+class_name NoteLine
 extends MarginContainer
 
 @onready var label: Label = $VBoxContainer/MarginContainer/Label

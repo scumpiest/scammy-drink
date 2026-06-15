@@ -71,7 +71,7 @@ func _on_crafting_result(_recipe_key: String, _correct_count: int, _missing_ingr
 	if _missing_ingredients.is_empty():
 		chat_bubble.text = "Thanks for the " + request + "!"
 	else:
-		var ingredients_str: String = ", ".join(_missing_ingredients)
+		var ingredients_str: String = _missing_ingredients[randi_range(0, _missing_ingredients.size() - 1)]
 		chat_bubble.text = "You forgot " + ingredients_str + "... but I'll take it!"
 	await get_tree().create_timer(1.5).timeout
 	request_completed.emit()

@@ -32,7 +32,9 @@ func _get_total_ingredients() -> int:
 
 func reset() -> void:
 	crafting_ingredients.clear()
-	Util.clear_target_children(self, 6)
+	var glass_ingredients: Node = get_parent().get_node("GlassIngredients")
+	for child in glass_ingredients.get_children():
+		child.queue_free()
 
 	item_list.text = ""
 	get_tree().call_group("fluid_button", "set", "disabled", false)

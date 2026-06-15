@@ -6,6 +6,7 @@ extends Control
 @onready var crafting_counter: PanelContainer = $CraftingCounter
 @onready var notes: PanelContainer = $Notes
 @onready var recipe_book: Control = $RecipeBook
+@onready var tip_panel: PanelContainer = $TipPanel
 
 
 var current_target: Marker2D = null
@@ -54,6 +55,7 @@ func slide_to_marker(marker: Marker2D) -> void:
 
 
 func _on_request_completed() -> void:
+	tip_panel.show_tips(GameManager.missing_ingredients)
 	slide_to_marker(exit_marker)
 	await get_tree().create_timer(2.5).timeout
 	customer.tree_exited.connect(_on_customer_exited, CONNECT_ONE_SHOT)
@@ -63,6 +65,7 @@ func _on_request_completed() -> void:
 func _on_customer_exited() -> void:
 	current_target = null
 	if _notes_saved_for_order:
+		tip_panel.hide_tips()
 		_spawn_next_customer()
 	else:
 		_awaiting_notes_save = true
@@ -70,6 +73,7 @@ func _on_customer_exited() -> void:
 
 func _on_notes_saved(_notes_content: Dictionary) -> void:
 	_notes_saved_for_order = true
+	tip_panel.hide_tips()
 	if _awaiting_notes_save:
 		_awaiting_notes_save = false
 		_spawn_next_customer()
