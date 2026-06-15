@@ -1,6 +1,7 @@
 extends PanelContainer
 
 signal notes_saved(notes_content: Dictionary)
+signal drink_cleared
 
 @onready var drink_name: NoteLine = $MarginContainer/VBoxContainer/DrinkName
 @onready var ingredient1: NoteLine = $MarginContainer/VBoxContainer/VBoxContainer/Ingredient1
@@ -126,3 +127,4 @@ func _on_save_pressed():
 	update_notes_content()
 	GameManager.save_session_notes(notes_content)
 	SignalBus.notes_saved.emit(notes_content)
+	drink_cleared.emit()
