@@ -26,7 +26,16 @@ var missing_ingredients: Array = []
 var unlocked_recipes: Dictionary = {}
 var unlocked_recipe_ingredients: Dictionary = {}
 var recipe_best_stars: Dictionary = {}
+var session_notes: Dictionary = {}
 var _all_three_star_emitted: bool = false
+
+
+func save_session_notes(notes_content: Dictionary) -> void:
+	session_notes[notes_content["recipe_key"]] = notes_content
+
+
+func get_session_notes(recipe_key: String) -> Dictionary:
+	return session_notes.get(recipe_key, {})
 
 
 func update_inventory(item: String, quantity: int):
@@ -64,8 +73,6 @@ func create_recipe(crafting_ingredients: Dictionary):
 		else:
 			missing_ingredients.append(ing)
 
-	_unlock_recipe_ingredients_from_craft(recipe_key, crafting_ingredients)
-
 	var previous_best: int = recipe_best_stars.get(recipe_key, 0)
 	recipe_best_stars[recipe_key] = maxi(previous_best, correct_count)
 	_check_all_recipes_three_star()
@@ -92,13 +99,6 @@ func unlock_recipe_ingredient_at(recipe_key: String, index: int) -> void:
 	var slots: Array = _ensure_recipe_ingredient_slots(recipe_key)
 	slots[index] = true
 	_update_recipe_unlock_state(recipe_key)
-
-
-func _unlock_recipe_ingredients_from_craft(recipe_key: String, crafting_ingredients: Dictionary) -> void:
-	var recipe_ingredient_keys: Array = CraftingRecipe.crafting_dict[recipe_key]["ingredients"].keys()
-	for i in recipe_ingredient_keys.size():
-		if crafting_ingredients.has(recipe_ingredient_keys[i]):
-			unlock_recipe_ingredient_at(recipe_key, i)
 
 
 func is_recipe_ingredient_unlocked(recipe_key: String, index: int) -> bool:

@@ -16,13 +16,29 @@ func update_display() -> void:
 
 	random_chance = order_data["random_chance"]
 
-	drink_name.update_from_order(order_data["fake_name"])
+	var recipe_key: String = order_data["recipe_key"]
+	var saved: Dictionary = GameManager.get_session_notes(recipe_key)
+	if not saved.is_empty():
+		_restore_from_session(saved, order_data)
+		return
 
+	drink_name.update_from_order(order_data["fake_name"])
 	update_ingredients(order_data["ingredients"], random_chance)
+
+
+func _restore_from_session(saved: Dictionary, order_data: Dictionary) -> void:
+	drink_name.update_from_order(saved.get("drink_name", order_data["fake_name"]))
+
+	var saved_ingredients: Array = saved.get("ingredients", [])
+	var ingredient_lines: Array[MarginContainer] = [ingredient1, ingredient2, ingredient3]
+	for i in ingredient_lines.size():
+		if i < saved_ingredients.size():
+			ingredient_lines[i].update_from_order(saved_ingredients[i])
 
 func update_notes_content() -> void:
 	notes_content = {
 		"recipe_key": GameManager.get_order(),
+		"drink_name": drink_name.text,
 		"ingredients": [ingredient1.text, ingredient2.text, ingredient3.text],
 	}
 
@@ -87,4 +103,5 @@ func try_scratch_at_position(global_pos: Vector2, replacement: String) -> bool:
 
 func _on_save_pressed():
 	update_notes_content()
+	GameManager.save_session_notes(notes_content)
 	SignalBus.notes_saved.emit(notes_content)
