@@ -1,29 +1,23 @@
 [gd_scene format=3 uid="uid://baq4fejjo54v3"]
 
-[ext_resource type="Texture2D" uid="uid://c58s4nvg5fyuf" path="res://assets/Counter UI/Counter2.png" id="1_3njbq"]
 [ext_resource type="Script" uid="uid://cvamqu51op1ak" path="res://scenes/crafting/crafting_counter.gd" id="1_tkddw"]
+[ext_resource type="Texture2D" uid="uid://c8sitwuc8grxv" path="res://assets/Counter_1.png" id="2_gwn08"]
 [ext_resource type="PackedScene" uid="uid://cx2xywnut4m6a" path="res://shaders[EXPERIMENTAL]/glass.tscn" id="2_mtexl"]
-[ext_resource type="PackedScene" uid="uid://c8pq4m2trnbs5" path="res://scenes/ingredients/buttons/mint_button.tscn" id="3_mint"]
 [ext_resource type="Texture2D" uid="uid://q2lkpe530b6j" path="res://assets/Counter UI/Soda.png" id="3_txhfi"]
-[ext_resource type="PackedScene" uid="uid://dus3dxr1vygwo" path="res://scenes/ingredients/buttons/mixed_fruits_button.tscn" id="4_gwn08"]
 [ext_resource type="Texture2D" uid="uid://bsqibv746g70s" path="res://assets/Counter UI/Water.png" id="4_hfh2m"]
-[ext_resource type="PackedScene" uid="uid://d3fyak7wnqhc2" path="res://scenes/ingredients/buttons/lemon_button.tscn" id="4_lemon"]
 [ext_resource type="Texture2D" uid="uid://nb8g1uhmdg70" path="res://assets/Counter UI/Milkk.png" id="5_4xme1"]
-[ext_resource type="PackedScene" uid="uid://bv6j5n8trm4pw" path="res://scenes/ingredients/buttons/apple_button.tscn" id="5_apple"]
-[ext_resource type="PackedScene" uid="uid://c4yt7p2mqsnx6" path="res://scenes/ingredients/buttons/orange_button.tscn" id="6_orange"]
 [ext_resource type="Texture2D" uid="uid://c5qp7nesymj6d" path="res://assets/Counter UI/White_Wine.png" id="6_sh4g1"]
 [ext_resource type="Texture2D" uid="uid://rfruie3dwwkd" path="res://assets/Counter UI/LimeJuice.png" id="7_d6t5a"]
-[ext_resource type="PackedScene" uid="uid://dk3w8f5rqhyn4" path="res://scenes/ingredients/buttons/pineapple_button.tscn" id="7_pineapple"]
 [ext_resource type="Texture2D" uid="uid://bjd821s2t37fc" path="res://assets/Counter UI/Coco_Cream.png" id="8_auc77"]
-[ext_resource type="PackedScene" uid="uid://bm7v4yatnqkp2" path="res://scenes/ingredients/buttons/strawberry_button.tscn" id="8_strawberry"]
 
 [node name="CraftingCounter" type="Node2D" unique_id=243429001]
 script = ExtResource("1_tkddw")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1071975145]
+mouse_filter = 2
 offset_right = 1152.0
 offset_bottom = 648.0
-texture = ExtResource("1_3njbq")
+texture = ExtResource("2_gwn08")
 expand_mode = 1
 stretch_mode = 4
 
@@ -69,56 +63,63 @@ offset_right = 208.0
 offset_bottom = 602.0
 texture_normal = ExtResource("8_auc77")
 
-[node name="Mint" parent="." unique_id=2092211543 instance=ExtResource("3_mint")]
-offset_left = 787.0
-offset_top = 371.0
-offset_right = 877.0
-offset_bottom = 461.0
+[node name="MixedFruits" type="Area2D" parent="." unique_id=601262168]
+position = Vector2(888, 576)
 
-[node name="MixedFruits" parent="." unique_id=608711463 instance=ExtResource("4_gwn08")]
-offset_left = 841.0
-offset_top = 555.0
-offset_right = 931.0
-offset_bottom = 645.0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MixedFruits" unique_id=900042479]
+polygon = PackedVector2Array(-80, -24, 50, -23, 68, 19, -61, 18)
 
-[node name="Lemon" parent="." unique_id=406346567 instance=ExtResource("4_lemon")]
-offset_left = 931.0
-offset_top = 371.0
-offset_right = 1021.0
-offset_bottom = 461.0
+[node name="Pineapple" type="Area2D" parent="." unique_id=1638520963]
+position = Vector2(888, 576)
 
-[node name="Apple" parent="." unique_id=1258887313 instance=ExtResource("5_apple")]
-offset_left = 931.0
-offset_top = 432.0
-offset_right = 1021.0
-offset_bottom = 522.0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pineapple" unique_id=1562010611]
+position = Vector2(-16, -48)
+polygon = PackedVector2Array(-80, -24, 48, -24, 66, 20, -64, 19)
 
-[node name="Orange" parent="." unique_id=246853421 instance=ExtResource("6_orange")]
-offset_left = 788.0
-offset_top = 432.0
-offset_right = 878.0
-offset_bottom = 522.0
+[node name="Strawberry" type="Area2D" parent="." unique_id=1174452405]
+position = Vector2(888, 576)
 
-[node name="Pineapple" parent="." unique_id=1301951141 instance=ExtResource("7_pineapple")]
-offset_left = 808.0
-offset_top = 472.0
-offset_right = 898.0
-offset_bottom = 562.0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Strawberry" unique_id=1032562058]
+position = Vector2(118, -48)
+polygon = PackedVector2Array(-80, -24, 54, -24, 79, 19, -64, 19)
 
-[node name="Strawberry" parent="." unique_id=945151062 instance=ExtResource("8_strawberry")]
-offset_left = 971.0
-offset_top = 480.0
-offset_right = 1061.0
-offset_bottom = 570.0
+[node name="Orange" type="Area2D" parent="." unique_id=357144950]
+position = Vector2(888, 576)
 
-[node name="Ice" type="TextureButton" parent="." unique_id=395782904 groups=["fluid_button"]]
-offset_left = 1021.0
-offset_top = 538.0
-offset_right = 1021.0
-offset_bottom = 628.0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Orange" unique_id=1350249251]
+position = Vector2(-33, -93)
+polygon = PackedVector2Array(-80, -24, 50, -23, 67, 18, -64, 19)
+
+[node name="Mint" type="Area2D" parent="." unique_id=1124097389]
+position = Vector2(888, 576)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Mint" unique_id=456821711]
+position = Vector2(-50, -138)
+polygon = PackedVector2Array(-79, -18, 50, -19, 67, 18, -64, 19)
+
+[node name="Lemon" type="Area2D" parent="." unique_id=481533182]
+position = Vector2(888, 576)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Lemon" unique_id=448697403]
+position = Vector2(83, -138)
+polygon = PackedVector2Array(-79, -18, 43, -19, 62, 18, -64, 19)
+
+[node name="Apple" type="Area2D" parent="." unique_id=433743551]
+position = Vector2(888, 576)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Apple" unique_id=754349464]
+position = Vector2(102, -92)
+polygon = PackedVector2Array(-80, -24, 45, -24, 69, 17, -63, 17)
+
+[node name="Ice" type="Area2D" parent="." unique_id=177446280]
+position = Vector2(888, 576)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ice" unique_id=209157162]
+position = Vector2(144, 0)
+polygon = PackedVector2Array(-88, -24, 56, -24, 83, 18, -71, 19)
 
 [node name="Glass" parent="." unique_id=2052105736 instance=ExtResource("2_mtexl")]
-position = Vector2(595, 52)
+position = Vector2(504, 308)
 
 [node name="Mix" type="Button" parent="." unique_id=1106068344]
 offset_left = 509.0
@@ -142,6 +143,5 @@ text = "EMERGENCY RESET BUTTON"
 [connection signal="pressed" from="WhiteWine" to="." method="_on_white_wine_pressed"]
 [connection signal="pressed" from="LimeJuice" to="." method="_on_lime_juice_pressed"]
 [connection signal="pressed" from="CoconutCream" to="." method="_on_coconut_cream_pressed"]
-[connection signal="pressed" from="Ice" to="." method="_on_ice_pressed"]
 [connection signal="pressed" from="Mix" to="." method="_on_mix_pressed"]
 [connection signal="pressed" from="Reset" to="." method="_on_reset_pressed"]

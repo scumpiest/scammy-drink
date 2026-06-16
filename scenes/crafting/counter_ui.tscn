@@ -16,6 +16,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
+mouse_filter = 1
 script = ExtResource("1_pblyx")
 customer_scene = ExtResource("2_ccn5l")
 
@@ -40,9 +41,6 @@ offset_right = 1148.0
 offset_bottom = 352.0
 
 [node name="CraftingCounter" parent="." unique_id=1665070910 instance=ExtResource("2_05df7")]
-layout_mode = 1
-offset_top = -308.0
-mouse_filter = 1
 
 [node name="SpawnMarker" type="Marker2D" parent="." unique_id=531153033]
 position = Vector2(-429, 94)

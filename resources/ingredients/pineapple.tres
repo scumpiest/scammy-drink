@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="IngredientData" format=3 uid="uid://bt26x65owsk8t"]
 
 [ext_resource type="Script" uid="uid://bok3lbj4tslb8" path="res://resources/ingredients/ingredient_data.gd" id="1_o32o1"]
-[ext_resource type="Texture2D" uid="uid://cijmgr6p33oms" path="res://assets/ingredients/FruitsPineapple.png" id="2_o32o1"]
+[ext_resource type="Texture2D" uid="uid://bk7jf6eoxfm01" path="res://assets/Pineapple.png" id="2_bbfgl"]
 
 [resource]
 script = ExtResource("1_o32o1")
 name = "Pineapple"
-sprite = ExtResource("2_o32o1")
+sprite = ExtResource("2_bbfgl")
 metadata = "pineapple"
 metadata/_custom_type_script = "uid://bok3lbj4tslb8"
