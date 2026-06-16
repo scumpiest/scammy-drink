@@ -12,9 +12,9 @@ var img = Image.new()
 func _ready() -> void:
 	var full_path: String = base_path + png_path
 	img.load_from_file(full_path)
-	print(img)
-	texture = ImageTexture.create_from_image(img)
-	print("Loaded Thing :Thumbs_up_emoji:")
+	
+	var img_texture: CompressedTexture2D = load(full_path)
+	texture = img_texture
 
 static func _set_path(path:String) -> void:
 	png_path = path
