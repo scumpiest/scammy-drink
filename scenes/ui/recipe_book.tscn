@@ -1,0 +1,155 @@
+[gd_scene format=3 uid="uid://b4v7v5xgeay3i"]
+
+[ext_resource type="Texture2D" path="res://assets/Recipebook.png" id="1_nert6"]
+[ext_resource type="Script" path="res://scenes/ui/recipe_book.gd" id="1_recipe_book"]
+[ext_resource type="PackedScene" path="res://scenes/ui/recipe_drink.tscn" id="2_at7yq"]
+[ext_resource type="Texture2D" path="res://assets/drinks/Es_teler.png" id="4_fts6g"]
+[ext_resource type="Texture2D" path="res://assets/drinks/Cedevita.png" id="4_jchyn"]
+[ext_resource type="Texture2D" path="res://assets/drinks/Lemonade.png" id="5_smri7"]
+[ext_resource type="Texture2D" path="res://assets/drinks/Apfelschorle.png" id="6_smri7"]
+[ext_resource type="Texture2D" path="res://assets/drinks/Mojito.png" id="7_ac8ls"]
+[ext_resource type="Texture2D" path="res://assets/drinks/Rebujito.png" id="8_ac8ls"]
+[ext_resource type="Texture2D" path="res://assets/drinks/Coconut_Mocktail.png" id="8_h057y"]
+[ext_resource type="Texture2D" path="res://assets/drinks/Strawberry_Milkshake.png" id="9_h057y"]
+[ext_resource type="Texture2D" path="res://assets/cross_large.png" id="12_paolu"]
+
+[node name="RecipeBook" type="Control" unique_id=1904256542]
+z_index = 10
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = -10.0
+offset_right = 4.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_recipe_book")
+
+[node name="UI" type="ColorRect" parent="." unique_id=1754670899]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -36.0
+offset_top = -14.0
+offset_right = 36.0
+offset_bottom = 58.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.586)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1044099752]
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 650.0
+scale = Vector2(0.9943632, 1.0462985)
+texture = ExtResource("1_nert6")
+expand_mode = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1623077787]
+layout_mode = 0
+offset_top = 46.0
+offset_right = 1149.0
+offset_bottom = 694.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer" unique_id=1842591488]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/MarginContainer" unique_id=1850007432]
+layout_mode = 2
+theme_override_constants/separation = 75
+
+[node name="GridContainer" type="GridContainer" parent="CenterContainer/MarginContainer/HBoxContainer" unique_id=1710452061]
+layout_mode = 2
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 16
+columns = 2
+
+[node name="Cedevita" parent="CenterContainer/MarginContainer/HBoxContainer/GridContainer" unique_id=1287656366 instance=ExtResource("2_at7yq")]
+layout_mode = 2
+new_name = "Cedevita"
+fake_name = "Golden Sunrise"
+new_sprite = ExtResource("4_jchyn")
+recipe_key = "cedevita"
+
+[node name="EsTeler" parent="CenterContainer/MarginContainer/HBoxContainer/GridContainer" unique_id=253644735 instance=ExtResource("2_at7yq")]
+layout_mode = 2
+new_name = "Es Teler"
+fake_name = "Tropical Mix"
+new_sprite = ExtResource("4_fts6g")
+recipe_key = "es_teler"
+
+[node name="Lemonade" parent="CenterContainer/MarginContainer/HBoxContainer/GridContainer" unique_id=1855719380 instance=ExtResource("2_at7yq")]
+layout_mode = 2
+new_name = "Lemonade"
+fake_name = "Fresh Squeeze"
+new_sprite = ExtResource("5_smri7")
+recipe_key = "lemonade"
+
+[node name="PinaColada" parent="CenterContainer/MarginContainer/HBoxContainer/GridContainer" unique_id=1615912949 instance=ExtResource("2_at7yq")]
+layout_mode = 2
+new_name = "Pina Colada"
+fake_name = "Paradise Island"
+recipe_key = "pina_colada"
+
+[node name="Apfelschorle" parent="CenterContainer/MarginContainer/HBoxContainer/GridContainer" unique_id=1433224932 instance=ExtResource("2_at7yq")]
+layout_mode = 2
+new_name = "Apfelschorle"
+fake_name = "Summer Spritz"
+new_sprite = ExtResource("6_smri7")
+recipe_key = "apfelschorle"
+
+[node name="GridContainer2" type="GridContainer" parent="CenterContainer/MarginContainer/HBoxContainer" unique_id=1153966631]
+layout_mode = 2
+theme_override_constants/h_separation = 22
+theme_override_constants/v_separation = 22
+columns = 2
+
+[node name="Mojito" parent="CenterContainer/MarginContainer/HBoxContainer/GridContainer2" unique_id=1936858861 instance=ExtResource("2_at7yq")]
+layout_mode = 2
+new_name = "Mojito"
+fake_name = "Sour green"
+new_sprite = ExtResource("7_ac8ls")
+recipe_key = "mojito"
+
+[node name="Rebujito" parent="CenterContainer/MarginContainer/HBoxContainer/GridContainer2" unique_id=974716749 instance=ExtResource("2_at7yq")]
+layout_mode = 2
+new_name = "Rebujito"
+fake_name = "Sherry Splash"
+new_sprite = ExtResource("8_ac8ls")
+recipe_key = "rebujito"
+
+[node name="CoconutMocktail" parent="CenterContainer/MarginContainer/HBoxContainer/GridContainer2" unique_id=327170429 instance=ExtResource("2_at7yq")]
+layout_mode = 2
+new_name = "Coconut Mocktail"
+fake_name = "Coco Fizz"
+new_sprite = ExtResource("8_h057y")
+recipe_key = "coconut_mocktail"
+
+[node name="Strawberry" parent="CenterContainer/MarginContainer/HBoxContainer/GridContainer2" unique_id=1902720067 instance=ExtResource("2_at7yq")]
+layout_mode = 2
+new_name = "Strawberry Milkshake"
+fake_name = "Little Princess"
+new_sprite = ExtResource("9_h057y")
+recipe_key = "strawberry_milkshake"
+
+[node name="PartyMix" parent="CenterContainer/MarginContainer/HBoxContainer/GridContainer2" unique_id=1453878442 instance=ExtResource("2_at7yq")]
+layout_mode = 2
+new_name = "Party Mix"
+fake_name = "Hawaiian Punch"
+new_sprite = ExtResource("4_fts6g")
+recipe_key = "party_mix"
+
+[node name="CloseButton" type="TextureButton" parent="." unique_id=594381059]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -52.0
+offset_top = 26.0
+offset_right = -20.0
+offset_bottom = 58.0
+grow_horizontal = 0
+texture_normal = ExtResource("12_paolu")

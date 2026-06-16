@@ -28,6 +28,7 @@ func _on_crafting_complete(_recipe_key) -> void:
 		await get_tree().create_timer(1.5).timeout
 		request_completed.emit()
 		bubble_background.visible = false
+		_display_completed_drink()
 		request = ""
 
 ## Handles the crafting failed signal, showing the missing ingredients in the chat bubble.
@@ -42,3 +43,13 @@ func _on_crafting_wrong(_recipe_key) -> void:
 		print("I DONT WANT THAT, GIVE ME " + request + "!!")
 		chat_bubble.text = "I DONT WANT THAT, GIVE ME " + request.to_upper() + "!!"
 		request_failed.emit()
+
+func _display_completed_drink() -> void:
+	var dict_name = request+"_recipe"
+	var crafting_dict = CraftingRecipe.get_recipe_dict()
+	var recipe = crafting_dict[request]
+	var path_to_png = recipe.filename
+	CraftingComplete._set_path(path_to_png)
+	var scene_resource = load("res://scenes/crafting/crafting_complete.tscn")
+	var scene_instance = scene_resource.instantiate()
+	get_tree().current_scene.add_child(scene_instance)
