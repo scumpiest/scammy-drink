@@ -20,6 +20,8 @@ config/icon="res://icon.svg"
 GameManager="*uid://xyr0lv1qs230"
 CraftingRecipe="*uid://4jt2wg3mt7fk"
 SceneManager="*uid://b6c1rw377sh4s"
+DialogueBank="*uid://dpciodxygni8q"
+SignalBus="*uid://bfqr01l1x2hri"
 
 [display]
 
@@ -27,7 +29,7 @@ window/stretch/mode="canvas_items"
 
 [gui]
 
-theme/custom="uid://cyu53k4dsgmi8"
+theme/custom_font="uid://c3t67p57di7wn"
 
 [input]
 
@@ -41,11 +43,27 @@ cancel_drag={
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":2,"position":Vector2(338, 4),"global_position":Vector2(350, 64),"factor":1.0,"button_index":2,"canceled":false,"pressed":true,"double_click":false,"script":null)
 ]
 }
-spawn_item={
+open_recipe={
 "deadzone": 0.2,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":101,"location":0,"echo":false,"script":null)
 ]
 }
+close_recipe={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+toggle_dialogue_debug={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194335,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+
+[layer_names]
+
+2d_render/layer_1="fruits"
+2d_physics/layer_1="fruits"
+2d_physics/layer_3="detector"
 
 [physics]
 

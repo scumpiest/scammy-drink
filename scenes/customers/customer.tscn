@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://cue6ergksn057"]
+[gd_scene format=3 uid="uid://x6l2s2cjh6tm"]
 
-[ext_resource type="Script" uid="uid://4jpof6loeap4" path="res://scenes/customers/crabby.gd" id="1_0p6h7"]
+[ext_resource type="Script" uid="uid://4jpof6loeap4" path="res://scenes/customers/customer.gd" id="1_0p6h7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w188d"]
 size = Vector2(320, 432)

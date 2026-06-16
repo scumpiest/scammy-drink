@@ -36,6 +36,9 @@ func _on_drag_started() -> void:
 
 func _on_dropped(_starting_position: Vector2) -> void:
 	velocity_based_rotation.enabled = false
+	var notes: PanelContainer = get_tree().get_first_node_in_group("notes")
+	if notes and notes.try_scratch_at_position(get_global_mouse_position(), metadata):
+		queue_free()
 
 func _on_drag_canceled(starting_position: Vector2) -> void:
 	velocity_based_rotation.enabled = false
