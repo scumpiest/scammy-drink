@@ -4,8 +4,10 @@
 
 [resource]
 shader = ExtResource("1_b5kp8")
-shader_parameter/liquid_color = Color(0.9, 0.4, 0.4, 0.5)
-shader_parameter/fill_amount = 0.0
+shader_parameter/liquid_color = Color(0.89979166, 0.40018785, 0.40018785, 0.55700004)
+shader_parameter/fill_amount = 0.50000002375
 shader_parameter/wave_frequency = 12.0
 shader_parameter/wave_speed = 4.0
 shader_parameter/wave_amplitude = 0.015
+shader_parameter/polygon_min = Vector2(0, 0)
+shader_parameter/polygon_max = Vector2(192, 192)

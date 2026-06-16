@@ -93,6 +93,7 @@ expand_mode = 1
 stretch_mode = 4
 
 [node name="Blender" parent="." unique_id=1547528332 instance=ExtResource("9_pc70b")]
+z_index = 5
 position = Vector2(592, 424)
 scale = Vector2(0.2, 0.2)
 

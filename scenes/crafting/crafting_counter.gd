@@ -26,8 +26,7 @@ const FRUIT_AREA_NAMES: Array[String] = [
 	"Ice",
 ]
 
-@onready var mix_button: Button = $MixButton
-@onready var glass: Node2D = $Glass
+@onready var glass: Node2D = get_parent().get_node("Blender/BlenderFront/Glass")
 
 var crafting_ingredients = {}
 var _fruit_areas_enabled: bool = true
@@ -90,8 +89,12 @@ func reset() -> void:
 	get_tree().call_group("fluid_button", "set", "disabled", false)
 	_set_fruit_areas_enabled(true)
 
-func _on_mix_pressed():
+func mix() -> void:
 	GameManager.create_recipe(crafting_ingredients)
+
+
+func _on_mix_pressed() -> void:
+	mix()
 
 func _on_crafting_complete(_recipe_key) -> void:
 	reset()

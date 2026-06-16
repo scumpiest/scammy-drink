@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://cvamqu51op1ak" path="res://scenes/crafting/crafting_counter.gd" id="1_tkddw"]
 [ext_resource type="Texture2D" uid="uid://c8sitwuc8grxv" path="res://assets/Counter_1.png" id="2_gwn08"]
-[ext_resource type="PackedScene" uid="uid://cx2xywnut4m6a" path="res://shaders[EXPERIMENTAL]/glass.tscn" id="2_mtexl"]
 [ext_resource type="Texture2D" uid="uid://q2lkpe530b6j" path="res://assets/Counter UI/Soda.png" id="3_txhfi"]
 [ext_resource type="Texture2D" uid="uid://bsqibv746g70s" path="res://assets/Counter UI/Water.png" id="4_hfh2m"]
 [ext_resource type="Texture2D" uid="uid://nb8g1uhmdg70" path="res://assets/Counter UI/Milkk.png" id="5_4xme1"]
@@ -117,9 +116,6 @@ position = Vector2(888, 576)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ice" unique_id=209157162]
 position = Vector2(144, 0)
 polygon = PackedVector2Array(-88, -24, 56, -24, 83, 18, -71, 19)
-
-[node name="Glass" parent="." unique_id=2052105736 instance=ExtResource("2_mtexl")]
-position = Vector2(504, 308)
 
 [node name="Mix" type="Button" parent="." unique_id=1106068344]
 visible = false

@@ -1,0 +1,26 @@
+extends Node2D
+
+@onready var _animation_player: AnimationPlayer = $AnimationPlayer
+@onready var _glass: Node2D = $BlenderFront/Glass
+@onready var _mix_button: TextureButton = $BlenderButton
+@onready var _crafting_counter: Node2D = get_parent().get_node("CraftingCounter")
+@onready var mix_sfx: AudioStreamPlayer2D = $MixSFX
+
+
+func _ready() -> void:
+	_mix_button.pressed.connect(_on_mix_button_pressed)
+	_animation_player.animation_finished.connect(_on_animation_finished)
+
+
+func _on_mix_button_pressed() -> void:
+	mix_sfx.play()
+	_crafting_counter.mix()
+	_animation_player.play(&"mix")
+	_glass.trigger_slosh()
+	_mix_button.disabled = true
+
+
+func _on_animation_finished(anim_name: StringName) -> void:
+	if anim_name == &"mix":
+		_animation_player.play(&"RESET")
+		_mix_button.disabled = false
