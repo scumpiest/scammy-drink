@@ -1,5 +1,7 @@
 extends Control
 
+@onready var close_button: TextureButton = $CloseButton
+
 var _drinks_by_key: Dictionary = {}
 
 
@@ -7,7 +9,7 @@ func _ready() -> void:
 	_index_drink_panels()
 	_refresh_all_stars()
 	GameManager.crafting_result.connect(_on_crafting_result)
-
+	close_button.pressed.connect(_on_close_button_pressed)
 
 func _index_drink_panels() -> void:
 	var grids: HBoxContainer = $CenterContainer/MarginContainer/HBoxContainer
@@ -32,3 +34,7 @@ func _on_crafting_result(recipe_key: String, _correct_count: int, _missing_ingre
 	if drink:
 		drink.set_stars(GameManager.get_recipe_stars(recipe_key))
 		drink.refresh_display()
+
+
+func _on_close_button_pressed() -> void:
+	visible = false

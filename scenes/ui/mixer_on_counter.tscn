@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://rptnlltw1qad"]
+
+[ext_resource type="Texture2D" uid="uid://c5hoosmp47hj0" path="res://assets/Counter UI/Counter2.png" id="1_lmo1r"]
+
+[node name="MixerOnCounter" type="Node2D" unique_id=84148560]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1129515609]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_lmo1r")
+expand_mode = 1

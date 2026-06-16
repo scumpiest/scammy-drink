@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://mgwm10yflhoy" path="res://assets/drinks/Rebujito[1].png" id="8_ac8ls"]
 [ext_resource type="Texture2D" uid="uid://ckidru81cjdka" path="res://assets/drinks/Coconut_Mocktail.png" id="8_h057y"]
 [ext_resource type="Texture2D" uid="uid://dujfil0hhb7av" path="res://assets/drinks/Strawberry_Milkshake.png" id="9_h057y"]
+[ext_resource type="Texture2D" uid="uid://onwwh2v5ugmt" path="res://assets/cross_large.png" id="12_paolu"]
 
 [node name="RecipeBook" type="Control" unique_id=1904256542]
 z_index = 10
@@ -25,6 +26,19 @@ offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_recipe_book")
+
+[node name="UI" type="ColorRect" parent="." unique_id=1754670899]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -36.0
+offset_top = -14.0
+offset_right = 36.0
+offset_bottom = 58.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.586)
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1044099752]
 layout_mode = 0
@@ -127,3 +141,15 @@ new_name = "Party Mix"
 fake_name = "Hawaiian Punch"
 new_sprite = ExtResource("4_fts6g")
 recipe_key = "party_mix"
+
+[node name="CloseButton" type="TextureButton" parent="." unique_id=594381059]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -52.0
+offset_top = 26.0
+offset_right = -20.0
+offset_bottom = 58.0
+grow_horizontal = 0
+texture_normal = ExtResource("12_paolu")

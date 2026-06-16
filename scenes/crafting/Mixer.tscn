@@ -1,9 +1,9 @@
-[gd_scene format=3 uid="uid://dn5g55vsrobon"]
+[gd_scene format=3 uid="uid://duin4pr7w8dmd"]
 
-[ext_resource type="Texture2D" path="res://assets/Mixer/Blender_front.png" id="1_sqsos"]
-[ext_resource type="Texture2D" path="res://assets/Mixer/Blender_bottom.png" id="3_lnspe"]
-[ext_resource type="Texture2D" path="res://assets/Mixer/Blender_Top1.png" id="3_sqsos"]
-[ext_resource type="Texture2D" path="res://assets/Mixer/Blender_button.png" id="4_hgirg"]
+[ext_resource type="Texture2D" uid="uid://f1l313c1xqep" path="res://assets/Mixer/Blender_front.png" id="1_sqsos"]
+[ext_resource type="Texture2D" uid="uid://bm8ohqxdrn3ev" path="res://assets/Mixer/Blender_bottom.png" id="3_lnspe"]
+[ext_resource type="Texture2D" uid="uid://dr0ucf67kc80w" path="res://assets/Mixer/Blender_Top1.png" id="3_sqsos"]
+[ext_resource type="Texture2D" uid="uid://dbs2e7cdi5pry" path="res://assets/Mixer/Blender_button.png" id="4_hgirg"]
 
 [sub_resource type="Animation" id="Animation_geeuf"]
 length = 0.001
@@ -70,7 +70,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("BlenderTop:rotation")
+tracks/5/path = NodePath("Node2D/BlenderTop:rotation")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -82,7 +82,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("BlenderTop:offset")
+tracks/6/path = NodePath("Node2D/BlenderTop:offset")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -94,7 +94,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("BlenderTop:position")
+tracks/7/path = NodePath("Node2D/BlenderTop:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -195,19 +195,19 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("BlenderTop:rotation")
+tracks/5/path = NodePath("Node2D/BlenderTop:rotation")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0, 0.24, 0.46, 0.64, 0.8, 0.88, 0.94, 1.12, 1.42, 1.6, 1.88, 2.0079982, 2.06, 2.14, 2.18, 2.19, 2.23, 2.24, 2.29, 2.3, 2.36, 2.37, 2.45, 2.81),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [0.0, -0.10471975511965978, -0.10471975511965978, 0.17453292, 0.17453292, 0.10471976, -0.017453292519943295, -3.3335788713091694, -3.3335788713091694, -6.457718232379019, -6.457718232379019, -6.283185307179586, -6.213372137099813, -6.213372137099813, -6.335545184739416, -6.335545184739416, -6.2482787221397, -6.2482787221397, -6.318091892219473, -6.318091892219473, -6.265732014659643, -6.265732014659643, -6.283185307179586, -6.283185307179586]
+"values": [0.0, -0.10471975511965978, -0.10471975511965978, 0.17453292, 0.17453292, 0.10471976, -0.01745329251994329, -3.3335788713091694, -3.3335788713091694, -6.457718232379019, -6.457718232379019, -6.283185307179586, -6.213372137099813, -6.213372137099813, -6.335545184739416, -6.335545184739416, -6.2482787221397, -6.2482787221397, -6.318091892219473, -6.318091892219473, -6.265732014659643, -6.265732014659643, -6.283185307179586, -6.283185307179586]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("BlenderTop:position")
+tracks/6/path = NodePath("Node2D/BlenderTop:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -259,17 +259,19 @@ rotation = 0.034906585
 texture = ExtResource("1_sqsos")
 offset = Vector2(90, 0)
 
-[node name="BlenderTop" type="Sprite2D" parent="." unique_id=1684222270]
+[node name="Node2D" type="Node2D" parent="." unique_id=363479913]
+
+[node name="BlenderTop" type="Sprite2D" parent="Node2D" unique_id=1684222270]
 position = Vector2(0, -710)
 rotation = -0.17453292
 texture = ExtResource("3_sqsos")
 offset = Vector2(300, -300)
 
 [node name="BlenderButton" type="TextureButton" parent="." unique_id=2132169064]
-offset_left = -110.0
-offset_top = 470.0
-offset_right = 146.0
-offset_bottom = 725.00006
+offset_left = -118.0
+offset_top = 479.0
+offset_right = 138.00018
+offset_bottom = 734.0016
 rotation = -0.75049156
 pivot_offset = Vector2(138, 159)
 texture_normal = ExtResource("4_hgirg")
