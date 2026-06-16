@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lks86c6oiuy5"
-path="res://.godot/imported/Apfelschorie.png-c50144d68a1ca929fee6284e7d142c49.ctex"
+uid="uid://orfxg6qodxjm"
+path="res://.godot/imported/Es_teler.png-6de224a5097a85cecb1415f583401643.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Drinks/Apfelschorie.png"
-dest_files=["res://.godot/imported/Apfelschorie.png-c50144d68a1ca929fee6284e7d142c49.ctex"]
+source_file="res://assets/drinks/Es_teler.png"
+dest_files=["res://.godot/imported/Es_teler.png-6de224a5097a85cecb1415f583401643.ctex"]
 
 [params]
 
