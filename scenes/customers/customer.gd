@@ -14,7 +14,7 @@ const SPRITES: Dictionary = {
 }
 
 @onready var bubble_background: PanelContainer = $BubbleBackground
-@onready var chat_bubble: Label = $BubbleBackground/ChatBubble
+@onready var chat_bubble: Label = $BubbleBackground/VBoxContainer/PanelContainer/MarginContainer/ChatBubble
 @onready var sprite: Sprite2D = $Sprite2D
 
 const BOP_SPEED: float = 14.0

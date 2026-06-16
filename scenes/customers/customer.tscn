@@ -1,9 +1,18 @@
 [gd_scene format=3 uid="uid://x6l2s2cjh6tm"]
 
 [ext_resource type="Script" uid="uid://4jpof6loeap4" path="res://scenes/customers/customer.gd" id="1_0p6h7"]
+[ext_resource type="Texture2D" uid="uid://damnsmkalfa7k" path="res://assets/Speech1.png" id="2_yp1b7"]
+[ext_resource type="Texture2D" uid="uid://7e5lm58ijr5k" path="res://assets/Speech_Extension.png" id="3_7napt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w188d"]
 size = Vector2(320, 432)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7napt"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h1lfo"]
+texture = ExtResource("2_yp1b7")
+texture_margin_left = 10.0
+texture_margin_right = 10.0
 
 [node name="Customer" type="Area2D" unique_id=912506872]
 z_index = -1
@@ -20,6 +29,34 @@ shape = SubResource("RectangleShape2D_w188d")
 [node name="BubbleBackground" type="PanelContainer" parent="." unique_id=1492331108]
 offset_right = 40.0
 offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_7napt")
 
-[node name="ChatBubble" type="Label" parent="BubbleBackground" unique_id=802583772]
+[node name="VBoxContainer" type="VBoxContainer" parent="BubbleBackground" unique_id=38838170]
 layout_mode = 2
+theme_override_constants/separation = -5
+
+[node name="PanelContainer" type="PanelContainer" parent="BubbleBackground/VBoxContainer" unique_id=1299624963]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_h1lfo")
+
+[node name="MarginContainer" type="MarginContainer" parent="BubbleBackground/VBoxContainer/PanelContainer" unique_id=1900414576]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 5
+
+[node name="ChatBubble" type="Label" parent="BubbleBackground/VBoxContainer/PanelContainer/MarginContainer" unique_id=802583772]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.77254903, 0.34509805, 0.15686275, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="BubbleBackground/VBoxContainer" unique_id=639932749]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+
+[node name="TextureRect" type="TextureRect" parent="BubbleBackground/VBoxContainer/MarginContainer" unique_id=244613001]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("3_7napt")
+expand_mode = 1
+stretch_mode = 4

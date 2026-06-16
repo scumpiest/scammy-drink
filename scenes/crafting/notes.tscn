@@ -62,7 +62,6 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_val6n")
 theme_override_styles/hover = SubResource("StyleBoxTexture_8x1q1")
 theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_xap2p")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_3goba")
-text = "save"
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=634357260]
 layout_mode = 2
