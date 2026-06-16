@@ -43,21 +43,6 @@ texture_margin_top = 70.0
 texture_margin_right = 60.0
 texture_margin_bottom = 40.0
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3q3vp"]
-texture = ExtResource("4_val6n")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gcbd3"]
-texture = ExtResource("4_val6n")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m4nx3"]
-texture = ExtResource("4_val6n")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bavtc"]
-texture = ExtResource("4_val6n")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fmtcs"]
-texture = ExtResource("4_val6n")
-
 [node name="Notes" type="PanelContainer" unique_id=566353611 groups=["notes"]]
 offset_right = 300.0
 offset_bottom = 354.0
@@ -124,11 +109,6 @@ layout_mode = 2
 [node name="Save" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=163273457]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxTexture_3q3vp")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_gcbd3")
-theme_override_styles/hover = SubResource("StyleBoxTexture_m4nx3")
-theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_bavtc")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_fmtcs")
 text = "save"
 
 [connection signal="pressed" from="Note" to="." method="_on_save_pressed"]
