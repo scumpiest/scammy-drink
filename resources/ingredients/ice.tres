@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="IngredientData" format=3 uid="uid://job5ns6t587f"]
+
+[ext_resource type="Script" uid="uid://bok3lbj4tslb8" path="res://resources/ingredients/ingredient_data.gd" id="1_8of4i"]
+[ext_resource type="Texture2D" uid="uid://bn8k811a0wu4b" path="res://assets/Ice.png" id="2_8of4i"]
+
+[resource]
+script = ExtResource("1_8of4i")
+name = "Ice"
+sprite = ExtResource("2_8of4i")
+metadata = "ice"
+metadata/_custom_type_script = "uid://bok3lbj4tslb8"
