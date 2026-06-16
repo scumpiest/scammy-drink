@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://orfxg6qodxjm"
-path="res://.godot/imported/Es_teler[1].png-1a81052468520f5cecb005f77322520b.ctex"
+uid="uid://mgwm10yflhoy"
+path="res://.godot/imported/Rebujito.png-1f1724b77694c6a51334d8b52c3c2e43.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/drinks/Es_teler[1].png"
-dest_files=["res://.godot/imported/Es_teler[1].png-1a81052468520f5cecb005f77322520b.ctex"]
+source_file="res://assets/drinks/Rebujito.png"
+dest_files=["res://.godot/imported/Rebujito.png-1f1724b77694c6a51334d8b52c3c2e43.ctex"]
 
 [params]
 

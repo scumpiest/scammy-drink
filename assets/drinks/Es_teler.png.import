@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jhus2r8xnh6a"
-path="res://.godot/imported/Lemonade[1].png-12adbbbd03c9aab2da4f7dc6e87c8c0c.ctex"
+uid="uid://orfxg6qodxjm"
+path="res://.godot/imported/Es_teler.png-6de224a5097a85cecb1415f583401643.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/drinks/Lemonade[1].png"
-dest_files=["res://.godot/imported/Lemonade[1].png-12adbbbd03c9aab2da4f7dc6e87c8c0c.ctex"]
+source_file="res://assets/drinks/Es_teler.png"
+dest_files=["res://.godot/imported/Es_teler.png-6de224a5097a85cecb1415f583401643.ctex"]
 
 [params]
 

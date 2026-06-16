@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://da7amgp4n03hy"]
 
 [ext_resource type="Script" uid="uid://cm8holyvjei1f" path="res://scenes/ui/recipe_drink.gd" id="1_4yp0v"]
-[ext_resource type="Texture2D" uid="uid://0fmepb3mna05" path="res://assets/drinks/Piña_Colada[1].png" id="2_ql266"]
-[ext_resource type="Texture2D" uid="uid://cf3i3cjlxed4i" path="res://assets/drinks/Cedevita[1].png" id="3_6olb0"]
+[ext_resource type="Texture2D" uid="uid://0fmepb3mna05" path="res://assets/drinks/Piña_Colada.png" id="2_ql266"]
+[ext_resource type="Texture2D" uid="uid://cf3i3cjlxed4i" path="res://assets/drinks/Cedevita.png" id="3_6olb0"]
 [ext_resource type="Texture2D" uid="uid://cooqdx6shbe7o" path="res://assets/star_filled.png" id="3_ql266"]
 [ext_resource type="Texture2D" uid="uid://bgvgumy21wkrl" path="res://assets/star_empty.png" id="4_6olb0"]
 

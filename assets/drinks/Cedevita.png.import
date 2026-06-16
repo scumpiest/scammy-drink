@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpcvhavp7fcmb"
-path="res://.godot/imported/Mojito[1].png-acbf929e5fd81da7d30b5c408438b145.ctex"
+uid="uid://cf3i3cjlxed4i"
+path="res://.godot/imported/Cedevita.png-6c6114b178edd8ceda7079905fd07568.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/drinks/Mojito[1].png"
-dest_files=["res://.godot/imported/Mojito[1].png-acbf929e5fd81da7d30b5c408438b145.ctex"]
+source_file="res://assets/drinks/Cedevita.png"
+dest_files=["res://.godot/imported/Cedevita.png-6c6114b178edd8ceda7079905fd07568.ctex"]
 
 [params]
 
