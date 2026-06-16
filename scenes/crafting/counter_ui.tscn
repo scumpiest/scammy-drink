@@ -7,6 +7,8 @@
 [ext_resource type="AudioStream" uid="uid://x5pn66qvwi4a" path="res://assets/Bossa Nova Beach.mp3" id="4_ccn5l"]
 [ext_resource type="PackedScene" uid="uid://6i5g71ol7d6e" path="res://scenes/ui/recipe_book.tscn" id="6_p5jpt"]
 [ext_resource type="PackedScene" uid="uid://ba2rpfg2awifo" path="res://scenes/crafting/capy_notes.tscn" id="8_capy"]
+[ext_resource type="Texture2D" uid="uid://d1tnwuxwhyoko" path="res://assets/Beach_Background.png" id="8_ntqpy"]
+[ext_resource type="PackedScene" uid="uid://duin4pr7w8dmd" path="res://scenes/crafting/Mixer.tscn" id="9_pc70b"]
 
 [node name="CounterUi" type="Control" unique_id=1949816307]
 layout_mode = 3
@@ -21,6 +23,7 @@ script = ExtResource("1_pblyx")
 customer_scene = ExtResource("2_ccn5l")
 
 [node name="MainMenuButton" type="Button" parent="." unique_id=1633707091]
+z_index = 10
 layout_mode = 0
 offset_left = 1064.0
 offset_top = 16.0
@@ -29,15 +32,17 @@ offset_bottom = 47.0
 text = "Menu"
 
 [node name="Notes" parent="." unique_id=566353611 instance=ExtResource("3_8ubsl")]
+z_index = 3
 layout_mode = 0
 offset_right = 282.0
 metadata/_edit_group_ = true
 
 [node name="CapyNotes" parent="." unique_id=452537250 instance=ExtResource("8_capy")]
+z_index = 3
 layout_mode = 0
-offset_left = 928.0
+offset_left = 824.0
 offset_top = 48.0
-offset_right = 1148.0
+offset_right = 1124.0
 offset_bottom = 352.0
 
 [node name="CraftingCounter" parent="." unique_id=1665070910 instance=ExtResource("2_05df7")]
@@ -70,6 +75,26 @@ offset_top = 16.0
 offset_right = 1048.0
 offset_bottom = 47.0
 text = "Recipes"
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2001990617]
+z_index = -10
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 225.0
+offset_top = -12.0
+offset_right = -223.0
+offset_bottom = -268.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_ntqpy")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Blender" parent="." unique_id=1547528332 instance=ExtResource("9_pc70b")]
+position = Vector2(592, 424)
+scale = Vector2(0.2, 0.2)
 
 [connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]
 [connection signal="pressed" from="RecipeButton" to="." method="_on_recipe_button_pressed"]

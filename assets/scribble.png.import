@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d4ayljss33swr"
-path="res://.godot/imported/Scribble.png-883d7a198be3f9dc935a6bafdc3503c8.ctex"
+uid="uid://v001td3o866w"
+path="res://.godot/imported/scribble.png-a5cc22b021194dd6c9b32702f8e01e2c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Scribble.png"
-dest_files=["res://.godot/imported/Scribble.png-883d7a198be3f9dc935a6bafdc3503c8.ctex"]
+source_file="res://assets/scribble.png"
+dest_files=["res://.godot/imported/scribble.png-a5cc22b021194dd6c9b32702f8e01e2c.ctex"]
 
 [params]
 

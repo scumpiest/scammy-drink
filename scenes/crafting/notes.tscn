@@ -1,21 +1,26 @@
 [gd_scene format=3 uid="uid://0dr0j1p35u0x"]
 
 [ext_resource type="Script" uid="uid://u6c2uhcax1cn" path="res://scenes/crafting/notes.gd" id="1_8em1m"]
+[ext_resource type="Texture2D" uid="uid://byuj2sh5wsp4k" path="res://assets/Note1.png" id="2_5qovk"]
 [ext_resource type="PackedScene" uid="uid://cp4jgoh7r70xj" path="res://scenes/crafting/note_line.tscn" id="2_iy102"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_05df7"]
-bg_color = Color(0.9610422, 0.9181441, 0.5864518, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5qovk"]
+bg_color = Color(0.60038817, 0.60038817, 0.60038817, 0)
 
 [node name="Notes" type="PanelContainer" unique_id=566353611 groups=["notes"]]
 offset_right = 233.0
 offset_bottom = 304.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_05df7")
+theme_override_styles/panel = SubResource("StyleBoxFlat_5qovk")
 script = ExtResource("1_8em1m")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=211763275]
+layout_mode = 2
+texture = ExtResource("2_5qovk")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=634357260]
 layout_mode = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 

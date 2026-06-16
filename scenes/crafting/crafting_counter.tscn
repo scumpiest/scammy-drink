@@ -14,9 +14,9 @@
 script = ExtResource("1_tkddw")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1071975145]
-mouse_filter = 2
 offset_right = 1152.0
 offset_bottom = 648.0
+mouse_filter = 2
 texture = ExtResource("2_gwn08")
 expand_mode = 1
 stretch_mode = 4
@@ -122,6 +122,7 @@ polygon = PackedVector2Array(-88, -24, 56, -24, 83, 18, -71, 19)
 position = Vector2(504, 308)
 
 [node name="Mix" type="Button" parent="." unique_id=1106068344]
+visible = false
 offset_left = 509.0
 offset_top = 542.0
 offset_right = 678.0
@@ -129,6 +130,7 @@ offset_bottom = 567.0
 text = "MIX THE DRINK!!!!!!"
 
 [node name="Reset" type="Button" parent="." unique_id=1219358859]
+visible = false
 offset_left = 509.0
 offset_top = 571.0
 offset_right = 678.0

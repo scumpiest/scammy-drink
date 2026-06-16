@@ -17,7 +17,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.034906585]
+"values": [0.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -41,7 +41,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(90, 0)]
+"values": [Vector2(0, 0)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -53,7 +53,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-40, 0)]
+"values": [Vector2(0, 0)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -65,7 +65,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [-0.06981317]
+"values": [0.0]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -77,7 +77,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [-0.17453292]
+"values": [0.0]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -89,7 +89,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(300, -300)]
+"values": [Vector2(0, 0)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -127,10 +127,22 @@ tracks/9/keys = {
 "update": 0,
 "values": [Vector2(-118, 479)]
 }
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Node2D/BlenderTop:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_k0tt1"]
 resource_name = "mix"
-length = 2.81
+length = 3.0
 step = 1.0
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -211,10 +223,10 @@ tracks/6/path = NodePath("Node2D/BlenderTop:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.12, 0.24, 0.46, 0.55, 0.64, 0.8, 0.88, 0.94, 1, 1.035, 1.07, 1.12, 1.42, 1.45, 1.51, 1.6, 1.88, 2.008, 2.06, 2.14, 2.18, 2.19, 2.23, 2.24, 2.29, 2.3, 2.36, 2.37, 2.45, 2.81),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.01, 0.12, 0.24, 0.46, 0.55, 0.64, 0.8, 0.88, 0.94, 1, 1.035, 1.07, 1.12, 1.42, 1.45, 1.51, 1.6, 1.88, 2.008, 2.06, 2.14, 2.18, 2.19, 2.23, 2.24, 2.29, 2.3, 2.36, 2.37, 2.45, 2.81),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(0, -710), Vector2(60, -860), Vector2(60, -750), Vector2(60, -750), Vector2(190, -850), Vector2(320, -800), Vector2(320, -800), Vector2(210, -730), Vector2(160, -730), Vector2(300, -1310), Vector2(300, -1510), Vector2(300, -1310), Vector2(370, -600), Vector2(370, -600), Vector2(340, -720), Vector2(0, -1200), Vector2(-40, -760), Vector2(-40, -760), Vector2(-19.333, -700), Vector2(50, -720), Vector2(50, -720), Vector2(-70, -720), Vector2(-70, -720), Vector2(20, -710), Vector2(20, -710), Vector2(-40, -720), Vector2(-40, -720), Vector2(10, -715), Vector2(10, -715), Vector2(0, -710), Vector2(0, -710)]
+"values": [Vector2(16, -752), Vector2(16.000002, -760.00006), Vector2(60, -860), Vector2(60, -750), Vector2(60, -750), Vector2(190, -850), Vector2(320, -800), Vector2(320, -800), Vector2(210, -730), Vector2(160, -730), Vector2(300, -1310), Vector2(300, -1510), Vector2(300, -1310), Vector2(370, -600), Vector2(370, -600), Vector2(340, -720), Vector2(0, -1200), Vector2(-40, -760), Vector2(-40, -760), Vector2(-19.333, -700), Vector2(50, -720), Vector2(50, -720), Vector2(-70, -720), Vector2(-70, -720), Vector2(20, -710), Vector2(20, -710), Vector2(-40, -720), Vector2(-40, -720), Vector2(10, -715), Vector2(10, -715), Vector2(0, -710), Vector2(0, -710)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -240,6 +252,18 @@ tracks/8/keys = {
 "update": 0,
 "values": [Vector2(-110, 470), Vector2(-140, 400), Vector2(-155, 465), Vector2(-155, 465), Vector2(-30, 390), Vector2(77, 445), Vector2(77, 445), Vector2(50, 460), Vector2(50, 460), Vector2(200, 350), Vector2(315, 420), Vector2(315, 420), Vector2(70, 320), Vector2(-200, 450), Vector2(-200, 450), Vector2(-110, 460), Vector2(-110, 460), Vector2(-150, 470), Vector2(-150, 470), Vector2(-120, 470), Vector2(-120, 470), Vector2(-130, 460), Vector2(-130, 460), Vector2(-110, 460), Vector2(-110, 460), Vector2(-110, 470), Vector2(-110, 470)]
 }
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Node2D/BlenderTop:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xgih0"]
 _data = {
@@ -250,28 +274,23 @@ _data = {
 [node name="Blender" type="Node2D" unique_id=1547528332]
 
 [node name="BlenderBottom" type="Sprite2D" parent="." unique_id=1933605166]
-rotation = -0.06981317
 texture = ExtResource("3_lnspe")
-offset = Vector2(-40, 0)
 
 [node name="BlenderFront" type="Sprite2D" parent="." unique_id=1175999287]
-rotation = 0.034906585
 texture = ExtResource("1_sqsos")
-offset = Vector2(90, 0)
 
 [node name="Node2D" type="Node2D" parent="." unique_id=363479913]
 
 [node name="BlenderTop" type="Sprite2D" parent="Node2D" unique_id=1684222270]
+visible = false
 position = Vector2(0, -710)
-rotation = -0.17453292
 texture = ExtResource("3_sqsos")
-offset = Vector2(300, -300)
 
 [node name="BlenderButton" type="TextureButton" parent="." unique_id=2132169064]
 offset_left = -118.0
 offset_top = 479.0
-offset_right = 138.00018
-offset_bottom = 734.0016
+offset_right = 138.00012
+offset_bottom = 734.0
 rotation = -0.75049156
 pivot_offset = Vector2(138, 159)
 texture_normal = ExtResource("4_hgirg")

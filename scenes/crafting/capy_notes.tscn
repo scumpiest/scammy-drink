@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://ba2rpfg2awifo"]
 
 [ext_resource type="Script" uid="uid://3h0p676hif3c" path="res://scenes/crafting/capy_notes.gd" id="1_cgd"]
+[ext_resource type="Texture2D" uid="uid://cgm2riei11m23" path="res://assets/Note2.png" id="2_psivk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cn1"]
-bg_color = Color(0.82, 0.9, 0.72, 1)
+bg_color = Color(0.8198382, 0.89979166, 0.7200002, 0)
 corner_radius_top_left = 4
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4
@@ -15,10 +16,14 @@ offset_bottom = 304.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_cn1")
 script = ExtResource("1_cgd")
 
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1945318987]
+layout_mode = 2
+texture = ExtResource("2_psivk")
+
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1631732292]
 layout_mode = 2
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 60
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
@@ -28,7 +33,7 @@ theme_override_constants/separation = 8
 
 [node name="TitleLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=683706418]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.2, 0.35, 0.15, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
 text = "Capy Notes:"
 
