@@ -14,9 +14,9 @@
 script = ExtResource("1_tkddw")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1071975145]
-mouse_filter = 2
 offset_right = 1152.0
 offset_bottom = 648.0
+mouse_filter = 2
 texture = ExtResource("2_gwn08")
 expand_mode = 1
 stretch_mode = 4
@@ -136,6 +136,9 @@ offset_bottom = 596.0
 text = "EMERGENCY RESET BUTTON"
 
 [node name="GlassIngredients" type="Node" parent="." unique_id=1537012552]
+
+[node name="sfx" type="AudioStreamPlayer" parent="." unique_id=36002450]
+unique_name_in_owner = true
 
 [connection signal="pressed" from="Soda" to="." method="_on_soda_pressed"]
 [connection signal="pressed" from="Water" to="." method="_on_water_pressed"]

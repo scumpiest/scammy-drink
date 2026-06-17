@@ -7,6 +7,7 @@ extends Control
 @onready var notes: PanelContainer = $Notes
 @onready var recipe_book: Control = $RecipeBook
 @onready var capy_notes: PanelContainer = $CapyNotes
+@onready var footsteps_player: AudioStreamPlayer = $Footsteps
 
 
 var current_target: Marker2D = null
@@ -48,6 +49,7 @@ func spawn_customer() -> Customer:
 	new_customer.customer_type = randi() % Customer.Type.size() as Customer.Type
 	new_customer.global_position = spawn_marker.global_position
 	add_child(new_customer)
+	footsteps_player.play()
 	return new_customer
 
 
