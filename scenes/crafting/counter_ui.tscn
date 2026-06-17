@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://ba2rpfg2awifo" path="res://scenes/crafting/capy_notes.tscn" id="8_capy"]
 [ext_resource type="Texture2D" uid="uid://btvmdbvb8vv4h" path="res://assets/Cookbook_Icon.png" id="8_lrqxf"]
 [ext_resource type="Texture2D" uid="uid://d1tnwuxwhyoko" path="res://assets/Beach_Background.png" id="8_ntqpy"]
-[ext_resource type="PackedScene" uid="uid://duin4pr7w8dmd" path="res://scenes/crafting/Mixer.tscn" id="9_pc70b"]
 [ext_resource type="PackedScene" uid="uid://cy4ds16q4indt" path="res://scenes/ui/tooltip.tscn" id="11_s4ykj"]
 
 [node name="CounterUi" type="Control" unique_id=1949816307]
@@ -56,7 +55,7 @@ position = Vector2(600, 435)
 position = Vector2(-429, 94)
 
 [node name="EnterMarker" type="Marker2D" parent="." unique_id=774304902]
-position = Vector2(392, 40)
+position = Vector2(336, 64)
 
 [node name="ExitMarker" type="Marker2D" parent="." unique_id=162336635]
 position = Vector2(1332, 96)
@@ -100,11 +99,7 @@ grow_vertical = 2
 texture = ExtResource("8_ntqpy")
 expand_mode = 1
 stretch_mode = 4
-
-[node name="Blender" parent="." unique_id=1547528332 instance=ExtResource("9_pc70b")]
-z_index = 5
-position = Vector2(592, 424)
-scale = Vector2(0.2, 0.2)
+metadata/_edit_lock_ = true
 
 [node name="Tooltip" parent="." unique_id=810717877 instance=ExtResource("11_s4ykj")]
 z_index = 10

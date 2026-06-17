@@ -35,7 +35,7 @@ const FLUID_BUTTON_DISPLAY_NAMES: Dictionary = {
 	"CoconutCream": "Coconut Cream",
 }
 
-@onready var glass: Node2D = get_parent().get_node("Blender/BlenderFront/Glass")
+@onready var glass: Node2D = $Blender/BlenderFront/Glass
 
 var crafting_ingredients = {}
 var _fruit_areas_enabled: bool = true
@@ -91,7 +91,7 @@ func _get_total_ingredients() -> int:
 
 func reset() -> void:
 	crafting_ingredients.clear()
-	var glass_ingredients: Node = get_parent().get_node("GlassIngredients")
+	var glass_ingredients: Node = $GlassIngredients
 	for child in glass_ingredients.get_children():
 		child.queue_free()
 
@@ -184,13 +184,7 @@ func _spawn_fruit(item_data: IngredientData) -> void:
 	new_item.item_scale = Vector2(0.15, 0.15)
 	new_item.global_position = get_global_mouse_position()
 
-	var glass_ingredients: Node = get_tree().get_first_node_in_group("glass_ingredients")
-	if glass_ingredients == null:
-		push_warning("CraftingCounter: glass_ingredients group not found!")
-		new_item.queue_free()
-		return
-
-	glass_ingredients.add_child(new_item)
+	$GlassIngredients.add_child(new_item)
 	new_item.drag_and_drop.begin_drag()
 	get_viewport().set_input_as_handled()
 
