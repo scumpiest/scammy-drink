@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://x6l2s2cjh6tm" path="res://scenes/customers/customer.tscn" id="2_ccn5l"]
 [ext_resource type="PackedScene" uid="uid://0dr0j1p35u0x" path="res://scenes/crafting/notes.tscn" id="3_8ubsl"]
 [ext_resource type="AudioStream" uid="uid://x5pn66qvwi4a" path="res://assets/Bossa Nova Beach.mp3" id="4_ccn5l"]
-[ext_resource type="PackedScene" uid="uid://6i5g71ol7d6e" path="res://scenes/ui/recipe_book.tscn" id="6_p5jpt"]
+[ext_resource type="PackedScene" uid="uid://b4v7v5xgeay3i" path="res://scenes/ui/recipe_book.tscn" id="6_p5jpt"]
 [ext_resource type="PackedScene" uid="uid://ba2rpfg2awifo" path="res://scenes/crafting/capy_notes.tscn" id="8_capy"]
 [ext_resource type="Texture2D" uid="uid://btvmdbvb8vv4h" path="res://assets/Cookbook_Icon.png" id="8_lrqxf"]
 [ext_resource type="Texture2D" uid="uid://d1tnwuxwhyoko" path="res://assets/Beach_Background.png" id="8_ntqpy"]
@@ -48,6 +48,9 @@ offset_right = 1124.0
 offset_bottom = 352.0
 
 [node name="CraftingCounter" parent="." unique_id=1665070910 instance=ExtResource("2_05df7")]
+
+[node name="DrinkMarker" type="Marker2D" parent="." unique_id=1532214928]
+position = Vector2(600, 435)
 
 [node name="SpawnMarker" type="Marker2D" parent="." unique_id=531153033]
 position = Vector2(-429, 94)

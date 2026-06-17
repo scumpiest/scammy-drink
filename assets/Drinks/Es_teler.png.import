@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0fmepb3mna05"
-path="res://.godot/imported/Piña_Colada[1].png-51f122a42b59200b77bb079f396cee45.ctex"
+uid="uid://b2c2cor3qcxib"
+path="res://.godot/imported/Es_teler.png-a4fce3d28c5871f026832c3c0e29f9d0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/drinks/Piña_Colada[1].png"
-dest_files=["res://.godot/imported/Piña_Colada[1].png-51f122a42b59200b77bb079f396cee45.ctex"]
+source_file="res://assets/Drinks/Es_teler.png"
+dest_files=["res://.godot/imported/Es_teler.png-a4fce3d28c5871f026832c3c0e29f9d0.ctex"]
 
 [params]
 
