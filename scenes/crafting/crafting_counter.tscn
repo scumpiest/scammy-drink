@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c5qp7nesymj6d" path="res://assets/Counter UI/White_Wine.png" id="6_sh4g1"]
 [ext_resource type="Texture2D" uid="uid://rfruie3dwwkd" path="res://assets/Counter UI/LimeJuice.png" id="7_d6t5a"]
 [ext_resource type="Texture2D" uid="uid://bjd821s2t37fc" path="res://assets/Counter UI/Coco_Cream.png" id="8_auc77"]
+[ext_resource type="PackedScene" uid="uid://duin4pr7w8dmd" path="res://scenes/crafting/Mixer.tscn" id="9_gwn08"]
 
 [node name="CraftingCounter" type="Node2D" unique_id=243429001]
 script = ExtResource("1_tkddw")
@@ -141,8 +142,10 @@ text = "EMERGENCY RESET BUTTON"
 
 [node name="GlassIngredients" type="Node" parent="." unique_id=1537012552]
 
-[node name="IngredientSounds" type="AudioStreamPlayer" parent="." unique_id=1762621149]
-unique_name_in_owner = true
+[node name="Blender" parent="." unique_id=1547528332 instance=ExtResource("9_gwn08")]
+z_index = 5
+position = Vector2(592, 424)
+scale = Vector2(0.2, 0.2)
 
 [connection signal="pressed" from="WhiteWine" to="." method="_on_white_wine_pressed"]
 [connection signal="pressed" from="Water" to="." method="_on_water_pressed"]

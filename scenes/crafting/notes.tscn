@@ -74,18 +74,16 @@ theme_override_constants/margin_bottom = 40
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="Make" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1383194238]
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=285504324]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.77254903, 0.34509805, 0.15686275, 1)
-theme_override_font_sizes/font_size = 24
-text = "Make:"
+theme_override_constants/margin_bottom = 10
 
 [node name="DrinkName" parent="MarginContainer/VBoxContainer" unique_id=1016414544 instance=ExtResource("2_iy102")]
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=1387285275]
 layout_mode = 2
-theme_override_constants/margin_top = 15
+theme_override_constants/margin_top = 5
 
 [node name="Add" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer" unique_id=1010605068]
 layout_mode = 2
