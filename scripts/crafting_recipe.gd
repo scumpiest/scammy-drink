@@ -56,7 +56,7 @@ var strawberry_milkshake_recipe: Dictionary = {
 	"product": {"strawberry_milkshake": 1},
 	"random_chance": 0.5,
 	"fake_name": "Little Princess",
-	"filename": "Strawberru_Milkshake.png"
+	"filename": "Strawberry_Milkshake.png"
 }
 
 var coconut_mocktail_recipe: Dictionary = {
