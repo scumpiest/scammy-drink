@@ -1,5 +1,9 @@
 extends Node2D
 
+@onready var sfx_player: AudioStreamPlayer = $IngredientSounds
+@onready var drop_sound := preload("res://assets/sfx/Drop 4.mp3")
+@onready var pour_sound := preload("res://assets/sfx/Water Pour.mp3")
+
 signal drink_ingredient_added(ingredient: String)
 
 const BASE_FRUIT_SCENE: PackedScene = preload("res://scenes/ingredients/base_fruit.tscn")
@@ -114,6 +118,7 @@ func _on_reset_pressed():
 
 func _on_ingredient_added(ingredient: String) -> void:
 	_add_ingredient(ingredient)
+	sfx_player.stream = drop_sound; sfx_player.play()
 
 
 func _setup_fruit_areas() -> void:
@@ -195,9 +200,9 @@ func _spawn_fruit(item_data: IngredientData) -> void:
 	get_viewport().set_input_as_handled()
 
 
-func _on_soda_pressed():  _add_ingredient("soda")
-func _on_milk_pressed():  _add_ingredient("milk")
-func _on_water_pressed(): _add_ingredient("water")
-func _on_white_wine_pressed(): _add_ingredient("white_wine")
-func _on_lime_juice_pressed(): _add_ingredient("lime_juice")
-func _on_coconut_cream_pressed(): _add_ingredient("coconut_cream")
+func _on_soda_pressed():  _add_ingredient("soda"); sfx_player.stream = pour_sound; sfx_player.play()
+func _on_milk_pressed():  _add_ingredient("milk"); sfx_player.stream = pour_sound; sfx_player.play()
+func _on_water_pressed(): _add_ingredient("water"); sfx_player.stream = pour_sound; sfx_player.play()
+func _on_white_wine_pressed(): _add_ingredient("white_wine"); sfx_player.stream = pour_sound; sfx_player.play()
+func _on_lime_juice_pressed(): _add_ingredient("lime_juice"); sfx_player.stream = pour_sound; sfx_player.play()
+func _on_coconut_cream_pressed(): _add_ingredient("coconut_cream"); sfx_player.stream = pour_sound; sfx_player.play()

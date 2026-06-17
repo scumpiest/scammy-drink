@@ -141,6 +141,9 @@ text = "EMERGENCY RESET BUTTON"
 
 [node name="GlassIngredients" type="Node" parent="." unique_id=1537012552]
 
+[node name="IngredientSounds" type="AudioStreamPlayer" parent="." unique_id=1762621149]
+unique_name_in_owner = true
+
 [connection signal="pressed" from="WhiteWine" to="." method="_on_white_wine_pressed"]
 [connection signal="pressed" from="Water" to="." method="_on_water_pressed"]
 [connection signal="pressed" from="Soda" to="." method="_on_soda_pressed"]
