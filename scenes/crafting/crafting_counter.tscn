@@ -21,51 +21,51 @@ expand_mode = 1
 stretch_mode = 4
 
 [node name="WhiteWine" type="TextureButton" parent="." unique_id=1061502408 groups=["fluid_button"]]
-offset_left = 126.0
-offset_top = 227.0
-offset_right = 271.0
-offset_bottom = 527.0
+offset_left = 111.0
+offset_top = 298.0
+offset_right = 199.0
+offset_bottom = 577.0
 scale = Vector2(0.8, 0.8)
 texture_normal = ExtResource("6_sh4g1")
 
 [node name="Water" type="TextureButton" parent="." unique_id=1647639793 groups=["fluid_button"]]
-offset_left = 101.0
-offset_top = 289.0
-offset_right = 246.0
-offset_bottom = 589.0
-scale = Vector2(0.6, 0.6)
+offset_left = 193.0
+offset_top = 291.0
+offset_right = 279.0
+offset_bottom = 575.0
+scale = Vector2(0.8, 0.8)
 texture_normal = ExtResource("4_hfh2m")
 
 [node name="Soda" type="TextureButton" parent="." unique_id=940405912 groups=["fluid_button"]]
-offset_left = 209.0
-offset_top = 283.0
-offset_right = 354.0
-offset_bottom = 583.0
-scale = Vector2(0.6, 0.6)
+offset_left = 275.0
+offset_top = 326.0
+offset_right = 368.0
+offset_bottom = 566.0
+scale = Vector2(0.8, 0.8)
 texture_normal = ExtResource("3_txhfi")
 
 [node name="Milk" type="TextureButton" parent="." unique_id=657344531 groups=["fluid_button"]]
-offset_left = 178.0
-offset_top = 357.00003
-offset_right = 323.0
-offset_bottom = 592.0
-scale = Vector2(0.6, 0.6)
+offset_left = 151.0
+offset_top = 419.0
+offset_right = 267.0
+offset_bottom = 625.0
+scale = Vector2(0.8, 0.8)
 texture_normal = ExtResource("5_4xme1")
 
 [node name="LimeJuice" type="TextureButton" parent="." unique_id=580097166 groups=["fluid_button"]]
-offset_left = 242.0
-offset_top = 389.0
-offset_right = 387.0
-offset_bottom = 534.0
-scale = Vector2(0.6, 0.6)
+offset_left = 248.99998
+offset_top = 490.0
+offset_right = 344.0
+offset_bottom = 602.0
+scale = Vector2(0.8, 0.8)
 texture_normal = ExtResource("7_d6t5a")
 
 [node name="CoconutCream" type="TextureButton" parent="." unique_id=374703512 groups=["fluid_button"]]
-offset_left = 128.0
-offset_top = 427.0
-offset_right = 273.0
-offset_bottom = 572.0
-scale = Vector2(0.6, 0.6)
+offset_left = 68.999985
+offset_top = 492.0
+offset_right = 161.0
+offset_bottom = 607.0
+scale = Vector2(0.8, 0.8)
 texture_normal = ExtResource("8_auc77")
 
 [node name="MixedFruits" type="Area2D" parent="." unique_id=601262168]
