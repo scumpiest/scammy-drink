@@ -26,6 +26,15 @@ const FRUIT_AREA_NAMES: Array[String] = [
 	"Ice",
 ]
 
+const FLUID_BUTTON_DISPLAY_NAMES: Dictionary = {
+	"WhiteWine": "White Wine",
+	"Water": "Water",
+	"Soda": "Soda",
+	"Milk": "Milk",
+	"LimeJuice": "Lime Juice",
+	"CoconutCream": "Coconut Cream",
+}
+
 @onready var glass: Node2D = get_parent().get_node("Blender/BlenderFront/Glass")
 
 var crafting_ingredients = {}
@@ -122,10 +131,17 @@ func _set_fruit_areas_enabled(enabled: bool) -> void:
 
 
 func get_hovered_ingredient_name() -> String:
-	if not _fruit_areas_enabled:
-		return ""
-
 	var mouse_pos := get_global_mouse_position()
+
+	if _fruit_areas_enabled:
+		var fruit_name := _get_hovered_fruit_name(mouse_pos)
+		if not fruit_name.is_empty():
+			return fruit_name
+
+	return _get_hovered_fluid_name(mouse_pos)
+
+
+func _get_hovered_fruit_name(mouse_pos: Vector2) -> String:
 	for i in range(FRUIT_AREA_NAMES.size() - 1, -1, -1):
 		var area_name: String = FRUIT_AREA_NAMES[i]
 		var area := get_node_or_null(area_name) as Area2D
@@ -137,6 +153,18 @@ func get_hovered_ingredient_name() -> String:
 			var data: IngredientData = FRUIT_DATA_BY_AREA[area_name]
 			return data.name
 		return area_name
+	return ""
+
+
+func _get_hovered_fluid_name(mouse_pos: Vector2) -> String:
+	for child in get_children():
+		if not child.is_in_group("fluid_button") or not child is BaseButton:
+			continue
+		var button := child as BaseButton
+		if button.disabled or not button.visible:
+			continue
+		if button.get_global_rect().has_point(mouse_pos):
+			return FLUID_BUTTON_DISPLAY_NAMES.get(child.name, child.name)
 	return ""
 
 
