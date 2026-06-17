@@ -82,7 +82,6 @@ func _on_crafting_result(_recipe_key: String, _correct_count: int, _missing_ingr
 	await get_tree().create_timer(1.5).timeout
 	request_completed.emit()
 	bubble_background.visible = false
-	_display_completed_drink()
 	request = ""
 
 
@@ -177,14 +176,3 @@ func _debug_log(event_name: String, data: Dictionary = {}) -> void:
 	if not _dialogue_debug_enabled:
 		return
 	print("[DialogueDebug] customer=%s event=%s data=%s" % [_get_persona_name(), event_name, str(data)])
-	
-func _display_completed_drink() -> void:
-	var dict_name = request+"_recipe"
-	print(dict_name)
-	var crafting_dict = CraftingRecipe.get_recipe_dict()
-	var recipe = crafting_dict[request]
-	var path_to_png = recipe.filename
-	CraftingComplete._set_path(path_to_png)
-	var scene_resource = load("res://scenes/crafting/crafting_complete.tscn")
-	var scene_instance = scene_resource.instantiate()
-	get_tree().current_scene.add_child(scene_instance)

@@ -1,5 +1,7 @@
 extends Node2D
 
+signal mix_animation_finished
+
 @onready var _animation_player: AnimationPlayer = $AnimationPlayer
 @onready var _glass: Node2D = $BlenderFront/Glass
 @onready var _mix_button: TextureButton = $BlenderButton
@@ -24,3 +26,11 @@ func _on_animation_finished(anim_name: StringName) -> void:
 	if anim_name == &"mix":
 		_animation_player.play(&"RESET")
 		_mix_button.disabled = false
+		visible = false
+		mix_animation_finished.emit()
+
+
+func show_blender() -> void:
+	visible = true
+	_animation_player.play(&"RESET")
+	_mix_button.disabled = false

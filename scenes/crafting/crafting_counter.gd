@@ -40,6 +40,9 @@ const FLUID_BUTTON_DISPLAY_NAMES: Dictionary = {
 }
 
 @onready var glass: Node2D = $Blender/BlenderFront/Glass
+@onready var blender: Node2D = $Blender
+
+signal mix_animation_finished
 
 var crafting_ingredients = {}
 var _fruit_areas_enabled: bool = true
@@ -47,7 +50,12 @@ var _fruit_areas_enabled: bool = true
 func _ready() -> void:
 	glass.ingredient_added.connect(_on_ingredient_added)
 	GameManager.crafting_complete.connect(_on_crafting_complete)
+	blender.mix_animation_finished.connect(func() -> void: mix_animation_finished.emit())
 	_setup_fruit_areas()
+
+
+func show_blender() -> void:
+	blender.show_blender()
 
 
 func _unhandled_input(event: InputEvent) -> void:
