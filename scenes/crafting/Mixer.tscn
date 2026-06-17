@@ -4,6 +4,36 @@
 [ext_resource type="Texture2D" uid="uid://bm8ohqxdrn3ev" path="res://assets/Mixer/Blender_bottom.png" id="3_lnspe"]
 [ext_resource type="Texture2D" uid="uid://dr0ucf67kc80w" path="res://assets/Mixer/Blender_Top1.png" id="3_sqsos"]
 [ext_resource type="Texture2D" uid="uid://dbs2e7cdi5pry" path="res://assets/Mixer/Blender_button.png" id="4_hgirg"]
+[ext_resource type="Material" uid="uid://b5gubmax0w5xe" path="res://shaders[EXPERIMENTAL]/liquid_shader.tres" id="5_liquid"]
+[ext_resource type="Script" uid="uid://dw31444jtwtd5" path="res://shaders[EXPERIMENTAL]/glass.gd" id="6_glass"]
+[ext_resource type="AudioStream" uid="uid://b58qryyejjiwn" path="res://assets/slosh.mp3" id="7_slosh"]
+[ext_resource type="Script" uid="uid://37irwg5vqt80" path="res://scenes/crafting/mixer.gd" id="8_mixer"]
+[ext_resource type="AudioStream" uid="uid://htdedqlghhuk" path="res://assets/Mixing drinks sfx.mp3" id="9_iphj6"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_glass_splash"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 35.0
+initial_velocity_min = 120.0
+initial_velocity_max = 180.0
+gravity = Vector3(0, 400, 0)
+scale_min = 2.0
+scale_max = 4.0
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_glass_edge"]
+absorbent = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_glass_bottom"]
+size = Vector2(192, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_glass_left"]
+size = Vector2(3.199995, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_glass_right"]
+size = Vector2(2.2900467, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_glass_detect"]
+size = Vector2(192, 10)
 
 [sub_resource type="Animation" id="Animation_geeuf"]
 length = 0.001
@@ -17,7 +47,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.034906585]
+"values": [0.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -41,7 +71,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(90, 0)]
+"values": [Vector2(0, 0)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -53,7 +83,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-40, 0)]
+"values": [Vector2(0, 0)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -65,7 +95,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [-0.06981317]
+"values": [0.0]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -77,7 +107,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [-0.17453292]
+"values": [0.0]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -89,7 +119,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(300, -300)]
+"values": [Vector2(0, 0)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -127,10 +157,22 @@ tracks/9/keys = {
 "update": 0,
 "values": [Vector2(-118, 479)]
 }
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Node2D/BlenderTop:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_k0tt1"]
 resource_name = "mix"
-length = 2.81
+length = 3.0
 step = 1.0
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -211,10 +253,10 @@ tracks/6/path = NodePath("Node2D/BlenderTop:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.12, 0.24, 0.46, 0.55, 0.64, 0.8, 0.88, 0.94, 1, 1.035, 1.07, 1.12, 1.42, 1.45, 1.51, 1.6, 1.88, 2.008, 2.06, 2.14, 2.18, 2.19, 2.23, 2.24, 2.29, 2.3, 2.36, 2.37, 2.45, 2.81),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.01, 0.12, 0.24, 0.46, 0.55, 0.64, 0.8, 0.88, 0.94, 1, 1.035, 1.07, 1.12, 1.42, 1.45, 1.51, 1.6, 1.88, 2.008, 2.06, 2.14, 2.18, 2.19, 2.23, 2.24, 2.29, 2.3, 2.36, 2.37, 2.45, 2.81),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(0, -710), Vector2(60, -860), Vector2(60, -750), Vector2(60, -750), Vector2(190, -850), Vector2(320, -800), Vector2(320, -800), Vector2(210, -730), Vector2(160, -730), Vector2(300, -1310), Vector2(300, -1510), Vector2(300, -1310), Vector2(370, -600), Vector2(370, -600), Vector2(340, -720), Vector2(0, -1200), Vector2(-40, -760), Vector2(-40, -760), Vector2(-19.333, -700), Vector2(50, -720), Vector2(50, -720), Vector2(-70, -720), Vector2(-70, -720), Vector2(20, -710), Vector2(20, -710), Vector2(-40, -720), Vector2(-40, -720), Vector2(10, -715), Vector2(10, -715), Vector2(0, -710), Vector2(0, -710)]
+"values": [Vector2(16, -752), Vector2(16.000002, -760.00006), Vector2(60, -860), Vector2(60, -750), Vector2(60, -750), Vector2(190, -850), Vector2(320, -800), Vector2(320, -800), Vector2(210, -730), Vector2(160, -730), Vector2(300, -1310), Vector2(300, -1510), Vector2(300, -1310), Vector2(370, -600), Vector2(370, -600), Vector2(340, -720), Vector2(0, -1200), Vector2(-40, -760), Vector2(-40, -760), Vector2(-19.333, -700), Vector2(50, -720), Vector2(50, -720), Vector2(-70, -720), Vector2(-70, -720), Vector2(20, -710), Vector2(20, -710), Vector2(-40, -720), Vector2(-40, -720), Vector2(10, -715), Vector2(10, -715), Vector2(0, -710), Vector2(0, -710)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -240,6 +282,18 @@ tracks/8/keys = {
 "update": 0,
 "values": [Vector2(-110, 470), Vector2(-140, 400), Vector2(-155, 465), Vector2(-155, 465), Vector2(-30, 390), Vector2(77, 445), Vector2(77, 445), Vector2(50, 460), Vector2(50, 460), Vector2(200, 350), Vector2(315, 420), Vector2(315, 420), Vector2(70, 320), Vector2(-200, 450), Vector2(-200, 450), Vector2(-110, 460), Vector2(-110, 460), Vector2(-150, 470), Vector2(-150, 470), Vector2(-120, 470), Vector2(-120, 470), Vector2(-130, 460), Vector2(-130, 460), Vector2(-110, 460), Vector2(-110, 460), Vector2(-110, 470), Vector2(-110, 470)]
 }
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Node2D/BlenderTop:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xgih0"]
 _data = {
@@ -248,33 +302,99 @@ _data = {
 }
 
 [node name="Blender" type="Node2D" unique_id=1547528332]
+script = ExtResource("8_mixer")
 
 [node name="BlenderBottom" type="Sprite2D" parent="." unique_id=1933605166]
-rotation = -0.06981317
 texture = ExtResource("3_lnspe")
-offset = Vector2(-40, 0)
 
 [node name="BlenderFront" type="Sprite2D" parent="." unique_id=1175999287]
-rotation = 0.034906585
 texture = ExtResource("1_sqsos")
-offset = Vector2(90, 0)
+
+[node name="Glass" type="Node2D" parent="BlenderFront" unique_id=2052105736 groups=["glass"]]
+show_behind_parent = true
+position = Vector2(-440, -580)
+scale = Vector2(5, 5)
+script = ExtResource("6_glass")
+
+[node name="LiquidPolygon" type="Polygon2D" parent="BlenderFront/Glass" unique_id=1488154227]
+material = ExtResource("5_liquid")
+position = Vector2(0, -63.199993)
+polygon = PackedVector2Array(49.599995, 245.59998, 129.59999, 247.19998, 166.4, 61.59999, 9.599998, 59.999992)
+uv = PackedVector2Array(0, 1, 1, 1, 1, 0, 0, 0)
+
+[node name="WaterArea" type="Area2D" parent="BlenderFront/Glass" unique_id=1875172883]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="BlenderFront/Glass/WaterArea" unique_id=1791791544]
+position = Vector2(22.399998, 56.800003)
+polygon = PackedVector2Array(129.59999, 0, 0, 0, 25.600002, 126.399994, 105.59999, 124.799995)
+
+[node name="SplashParticles" type="GPUParticles2D" parent="BlenderFront/Glass/WaterArea" unique_id=642955457]
+position = Vector2(96, 64)
+emitting = false
+amount = 15
+one_shot = true
+explosiveness = 0.85
+process_material = SubResource("ParticleProcessMaterial_glass_splash")
+
+[node name="GlassEdge" type="StaticBody2D" parent="BlenderFront/Glass" unique_id=394363795]
+position = Vector2(0, 31.2)
+collision_layer = 4
+physics_material_override = SubResource("PhysicsMaterial_glass_edge")
+
+[node name="BottomWall" type="CollisionShape2D" parent="BlenderFront/Glass/GlassEdge" unique_id=1835783391]
+position = Vector2(88, 150.4)
+scale = Vector2(0.48799998, 1)
+shape = SubResource("RectangleShape2D_glass_bottom")
+
+[node name="LeftWall" type="CollisionShape2D" parent="BlenderFront/Glass/GlassEdge" unique_id=1835783392]
+position = Vector2(28.799995, 88)
+rotation = -0.19896753
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_glass_left")
+
+[node name="RightWall" type="CollisionShape2D" parent="BlenderFront/Glass/GlassEdge" unique_id=1835783393]
+position = Vector2(145.59999, 89.59999)
+rotation = 0.1972222
+scale = Vector2(0.9999998, 0.95293057)
+shape = SubResource("RectangleShape2D_glass_right")
+
+[node name="SloshSFX" type="AudioStreamPlayer2D" parent="BlenderFront/Glass" unique_id=606948022]
+position = Vector2(0, 104)
+stream = ExtResource("7_slosh")
+
+[node name="BottomArea" type="Area2D" parent="BlenderFront/Glass" unique_id=783287206]
+position = Vector2(96, 170.4)
+collision_layer = 4
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BlenderFront/Glass/BottomArea" unique_id=1072640884]
+position = Vector2(-6.3999996, 4.8)
+scale = Vector2(0.48666424, 1)
+shape = SubResource("RectangleShape2D_glass_detect")
 
 [node name="Node2D" type="Node2D" parent="." unique_id=363479913]
 
 [node name="BlenderTop" type="Sprite2D" parent="Node2D" unique_id=1684222270]
+visible = false
 position = Vector2(0, -710)
-rotation = -0.17453292
 texture = ExtResource("3_sqsos")
-offset = Vector2(300, -300)
 
 [node name="BlenderButton" type="TextureButton" parent="." unique_id=2132169064]
 offset_left = -118.0
 offset_top = 479.0
-offset_right = 138.00018
-offset_bottom = 734.0016
+offset_right = 138.00012
+offset_bottom = 734.0
 rotation = -0.75049156
 pivot_offset = Vector2(138, 159)
+action_mode = 0
 texture_normal = ExtResource("4_hgirg")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1489252139]
 libraries/ = SubResource("AnimationLibrary_xgih0")
+
+[node name="MixSFX" type="AudioStreamPlayer2D" parent="." unique_id=2143222085]
+stream = ExtResource("9_iphj6")
+
+[connection signal="body_entered" from="BlenderFront/Glass/WaterArea" to="BlenderFront/Glass" method="_on_water_area_body_entered"]
+[connection signal="body_entered" from="BlenderFront/Glass/BottomArea" to="BlenderFront/Glass" method="_on_bottom_area_body_entered"]

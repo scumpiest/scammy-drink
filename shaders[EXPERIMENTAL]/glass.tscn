@@ -4,8 +4,8 @@
 [ext_resource type="Script" uid="uid://dw31444jtwtd5" path="res://shaders[EXPERIMENTAL]/glass.gd" id="1_ykn3o"]
 [ext_resource type="AudioStream" uid="uid://b58qryyejjiwn" path="res://assets/slosh.mp3" id="3_b8qbv"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fvmfx"]
-size = Vector2(192, 128)
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_fvmfx"]
+points = PackedVector2Array(16, 128, 176, 128, 184, 0, 8, 0)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ykn3o"]
 particle_flag_disable_z = true
@@ -33,26 +33,22 @@ size = Vector2(0, 128)
 size = Vector2(192, 10)
 
 [node name="Glass" type="Node2D" unique_id=2052105736]
+show_behind_parent = true
 z_index = 5
 script = ExtResource("1_ykn3o")
 
-[node name="LiquidMask" type="Sprite2D" parent="." unique_id=755483308]
-clip_children = 1
+[node name="LiquidPolygon" type="Polygon2D" parent="." unique_id=1488154227]
 position = Vector2(0, -64)
-
-[node name="LiquidRect" type="ColorRect" parent="LiquidMask" unique_id=1488154227]
 material = ExtResource("1_fvmfx")
-offset_right = 100.0
-offset_bottom = 200.0
-scale = Vector2(1.926868, 1.2801067)
-color = Color(0, 0, 0.68235296, 1)
+color = Color(1, 1, 1, 1)
+polygon = PackedVector2Array(49.599995, 245.59998, 129.59999, 247.19998, 166.4, 61.59999, 9.599998, 59.999992)
+uv = PackedVector2Array(0, 1, 1, 1, 1, 0, 0, 0)
 
 [node name="WaterArea" type="Area2D" parent="." unique_id=1875172883]
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WaterArea" unique_id=529932194]
-position = Vector2(96, 128)
-shape = SubResource("RectangleShape2D_fvmfx")
+shape = SubResource("ConvexPolygonShape2D_fvmfx")
 
 [node name="SplashParticles" type="GPUParticles2D" parent="WaterArea" unique_id=642955457]
 position = Vector2(96, 64)

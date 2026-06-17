@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://cvamqu51op1ak" path="res://scenes/crafting/crafting_counter.gd" id="1_tkddw"]
 [ext_resource type="Texture2D" uid="uid://c8sitwuc8grxv" path="res://assets/Counter_1.png" id="2_gwn08"]
-[ext_resource type="PackedScene" uid="uid://cx2xywnut4m6a" path="res://shaders[EXPERIMENTAL]/glass.tscn" id="2_mtexl"]
 [ext_resource type="Texture2D" uid="uid://q2lkpe530b6j" path="res://assets/Counter UI/Soda.png" id="3_txhfi"]
 [ext_resource type="Texture2D" uid="uid://bsqibv746g70s" path="res://assets/Counter UI/Water.png" id="4_hfh2m"]
 [ext_resource type="Texture2D" uid="uid://nb8g1uhmdg70" path="res://assets/Counter UI/Milkk.png" id="5_4xme1"]
@@ -21,46 +20,52 @@ texture = ExtResource("2_gwn08")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="Soda" type="TextureButton" parent="." unique_id=940405912 groups=["fluid_button"]]
-offset_left = 241.0
-offset_top = 195.0
-offset_right = 386.0
-offset_bottom = 495.0
-texture_normal = ExtResource("3_txhfi")
-
-[node name="Water" type="TextureButton" parent="." unique_id=1647639793 groups=["fluid_button"]]
-offset_left = 111.0
-offset_top = 180.0
-offset_right = 256.0
-offset_bottom = 480.0
-texture_normal = ExtResource("4_hfh2m")
-
-[node name="Milk" type="TextureButton" parent="." unique_id=657344531 groups=["fluid_button"]]
-offset_left = 213.0
-offset_top = 303.0
-offset_right = 358.0
-offset_bottom = 538.0
-texture_normal = ExtResource("5_4xme1")
-
 [node name="WhiteWine" type="TextureButton" parent="." unique_id=1061502408 groups=["fluid_button"]]
-offset_left = 80.0
-offset_top = 242.0
-offset_right = 225.0
-offset_bottom = 542.0
+offset_left = 126.0
+offset_top = 227.0
+offset_right = 271.0
+offset_bottom = 527.0
+scale = Vector2(0.8, 0.8)
 texture_normal = ExtResource("6_sh4g1")
 
+[node name="Water" type="TextureButton" parent="." unique_id=1647639793 groups=["fluid_button"]]
+offset_left = 101.0
+offset_top = 289.0
+offset_right = 246.0
+offset_bottom = 589.0
+scale = Vector2(0.6, 0.6)
+texture_normal = ExtResource("4_hfh2m")
+
+[node name="Soda" type="TextureButton" parent="." unique_id=940405912 groups=["fluid_button"]]
+offset_left = 209.0
+offset_top = 283.0
+offset_right = 354.0
+offset_bottom = 583.0
+scale = Vector2(0.6, 0.6)
+texture_normal = ExtResource("3_txhfi")
+
+[node name="Milk" type="TextureButton" parent="." unique_id=657344531 groups=["fluid_button"]]
+offset_left = 178.0
+offset_top = 357.00003
+offset_right = 323.0
+offset_bottom = 592.0
+scale = Vector2(0.6, 0.6)
+texture_normal = ExtResource("5_4xme1")
+
 [node name="LimeJuice" type="TextureButton" parent="." unique_id=580097166 groups=["fluid_button"]]
-offset_left = 186.0
-offset_top = 450.0
-offset_right = 331.0
-offset_bottom = 595.0
+offset_left = 242.0
+offset_top = 389.0
+offset_right = 387.0
+offset_bottom = 534.0
+scale = Vector2(0.6, 0.6)
 texture_normal = ExtResource("7_d6t5a")
 
 [node name="CoconutCream" type="TextureButton" parent="." unique_id=374703512 groups=["fluid_button"]]
-offset_left = 63.0
-offset_top = 457.0
-offset_right = 208.0
-offset_bottom = 602.0
+offset_left = 128.0
+offset_top = 427.0
+offset_right = 273.0
+offset_bottom = 572.0
+scale = Vector2(0.6, 0.6)
 texture_normal = ExtResource("8_auc77")
 
 [node name="MixedFruits" type="Area2D" parent="." unique_id=601262168]
@@ -118,10 +123,8 @@ position = Vector2(888, 576)
 position = Vector2(144, 0)
 polygon = PackedVector2Array(-88, -24, 56, -24, 83, 18, -71, 19)
 
-[node name="Glass" parent="." unique_id=2052105736 instance=ExtResource("2_mtexl")]
-position = Vector2(504, 308)
-
 [node name="Mix" type="Button" parent="." unique_id=1106068344]
+visible = false
 offset_left = 509.0
 offset_top = 542.0
 offset_right = 678.0
@@ -129,6 +132,7 @@ offset_bottom = 567.0
 text = "MIX THE DRINK!!!!!!"
 
 [node name="Reset" type="Button" parent="." unique_id=1219358859]
+visible = false
 offset_left = 509.0
 offset_top = 571.0
 offset_right = 678.0
@@ -141,9 +145,10 @@ text = "EMERGENCY RESET BUTTON"
 unique_name_in_owner = true
 
 [connection signal="pressed" from="Soda" to="." method="_on_soda_pressed"]
-[connection signal="pressed" from="Water" to="." method="_on_water_pressed"]
-[connection signal="pressed" from="Milk" to="." method="_on_milk_pressed"]
 [connection signal="pressed" from="WhiteWine" to="." method="_on_white_wine_pressed"]
+[connection signal="pressed" from="Water" to="." method="_on_water_pressed"]
+[connection signal="pressed" from="Soda" to="." method="_on_soda_pressed"]
+[connection signal="pressed" from="Milk" to="." method="_on_milk_pressed"]
 [connection signal="pressed" from="LimeJuice" to="." method="_on_lime_juice_pressed"]
 [connection signal="pressed" from="CoconutCream" to="." method="_on_coconut_cream_pressed"]
 [connection signal="pressed" from="Mix" to="." method="_on_mix_pressed"]

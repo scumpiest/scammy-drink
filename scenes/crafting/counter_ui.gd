@@ -8,6 +8,7 @@ extends Control
 @onready var recipe_book: Control = $RecipeBook
 @onready var capy_notes: PanelContainer = $CapyNotes
 @onready var footsteps_player: AudioStreamPlayer = $Footsteps
+@onready var _tooltip: PanelContainer = $Tooltip
 
 
 var current_target: Marker2D = null
@@ -35,6 +36,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if current_target and customer and is_instance_valid(customer):
 		customer.position = customer.position.lerp(current_target.global_position, 1.0 - exp(-lerp_weight * delta))
+	_update_ingredient_tooltip()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("close_recipe"):
@@ -133,6 +135,14 @@ func _get_missing_ingredient_hint(recipe_ingredients: Dictionary) -> String:
 		if not crafting_counter.crafting_ingredients.has(recipe_ingredient):
 			return str(recipe_ingredient)
 	return ""
+
+
+func _update_ingredient_tooltip() -> void:
+	var ingredient_name: String = crafting_counter.get_hovered_ingredient_name()
+	if ingredient_name.is_empty():
+		_tooltip.hide_tooltip()
+	else:
+		_tooltip.show_for(ingredient_name, get_global_mouse_position())
 
 
 func _toggle_dialogue_debug_mode() -> void:
