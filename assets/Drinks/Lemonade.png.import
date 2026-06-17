@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://jhus2r8xnh6a"
-path="res://.godot/imported/Lemonade.png-54498608ca43729d4b85f1a64407e75c.ctex"
+path="res://.godot/imported/Lemonade.png-2572efbd6cfeb76018b17dcb10dc9521.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/drinks/Lemonade.png"
-dest_files=["res://.godot/imported/Lemonade.png-54498608ca43729d4b85f1a64407e75c.ctex"]
+source_file="res://assets/Drinks/Lemonade.png"
+dest_files=["res://.godot/imported/Lemonade.png-2572efbd6cfeb76018b17dcb10dc9521.ctex"]
 
 [params]
 

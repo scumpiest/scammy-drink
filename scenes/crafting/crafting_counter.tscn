@@ -147,6 +147,9 @@ z_index = 5
 position = Vector2(592, 424)
 scale = Vector2(0.2, 0.2)
 
+[node name="IngredientSounds" type="AudioStreamPlayer" parent="." unique_id=1082069886]
+unique_name_in_owner = true
+
 [connection signal="pressed" from="WhiteWine" to="." method="_on_white_wine_pressed"]
 [connection signal="pressed" from="Water" to="." method="_on_water_pressed"]
 [connection signal="pressed" from="Soda" to="." method="_on_soda_pressed"]

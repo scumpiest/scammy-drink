@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://orfxg6qodxjm"
-path="res://.godot/imported/Es_teler.png-6de224a5097a85cecb1415f583401643.ctex"
+path="res://.godot/imported/Es_teler.png-a4fce3d28c5871f026832c3c0e29f9d0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/drinks/Es_teler.png"
-dest_files=["res://.godot/imported/Es_teler.png-6de224a5097a85cecb1415f583401643.ctex"]
+source_file="res://assets/Drinks/Es_teler.png"
+dest_files=["res://.godot/imported/Es_teler.png-a4fce3d28c5871f026832c3c0e29f9d0.ctex"]
 
 [params]
 
