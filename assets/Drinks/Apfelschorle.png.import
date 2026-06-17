@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lks86c6oiuy5"
-path="res://.godot/imported/Apfelschorle.png-2588154e2b6b976ba5d1ffba39bf4e8e.ctex"
+uid="uid://b0hxi2c40mb3q"
+path="res://.godot/imported/Apfelschorle.png-a35ffd2c5da2e44f0fb75d16fbdee6c6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Drinks/Apfelschorle.png"
-dest_files=["res://.godot/imported/Apfelschorle.png-2588154e2b6b976ba5d1ffba39bf4e8e.ctex"]
+source_file="res://assets/drinks/Apfelschorle.png"
+dest_files=["res://.godot/imported/Apfelschorle.png-a35ffd2c5da2e44f0fb75d16fbdee6c6.ctex"]
 
 [params]
 
