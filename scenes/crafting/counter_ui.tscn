@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://btvmdbvb8vv4h" path="res://assets/Cookbook_Icon.png" id="8_lrqxf"]
 [ext_resource type="Texture2D" uid="uid://d1tnwuxwhyoko" path="res://assets/Beach_Background.png" id="8_ntqpy"]
 [ext_resource type="PackedScene" uid="uid://duin4pr7w8dmd" path="res://scenes/crafting/Mixer.tscn" id="9_pc70b"]
+[ext_resource type="PackedScene" uid="uid://cy4ds16q4indt" path="res://scenes/ui/tooltip.tscn" id="11_s4ykj"]
 
 [node name="CounterUi" type="Control" unique_id=1949816307]
 layout_mode = 3
@@ -101,6 +102,12 @@ stretch_mode = 4
 z_index = 5
 position = Vector2(592, 424)
 scale = Vector2(0.2, 0.2)
+
+[node name="Tooltip" parent="." unique_id=810717877 instance=ExtResource("11_s4ykj")]
+z_index = 10
+layout_mode = 0
+offset_right = 120.0
+offset_bottom = 48.0
 
 [connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]
 [connection signal="pressed" from="RecipeButton" to="." method="_on_recipe_button_pressed"]

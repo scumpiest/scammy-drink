@@ -121,6 +121,25 @@ func _set_fruit_areas_enabled(enabled: bool) -> void:
 	get_tree().call_group("fruit_button", "set", "input_pickable", enabled)
 
 
+func get_hovered_ingredient_name() -> String:
+	if not _fruit_areas_enabled:
+		return ""
+
+	var mouse_pos := get_global_mouse_position()
+	for i in range(FRUIT_AREA_NAMES.size() - 1, -1, -1):
+		var area_name: String = FRUIT_AREA_NAMES[i]
+		var area := get_node_or_null(area_name) as Area2D
+		if area == null or not area.input_pickable:
+			continue
+		if not _is_point_in_area(area, mouse_pos):
+			continue
+		if FRUIT_DATA_BY_AREA.has(area_name):
+			var data: IngredientData = FRUIT_DATA_BY_AREA[area_name]
+			return data.name
+		return area_name
+	return ""
+
+
 func _is_point_in_area(area: Area2D, global_point: Vector2) -> bool:
 	for child in area.get_children():
 		if child is CollisionPolygon2D:
