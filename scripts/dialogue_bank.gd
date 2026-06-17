@@ -26,7 +26,11 @@ var chat_templates: Dictionary = {
 	"fish_thx_bad": "Eh…",
 	
 	# Shark
+<<<<<<< HEAD
 	"shark_hello": "Hello there newbie!",
+=======
+	"shark_hello": "Oh we got a new guy here, Just don't mess up my order and we \n won't have a problem.",
+>>>>>>> f29e6048c85497d6adf2ad988010a760adb0ab16
 	"shark_my_drink?": "Soooo, who's this drink for?",
 	"shark_wrong_ingredient": "Cause last time I checked I was the only one in here \nand the {ingredient} you just put in there does not go into the drink I ordered!",
 	"shark_right_ingredient": "Well, if I would make this drink myself, \nI would definitely use some {ingredient}",
