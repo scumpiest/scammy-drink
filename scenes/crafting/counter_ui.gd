@@ -8,6 +8,7 @@ extends Control
 @onready var recipe_book: Control = $RecipeBook
 @onready var capy_notes: PanelContainer = $CapyNotes
 @onready var _tooltip: PanelContainer = $Tooltip
+@onready var footsteps_player: AudioStreamPlayer = $Footsteps
 
 
 var current_target: Marker2D = null
@@ -40,8 +41,10 @@ func _process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("close_recipe"):
 		recipe_book.visible = false
+		$BookSounds.play()
 	if event.is_action_pressed("open_recipe"):
 		recipe_book.visible = true
+		$BookSounds.play()
 	if event.is_action_pressed("toggle_dialogue_debug"):
 		_toggle_dialogue_debug_mode()
 
@@ -50,6 +53,7 @@ func spawn_customer() -> Customer:
 	new_customer.customer_type = randi() % Customer.Type.size() as Customer.Type
 	new_customer.global_position = spawn_marker.global_position
 	add_child(new_customer)
+	footsteps_player.play()
 	return new_customer
 
 
@@ -83,8 +87,11 @@ func _on_customer_exited() -> void:
 
 func _on_notes_saved(_notes_content: Dictionary) -> void:
 	_notes_saved_for_order = true
+	print("YAYHAHAHHHAAAAAAAAAAAAAAWAHAOOOOAHAHOOOOOOOOOOYIPPPREEEEEE")
 	if _awaiting_notes_save:
 		_awaiting_notes_save = false
+		$PenSounds.play()
+		
 		_spawn_next_customer()
 
 

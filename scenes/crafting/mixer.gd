@@ -3,7 +3,7 @@ extends Node2D
 @onready var _animation_player: AnimationPlayer = $AnimationPlayer
 @onready var _glass: Node2D = $BlenderFront/Glass
 @onready var _mix_button: TextureButton = $BlenderButton
-@onready var _crafting_counter: Node2D = get_parent().get_node("CraftingCounter")
+@onready var _crafting_counter: Node2D = get_parent()
 @onready var mix_sfx: AudioStreamPlayer2D = $MixSFX
 
 

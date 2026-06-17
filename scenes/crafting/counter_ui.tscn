@@ -5,12 +5,15 @@
 [ext_resource type="PackedScene" uid="uid://x6l2s2cjh6tm" path="res://scenes/customers/customer.tscn" id="2_ccn5l"]
 [ext_resource type="PackedScene" uid="uid://0dr0j1p35u0x" path="res://scenes/crafting/notes.tscn" id="3_8ubsl"]
 [ext_resource type="AudioStream" uid="uid://x5pn66qvwi4a" path="res://assets/Bossa Nova Beach.mp3" id="4_ccn5l"]
-[ext_resource type="PackedScene" uid="uid://b4v7v5xgeay3i" path="res://scenes/ui/recipe_book.tscn" id="6_p5jpt"]
+[ext_resource type="PackedScene" uid="uid://6i5g71ol7d6e" path="res://scenes/ui/recipe_book.tscn" id="6_p5jpt"]
+[ext_resource type="AudioStream" uid="uid://btvw5o4n5a4m0" path="res://assets/sfx/Footsteps.mp3" id="8_8oscw"]
 [ext_resource type="PackedScene" uid="uid://ba2rpfg2awifo" path="res://scenes/crafting/capy_notes.tscn" id="8_capy"]
+[ext_resource type="AudioStream" uid="uid://bcv5tgy0onhnk" path="res://assets/sfx/Book.mp3" id="8_hi1ps"]
 [ext_resource type="Texture2D" uid="uid://btvmdbvb8vv4h" path="res://assets/Cookbook_Icon.png" id="8_lrqxf"]
 [ext_resource type="Texture2D" uid="uid://d1tnwuxwhyoko" path="res://assets/Beach_Background.png" id="8_ntqpy"]
-[ext_resource type="PackedScene" uid="uid://duin4pr7w8dmd" path="res://scenes/crafting/Mixer.tscn" id="9_pc70b"]
+[ext_resource type="AudioStream" uid="uid://bpwodcrqqvq6g" path="res://assets/sfx/Pen Scribble.mp3" id="8_qbp3q"]
 [ext_resource type="PackedScene" uid="uid://cy4ds16q4indt" path="res://scenes/ui/tooltip.tscn" id="11_s4ykj"]
+[ext_resource type="AudioStream" uid="uid://ctotstsp8umap" path="res://assets/sfx/Beach Ambience.mp3" id="12_ap507"]
 
 [node name="CounterUi" type="Control" unique_id=1949816307]
 layout_mode = 3
@@ -56,7 +59,7 @@ position = Vector2(600, 435)
 position = Vector2(-429, 94)
 
 [node name="EnterMarker" type="Marker2D" parent="." unique_id=774304902]
-position = Vector2(392, 40)
+position = Vector2(336, 64)
 
 [node name="ExitMarker" type="Marker2D" parent="." unique_id=162336635]
 position = Vector2(1332, 96)
@@ -66,6 +69,23 @@ stream = ExtResource("4_ccn5l")
 volume_db = -5.0
 autoplay = true
 parameters/looping = true
+
+[node name="Ambience" type="AudioStreamPlayer" parent="." unique_id=18315182]
+stream = ExtResource("12_ap507")
+autoplay = true
+
+[node name="PenSounds" type="AudioStreamPlayer" parent="." unique_id=1564701088]
+unique_name_in_owner = true
+stream = ExtResource("8_qbp3q")
+volume_db = 24.0
+
+[node name="BookSounds" type="AudioStreamPlayer" parent="." unique_id=31409859]
+unique_name_in_owner = true
+stream = ExtResource("8_hi1ps")
+
+[node name="Footsteps" type="AudioStreamPlayer" parent="." unique_id=664025472]
+unique_name_in_owner = true
+stream = ExtResource("8_8oscw")
 
 [node name="GlassIngredients" type="Node" parent="." unique_id=517205420 groups=["glass_ingredients"]]
 
@@ -100,17 +120,11 @@ grow_vertical = 2
 texture = ExtResource("8_ntqpy")
 expand_mode = 1
 stretch_mode = 4
-
-[node name="Blender" parent="." unique_id=1547528332 instance=ExtResource("9_pc70b")]
-z_index = 5
-position = Vector2(592, 424)
-scale = Vector2(0.2, 0.2)
+metadata/_edit_lock_ = true
 
 [node name="Tooltip" parent="." unique_id=810717877 instance=ExtResource("11_s4ykj")]
 z_index = 10
 layout_mode = 0
-offset_right = 120.0
-offset_bottom = 48.0
 
 [connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]
 [connection signal="pressed" from="RecipeButton" to="." method="_on_recipe_button_pressed"]

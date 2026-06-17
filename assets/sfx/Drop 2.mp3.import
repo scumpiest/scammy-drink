@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b5cv4fioysxkf"
+path="res://.godot/imported/Drop 2.mp3-4523e8deb3ce4592e664b4ab60a2e2ca.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/Drop 2.mp3"
+dest_files=["res://.godot/imported/Drop 2.mp3-4523e8deb3ce4592e664b4ab60a2e2ca.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

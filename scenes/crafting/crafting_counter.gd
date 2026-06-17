@@ -1,5 +1,9 @@
 extends Node2D
 
+@onready var sfx_player: AudioStreamPlayer = $IngredientSounds
+@onready var drop_sound := preload("res://assets/sfx/Drop 4.mp3")
+@onready var pour_sound := preload("res://assets/sfx/Water Pour.mp3")
+
 signal drink_ingredient_added(ingredient: String)
 
 const BASE_FRUIT_SCENE: PackedScene = preload("res://scenes/ingredients/base_fruit.tscn")
@@ -35,7 +39,7 @@ const FLUID_BUTTON_DISPLAY_NAMES: Dictionary = {
 	"CoconutCream": "Coconut Cream",
 }
 
-@onready var glass: Node2D = get_parent().get_node("Blender/BlenderFront/Glass")
+@onready var glass: Node2D = $Blender/BlenderFront/Glass
 
 var crafting_ingredients = {}
 var _fruit_areas_enabled: bool = true
@@ -91,7 +95,7 @@ func _get_total_ingredients() -> int:
 
 func reset() -> void:
 	crafting_ingredients.clear()
-	var glass_ingredients: Node = get_parent().get_node("GlassIngredients")
+	var glass_ingredients: Node = $GlassIngredients
 	for child in glass_ingredients.get_children():
 		child.queue_free()
 
@@ -114,6 +118,7 @@ func _on_reset_pressed():
 
 func _on_ingredient_added(ingredient: String) -> void:
 	_add_ingredient(ingredient)
+	sfx_player.stream = drop_sound; sfx_player.play()
 
 
 func _setup_fruit_areas() -> void:
@@ -184,20 +189,14 @@ func _spawn_fruit(item_data: IngredientData) -> void:
 	new_item.item_scale = Vector2(0.15, 0.15)
 	new_item.global_position = get_global_mouse_position()
 
-	var glass_ingredients: Node = get_tree().get_first_node_in_group("glass_ingredients")
-	if glass_ingredients == null:
-		push_warning("CraftingCounter: glass_ingredients group not found!")
-		new_item.queue_free()
-		return
-
-	glass_ingredients.add_child(new_item)
+	$GlassIngredients.add_child(new_item)
 	new_item.drag_and_drop.begin_drag()
 	get_viewport().set_input_as_handled()
 
 
-func _on_soda_pressed():  _add_ingredient("soda")
-func _on_milk_pressed():  _add_ingredient("milk")
-func _on_water_pressed(): _add_ingredient("water")
-func _on_white_wine_pressed(): _add_ingredient("white_wine")
-func _on_lime_juice_pressed(): _add_ingredient("lime_juice")
-func _on_coconut_cream_pressed(): _add_ingredient("coconut_cream")
+func _on_soda_pressed():  _add_ingredient("soda"); sfx_player.stream = pour_sound; sfx_player.play()
+func _on_milk_pressed():  _add_ingredient("milk"); sfx_player.stream = pour_sound; sfx_player.play()
+func _on_water_pressed(): _add_ingredient("water"); sfx_player.stream = pour_sound; sfx_player.play()
+func _on_white_wine_pressed(): _add_ingredient("white_wine"); sfx_player.stream = pour_sound; sfx_player.play()
+func _on_lime_juice_pressed(): _add_ingredient("lime_juice"); sfx_player.stream = pour_sound; sfx_player.play()
+func _on_coconut_cream_pressed(): _add_ingredient("coconut_cream"); sfx_player.stream = pour_sound; sfx_player.play()
