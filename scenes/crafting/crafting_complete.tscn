@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cuo473t7q0awv"]
+
+[ext_resource type="Script" uid="uid://ch6uei1qwaepb" path="res://scenes/crafting/crafting_complete.gd" id="1_rmrei"]
+
+[node name="CraftingComplete" type="Node2D" unique_id=929487557]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1929855750]
+script = ExtResource("1_rmrei")

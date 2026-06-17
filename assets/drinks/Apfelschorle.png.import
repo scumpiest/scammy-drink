@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jhus2r8xnh6a"
-path="res://.godot/imported/Lemonade[1].png-12adbbbd03c9aab2da4f7dc6e87c8c0c.ctex"
+uid="uid://b0hxi2c40mb3q"
+path="res://.godot/imported/Apfelschorle.png-a35ffd2c5da2e44f0fb75d16fbdee6c6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/drinks/Lemonade[1].png"
-dest_files=["res://.godot/imported/Lemonade[1].png-12adbbbd03c9aab2da4f7dc6e87c8c0c.ctex"]
+source_file="res://assets/drinks/Apfelschorle.png"
+dest_files=["res://.godot/imported/Apfelschorle.png-a35ffd2c5da2e44f0fb75d16fbdee6c6.ctex"]
 
 [params]
 
