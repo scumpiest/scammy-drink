@@ -395,6 +395,7 @@ libraries/ = SubResource("AnimationLibrary_xgih0")
 
 [node name="MixSFX" type="AudioStreamPlayer2D" parent="." unique_id=2143222085]
 stream = ExtResource("9_iphj6")
+volume_db = 10.692
 
 [connection signal="body_entered" from="BlenderFront/Glass/WaterArea" to="BlenderFront/Glass" method="_on_water_area_body_entered"]
 [connection signal="body_entered" from="BlenderFront/Glass/BottomArea" to="BlenderFront/Glass" method="_on_bottom_area_body_entered"]
