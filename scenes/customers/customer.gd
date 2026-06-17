@@ -35,6 +35,8 @@ var _sprite_rest_scale: Vector2 = Vector2.ONE
 var _bop_time: float = 0.0
 var _ingredients_added_count: int = 0
 var _had_wrong_before_two: bool = false
+var _shown_my_drink_with_wrong: bool = false
+var _shown_my_drink_with_right: bool = false
 var _dialogue_debug_enabled: bool = false
 
 
@@ -96,13 +98,20 @@ func on_ingredient_feedback(ingredient: String, is_wrong: bool, total_added: int
 	if is_wrong:
 		if total_added <= 2:
 			_had_wrong_before_two = true
-		_show_dialogue("my_drink?")
-		_show_dialogue("wrong_ingredient", {"ingredient": ingredient})
+		var events: Array[String] = []
+		if not _shown_my_drink_with_wrong:
+			events.append("my_drink?")
+			_shown_my_drink_with_wrong = true
+		events.append("wrong_ingredient")
+		_show_dialogue_events(events, {"ingredient": ingredient})
 
 	if total_added == 2:
-		if not _had_wrong_before_two:
-			_show_dialogue("my_drink?")
-		_show_dialogue("right_ingredient", {"ingredient": missing_ingredient_hint})
+		var events: Array[String] = []
+		if not _had_wrong_before_two and not _shown_my_drink_with_right:
+			events.append("my_drink?")
+			_shown_my_drink_with_right = true
+		events.append("right_ingredient")
+		_show_dialogue_events(events, {"ingredient": missing_ingredient_hint})
 
 
 func _show_mix_result_dialogue(correct_count: int) -> void:
@@ -123,17 +132,28 @@ func _show_mix_result_dialogue(correct_count: int) -> void:
 
 
 func _show_dialogue(event_name: String, params: Dictionary = {}) -> void:
+	_show_dialogue_events([event_name], params)
+
+
+func _show_dialogue_events(event_names: Array[String], params: Dictionary = {}) -> void:
 	var persona: String = _get_persona_name()
-	var line: String = DialogueBank.get_customer_line(persona, event_name, params)
-	if line.is_empty():
-		_debug_log("missing_dialogue_line", {"persona": persona, "event": event_name})
+	var lines: Array[String] = []
+	for event_name in event_names:
+		var line: String = DialogueBank.get_customer_line(persona, event_name, params)
+		if line.is_empty():
+			_debug_log("missing_dialogue_line", {"persona": persona, "event": event_name})
+			continue
+		lines.append(line)
+
+	if lines.is_empty():
 		return
+
 	bubble_background.visible = true
-	chat_bubble.text = line
+	chat_bubble.text = "\n".join(lines)
 	_debug_log("dialogue", {
 		"persona": persona,
-		"event": event_name,
-		"line": line
+		"events": event_names,
+		"line": chat_bubble.text
 	})
 
 
@@ -144,6 +164,8 @@ func _get_persona_name() -> String:
 func _reset_dialogue_state() -> void:
 	_ingredients_added_count = 0
 	_had_wrong_before_two = false
+	_shown_my_drink_with_wrong = false
+	_shown_my_drink_with_right = false
 
 
 func set_dialogue_debug_enabled(enabled: bool) -> void:
