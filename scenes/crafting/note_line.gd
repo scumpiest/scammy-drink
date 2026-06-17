@@ -1,7 +1,7 @@
 class_name NoteLine
 extends MarginContainer
 
-@onready var label: Label = $VBoxContainer/HBoxContainer/MarginContainer/Label
+@onready var label: Label = $VBoxContainer/HBoxContainer/MarginContainer/MarginContainer/Label
 @onready var new_label: Label = $VBoxContainer/NewLabel
 @onready var scratch_overlay: TextureRect = $VBoxContainer/HBoxContainer/MarginContainer/ScratchOverlay
 @onready var undo_button: TextureButton = $VBoxContainer/HBoxContainer/UndoButton

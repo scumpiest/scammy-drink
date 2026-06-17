@@ -26,8 +26,16 @@ const FRUIT_AREA_NAMES: Array[String] = [
 	"Ice",
 ]
 
-@onready var mix_button: Button = $MixButton
-@onready var glass: Node2D = $Glass
+const FLUID_BUTTON_DISPLAY_NAMES: Dictionary = {
+	"WhiteWine": "White Wine",
+	"Water": "Water",
+	"Soda": "Soda",
+	"Milk": "Milk",
+	"LimeJuice": "Lime Juice",
+	"CoconutCream": "Coconut Cream",
+}
+
+@onready var glass: Node2D = get_parent().get_node("Blender/BlenderFront/Glass")
 
 var crafting_ingredients = {}
 var _fruit_areas_enabled: bool = true
@@ -90,8 +98,12 @@ func reset() -> void:
 	get_tree().call_group("fluid_button", "set", "disabled", false)
 	_set_fruit_areas_enabled(true)
 
-func _on_mix_pressed():
+func mix() -> void:
 	GameManager.create_recipe(crafting_ingredients)
+
+
+func _on_mix_pressed() -> void:
+	mix()
 
 func _on_crafting_complete(_recipe_key) -> void:
 	reset()
@@ -116,6 +128,44 @@ func _setup_fruit_areas() -> void:
 func _set_fruit_areas_enabled(enabled: bool) -> void:
 	_fruit_areas_enabled = enabled
 	get_tree().call_group("fruit_button", "set", "input_pickable", enabled)
+
+
+func get_hovered_ingredient_name() -> String:
+	var mouse_pos := get_global_mouse_position()
+
+	if _fruit_areas_enabled:
+		var fruit_name := _get_hovered_fruit_name(mouse_pos)
+		if not fruit_name.is_empty():
+			return fruit_name
+
+	return _get_hovered_fluid_name(mouse_pos)
+
+
+func _get_hovered_fruit_name(mouse_pos: Vector2) -> String:
+	for i in range(FRUIT_AREA_NAMES.size() - 1, -1, -1):
+		var area_name: String = FRUIT_AREA_NAMES[i]
+		var area := get_node_or_null(area_name) as Area2D
+		if area == null or not area.input_pickable:
+			continue
+		if not _is_point_in_area(area, mouse_pos):
+			continue
+		if FRUIT_DATA_BY_AREA.has(area_name):
+			var data: IngredientData = FRUIT_DATA_BY_AREA[area_name]
+			return data.name
+		return area_name
+	return ""
+
+
+func _get_hovered_fluid_name(mouse_pos: Vector2) -> String:
+	for child in get_children():
+		if not child.is_in_group("fluid_button") or not child is BaseButton:
+			continue
+		var button := child as BaseButton
+		if button.disabled or not button.visible:
+			continue
+		if button.get_global_rect().has_point(mouse_pos):
+			return FLUID_BUTTON_DISPLAY_NAMES.get(child.name, child.name)
+	return ""
 
 
 func _is_point_in_area(area: Area2D, global_point: Vector2) -> bool:

@@ -1,23 +1,74 @@
 [gd_scene format=3 uid="uid://0dr0j1p35u0x"]
 
 [ext_resource type="Script" uid="uid://u6c2uhcax1cn" path="res://scenes/crafting/notes.gd" id="1_8em1m"]
+[ext_resource type="Texture2D" uid="uid://byuj2sh5wsp4k" path="res://assets/Note1.png" id="2_5qovk"]
 [ext_resource type="PackedScene" uid="uid://cp4jgoh7r70xj" path="res://scenes/crafting/note_line.tscn" id="2_iy102"]
+[ext_resource type="Texture2D" uid="uid://blbodkc0lr2fx" path="res://assets/Button_template4.png" id="4_val6n"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_05df7"]
-bg_color = Color(0.9610422, 0.9181441, 0.5864518, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5qovk"]
+bg_color = Color(0.60038817, 0.60038817, 0.60038817, 0)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nkx5l"]
+texture = ExtResource("2_5qovk")
+texture_margin_left = 40.0
+texture_margin_top = 70.0
+texture_margin_right = 60.0
+texture_margin_bottom = 40.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_val6n"]
+texture = ExtResource("2_5qovk")
+texture_margin_left = 40.0
+texture_margin_top = 70.0
+texture_margin_right = 60.0
+texture_margin_bottom = 40.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8x1q1"]
+texture = ExtResource("2_5qovk")
+texture_margin_left = 40.0
+texture_margin_top = 70.0
+texture_margin_right = 60.0
+texture_margin_bottom = 40.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xap2p"]
+texture = ExtResource("2_5qovk")
+texture_margin_left = 40.0
+texture_margin_top = 70.0
+texture_margin_right = 60.0
+texture_margin_bottom = 40.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3goba"]
+texture = ExtResource("4_val6n")
+texture_margin_left = 40.0
+texture_margin_top = 70.0
+texture_margin_right = 60.0
+texture_margin_bottom = 40.0
 
 [node name="Notes" type="PanelContainer" unique_id=566353611 groups=["notes"]]
-offset_right = 233.0
-offset_bottom = 304.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_05df7")
+offset_right = 300.0
+offset_bottom = 354.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_5qovk")
 script = ExtResource("1_8em1m")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=211763275]
+visible = false
+layout_mode = 2
+texture = ExtResource("2_5qovk")
+
+[node name="Note" type="Button" parent="." unique_id=792578825]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_nkx5l")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_val6n")
+theme_override_styles/hover = SubResource("StyleBoxTexture_8x1q1")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_xap2p")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_3goba")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=634357260]
 layout_mode = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
+theme_override_constants/margin_left = 45
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 55
+theme_override_constants/margin_bottom = 40
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=288905817]
 layout_mode = 2
@@ -44,7 +95,6 @@ text = "Add:"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=720761012]
 layout_mode = 2
-size_flags_horizontal = 0
 
 [node name="Ingredient1" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=102409475 instance=ExtResource("2_iy102")]
 layout_mode = 2
@@ -56,7 +106,9 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Save" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=163273457]
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 text = "save"
 
+[connection signal="pressed" from="Note" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/Save" to="." method="_on_save_pressed"]
