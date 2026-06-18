@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://nlfo7lx6fb1s"
-path="res://.godot/imported/Seal forgot water.wav-d2f348c353fb70625d6cfafd746dd2d4.sample"
+path="res://.godot/imported/Seal add water.wav-6a1e31e71397eddcb51be497b5ae1c77.sample"
 
 [deps]
 
-source_file="res://assets/VO/Seal/Seal forgot water.wav"
-dest_files=["res://.godot/imported/Seal forgot water.wav-d2f348c353fb70625d6cfafd746dd2d4.sample"]
+source_file="res://assets/VO/Seal/Seal add water.wav"
+dest_files=["res://.godot/imported/Seal add water.wav-6a1e31e71397eddcb51be497b5ae1c77.sample"]
 
 [params]
 

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://c0k5cxgparinp"
-path="res://.godot/imported/Seal is that my drink.wav-ffe040f5589ff4d9d599db758ed236fb.sample"
+path="res://.godot/imported/Seal my drink.wav-f1f5902e3033235a813ba1b1bba48972.sample"
 
 [deps]
 
-source_file="res://assets/VO/Seal/Seal is that my drink.wav"
-dest_files=["res://.godot/imported/Seal is that my drink.wav-ffe040f5589ff4d9d599db758ed236fb.sample"]
+source_file="res://assets/VO/Seal/Seal my drink.wav"
+dest_files=["res://.godot/imported/Seal my drink.wav-f1f5902e3033235a813ba1b1bba48972.sample"]
 
 [params]
 

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bcpdp0er1s1yg"
-path="res://.godot/imported/Seal forgot soda.wav-62afab08fdd15f6321f608e0ce0d3b38.sample"
+path="res://.godot/imported/Seal add soda.wav-c768c6440b4a46c31852316229b5b803.sample"
 
 [deps]
 
-source_file="res://assets/VO/Seal/Seal forgot soda.wav"
-dest_files=["res://.godot/imported/Seal forgot soda.wav-62afab08fdd15f6321f608e0ce0d3b38.sample"]
+source_file="res://assets/VO/Seal/Seal add soda.wav"
+dest_files=["res://.godot/imported/Seal add soda.wav-c768c6440b4a46c31852316229b5b803.sample"]
 
 [params]
 

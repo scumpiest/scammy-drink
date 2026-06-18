@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://d4io02mymedu6"
-path="res://.godot/imported/Shark almost.wav-2d41f698316afecb9f4dadae1a339577.sample"
+path="res://.godot/imported/Shark thx3.wav-cb81cea82fd4666cc20f10625e5a852b.sample"
 
 [deps]
 
-source_file="res://assets/VO/Shark/Shark almost.wav"
-dest_files=["res://.godot/imported/Shark almost.wav-2d41f698316afecb9f4dadae1a339577.sample"]
+source_file="res://assets/VO/Shark/Shark thx3.wav"
+dest_files=["res://.godot/imported/Shark thx3.wav-cb81cea82fd4666cc20f10625e5a852b.sample"]
 
 [params]
 

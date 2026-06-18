@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://deqxpug11og0q"
-path="res://.godot/imported/Shark try harder.wav-f0b94deaa5079a8c1c08a66d92f9e688.sample"
+path="res://.godot/imported/Shark thx1.wav-a38a9b3a12470759e946d8966b5c2b38.sample"
 
 [deps]
 
-source_file="res://assets/VO/Shark/Shark try harder.wav"
-dest_files=["res://.godot/imported/Shark try harder.wav-f0b94deaa5079a8c1c08a66d92f9e688.sample"]
+source_file="res://assets/VO/Shark/Shark thx1.wav"
+dest_files=["res://.godot/imported/Shark thx1.wav-a38a9b3a12470759e946d8966b5c2b38.sample"]
 
 [params]
 

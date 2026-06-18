@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cn0trtlh6ks0h"
-path="res://.godot/imported/Seal Thx 2.wav-595686ed6c3ef0359a492e5289db4e2d.sample"
+path="res://.godot/imported/Seal thx2.wav-f69224a39fa6cc3d274bec09c1501530.sample"
 
 [deps]
 
-source_file="res://assets/VO/Seal/Seal Thx 2.wav"
-dest_files=["res://.godot/imported/Seal Thx 2.wav-595686ed6c3ef0359a492e5289db4e2d.sample"]
+source_file="res://assets/VO/Seal/Seal thx2.wav"
+dest_files=["res://.godot/imported/Seal thx2.wav-f69224a39fa6cc3d274bec09c1501530.sample"]
 
 [params]
 

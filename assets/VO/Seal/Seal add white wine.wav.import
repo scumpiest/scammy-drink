@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bht4d5duh51sw"
-path="res://.godot/imported/Seal forgot white wine.wav-7f454e906d9395bd933475b822b0298a.sample"
+path="res://.godot/imported/Seal add white wine.wav-1fde55fa0154ce16776ece2b35addfd1.sample"
 
 [deps]
 
-source_file="res://assets/VO/Seal/Seal forgot white wine.wav"
-dest_files=["res://.godot/imported/Seal forgot white wine.wav-7f454e906d9395bd933475b822b0298a.sample"]
+source_file="res://assets/VO/Seal/Seal add white wine.wav"
+dest_files=["res://.godot/imported/Seal add white wine.wav-1fde55fa0154ce16776ece2b35addfd1.sample"]
 
 [params]
 

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://76jyg25pw8rf"
-path="res://.godot/imported/Shark its fine i guess.wav-0487fbd38fc25700e4233a496a3825ac.sample"
+path="res://.godot/imported/Shark thx2.wav-3b3c21504a790c5b7b051f9dc1ce3634.sample"
 
 [deps]
 
-source_file="res://assets/VO/Shark/Shark its fine i guess.wav"
-dest_files=["res://.godot/imported/Shark its fine i guess.wav-0487fbd38fc25700e4233a496a3825ac.sample"]
+source_file="res://assets/VO/Shark/Shark thx2.wav"
+dest_files=["res://.godot/imported/Shark thx2.wav-3b3c21504a790c5b7b051f9dc1ce3634.sample"]
 
 [params]
 
