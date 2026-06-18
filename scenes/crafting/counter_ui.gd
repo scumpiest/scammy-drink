@@ -49,6 +49,9 @@ func _input(event: InputEvent) -> void:
 		$BookSounds.play()
 	if event.is_action_pressed("toggle_dialogue_debug"):
 		_toggle_dialogue_debug_mode()
+	if event.is_action_pressed("unlock_all_recipe"):
+		GameManager.unlock_all_recipes()
+		recipe_book.refresh_all_displays()
 
 func spawn_customer() -> Customer:
 	var new_customer: Customer = customer_scene.instantiate() as Customer
@@ -120,6 +123,7 @@ func _on_drink_cleared() -> void:
 	capy_notes.clear_ingredients()
 	_clear_drink()
 	crafting_counter.show_blender()
+	crafting_counter.reset()
 
 
 func _on_notes_saved(_notes_content: Dictionary) -> void:

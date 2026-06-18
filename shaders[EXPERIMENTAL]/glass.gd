@@ -26,6 +26,7 @@ var _pour_start_level: float = 0.0
 var _pour_ceiling: float = 0.0
 var _active_pour_ingredient: String = ""
 var _pour_max_reached: bool = false
+var _fill_markers: Array = []
 
 
 func _ready() -> void:
@@ -69,10 +70,28 @@ func start_pour(liquid_color: Color, ingredient_id: String = "", max_pour_fill: 
 	return true
 
 
-func stop_pour() -> float:
+func stop_pour() -> Dictionary:
 	if not _is_pouring:
-		return 0.0
-	return _finish_pour()
+		return {"poured": 0.0, "target": 0.0}
+
+	var poured_amount := fill_level - _pour_start_level
+	var target_amount := _pour_ceiling - _pour_start_level
+	_finish_pour()
+	return {"poured": poured_amount, "target": target_amount}
+
+
+func revert_pour_amount(amount: float) -> void:
+	fill_level = maxf(0.0, fill_level - amount)
+	_liquid_material.set_shader_parameter("fill_amount", fill_level)
+	_fade_wave_out()
+
+
+func set_fill_markers(fill_levels: Array) -> void:
+	_fill_markers = fill_levels.duplicate()
+	var m1: float = float(_fill_markers[0]) if _fill_markers.size() > 0 else -1.0
+	var m2: float = float(_fill_markers[1]) if _fill_markers.size() > 1 else -1.0
+	_liquid_material.set_shader_parameter("marker_fill_1", m1)
+	_liquid_material.set_shader_parameter("marker_fill_2", m2)
 
 
 func reset_liquid() -> void:

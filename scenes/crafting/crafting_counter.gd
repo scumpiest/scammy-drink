@@ -43,14 +43,16 @@ const FLUID_INGREDIENT_BY_BUTTON: Dictionary = {
 const FLUID_COLORS: Dictionary = {
 	"white_wine": Color(0.95, 0.92, 0.7, 0.75),
 	"water": Color(0.45, 0.75, 0.95, 0.7),
-	"soda": Color(0.85, 0.3, 0.3, 0.75),
+	"soda": Color(0.45, 0.75, 0.95, 0.7),
 	"milk": Color(0.95, 0.95, 0.95, 0.85),
 	"lime_juice": Color(0.7, 0.95, 0.3, 0.8),
 	"coconut_cream": Color(0.98, 0.97, 0.9, 0.85),
 }
 
 const FIRST_FLUID_POUR_FILL: float = 0.5
-const SECOND_FLUID_POUR_FILL: float = 0.2
+const SECOND_FLUID_POUR_FILL: float = 0.25
+const THIRD_FLUID_POUR_FILL: float = 0.25
+const POUR_SUCCESS_THRESHOLD: float = 0.9
 
 @onready var glass: Node2D = $Blender/BlenderFront/Glass
 @onready var blender: Node2D = $Blender
@@ -58,7 +60,7 @@ const SECOND_FLUID_POUR_FILL: float = 0.2
 signal mix_animation_finished
 
 var crafting_ingredients = {}
-var _fruit_areas_enabled: bool = true
+var _fruit_areas_enabled: bool = false
 var _pouring_ingredient: String = ""
 
 func _ready() -> void:
@@ -68,6 +70,8 @@ func _ready() -> void:
 	blender.mix_animation_finished.connect(func() -> void: mix_animation_finished.emit())
 	_setup_fruit_areas()
 	_setup_fluid_buttons()
+	_set_fruit_areas_enabled(false)
+	_update_fill_markers()
 
 
 func show_blender() -> void:
@@ -75,7 +79,7 @@ func show_blender() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if not _fruit_areas_enabled:
+	if not _fruit_areas_enabled or not _has_added_liquid():
 		return
 	if not event is InputEventMouseButton:
 		return
@@ -106,9 +110,11 @@ func _add_ingredient(ingredient: String) -> void:
 		crafting_ingredients[ingredient] = crafting_ingredients.get(ingredient, 0) + 1
 		drink_ingredient_added.emit(ingredient)
 
+	if FLUID_INGREDIENT_BY_BUTTON.values().has(ingredient):
+		_update_fill_markers()
+
 	if _get_total_ingredients() >= 3:
-		get_tree().call_group("fluid_button", "set", "disabled", true)
-		_set_fruit_areas_enabled(false)
+		_set_ingredient_buttons_enabled(false)
 		print("Max ingredients reached. Buttons disabled!")
 
 func _get_total_ingredients() -> int:
@@ -117,7 +123,7 @@ func _get_total_ingredients() -> int:
 		total += count
 	return total
 
-func reset() -> void:
+func reset(enable_buttons: bool = true) -> void:
 	crafting_ingredients.clear()
 	_pouring_ingredient = ""
 	sfx_player.stop()
@@ -126,10 +132,19 @@ func reset() -> void:
 	for child in glass_ingredients.get_children():
 		child.queue_free()
 
-	get_tree().call_group("fluid_button", "set", "disabled", false)
-	_set_fruit_areas_enabled(true)
+	_set_ingredient_buttons_enabled(enable_buttons)
+	if enable_buttons:
+		_update_fill_markers()
+	else:
+		glass.set_fill_markers([])
+
+
+func _set_ingredient_buttons_enabled(enabled: bool) -> void:
+	get_tree().call_group("fluid_button", "set", "disabled", not enabled)
+	_set_fruit_areas_enabled(enabled and _has_added_liquid())
 
 func mix() -> void:
+	glass.set_fill_markers([])
 	GameManager.create_recipe(crafting_ingredients)
 
 
@@ -139,7 +154,7 @@ func _on_mix_pressed() -> void:
 		print("I mixed!!")
 
 func _on_crafting_complete(_recipe_key) -> void:
-	reset()
+	reset(false)
 
 func _on_reset_pressed():
 	reset()
@@ -239,12 +254,43 @@ func _spawn_fruit(item_data: IngredientData) -> void:
 	get_viewport().set_input_as_handled()
 
 
-func _get_fluid_pour_max_fill() -> float:
+func _get_fluid_count() -> int:
 	var fluid_count := 0
 	for ingredient in crafting_ingredients.keys():
 		if FLUID_INGREDIENT_BY_BUTTON.values().has(ingredient):
 			fluid_count += 1
-	return FIRST_FLUID_POUR_FILL if fluid_count == 0 else SECOND_FLUID_POUR_FILL
+	return fluid_count
+
+
+func _has_added_liquid() -> bool:
+	return _get_fluid_count() > 0
+
+
+func _get_fluid_pour_max_fill() -> float:
+	match _get_fluid_count():
+		0:
+			return FIRST_FLUID_POUR_FILL
+		1:
+			return SECOND_FLUID_POUR_FILL
+		_:
+			return THIRD_FLUID_POUR_FILL
+
+
+func _is_successful_pour(poured: float, target: float) -> bool:
+	if target <= 0.0:
+		return false
+	return poured >= target * POUR_SUCCESS_THRESHOLD
+
+
+func _update_fill_markers() -> void:
+	var count := _get_fluid_count()
+	match count:
+		0:
+			glass.set_fill_markers([FIRST_FLUID_POUR_FILL])
+		1:
+			glass.set_fill_markers([FIRST_FLUID_POUR_FILL + SECOND_FLUID_POUR_FILL])
+		_:
+			glass.set_fill_markers([])
 
 
 func _on_fluid_button_down(button: BaseButton) -> void:
@@ -285,6 +331,13 @@ func _finish_fluid_pour() -> void:
 	_pouring_ingredient = ""
 	sfx_player.stop()
 
-	var poured_amount: float = glass.stop_pour()
-	if poured_amount >= glass.MIN_POUR_TO_REGISTER:
+	var pour_result: Dictionary = glass.stop_pour()
+	var poured_amount: float = pour_result["poured"]
+	var target_amount: float = pour_result["target"]
+
+	if _is_successful_pour(poured_amount, target_amount):
 		_add_ingredient(ingredient)
+		if _get_fluid_count() == 1:
+			_set_fruit_areas_enabled(true)
+	else:
+		glass.revert_pour_amount(poured_amount)
