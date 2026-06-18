@@ -38,7 +38,8 @@ func _apply_lock_state() -> void:
 		return
 
 	var is_fully_unlocked: bool = GameManager.is_recipe_fully_unlocked(recipe_key)
-	drink_sprite.modulate = Color(1.0, 1.0, 1.0, 1.0) if is_fully_unlocked else Color(0.0, 0.0, 0.0, 1.0)
+	var is_sprite_unlocked: bool = GameManager.is_recipe_sprite_unlocked(recipe_key)
+	drink_sprite.modulate = Color(1.0, 1.0, 1.0, 1.0) if is_sprite_unlocked else Color(0.0, 0.0, 0.0, 1.0)
 	actual_name.text = new_name if is_fully_unlocked else "(?)"
 	_refresh_ingredient_labels()
 

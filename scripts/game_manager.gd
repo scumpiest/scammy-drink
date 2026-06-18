@@ -131,6 +131,10 @@ func has_three_star(recipe_key: String) -> bool:
 	return get_recipe_stars(recipe_key) >= 3
 
 
+func is_recipe_sprite_unlocked(recipe_key: String) -> bool:
+	return get_recipe_stars(recipe_key) >= 2
+
+
 func are_all_recipes_three_star() -> bool:
 	for recipe_key in CraftingRecipe.get_recipes():
 		if get_recipe_stars(recipe_key) < 3:
