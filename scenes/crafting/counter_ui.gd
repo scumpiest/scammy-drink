@@ -73,6 +73,7 @@ func slide_to_marker(marker: Marker2D) -> void:
 
 
 func _on_request_completed() -> void:
+	_clear_drink()
 	slide_to_marker(exit_marker)
 	await get_tree().create_timer(2.5).timeout
 	customer.tree_exited.connect(_on_customer_exited, CONNECT_ONE_SHOT)
@@ -89,6 +90,8 @@ func _on_customer_exited() -> void:
 
 func _on_mix_animation_finished() -> void:
 	_spawn_drink()
+	if customer and is_instance_valid(customer):
+		customer.on_mix_animation_finished()
 
 
 func _spawn_drink() -> void:

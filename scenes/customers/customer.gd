@@ -20,6 +20,8 @@ const SPRITES: Dictionary = {
 const BOP_SPEED: float = 14.0
 const BOP_HEIGHT: float = 10.0
 const MOVE_THRESHOLD_SQUARED: float = 0.25
+const POST_MIX_PAUSE_S: float = 1
+const POST_THANKS_PAUSE_S: float = 2
 const PERSONA_BY_TYPE: Dictionary = {
 	Type.AXOLOTL: "axolotl",
 	Type.FISH: "fish",
@@ -38,6 +40,7 @@ var _had_wrong_before_two: bool = false
 var _shown_my_drink_with_wrong: bool = false
 var _shown_my_drink_with_right: bool = false
 var _dialogue_debug_enabled: bool = false
+var _pending_correct_count: int = -1
 
 
 func _ready() -> void:
@@ -75,11 +78,28 @@ func _process(delta: float) -> void:
 	_last_position = position
 
 
-func _on_crafting_result(_recipe_key: String, _correct_count: int, _missing_ingredients: Array) -> void:
-	if _recipe_key != request:
+func _on_crafting_result(recipe_key: String, correct_count: int, _missing_ingredients: Array) -> void:
+	if recipe_key != request:
 		return
-	_show_mix_result_dialogue(_correct_count)
-	await get_tree().create_timer(1.5).timeout
+	_pending_correct_count = correct_count
+
+
+func on_mix_animation_finished() -> void:
+	if _pending_correct_count < 0 or request.is_empty():
+		return
+	var correct_count: int = _pending_correct_count
+	_pending_correct_count = -1
+	_complete_order_after_mix(correct_count)
+
+
+func _complete_order_after_mix(correct_count: int) -> void:
+	await get_tree().create_timer(POST_MIX_PAUSE_S).timeout
+	if request.is_empty():
+		return
+	_show_mix_result_dialogue(correct_count)
+	await get_tree().create_timer(POST_THANKS_PAUSE_S).timeout
+	if request.is_empty():
+		return
 	request_completed.emit()
 	bubble_background.visible = false
 	request = ""
@@ -165,6 +185,7 @@ func _reset_dialogue_state() -> void:
 	_had_wrong_before_two = false
 	_shown_my_drink_with_wrong = false
 	_shown_my_drink_with_right = false
+	_pending_correct_count = -1
 
 
 func set_dialogue_debug_enabled(enabled: bool) -> void:

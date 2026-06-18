@@ -11,8 +11,8 @@ config_version=5
 [application]
 
 config/name="scammy-drink"
-run/main_scene="uid://omqlt0501aof"
-config/features=PackedStringArray("4.6", "GL Compatibility")
+run/main_scene="uid://ctrh7huvrvaws"
+config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
@@ -21,6 +21,7 @@ GameManager="*uid://xyr0lv1qs230"
 CraftingRecipe="*uid://4jt2wg3mt7fk"
 SceneManager="*uid://b6c1rw377sh4s"
 DialogueBank="*uid://dpciodxygni8q"
+VoiceLineBank="*res://scripts/voice_line_bank.gd"
 SignalBus="*uid://bfqr01l1x2hri"
 
 [display]
