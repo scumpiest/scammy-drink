@@ -64,7 +64,7 @@ func setup_customer(new_customer: Customer) -> void:
 	new_customer.request_completed.connect(_on_request_completed)
 	new_customer.request_failed.connect(_on_request_failed)
 	new_customer.set_dialogue_debug_enabled(_dialogue_debug_enabled)
-	_notes_saved_for_order = not GameManager.get_session_notes(GameManager.get_order()).is_empty()
+	_notes_saved_for_order = false
 	notes.update_display()
 	slide_to_marker(enter_marker)
 

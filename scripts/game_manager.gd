@@ -24,6 +24,7 @@ var inventory: Dictionary = {
 var recipe_orders: Array = []
 var missing_ingredients: Array = []
 var unlocked_recipes: Dictionary = {}
+var fulfilled_unlock_orders: Dictionary = {}
 var unlocked_recipe_ingredients: Dictionary = {}
 var recipe_best_stars: Dictionary = {}
 var session_notes: Dictionary = {}
@@ -50,9 +51,27 @@ func update_inventory(item: String, quantity: int):
 		inventory.erase(item)
 
 
+func is_recipe_available_for_order(recipe_key: String) -> bool:
+	if is_recipe_fully_unlocked(recipe_key):
+		return not fulfilled_unlock_orders.get(recipe_key, false)
+	return true
+
+
+func _pick_random_order_recipe() -> String:
+	var available: Array = []
+	for recipe_key in CraftingRecipe.get_recipes():
+		if is_recipe_available_for_order(recipe_key):
+			available.append(recipe_key)
+	if available.is_empty():
+		return ""
+	return available[randi() % available.size()]
+
+
 ## Adds a random recipe to the recipe orders.
-func add_recipe_order():
-	var new_recipe = CraftingRecipe.get_random_recipe()
+func add_recipe_order() -> void:
+	var new_recipe: String = _pick_random_order_recipe()
+	if new_recipe.is_empty():
+		return
 	recipe_orders.append(new_recipe)
 
 
@@ -88,6 +107,9 @@ func create_recipe(crafting_ingredients: Dictionary):
 func complete_current_order() -> void:
 	if recipe_orders.is_empty():
 		return
+	var completed_key: String = recipe_orders[0]
+	if is_recipe_fully_unlocked(completed_key):
+		fulfilled_unlock_orders[completed_key] = true
 	recipe_orders.pop_front()
 
 
