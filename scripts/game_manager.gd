@@ -29,6 +29,8 @@ var recipe_best_stars: Dictionary = {}
 var session_notes: Dictionary = {}
 var _all_three_star_emitted: bool = false
 
+var can_mix: bool = true
+
 
 func save_session_notes(notes_content: Dictionary) -> void:
 	session_notes[notes_content["recipe_key"]] = notes_content
@@ -142,3 +144,6 @@ func _check_all_recipes_three_star() -> void:
 	if are_all_recipes_three_star():
 		_all_three_star_emitted = true
 		all_recipes_three_star.emit()
+
+func _set_can_mix(val: bool) -> void:
+	can_mix = val

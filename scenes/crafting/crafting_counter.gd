@@ -143,7 +143,9 @@ func mix() -> void:
 
 
 func _on_mix_pressed() -> void:
-	mix()
+	if GameManager.can_mix:
+		mix()
+		print("I mixed!!")
 
 func _on_crafting_complete(_recipe_key) -> void:
 	reset()
