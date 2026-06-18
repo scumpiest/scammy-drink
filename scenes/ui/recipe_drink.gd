@@ -80,7 +80,7 @@ func _on_notes_saved(notes_content: Dictionary) -> void:
 		return
 
 	for i in actual.size():
-		if saved_ingredients[i] == actual[i]:
+		if saved_ingredients.has(actual[i]):
 			GameManager.unlock_recipe_ingredient_at(recipe_key, i)
 
 	_apply_lock_state()
