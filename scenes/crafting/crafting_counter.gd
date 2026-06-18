@@ -1,8 +1,9 @@
 extends Node2D
 
 @onready var sfx_player: AudioStreamPlayer = $IngredientSounds
-@onready var drop_sound := preload("res://assets/sfx/Drop 4.mp3")
+@onready var drop_sound := preload("res://assets/sfx/Drop 5.wav")
 @onready var pour_sound := preload("res://assets/sfx/Water Pour.mp3")
+@onready var fruit_pick_sound := preload("res://assets/sfx/Fruit pick.wav")
 
 signal drink_ingredient_added(ingredient: String)
 
@@ -229,6 +230,9 @@ func _is_point_in_area(area: Area2D, global_point: Vector2) -> bool:
 
 
 func _spawn_fruit(item_data: IngredientData) -> void:
+	sfx_player.stream = fruit_pick_sound
+	sfx_player.play()
+
 	var new_item: RigidBody2D = BASE_FRUIT_SCENE.instantiate()
 	new_item.data = item_data
 	new_item.item_scale = Vector2(0.15, 0.15)

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c71fauawc7nli"
+path="res://.godot/imported/Fruit pick.wav-21f58b9b56d6ac01bcb70d7165025453.sample"
+
+[deps]
+
+source_file="res://assets/sfx/Fruit pick.wav"
+dest_files=["res://.godot/imported/Fruit pick.wav-21f58b9b56d6ac01bcb70d7165025453.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

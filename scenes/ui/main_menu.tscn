@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b0b2rn6m4fxyk" path="res://scenes/ui/main_menu.gd" id="1_7vrkn"]
 [ext_resource type="Texture2D" uid="uid://d1tnwuxwhyoko" path="res://assets/Beach_Background.png" id="2_1g8jr"]
 [ext_resource type="Texture2D" uid="uid://56c1mq213gb2" path="res://assets/Button_template2.png" id="3_1g8jr"]
+[ext_resource type="AudioStream" uid="uid://cll156ylerdhf" path="res://assets/Beach Bossa Nova 2 fix.mp3" id="4_m1kxf"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m1kxf"]
 texture = ExtResource("2_1g8jr")
@@ -148,6 +149,10 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_y1h5l")
 theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_pw24t")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_5dct7")
 text = "Quit"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1438090957]
+stream = ExtResource("4_m1kxf")
+autoplay = true
 
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer2/CenterContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer2/CenterContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
