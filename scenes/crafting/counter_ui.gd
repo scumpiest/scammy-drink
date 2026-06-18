@@ -92,6 +92,7 @@ func _on_customer_exited() -> void:
 
 func _on_mix_animation_finished() -> void:
 	_spawn_drink()
+	notes.show_save_button()
 	if customer and is_instance_valid(customer):
 		customer.on_mix_animation_finished()
 

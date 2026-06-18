@@ -7,12 +7,14 @@ signal drink_cleared
 @onready var ingredient1: NoteLine = $MarginContainer/VBoxContainer/VBoxContainer/Ingredient1
 @onready var ingredient2: NoteLine = $MarginContainer/VBoxContainer/VBoxContainer/Ingredient2
 @onready var ingredient3: NoteLine = $MarginContainer/VBoxContainer/VBoxContainer/Ingredient3
+@onready var _save_button: Button = $MarginContainer/VBoxContainer/VBoxContainer/Save
 
 var random_chance: float = 0.0
 var notes_content: Dictionary = {}
 
 
 func update_display() -> void:
+	_hide_save_button()
 	var order_data: Dictionary = get_order_data()
 
 	random_chance = order_data["random_chance"]
@@ -121,8 +123,17 @@ func _drop_data(at_position: Vector2, data: Variant) -> void:
 			return
 
 
+func show_save_button() -> void:
+	_save_button.visible = true
+
+
+func _hide_save_button() -> void:
+	_save_button.visible = false
+
+
 func _on_save_pressed():
 	update_notes_content()
 	GameManager.save_session_notes(notes_content)
 	SignalBus.notes_saved.emit(notes_content)
+	_hide_save_button()
 	drink_cleared.emit()

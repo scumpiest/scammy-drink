@@ -152,7 +152,9 @@ text = "Quit"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1438090957]
 stream = ExtResource("4_m1kxf")
+volume_db = -5.0
 autoplay = true
+bus = &"Music"
 parameters/looping = true
 
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer2/CenterContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]

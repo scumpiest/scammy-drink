@@ -144,6 +144,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Save" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=163273457]
+visible = false
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.8666667, 0.45882353, 0.16078432, 1)
