@@ -73,7 +73,7 @@ position = Vector2(1332, 96)
 
 [node name="BGMusic" type="AudioStreamPlayer" parent="." unique_id=821602189]
 stream = ExtResource("4_ccn5l")
-volume_db = -15.0
+volume_db = -10.0
 autoplay = true
 parameters/looping = true
 
