@@ -68,6 +68,7 @@ stream = ExtResource("12_ap507")
 volume_db = -18.0
 autoplay = true
 bus = &"SFX"
+parameters/looping = true
 
 [node name="PenSounds" type="AudioStreamPlayer" parent="." unique_id=1564701088]
 unique_name_in_owner = true
