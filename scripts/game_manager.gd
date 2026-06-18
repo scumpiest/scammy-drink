@@ -57,7 +57,9 @@ func add_recipe_order():
 
 
 func get_order() -> String:
+	
 	return recipe_orders[0]
+	
 
 
 ## Creates a recipe based on the crafting ingredients and always completes the order.

@@ -17,6 +17,10 @@ var _notes_saved_for_order: bool = false
 var _spawned_drink: Node2D = null
 var customer: Customer
 var _dialogue_debug_enabled: bool = false
+var tutorial_active: bool = true
+var fruits_interactible = true
+var liquids_interactible = true
+var mixer_interactible = true
 
 var main_menu_scene: String = "uid://ctrh7huvrvaws"
 
@@ -25,6 +29,9 @@ var main_menu_scene: String = "uid://ctrh7huvrvaws"
 
 
 func _ready() -> void:
+	if tutorial_active:
+		$Tutorial.script()
+	await $Tutorial.tutorial_complete
 	SignalBus.notes_saved.connect(_on_notes_saved)
 	GameManager.all_recipes_three_star.connect(_on_all_recipes_three_star)
 	crafting_counter.drink_ingredient_added.connect(capy_notes.add_ingredient)
@@ -39,6 +46,7 @@ func _process(delta: float) -> void:
 	if current_target and customer and is_instance_valid(customer):
 		customer.position = customer.position.lerp(current_target.global_position, 1.0 - exp(-lerp_weight * delta))
 	_update_ingredient_tooltip()
+	#$Tutorial.tutorial_complete.connect(_on_tutorial_end())
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("close_recipe"):
@@ -123,10 +131,11 @@ func _on_drink_cleared() -> void:
 
 func _on_notes_saved(_notes_content: Dictionary) -> void:
 	_notes_saved_for_order = true
+	$PenSounds.play()
 	#print("YAYHAHAHHHAAAAAAAAAAAAAAWAHAOOOOAHAHOOOOOOOOOOYIPPPREEEEEE")
 	if _awaiting_notes_save:
 		_awaiting_notes_save = false
-		$PenSounds.play()
+		
 		
 		_spawn_next_customer()
 
@@ -191,3 +200,6 @@ func _toggle_dialogue_debug_mode() -> void:
 	print("[DialogueDebug] enabled=%s" % str(_dialogue_debug_enabled))
 	if customer and is_instance_valid(customer):
 		customer.set_dialogue_debug_enabled(_dialogue_debug_enabled)
+	
+func _on_tutorial_end(): 
+	$Tutorial.hide()

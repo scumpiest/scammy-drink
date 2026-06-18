@@ -143,7 +143,7 @@ func mix() -> void:
 
 
 func _on_mix_pressed() -> void:
-	if GameManager.can_mix:
+	if GameManager.can_mix && self.get_parent().mixer_interactible:
 		mix()
 		print("I mixed!!")
 
@@ -232,17 +232,18 @@ func _is_point_in_area(area: Area2D, global_point: Vector2) -> bool:
 
 
 func _spawn_fruit(item_data: IngredientData) -> void:
-	sfx_player.stream = fruit_pick_sound
-	sfx_player.play()
+	if get_parent().fruits_interactible:
+		sfx_player.stream = fruit_pick_sound
+		sfx_player.play()
 
-	var new_item: RigidBody2D = BASE_FRUIT_SCENE.instantiate()
-	new_item.data = item_data
-	new_item.item_scale = Vector2(0.15, 0.15)
-	new_item.global_position = get_global_mouse_position()
+		var new_item: RigidBody2D = BASE_FRUIT_SCENE.instantiate()
+		new_item.data = item_data
+		new_item.item_scale = Vector2(0.15, 0.15)
+		new_item.global_position = get_global_mouse_position()
 
-	$GlassIngredients.add_child(new_item)
-	new_item.drag_and_drop.begin_drag()
-	get_viewport().set_input_as_handled()
+		$GlassIngredients.add_child(new_item)
+		new_item.drag_and_drop.begin_drag()
+		get_viewport().set_input_as_handled()
 
 
 func _get_fluid_pour_max_fill() -> float:
@@ -254,7 +255,7 @@ func _get_fluid_pour_max_fill() -> float:
 
 
 func _on_fluid_button_down(button: BaseButton) -> void:
-	if button.disabled or not _pouring_ingredient.is_empty():
+	if button.disabled or not _pouring_ingredient.is_empty() || !get_parent().liquids_interactible:
 		return
 
 	var ingredient: String = FLUID_INGREDIENT_BY_BUTTON.get(button.name, "")

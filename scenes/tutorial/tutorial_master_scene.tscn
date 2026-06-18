@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://dnqnx5l8g3s6h"]
 
+[ext_resource type="Script" uid="uid://cp3o681iquj0r" path="res://scenes/tutorial/tutorial.gd" id="1_wdfk2"]
+
 [node name="TutorialMasterScene" type="Control" unique_id=839216166]
 layout_mode = 3
 anchors_preset = 15
@@ -7,8 +9,52 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_wdfk2")
+
+[node name="Intro" type="PanelContainer" parent="." unique_id=1635702661]
+visible = false
+layout_mode = 0
+offset_left = 92.0
+offset_top = 124.0
+offset_right = 439.0
+offset_bottom = 193.0
+
+[node name="IntroductionText" type="RichTextLabel" parent="Intro" unique_id=50077217]
+layout_mode = 2
+text = "Welcome to your new summer job at [insert bar name here]!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Intro2" type="PanelContainer" parent="." unique_id=1956359385]
+visible = false
+layout_mode = 0
+offset_left = 92.0
+offset_top = 124.0
+offset_right = 439.0
+offset_bottom = 193.0
+
+[node name="IntroductionText" type="RichTextLabel" parent="Intro2" unique_id=849054489]
+layout_mode = 2
+text = "The pay isn't great, but the views are astonishing!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Intro3" type="PanelContainer" parent="." unique_id=941569073]
+visible = false
+layout_mode = 0
+offset_left = 92.0
+offset_top = 124.0
+offset_right = 439.0
+offset_bottom = 193.0
+
+[node name="IntroductionText" type="RichTextLabel" parent="Intro3" unique_id=354135973]
+layout_mode = 2
+text = "And would you look there! Here comes your first customer!!"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="OrderSlip" type="PanelContainer" parent="." unique_id=2054789044]
+visible = false
 layout_mode = 0
 offset_left = 92.0
 offset_top = 124.0
@@ -22,6 +68,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="OrderSlip2" type="PanelContainer" parent="." unique_id=1659884939]
+visible = false
 layout_mode = 0
 offset_left = 92.0
 offset_top = 124.0
@@ -35,6 +82,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Wine" type="PanelContainer" parent="." unique_id=2003744174]
+visible = false
 layout_mode = 0
 offset_left = 92.0
 offset_top = 124.0
@@ -48,6 +96,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="LimeJuice" type="PanelContainer" parent="." unique_id=1100455202]
+visible = false
 layout_mode = 0
 offset_left = 92.0
 offset_top = 124.0
@@ -61,6 +110,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="FindApples" type="PanelContainer" parent="." unique_id=1846970147]
+visible = false
 layout_mode = 0
 offset_left = 92.0
 offset_top = 124.0
@@ -74,6 +124,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Apples" type="PanelContainer" parent="." unique_id=446453689]
+visible = false
 layout_mode = 0
 offset_left = 92.0
 offset_top = 124.0
@@ -87,6 +138,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Mix" type="PanelContainer" parent="." unique_id=70347005]
+visible = false
 layout_mode = 0
 offset_left = 92.0
 offset_top = 124.0
@@ -100,6 +152,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Realization" type="PanelContainer" parent="." unique_id=647149246]
+visible = false
 layout_mode = 0
 offset_left = 92.0
 offset_top = 124.0
@@ -113,6 +166,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Realization2" type="PanelContainer" parent="." unique_id=320317223]
+visible = false
 layout_mode = 0
 offset_left = 92.0
 offset_top = 124.0
@@ -126,6 +180,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Notes1" type="PanelContainer" parent="." unique_id=759367480]
+visible = false
 layout_mode = 0
 offset_left = 92.0
 offset_top = 124.0
@@ -139,6 +194,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Notes3" type="PanelContainer" parent="." unique_id=370442927]
+visible = false
 layout_mode = 0
 offset_left = 63.0
 offset_top = 94.0
@@ -152,6 +208,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="RecipeBook" type="PanelContainer" parent="." unique_id=1090446463]
+visible = false
 layout_mode = 0
 offset_left = 92.0
 offset_top = 124.0
@@ -165,6 +222,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="RecipeBook2" type="PanelContainer" parent="." unique_id=1249487274]
+visible = false
 layout_mode = 0
 offset_left = 92.0
 offset_top = 124.0
@@ -178,6 +236,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="RecipeBook3" type="PanelContainer" parent="." unique_id=167129669]
+visible = false
 layout_mode = 0
 offset_left = 92.0
 offset_top = 124.0
@@ -191,6 +250,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Finish1" type="PanelContainer" parent="." unique_id=783916988]
+visible = false
 layout_mode = 0
 offset_left = 92.0
 offset_top = 124.0

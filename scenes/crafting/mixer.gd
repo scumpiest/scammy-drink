@@ -15,7 +15,7 @@ func _ready() -> void:
 
 
 func _on_mix_button_pressed() -> void:
-	if GameManager.can_mix:
+	if GameManager.can_mix && get_parent().get_parent().mixer_interactible:
 		mix_sfx.play()
 		_crafting_counter.mix()
 		_animation_player.play(&"mix")
