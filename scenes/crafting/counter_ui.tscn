@@ -58,14 +58,14 @@ position = Vector2(1332, 96)
 
 [node name="BGMusic" type="AudioStreamPlayer" parent="." unique_id=821602189]
 stream = ExtResource("4_ccn5l")
-volume_db = -10.0
+volume_db = -5.0
 autoplay = true
 bus = &"Music"
 parameters/looping = true
 
 [node name="Ambience" type="AudioStreamPlayer" parent="." unique_id=18315182]
 stream = ExtResource("12_ap507")
-volume_db = -20.0
+volume_db = -18.0
 autoplay = true
 bus = &"SFX"
 
@@ -84,7 +84,7 @@ bus = &"SFX"
 [node name="Footsteps" type="AudioStreamPlayer" parent="." unique_id=664025472]
 unique_name_in_owner = true
 stream = ExtResource("8_8oscw")
-volume_db = -10.0
+volume_db = -8.0
 bus = &"SFX"
 
 [node name="GlassIngredients" type="Node" parent="." unique_id=517205420 groups=["glass_ingredients"]]
