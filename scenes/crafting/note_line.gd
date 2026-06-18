@@ -7,11 +7,12 @@ extends MarginContainer
 @onready var undo_button: TextureButton = $VBoxContainer/HBoxContainer/UndoButton
 
 var current_value: String = ""
+var scratched_value: String = ""
 var is_scratched: bool = false
 
 var text: String:
 	get:
-		return new_label.text if is_scratched else current_value
+		return scratched_value if is_scratched else current_value
 
 
 func _ready() -> void:
@@ -21,8 +22,9 @@ func _ready() -> void:
 
 func update_from_order(value: String) -> void:
 	current_value = value
+	scratched_value = ""
 	is_scratched = false
-	label.text = current_value
+	label.text = IngredientNames.get_display_name(current_value)
 	label.visible = true
 	new_label.visible = false
 	scratch_overlay.visible = false
@@ -33,7 +35,8 @@ func scratch(replacement: String) -> void:
 	if is_scratched:
 		return
 	is_scratched = true
-	new_label.text = replacement
+	scratched_value = replacement
+	new_label.text = IngredientNames.get_display_name(replacement)
 	new_label.visible = true
 	scratch_overlay.visible = true
 	_update_undo_button()
@@ -43,6 +46,7 @@ func undo() -> void:
 	if not is_scratched:
 		return
 	is_scratched = false
+	scratched_value = ""
 	new_label.visible = false
 	scratch_overlay.visible = false
 	_update_undo_button()

@@ -52,7 +52,7 @@ func _refresh_ingredient_labels() -> void:
 		if i >= actual.size():
 			_ingredient_labels[i].text = "?"
 		elif GameManager.is_recipe_ingredient_unlocked(recipe_key, i):
-			_ingredient_labels[i].text = actual[i]
+			_ingredient_labels[i].text = IngredientNames.get_display_name(actual[i])
 		else:
 			_ingredient_labels[i].text = "?"
 

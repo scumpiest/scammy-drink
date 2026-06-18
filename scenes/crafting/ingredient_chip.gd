@@ -6,7 +6,7 @@ var ingredient_name: String = ""
 
 func setup(name: String) -> void:
 	ingredient_name = name
-	text = ingredient_name.replace("_", " ")
+	text = IngredientNames.get_display_name(ingredient_name)
 	mouse_default_cursor_shape = Control.CURSOR_DRAG
 
 

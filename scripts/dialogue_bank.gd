@@ -61,7 +61,10 @@ func get_customer_line(persona: String, event_name: String, params: Dictionary =
 
 	for param_key in params.keys():
 		var placeholder: String = "{%s}" % [str(param_key)]
-		text = text.replace(placeholder, str(params[param_key]))
+		var value: String = str(params[param_key])
+		if param_key == "ingredient":
+			value = IngredientNames.get_display_name(value)
+		text = text.replace(placeholder, value)
 
 	return text
 

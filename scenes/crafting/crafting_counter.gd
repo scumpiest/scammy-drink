@@ -31,15 +31,6 @@ const FRUIT_AREA_NAMES: Array[String] = [
 	"Ice",
 ]
 
-const FLUID_BUTTON_DISPLAY_NAMES: Dictionary = {
-	"WhiteWine": "White Wine",
-	"Water": "Water",
-	"Soda": "Soda",
-	"Milk": "Milk",
-	"LimeJuice": "Lime Juice",
-	"CoconutCream": "Coconut Cream",
-}
-
 const FLUID_INGREDIENT_BY_BUTTON: Dictionary = {
 	"WhiteWine": "white_wine",
 	"Water": "water",
@@ -217,7 +208,10 @@ func _get_hovered_fluid_name(mouse_pos: Vector2) -> String:
 		if button.disabled or not button.visible:
 			continue
 		if button.get_global_rect().has_point(mouse_pos):
-			return FLUID_BUTTON_DISPLAY_NAMES.get(child.name, child.name)
+			var ingredient_key: String = FLUID_INGREDIENT_BY_BUTTON.get(child.name, "")
+			if not ingredient_key.is_empty():
+				return IngredientNames.get_display_name(ingredient_key)
+			return child.name
 	return ""
 
 
