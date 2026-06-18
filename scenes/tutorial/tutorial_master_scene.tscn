@@ -1,0 +1,204 @@
+[gd_scene format=3 uid="uid://dnqnx5l8g3s6h"]
+
+[node name="TutorialMasterScene" type="Control" unique_id=839216166]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="OrderSlip" type="PanelContainer" parent="." unique_id=2054789044]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 124.0
+offset_right = 439.0
+offset_bottom = 193.0
+
+[node name="IntroductionText" type="RichTextLabel" parent="OrderSlip" unique_id=1134640394]
+layout_mode = 2
+text = "Here is the customer's order as well as the ingredients that your co-worker says should go in the drink."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OrderSlip2" type="PanelContainer" parent="." unique_id=1659884939]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 124.0
+offset_right = 439.0
+offset_bottom = 193.0
+
+[node name="IntroductionText" type="RichTextLabel" parent="OrderSlip2" unique_id=1708052828]
+layout_mode = 2
+text = "Let's see... She says that to make this drink, you need white wine, lime juice, and apples. Let's go ahead and put those in!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Wine" type="PanelContainer" parent="." unique_id=2003744174]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 124.0
+offset_right = 439.0
+offset_bottom = 193.0
+
+[node name="IntroductionText" type="RichTextLabel" parent="Wine" unique_id=1660205585]
+layout_mode = 2
+text = "Okay, so first, you need some white wine. Hover over the white wine bottle and hold the left mouse button until the blender stops filling with wine."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LimeJuice" type="PanelContainer" parent="." unique_id=1100455202]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 124.0
+offset_right = 439.0
+offset_bottom = 193.0
+
+[node name="IntroductionText" type="RichTextLabel" parent="LimeJuice" unique_id=230894256]
+layout_mode = 2
+text = "Now do the same for the lime juice!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FindApples" type="PanelContainer" parent="." unique_id=1846970147]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 124.0
+offset_right = 439.0
+offset_bottom = 193.0
+
+[node name="IntroductionText" type="RichTextLabel" parent="FindApples" unique_id=1213652589]
+layout_mode = 2
+text = "Okay, so now that your liquid ingredients are taken care of, turn your attention to the right-hand side of the screen and find the apples"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Apples" type="PanelContainer" parent="." unique_id=446453689]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 124.0
+offset_right = 439.0
+offset_bottom = 193.0
+
+[node name="IntroductionText" type="RichTextLabel" parent="Apples" unique_id=793915195]
+layout_mode = 2
+text = "Once you have found the apples, go ahead and click and drag an apple into the blender with the right mouse button."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Mix" type="PanelContainer" parent="." unique_id=70347005]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 124.0
+offset_right = 439.0
+offset_bottom = 193.0
+
+[node name="IntroductionText" type="RichTextLabel" parent="Mix" unique_id=168437786]
+layout_mode = 2
+text = "Nice work!! Now, just hit the mix button and serve the customer their drink!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Realization" type="PanelContainer" parent="." unique_id=647149246]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 124.0
+offset_right = 439.0
+offset_bottom = 193.0
+
+[node name="IntroductionText" type="RichTextLabel" parent="Realization" unique_id=1665701743]
+layout_mode = 2
+text = "Wait.. That wasn't right.. Huh? The name that your co-worker gave you isn't even on the menu! What is going on here?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Realization2" type="PanelContainer" parent="." unique_id=320317223]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 124.0
+offset_right = 439.0
+offset_bottom = 193.0
+
+[node name="IntroductionText" type="RichTextLabel" parent="Realization2" unique_id=927135112]
+layout_mode = 2
+text = "It looks like your co-worker is trying to sabotage you!! Alright, change of plans. You are gonna have to figure out the menu on your own."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Notes1" type="PanelContainer" parent="." unique_id=759367480]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 124.0
+offset_right = 439.0
+offset_bottom = 193.0
+
+[node name="IntroductionText" type="RichTextLabel" parent="Notes1" unique_id=1146931037]
+layout_mode = 2
+text = "Looks like the customer had some feedback while you were making the drink. That should have been logged on the Sticky note to your right."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Notes3" type="PanelContainer" parent="." unique_id=370442927]
+layout_mode = 0
+offset_left = 63.0
+offset_top = 94.0
+offset_right = 439.0
+offset_bottom = 193.0
+
+[node name="IntroductionText" type="RichTextLabel" parent="Notes3" unique_id=2072970914]
+layout_mode = 2
+text = "After every completed order, make sure to click \"save\" on the note to your right. That will send in the next customer and save the correct ingredients to your recipe book."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RecipeBook" type="PanelContainer" parent="." unique_id=1090446463]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 124.0
+offset_right = 439.0
+offset_bottom = 193.0
+
+[node name="IntroductionText" type="RichTextLabel" parent="RecipeBook" unique_id=1818174480]
+layout_mode = 2
+text = "Speaking of the recipe book, why don't we take a look at that? Click the two grey boxes right here."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RecipeBook2" type="PanelContainer" parent="." unique_id=1249487274]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 124.0
+offset_right = 439.0
+offset_bottom = 193.0
+
+[node name="IntroductionText" type="RichTextLabel" parent="RecipeBook2" unique_id=1222280073]
+layout_mode = 2
+text = "Here is a list of all of the drinks at [insert bar name here]. When you complete orders and save the feedback, the correct ingredients will automatically save here."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RecipeBook3" type="PanelContainer" parent="." unique_id=167129669]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 124.0
+offset_right = 439.0
+offset_bottom = 193.0
+
+[node name="IntroductionText" type="RichTextLabel" parent="RecipeBook3" unique_id=862035259]
+layout_mode = 2
+text = "This will allow you to slowly get better at your craft over time as you learn the menu! "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Finish1" type="PanelContainer" parent="." unique_id=783916988]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 124.0
+offset_right = 439.0
+offset_bottom = 193.0
+
+[node name="IntroductionText" type="RichTextLabel" parent="Finish1" unique_id=234899097]
+layout_mode = 2
+text = "Well it looks like you should be equipped to tackle a day at the bar. Go forth and conquer!!"
+horizontal_alignment = 1
+vertical_alignment = 1
