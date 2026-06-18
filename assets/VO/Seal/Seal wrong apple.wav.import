@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c5xg77ebt3rss"
+path="res://.godot/imported/Seal wrong apple.wav-6af5592144c48d59b32970c55a6f449d.sample"
+
+[deps]
+
+source_file="res://assets/VO/Seal/Seal wrong apple.wav"
+dest_files=["res://.godot/imported/Seal wrong apple.wav-6af5592144c48d59b32970c55a6f449d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d1hlg3wkftvni"
+path="res://.godot/imported/Seal wrong pinneaple.wav-69b9e8d08f7b2f959d78dffc033307e0.sample"
+
+[deps]
+
+source_file="res://assets/VO/Seal/Seal wrong pinneaple.wav"
+dest_files=["res://.godot/imported/Seal wrong pinneaple.wav-69b9e8d08f7b2f959d78dffc033307e0.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

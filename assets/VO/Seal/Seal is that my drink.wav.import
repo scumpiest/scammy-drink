@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c0k5cxgparinp"
+path="res://.godot/imported/Seal is that my drink.wav-ffe040f5589ff4d9d599db758ed236fb.sample"
+
+[deps]
+
+source_file="res://assets/VO/Seal/Seal is that my drink.wav"
+dest_files=["res://.godot/imported/Seal is that my drink.wav-ffe040f5589ff4d9d599db758ed236fb.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

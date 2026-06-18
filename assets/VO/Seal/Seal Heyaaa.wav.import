@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bcyl4q5euiqgb"
+path="res://.godot/imported/Seal Heyaaa.wav-af241cd2cf4aa17f5346329bf4d8fb71.sample"
+
+[deps]
+
+source_file="res://assets/VO/Seal/Seal Heyaaa.wav"
+dest_files=["res://.godot/imported/Seal Heyaaa.wav-af241cd2cf4aa17f5346329bf4d8fb71.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

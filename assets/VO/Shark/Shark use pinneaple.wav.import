@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cjvkgqg3a3yht"
+path="res://.godot/imported/Shark use pinneaple.wav-12ee9989705d678f51ece3e6cafb07f9.sample"
+
+[deps]
+
+source_file="res://assets/VO/Shark/Shark use pinneaple.wav"
+dest_files=["res://.godot/imported/Shark use pinneaple.wav-12ee9989705d678f51ece3e6cafb07f9.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

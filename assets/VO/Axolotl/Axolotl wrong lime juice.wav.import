@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c0wn6ba8bhrca"
+path="res://.godot/imported/Axolotl wrong lime juice.wav-a8ac1303aff9ff936b601158ea38b444.sample"
+
+[deps]
+
+source_file="res://assets/VO/Axolotl/Axolotl wrong lime juice.wav"
+dest_files=["res://.godot/imported/Axolotl wrong lime juice.wav-a8ac1303aff9ff936b601158ea38b444.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

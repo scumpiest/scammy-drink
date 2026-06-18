@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bfngk0di8rlpu"
+path="res://.godot/imported/Seal not my taste.wav-52bf527e73a4e49aeaf0dfe62d8e6624.sample"
+
+[deps]
+
+source_file="res://assets/VO/Seal/Seal not my taste.wav"
+dest_files=["res://.godot/imported/Seal not my taste.wav-52bf527e73a4e49aeaf0dfe62d8e6624.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

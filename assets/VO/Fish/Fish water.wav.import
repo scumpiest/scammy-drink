@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ds3t1irmf2r2y"
+path="res://.godot/imported/Fish water.wav-27c2b4dddfe1034c6ebca33951406f2d.sample"
+
+[deps]
+
+source_file="res://assets/VO/Fish/Fish water.wav"
+dest_files=["res://.godot/imported/Fish water.wav-27c2b4dddfe1034c6ebca33951406f2d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

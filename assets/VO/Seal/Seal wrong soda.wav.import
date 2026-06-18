@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://buyof5sno1o1w"
+path="res://.godot/imported/Seal wrong soda.wav-4734df4d5d99f12788c429eaaee48bef.sample"
+
+[deps]
+
+source_file="res://assets/VO/Seal/Seal wrong soda.wav"
+dest_files=["res://.godot/imported/Seal wrong soda.wav-4734df4d5d99f12788c429eaaee48bef.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

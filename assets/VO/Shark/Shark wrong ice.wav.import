@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dh4r7efjvkcqu"
+path="res://.godot/imported/Shark wrong ice.wav-f286b2d3bd628d8a6d4b2efa88126527.sample"
+
+[deps]
+
+source_file="res://assets/VO/Shark/Shark wrong ice.wav"
+dest_files=["res://.godot/imported/Shark wrong ice.wav-f286b2d3bd628d8a6d4b2efa88126527.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

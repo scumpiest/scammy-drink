@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b6yo0hsj0lcbc"
+path="res://.godot/imported/Axolotle unnaceptable.wav-a74c5e698b7a70e7f747b9962f238f99.sample"
+
+[deps]
+
+source_file="res://assets/VO/Axolotl/Axolotle unnaceptable.wav"
+dest_files=["res://.godot/imported/Axolotle unnaceptable.wav-a74c5e698b7a70e7f747b9962f238f99.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ba4l6ltck823x"
+path="res://.godot/imported/Shark use lime juice.wav-e4ddbcd1f51ba5dad7c6590049a0ccff.sample"
+
+[deps]
+
+source_file="res://assets/VO/Shark/Shark use lime juice.wav"
+dest_files=["res://.godot/imported/Shark use lime juice.wav-e4ddbcd1f51ba5dad7c6590049a0ccff.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

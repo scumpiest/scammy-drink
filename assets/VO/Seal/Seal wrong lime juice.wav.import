@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cy47ecuk5mp7b"
+path="res://.godot/imported/Seal wrong lime juice.wav-0555f2f6252e5d00237f17221cc3a6b2.sample"
+
+[deps]
+
+source_file="res://assets/VO/Seal/Seal wrong lime juice.wav"
+dest_files=["res://.godot/imported/Seal wrong lime juice.wav-0555f2f6252e5d00237f17221cc3a6b2.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

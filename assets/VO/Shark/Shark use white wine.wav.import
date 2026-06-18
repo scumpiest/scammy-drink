@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d1b6s4kwx8v6g"
+path="res://.godot/imported/Shark use white wine.wav-d3faf45f56becb4d6c8e6fbb0b9df2f4.sample"
+
+[deps]
+
+source_file="res://assets/VO/Shark/Shark use white wine.wav"
+dest_files=["res://.godot/imported/Shark use white wine.wav-d3faf45f56becb4d6c8e6fbb0b9df2f4.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

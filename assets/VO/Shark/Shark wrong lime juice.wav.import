@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://di7hwsudcgird"
+path="res://.godot/imported/Shark wrong lime juice.wav-aa0aed7eab0be825d79c1188ce64671a.sample"
+
+[deps]
+
+source_file="res://assets/VO/Shark/Shark wrong lime juice.wav"
+dest_files=["res://.godot/imported/Shark wrong lime juice.wav-aa0aed7eab0be825d79c1188ce64671a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

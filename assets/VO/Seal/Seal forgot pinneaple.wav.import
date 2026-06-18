@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://byja5qj8klwu2"
+path="res://.godot/imported/Seal forgot pinneaple.wav-674f149f579574af16aada6ef66bc178.sample"
+
+[deps]
+
+source_file="res://assets/VO/Seal/Seal forgot pinneaple.wav"
+dest_files=["res://.godot/imported/Seal forgot pinneaple.wav-674f149f579574af16aada6ef66bc178.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
