@@ -54,6 +54,7 @@ func spawn_customer() -> Customer:
 	new_customer.global_position = spawn_marker.global_position
 	add_child(new_customer)
 	footsteps_player.play()
+	GameManager._set_can_mix(true)
 	return new_customer
 
 
@@ -79,6 +80,7 @@ func _on_request_completed() -> void:
 
 func _on_customer_exited() -> void:
 	current_target = null
+	GameManager._set_can_mix(false)
 	if _notes_saved_for_order:
 		_spawn_next_customer()
 	else:
@@ -87,7 +89,7 @@ func _on_customer_exited() -> void:
 
 func _on_notes_saved(_notes_content: Dictionary) -> void:
 	_notes_saved_for_order = true
-	print("YAYHAHAHHHAAAAAAAAAAAAAAWAHAOOOOAHAHOOOOOOOOOOYIPPPREEEEEE")
+	#print("YAYHAHAHHHAAAAAAAAAAAAAAWAHAOOOOAHAHOOOOOOOOOOYIPPPREEEEEE")
 	if _awaiting_notes_save:
 		_awaiting_notes_save = false
 		$PenSounds.play()

@@ -13,11 +13,13 @@ func _ready() -> void:
 
 
 func _on_mix_button_pressed() -> void:
-	mix_sfx.play()
-	_crafting_counter.mix()
-	_animation_player.play(&"mix")
-	_glass.trigger_slosh()
-	_mix_button.disabled = true
+	if GameManager.can_mix:
+		mix_sfx.play()
+		_crafting_counter.mix()
+		_animation_player.play(&"mix")
+		_glass.trigger_slosh()
+		_mix_button.disabled = true
+		GameManager._set_can_mix(false)
 
 
 func _on_animation_finished(anim_name: StringName) -> void:

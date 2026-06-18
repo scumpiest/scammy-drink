@@ -107,7 +107,9 @@ func mix() -> void:
 
 
 func _on_mix_pressed() -> void:
-	mix()
+	if GameManager.can_mix:
+		mix()
+		print("I mixed!!")
 
 func _on_crafting_complete(_recipe_key) -> void:
 	reset()
@@ -184,19 +186,32 @@ func _is_point_in_area(area: Area2D, global_point: Vector2) -> bool:
 
 
 func _spawn_fruit(item_data: IngredientData) -> void:
-	var new_item: RigidBody2D = BASE_FRUIT_SCENE.instantiate()
-	new_item.data = item_data
-	new_item.item_scale = Vector2(0.15, 0.15)
-	new_item.global_position = get_global_mouse_position()
+	if GameManager.can_mix:
+		var new_item: RigidBody2D = BASE_FRUIT_SCENE.instantiate()
+		new_item.data = item_data
+		new_item.item_scale = Vector2(0.15, 0.15)
+		new_item.global_position = get_global_mouse_position()
 
-	$GlassIngredients.add_child(new_item)
-	new_item.drag_and_drop.begin_drag()
-	get_viewport().set_input_as_handled()
+		$GlassIngredients.add_child(new_item)
+		new_item.drag_and_drop.begin_drag()
+		get_viewport().set_input_as_handled()
 
 
-func _on_soda_pressed():  _add_ingredient("soda"); sfx_player.stream = pour_sound; sfx_player.play()
-func _on_milk_pressed():  _add_ingredient("milk"); sfx_player.stream = pour_sound; sfx_player.play()
-func _on_water_pressed(): _add_ingredient("water"); sfx_player.stream = pour_sound; sfx_player.play()
-func _on_white_wine_pressed(): _add_ingredient("white_wine"); sfx_player.stream = pour_sound; sfx_player.play()
-func _on_lime_juice_pressed(): _add_ingredient("lime_juice"); sfx_player.stream = pour_sound; sfx_player.play()
-func _on_coconut_cream_pressed(): _add_ingredient("coconut_cream"); sfx_player.stream = pour_sound; sfx_player.play()
+func _on_soda_pressed(): 
+	if GameManager.can_mix: 
+		_add_ingredient("soda"); sfx_player.stream = pour_sound; sfx_player.play()
+func _on_milk_pressed():  
+	if GameManager.can_mix: 
+		_add_ingredient("milk"); sfx_player.stream = pour_sound; sfx_player.play()
+func _on_water_pressed(): 
+	if GameManager.can_mix: 
+		_add_ingredient("water"); sfx_player.stream = pour_sound; sfx_player.play()
+func _on_white_wine_pressed(): 
+	if GameManager.can_mix: 
+		_add_ingredient("white_wine"); sfx_player.stream = pour_sound; sfx_player.play()
+func _on_lime_juice_pressed(): 
+	if GameManager.can_mix: 
+		_add_ingredient("lime_juice"); sfx_player.stream = pour_sound; sfx_player.play()
+func _on_coconut_cream_pressed(): 
+	if GameManager.can_mix: 
+		_add_ingredient("coconut_cream"); sfx_player.stream = pour_sound; sfx_player.play()
