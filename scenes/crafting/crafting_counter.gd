@@ -1,8 +1,9 @@
 extends Node2D
 
 @onready var sfx_player: AudioStreamPlayer = $IngredientSounds
-@onready var drop_sound := preload("res://assets/sfx/Drop 4.mp3")
+@onready var drop_sound := preload("res://assets/sfx/Drop 5.wav")
 @onready var pour_sound := preload("res://assets/sfx/Water Pour.mp3")
+@onready var fruit_pick_sound := preload("res://assets/sfx/Fruit pick.wav")
 
 signal drink_ingredient_added(ingredient: String)
 
@@ -39,15 +40,47 @@ const FLUID_BUTTON_DISPLAY_NAMES: Dictionary = {
 	"CoconutCream": "Coconut Cream",
 }
 
+const FLUID_INGREDIENT_BY_BUTTON: Dictionary = {
+	"WhiteWine": "white_wine",
+	"Water": "water",
+	"Soda": "soda",
+	"Milk": "milk",
+	"LimeJuice": "lime_juice",
+	"CoconutCream": "coconut_cream",
+}
+
+const FLUID_COLORS: Dictionary = {
+	"white_wine": Color(0.95, 0.92, 0.7, 0.75),
+	"water": Color(0.45, 0.75, 0.95, 0.7),
+	"soda": Color(0.85, 0.3, 0.3, 0.75),
+	"milk": Color(0.95, 0.95, 0.95, 0.85),
+	"lime_juice": Color(0.7, 0.95, 0.3, 0.8),
+	"coconut_cream": Color(0.98, 0.97, 0.9, 0.85),
+}
+
+const FIRST_FLUID_POUR_FILL: float = 0.5
+const SECOND_FLUID_POUR_FILL: float = 0.2
+
 @onready var glass: Node2D = $Blender/BlenderFront/Glass
+@onready var blender: Node2D = $Blender
+
+signal mix_animation_finished
 
 var crafting_ingredients = {}
 var _fruit_areas_enabled: bool = true
+var _pouring_ingredient: String = ""
 
 func _ready() -> void:
 	glass.ingredient_added.connect(_on_ingredient_added)
+	glass.pour_reached_max.connect(_on_pour_reached_max)
 	GameManager.crafting_complete.connect(_on_crafting_complete)
+	blender.mix_animation_finished.connect(func() -> void: mix_animation_finished.emit())
 	_setup_fruit_areas()
+	_setup_fluid_buttons()
+
+
+func show_blender() -> void:
+	blender.show_blender()
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -95,6 +128,9 @@ func _get_total_ingredients() -> int:
 
 func reset() -> void:
 	crafting_ingredients.clear()
+	_pouring_ingredient = ""
+	sfx_player.stop()
+	glass.reset_liquid()
 	var glass_ingredients: Node = $GlassIngredients
 	for child in glass_ingredients.get_children():
 		child.queue_free()
@@ -130,6 +166,16 @@ func _setup_fruit_areas() -> void:
 			continue
 		area.add_to_group("fruit_button")
 		area.input_pickable = true
+
+
+func _setup_fluid_buttons() -> void:
+	for child in get_children():
+		if not child.is_in_group("fluid_button") or not child is BaseButton:
+			continue
+		var button := child as BaseButton
+		button.action_mode = BaseButton.ACTION_MODE_BUTTON_PRESS
+		button.button_down.connect(_on_fluid_button_down.bind(button))
+		button.button_up.connect(_on_fluid_button_up.bind(button))
 
 
 func _set_fruit_areas_enabled(enabled: bool) -> void:
@@ -186,32 +232,65 @@ func _is_point_in_area(area: Area2D, global_point: Vector2) -> bool:
 
 
 func _spawn_fruit(item_data: IngredientData) -> void:
-	if GameManager.can_mix:
-		var new_item: RigidBody2D = BASE_FRUIT_SCENE.instantiate()
-		new_item.data = item_data
-		new_item.item_scale = Vector2(0.15, 0.15)
-		new_item.global_position = get_global_mouse_position()
+	sfx_player.stream = fruit_pick_sound
+	sfx_player.play()
 
-		$GlassIngredients.add_child(new_item)
-		new_item.drag_and_drop.begin_drag()
-		get_viewport().set_input_as_handled()
+	var new_item: RigidBody2D = BASE_FRUIT_SCENE.instantiate()
+	new_item.data = item_data
+	new_item.item_scale = Vector2(0.15, 0.15)
+	new_item.global_position = get_global_mouse_position()
+
+	$GlassIngredients.add_child(new_item)
+	new_item.drag_and_drop.begin_drag()
+	get_viewport().set_input_as_handled()
 
 
-func _on_soda_pressed(): 
-	if GameManager.can_mix: 
-		_add_ingredient("soda"); sfx_player.stream = pour_sound; sfx_player.play()
-func _on_milk_pressed():  
-	if GameManager.can_mix: 
-		_add_ingredient("milk"); sfx_player.stream = pour_sound; sfx_player.play()
-func _on_water_pressed(): 
-	if GameManager.can_mix: 
-		_add_ingredient("water"); sfx_player.stream = pour_sound; sfx_player.play()
-func _on_white_wine_pressed(): 
-	if GameManager.can_mix: 
-		_add_ingredient("white_wine"); sfx_player.stream = pour_sound; sfx_player.play()
-func _on_lime_juice_pressed(): 
-	if GameManager.can_mix: 
-		_add_ingredient("lime_juice"); sfx_player.stream = pour_sound; sfx_player.play()
-func _on_coconut_cream_pressed(): 
-	if GameManager.can_mix: 
-		_add_ingredient("coconut_cream"); sfx_player.stream = pour_sound; sfx_player.play()
+func _get_fluid_pour_max_fill() -> float:
+	var fluid_count := 0
+	for ingredient in crafting_ingredients.keys():
+		if FLUID_INGREDIENT_BY_BUTTON.values().has(ingredient):
+			fluid_count += 1
+	return FIRST_FLUID_POUR_FILL if fluid_count == 0 else SECOND_FLUID_POUR_FILL
+
+
+func _on_fluid_button_down(button: BaseButton) -> void:
+	if button.disabled or not _pouring_ingredient.is_empty():
+		return
+
+	var ingredient: String = FLUID_INGREDIENT_BY_BUTTON.get(button.name, "")
+	if ingredient.is_empty():
+		return
+	if crafting_ingredients.has(ingredient) or _get_total_ingredients() >= 3:
+		return
+
+	var liquid_color: Color = FLUID_COLORS.get(ingredient, Color.WHITE)
+	var max_pour_fill: float = _get_fluid_pour_max_fill()
+	if not glass.start_pour(liquid_color, ingredient, max_pour_fill):
+		return
+
+	_pouring_ingredient = ingredient
+	sfx_player.stream = pour_sound
+	sfx_player.play()
+
+
+func _on_fluid_button_up(_button: BaseButton) -> void:
+	_finish_fluid_pour()
+
+
+func _on_pour_reached_max(ingredient: String) -> void:
+	if _pouring_ingredient != ingredient:
+		return
+	_finish_fluid_pour()
+
+
+func _finish_fluid_pour() -> void:
+	if _pouring_ingredient.is_empty():
+		return
+
+	var ingredient := _pouring_ingredient
+	_pouring_ingredient = ""
+	sfx_player.stop()
+
+	var poured_amount: float = glass.stop_pour()
+	if poured_amount >= glass.MIN_POUR_TO_REGISTER:
+		_add_ingredient(ingredient)

@@ -20,6 +20,8 @@ const SPRITES: Dictionary = {
 const BOP_SPEED: float = 14.0
 const BOP_HEIGHT: float = 10.0
 const MOVE_THRESHOLD_SQUARED: float = 0.25
+const POST_MIX_PAUSE_S: float = 1
+const POST_THANKS_PAUSE_S: float = 2
 const PERSONA_BY_TYPE: Dictionary = {
 	Type.AXOLOTL: "axolotl",
 	Type.FISH: "fish",
@@ -35,7 +37,10 @@ var _sprite_rest_scale: Vector2 = Vector2.ONE
 var _bop_time: float = 0.0
 var _ingredients_added_count: int = 0
 var _had_wrong_before_two: bool = false
+var _shown_my_drink_with_wrong: bool = false
+var _shown_my_drink_with_right: bool = false
 var _dialogue_debug_enabled: bool = false
+var _pending_correct_count: int = -1
 
 
 func _ready() -> void:
@@ -73,14 +78,30 @@ func _process(delta: float) -> void:
 	_last_position = position
 
 
-func _on_crafting_result(_recipe_key: String, _correct_count: int, _missing_ingredients: Array) -> void:
-	if _recipe_key != request:
+func _on_crafting_result(recipe_key: String, correct_count: int, _missing_ingredients: Array) -> void:
+	if recipe_key != request:
 		return
-	_show_mix_result_dialogue(_correct_count)
-	await get_tree().create_timer(1.5).timeout
+	_pending_correct_count = correct_count
+
+
+func on_mix_animation_finished() -> void:
+	if _pending_correct_count < 0 or request.is_empty():
+		return
+	var correct_count: int = _pending_correct_count
+	_pending_correct_count = -1
+	_complete_order_after_mix(correct_count)
+
+
+func _complete_order_after_mix(correct_count: int) -> void:
+	await get_tree().create_timer(POST_MIX_PAUSE_S).timeout
+	if request.is_empty():
+		return
+	_show_mix_result_dialogue(correct_count)
+	await get_tree().create_timer(POST_THANKS_PAUSE_S).timeout
+	if request.is_empty():
+		return
 	request_completed.emit()
 	bubble_background.visible = false
-	_display_completed_drink()
 	request = ""
 
 
@@ -96,13 +117,20 @@ func on_ingredient_feedback(ingredient: String, is_wrong: bool, total_added: int
 	if is_wrong:
 		if total_added <= 2:
 			_had_wrong_before_two = true
-		_show_dialogue("my_drink?")
-		_show_dialogue("wrong_ingredient", {"ingredient": ingredient})
+		var events: Array[String] = []
+		if not _shown_my_drink_with_wrong:
+			events.append("my_drink?")
+			_shown_my_drink_with_wrong = true
+		events.append("wrong_ingredient")
+		_show_dialogue_events(events, {"ingredient": ingredient})
 
 	if total_added == 2:
-		if not _had_wrong_before_two:
-			_show_dialogue("my_drink?")
-		_show_dialogue("right_ingredient", {"ingredient": missing_ingredient_hint})
+		var events: Array[String] = []
+		if not _had_wrong_before_two and not _shown_my_drink_with_right:
+			events.append("my_drink?")
+			_shown_my_drink_with_right = true
+		events.append("right_ingredient")
+		_show_dialogue_events(events, {"ingredient": missing_ingredient_hint})
 
 
 func _show_mix_result_dialogue(correct_count: int) -> void:
@@ -123,17 +151,28 @@ func _show_mix_result_dialogue(correct_count: int) -> void:
 
 
 func _show_dialogue(event_name: String, params: Dictionary = {}) -> void:
+	_show_dialogue_events([event_name], params)
+
+
+func _show_dialogue_events(event_names: Array[String], params: Dictionary = {}) -> void:
 	var persona: String = _get_persona_name()
-	var line: String = DialogueBank.get_customer_line(persona, event_name, params)
-	if line.is_empty():
-		_debug_log("missing_dialogue_line", {"persona": persona, "event": event_name})
+	var lines: Array[String] = []
+	for event_name in event_names:
+		var line: String = DialogueBank.get_customer_line(persona, event_name, params)
+		if line.is_empty():
+			_debug_log("missing_dialogue_line", {"persona": persona, "event": event_name})
+			continue
+		lines.append(line)
+
+	if lines.is_empty():
 		return
+
 	bubble_background.visible = true
-	chat_bubble.text = line
+	chat_bubble.text = "\n".join(lines)
 	_debug_log("dialogue", {
 		"persona": persona,
-		"event": event_name,
-		"line": line
+		"events": event_names,
+		"line": chat_bubble.text
 	})
 
 
@@ -144,6 +183,9 @@ func _get_persona_name() -> String:
 func _reset_dialogue_state() -> void:
 	_ingredients_added_count = 0
 	_had_wrong_before_two = false
+	_shown_my_drink_with_wrong = false
+	_shown_my_drink_with_right = false
+	_pending_correct_count = -1
 
 
 func set_dialogue_debug_enabled(enabled: bool) -> void:
@@ -155,14 +197,3 @@ func _debug_log(event_name: String, data: Dictionary = {}) -> void:
 	if not _dialogue_debug_enabled:
 		return
 	print("[DialogueDebug] customer=%s event=%s data=%s" % [_get_persona_name(), event_name, str(data)])
-	
-func _display_completed_drink() -> void:
-	var dict_name = request+"_recipe"
-	print(dict_name)
-	var crafting_dict = CraftingRecipe.get_recipe_dict()
-	var recipe = crafting_dict[request]
-	var path_to_png = recipe.filename
-	CraftingComplete._set_path(path_to_png)
-	var scene_resource = load("res://scenes/crafting/crafting_complete.tscn")
-	var scene_instance = scene_resource.instantiate()
-	get_tree().current_scene.add_child(scene_instance)

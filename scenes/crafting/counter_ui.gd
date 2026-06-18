@@ -14,6 +14,7 @@ extends Control
 var current_target: Marker2D = null
 var _awaiting_notes_save: bool = false
 var _notes_saved_for_order: bool = false
+var _spawned_drink: Node2D = null
 var customer: Customer
 var _dialogue_debug_enabled: bool = false
 
@@ -28,7 +29,8 @@ func _ready() -> void:
 	GameManager.all_recipes_three_star.connect(_on_all_recipes_three_star)
 	crafting_counter.drink_ingredient_added.connect(capy_notes.add_ingredient)
 	crafting_counter.drink_ingredient_added.connect(_on_drink_ingredient_added)
-	notes.drink_cleared.connect(capy_notes.clear_ingredients)
+	crafting_counter.mix_animation_finished.connect(_on_mix_animation_finished)
+	notes.drink_cleared.connect(_on_drink_cleared)
 	customer = spawn_customer()
 	setup_customer(customer)
 
@@ -72,6 +74,7 @@ func slide_to_marker(marker: Marker2D) -> void:
 
 
 func _on_request_completed() -> void:
+	_clear_drink()
 	slide_to_marker(exit_marker)
 	await get_tree().create_timer(2.5).timeout
 	customer.tree_exited.connect(_on_customer_exited, CONNECT_ONE_SHOT)
@@ -85,6 +88,37 @@ func _on_customer_exited() -> void:
 		_spawn_next_customer()
 	else:
 		_awaiting_notes_save = true
+
+
+func _on_mix_animation_finished() -> void:
+	_spawn_drink()
+	if customer and is_instance_valid(customer):
+		customer.on_mix_animation_finished()
+
+
+func _spawn_drink() -> void:
+	_clear_drink()
+	var recipe_key: String = GameManager.get_order()
+	var recipe: Dictionary = CraftingRecipe.crafting_dict.get(recipe_key, {})
+	var path_to_png: String = recipe.get("filename", "")
+	if path_to_png.is_empty():
+		return
+	CraftingComplete._set_path(path_to_png)
+	var drink: Node2D = load("res://scenes/crafting/crafting_complete.tscn").instantiate()
+	add_child(drink)
+	_spawned_drink = drink
+
+
+func _clear_drink() -> void:
+	if _spawned_drink and is_instance_valid(_spawned_drink):
+		_spawned_drink.queue_free()
+	_spawned_drink = null
+
+
+func _on_drink_cleared() -> void:
+	capy_notes.clear_ingredients()
+	_clear_drink()
+	crafting_counter.show_blender()
 
 
 func _on_notes_saved(_notes_content: Dictionary) -> void:

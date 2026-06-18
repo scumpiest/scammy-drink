@@ -3,6 +3,30 @@
 [ext_resource type="Script" uid="uid://bufqiahla6rg0" path="res://scenes/ui/settings_menu.gd" id="1_0cmel"]
 [ext_resource type="Script" uid="uid://cggk3xkc2q78l" path="res://scenes/ui/music_slider.gd" id="2_mlw3h"]
 [ext_resource type="Script" uid="uid://dgos26xh35sow" path="res://scenes/ui/sounds_slider.gd" id="3_d0eu6"]
+[ext_resource type="Texture2D" uid="uid://c58s4nvg5fyuf" path="res://assets/Counter UI/Counter2.png" id="4_0b1cv"]
+[ext_resource type="Texture2D" uid="uid://s61ji6knf1t2" path="res://assets/Button_template3.png" id="5_yu862"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yu862"]
+bg_color = Color(1, 0.8862745, 0.6431373, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ywggk"]
+texture = ExtResource("5_yu862")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ngbvi"]
+texture = ExtResource("5_yu862")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mishw"]
+texture = ExtResource("5_yu862")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h271e"]
+texture = ExtResource("5_yu862")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7dpwb"]
+texture = ExtResource("5_yu862")
 
 [node name="SettingsMenu" type="Control" unique_id=1594010630]
 layout_mode = 3
@@ -12,6 +36,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0cmel")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=190420629]
+layout_mode = 0
+offset_left = -1492.0
+offset_top = -1423.0
+offset_right = 2674.0
+offset_bottom = 1440.0
+texture = ExtResource("4_0b1cv")
+stretch_mode = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=27961234]
 layout_mode = 1
@@ -30,8 +63,21 @@ grow_vertical = 2
 [node name="MusicContainer" type="VBoxContainer" parent="VBoxContainer" unique_id=986948498]
 layout_mode = 2
 
-[node name="Music" type="Label" parent="VBoxContainer/MusicContainer" unique_id=723695926]
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/MusicContainer" unique_id=102853421]
 layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_yu862")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MusicContainer/PanelContainer" unique_id=1680126563]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Music" type="Label" parent="VBoxContainer/MusicContainer/PanelContainer/MarginContainer" unique_id=723695926]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.77254903, 0.34509805, 0.15686275, 1)
 theme_override_font_sizes/font_size = 32
 text = "Music:"
 
@@ -46,8 +92,21 @@ bus_name = "Music"
 [node name="SoundsContainer" type="VBoxContainer" parent="VBoxContainer" unique_id=2010882708]
 layout_mode = 2
 
-[node name="Sounds" type="Label" parent="VBoxContainer/SoundsContainer" unique_id=1645129291]
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/SoundsContainer" unique_id=1220948188]
 layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_yu862")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/SoundsContainer/PanelContainer" unique_id=10513890]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Sounds" type="Label" parent="VBoxContainer/SoundsContainer/PanelContainer/MarginContainer" unique_id=1008563509]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.77254903, 0.34509805, 0.15686275, 1)
 theme_override_font_sizes/font_size = 32
 text = "Sounds:"
 
@@ -62,10 +121,23 @@ bus_name = "SFX"
 [node name="OverallVolumeContainer" type="VBoxContainer" parent="VBoxContainer" unique_id=1368749532]
 layout_mode = 2
 
-[node name="OverallVolume" type="Label" parent="VBoxContainer/OverallVolumeContainer" unique_id=1338834713]
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/OverallVolumeContainer" unique_id=1400688609]
 layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_yu862")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/OverallVolumeContainer/PanelContainer" unique_id=839825444]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Overall" type="Label" parent="VBoxContainer/OverallVolumeContainer/PanelContainer/MarginContainer" unique_id=361591773]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.77254903, 0.34509805, 0.15686275, 1)
 theme_override_font_sizes/font_size = 32
-text = "Overall Volume:"
+text = "Overall:"
 
 [node name="OverallVolumeSlider" type="HSlider" parent="VBoxContainer/OverallVolumeContainer" unique_id=2048812705]
 custom_minimum_size = Vector2(800, 100)
@@ -85,7 +157,15 @@ theme_override_constants/separation = 15
 [node name="BackButton" type="Button" parent="VBoxContainer/CenterContainer/VBoxContainer" unique_id=395984315]
 custom_minimum_size = Vector2(300, 80)
 layout_mode = 2
+theme_override_colors/font_color = Color(0.77254903, 0.34509805, 0.15686275, 1)
+theme_override_colors/font_pressed_color = Color(0.9833525, 0.67822146, 0.49259132, 1)
+theme_override_colors/font_hover_color = Color(0.8666667, 0.45882353, 0.16078432, 1)
 theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_ywggk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ngbvi")
+theme_override_styles/hover = SubResource("StyleBoxTexture_mishw")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_h271e")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_7dpwb")
 text = "BACK"
 
 [connection signal="value_changed" from="VBoxContainer/MusicContainer/MusicSlider" to="VBoxContainer/MusicContainer/MusicSlider" method="_on_value_changed"]

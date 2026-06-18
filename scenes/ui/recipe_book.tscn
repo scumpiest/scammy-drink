@@ -3,14 +3,14 @@
 [ext_resource type="Texture2D" uid="uid://d2ldg6cutsgia" path="res://assets/Recipebook.png" id="1_nert6"]
 [ext_resource type="Script" uid="uid://byjiyc0qxoeyl" path="res://scenes/ui/recipe_book.gd" id="1_recipe_book"]
 [ext_resource type="PackedScene" uid="uid://da7amgp4n03hy" path="res://scenes/ui/recipe_drink.tscn" id="2_at7yq"]
-[ext_resource type="Texture2D" uid="uid://orfxg6qodxjm" path="res://assets/drinks/Es_teler[1].png" id="4_fts6g"]
-[ext_resource type="Texture2D" uid="uid://cf3i3cjlxed4i" path="res://assets/drinks/Cedevita[1].png" id="4_jchyn"]
-[ext_resource type="Texture2D" uid="uid://jhus2r8xnh6a" path="res://assets/drinks/Lemonade[1].png" id="5_smri7"]
-[ext_resource type="Texture2D" uid="uid://b0hxi2c40mb3q" path="res://assets/drinks/Apfelschorle[1].png" id="6_smri7"]
-[ext_resource type="Texture2D" uid="uid://cpcvhavp7fcmb" path="res://assets/drinks/Mojito[1].png" id="7_ac8ls"]
-[ext_resource type="Texture2D" uid="uid://mgwm10yflhoy" path="res://assets/drinks/Rebujito[1].png" id="8_ac8ls"]
-[ext_resource type="Texture2D" uid="uid://ckidru81cjdka" path="res://assets/drinks/Coconut_Mocktail.png" id="8_h057y"]
-[ext_resource type="Texture2D" uid="uid://dujfil0hhb7av" path="res://assets/drinks/Strawberry_Milkshake.png" id="9_h057y"]
+[ext_resource type="Texture2D" uid="uid://bgrxa10uiefn6" path="res://assets/drinks/Cedevita.png" id="4_paolu"]
+[ext_resource type="Texture2D" uid="uid://bkoh7cntukqer" path="res://assets/drinks/Es_teler.png" id="5_dn3l6"]
+[ext_resource type="Texture2D" uid="uid://cn4qjk6c1a0nf" path="res://assets/drinks/Lemonade.png" id="6_u3mf5"]
+[ext_resource type="Texture2D" uid="uid://1ljyg4meowre" path="res://assets/drinks/Apfelschorle.png" id="7_vjqyy"]
+[ext_resource type="Texture2D" uid="uid://b5wu1s8omugls" path="res://assets/drinks/Mojito.png" id="8_2gjgk"]
+[ext_resource type="Texture2D" uid="uid://cchjme1q5egxo" path="res://assets/drinks/Coconut_Mocktail.png" id="8_h057y"]
+[ext_resource type="Texture2D" uid="uid://botb5ie65i0qg" path="res://assets/drinks/Rebujito.png" id="9_fu5rm"]
+[ext_resource type="Texture2D" uid="uid://r2u330lf5f4" path="res://assets/drinks/Strawberry_Milkshake.png" id="9_h057y"]
 [ext_resource type="Texture2D" uid="uid://onwwh2v5ugmt" path="res://assets/cross_large.png" id="12_paolu"]
 
 [node name="RecipeBook" type="Control" unique_id=1904256542]
@@ -71,21 +71,21 @@ columns = 2
 layout_mode = 2
 new_name = "Cedevita"
 fake_name = "Golden Sunrise"
-new_sprite = ExtResource("4_jchyn")
+new_sprite = ExtResource("4_paolu")
 recipe_key = "cedevita"
 
 [node name="EsTeler" parent="CenterContainer/MarginContainer/HBoxContainer/GridContainer" unique_id=253644735 instance=ExtResource("2_at7yq")]
 layout_mode = 2
 new_name = "Es Teler"
 fake_name = "Tropical Mix"
-new_sprite = ExtResource("4_fts6g")
+new_sprite = ExtResource("5_dn3l6")
 recipe_key = "es_teler"
 
 [node name="Lemonade" parent="CenterContainer/MarginContainer/HBoxContainer/GridContainer" unique_id=1855719380 instance=ExtResource("2_at7yq")]
 layout_mode = 2
 new_name = "Lemonade"
 fake_name = "Fresh Squeeze"
-new_sprite = ExtResource("5_smri7")
+new_sprite = ExtResource("6_u3mf5")
 recipe_key = "lemonade"
 
 [node name="PinaColada" parent="CenterContainer/MarginContainer/HBoxContainer/GridContainer" unique_id=1615912949 instance=ExtResource("2_at7yq")]
@@ -98,7 +98,7 @@ recipe_key = "pina_colada"
 layout_mode = 2
 new_name = "Apfelschorle"
 fake_name = "Summer Spritz"
-new_sprite = ExtResource("6_smri7")
+new_sprite = ExtResource("7_vjqyy")
 recipe_key = "apfelschorle"
 
 [node name="GridContainer2" type="GridContainer" parent="CenterContainer/MarginContainer/HBoxContainer" unique_id=1153966631]
@@ -111,14 +111,14 @@ columns = 2
 layout_mode = 2
 new_name = "Mojito"
 fake_name = "Sour green"
-new_sprite = ExtResource("7_ac8ls")
+new_sprite = ExtResource("8_2gjgk")
 recipe_key = "mojito"
 
 [node name="Rebujito" parent="CenterContainer/MarginContainer/HBoxContainer/GridContainer2" unique_id=974716749 instance=ExtResource("2_at7yq")]
 layout_mode = 2
 new_name = "Rebujito"
 fake_name = "Sherry Splash"
-new_sprite = ExtResource("8_ac8ls")
+new_sprite = ExtResource("9_fu5rm")
 recipe_key = "rebujito"
 
 [node name="CoconutMocktail" parent="CenterContainer/MarginContainer/HBoxContainer/GridContainer2" unique_id=327170429 instance=ExtResource("2_at7yq")]
@@ -139,7 +139,7 @@ recipe_key = "strawberry_milkshake"
 layout_mode = 2
 new_name = "Party Mix"
 fake_name = "Hawaiian Punch"
-new_sprite = ExtResource("4_fts6g")
+new_sprite = ExtResource("5_dn3l6")
 recipe_key = "party_mix"
 
 [node name="CloseButton" type="TextureButton" parent="." unique_id=594381059]

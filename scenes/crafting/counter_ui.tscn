@@ -8,12 +8,28 @@
 [ext_resource type="PackedScene" uid="uid://6i5g71ol7d6e" path="res://scenes/ui/recipe_book.tscn" id="6_p5jpt"]
 [ext_resource type="AudioStream" uid="uid://btvw5o4n5a4m0" path="res://assets/sfx/Footsteps.mp3" id="8_8oscw"]
 [ext_resource type="PackedScene" uid="uid://ba2rpfg2awifo" path="res://scenes/crafting/capy_notes.tscn" id="8_capy"]
-[ext_resource type="AudioStream" uid="uid://bcv5tgy0onhnk" path="res://assets/sfx/Book.mp3" id="8_hi1ps"]
 [ext_resource type="Texture2D" uid="uid://btvmdbvb8vv4h" path="res://assets/Cookbook_Icon.png" id="8_lrqxf"]
 [ext_resource type="Texture2D" uid="uid://d1tnwuxwhyoko" path="res://assets/Beach_Background.png" id="8_ntqpy"]
 [ext_resource type="AudioStream" uid="uid://bpwodcrqqvq6g" path="res://assets/sfx/Pen Scribble.mp3" id="8_qbp3q"]
+[ext_resource type="AudioStream" uid="uid://bn2db5vtopmci" path="res://assets/sfx/Book.wav" id="9_qbp3q"]
 [ext_resource type="PackedScene" uid="uid://cy4ds16q4indt" path="res://scenes/ui/tooltip.tscn" id="11_s4ykj"]
 [ext_resource type="AudioStream" uid="uid://ctotstsp8umap" path="res://assets/sfx/Beach Ambience.mp3" id="12_ap507"]
+[ext_resource type="Texture2D" uid="uid://s61ji6knf1t2" path="res://assets/Button_template3.png" id="13_qbp3q"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_00e6r"]
+texture = ExtResource("13_qbp3q")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_csqx8"]
+texture = ExtResource("13_qbp3q")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_arxsg"]
+texture = ExtResource("13_qbp3q")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q6w4j"]
+texture = ExtResource("13_qbp3q")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qsm04"]
+texture = ExtResource("13_qbp3q")
 
 [node name="CounterUi" type="Control" unique_id=1949816307]
 layout_mode = 3
@@ -26,15 +42,6 @@ size_flags_horizontal = 4
 mouse_filter = 1
 script = ExtResource("1_pblyx")
 customer_scene = ExtResource("2_ccn5l")
-
-[node name="MainMenuButton" type="Button" parent="." unique_id=1633707091]
-z_index = 10
-layout_mode = 0
-offset_left = 840.0
-offset_top = 10.0
-offset_right = 910.0
-offset_bottom = 41.0
-text = "Menu"
 
 [node name="Notes" parent="." unique_id=566353611 instance=ExtResource("3_8ubsl")]
 z_index = 3
@@ -66,44 +73,31 @@ position = Vector2(1332, 96)
 
 [node name="BGMusic" type="AudioStreamPlayer" parent="." unique_id=821602189]
 stream = ExtResource("4_ccn5l")
-volume_db = -5.0
+volume_db = -10.0
 autoplay = true
 parameters/looping = true
 
 [node name="Ambience" type="AudioStreamPlayer" parent="." unique_id=18315182]
 stream = ExtResource("12_ap507")
+volume_db = -20.0
 autoplay = true
 
 [node name="PenSounds" type="AudioStreamPlayer" parent="." unique_id=1564701088]
 unique_name_in_owner = true
 stream = ExtResource("8_qbp3q")
-volume_db = 24.0
+volume_db = 5.0
 
 [node name="BookSounds" type="AudioStreamPlayer" parent="." unique_id=31409859]
 unique_name_in_owner = true
-stream = ExtResource("8_hi1ps")
+stream = ExtResource("9_qbp3q")
+volume_db = -10.0
 
 [node name="Footsteps" type="AudioStreamPlayer" parent="." unique_id=664025472]
 unique_name_in_owner = true
 stream = ExtResource("8_8oscw")
+volume_db = -10.0
 
 [node name="GlassIngredients" type="Node" parent="." unique_id=517205420 groups=["glass_ingredients"]]
-
-[node name="RecipeBook" parent="." unique_id=1904256542 instance=ExtResource("6_p5jpt")]
-visible = false
-layout_mode = 1
-
-[node name="RecipeButton" type="TextureButton" parent="." unique_id=610489712]
-layout_mode = 0
-offset_left = 770.0
-offset_right = 1070.0
-offset_bottom = 300.0
-scale = Vector2(0.2, 0.2)
-texture_normal = ExtResource("8_lrqxf")
-texture_pressed = ExtResource("8_lrqxf")
-texture_hover = ExtResource("8_lrqxf")
-texture_disabled = ExtResource("8_lrqxf")
-texture_focused = ExtResource("8_lrqxf")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=2001990617]
 z_index = -10
@@ -117,6 +111,7 @@ offset_right = -223.0
 offset_bottom = -268.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("8_ntqpy")
 expand_mode = 1
 stretch_mode = 4
@@ -125,6 +120,40 @@ metadata/_edit_lock_ = true
 [node name="Tooltip" parent="." unique_id=810717877 instance=ExtResource("11_s4ykj")]
 z_index = 10
 layout_mode = 0
+
+[node name="MainMenuButton" type="Button" parent="." unique_id=1633707091]
+z_index = 10
+layout_mode = 0
+offset_left = 840.0
+offset_top = 10.0
+offset_right = 910.0
+offset_bottom = 50.0
+theme_override_colors/font_color = Color(0.77254903, 0.34509805, 0.15686275, 1)
+theme_override_colors/font_pressed_color = Color(0.9833525, 0.67822146, 0.49259132, 1)
+theme_override_colors/font_hover_color = Color(0.8666667, 0.45882353, 0.16078432, 1)
+theme_override_styles/normal = SubResource("StyleBoxTexture_00e6r")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_csqx8")
+theme_override_styles/hover = SubResource("StyleBoxTexture_arxsg")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_q6w4j")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_qsm04")
+text = "Menu"
+
+[node name="RecipeButton" type="TextureButton" parent="." unique_id=610489712]
+z_index = 10
+layout_mode = 0
+offset_left = 768.0
+offset_right = 1068.0
+offset_bottom = 300.0
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("8_lrqxf")
+texture_pressed = ExtResource("8_lrqxf")
+texture_hover = ExtResource("8_lrqxf")
+texture_disabled = ExtResource("8_lrqxf")
+texture_focused = ExtResource("8_lrqxf")
+
+[node name="RecipeBook" parent="." unique_id=1904256542 instance=ExtResource("6_p5jpt")]
+visible = false
+layout_mode = 1
 
 [connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]
 [connection signal="pressed" from="RecipeButton" to="." method="_on_recipe_button_pressed"]

@@ -1,6 +1,9 @@
 extends Node2D
 
 signal ingredient_added(ingredient: String)
+signal pour_reached_max(ingredient_id: String)
+
+const MIN_POUR_TO_REGISTER: float = 0.05
 
 @onready var liquid_polygon: Polygon2D = $LiquidPolygon
 @onready var splash_particles = $WaterArea/SplashParticles
@@ -9,12 +12,20 @@ signal ingredient_added(ingredient: String)
 
 @export var float_force: float = 380.0
 @export var water_damp: float = 4.5
+@export var pour_speed: float = 0.35
+@export var pour_wave_amp: float = 0.0225
+@export var slosh_wave_amp: float = 0.05
 
 var fill_level: float = 0.0
-var pour_speed: float = 0.25
-var base_wave_amp: float = 0.015
+
 var _added_fruits: Array[RigidBody2D] = []
 var _liquid_material: ShaderMaterial
+var _wave_tween: Tween
+var _is_pouring: bool = false
+var _pour_start_level: float = 0.0
+var _pour_ceiling: float = 0.0
+var _active_pour_ingredient: String = ""
+var _pour_max_reached: bool = false
 
 
 func _ready() -> void:
@@ -28,18 +39,62 @@ func _ready() -> void:
 	var bounds := _get_polygon_bounds(liquid_polygon.polygon)
 	_liquid_material.set_shader_parameter("polygon_min", bounds.position)
 	_liquid_material.set_shader_parameter("polygon_max", bounds.position + bounds.size)
-	_liquid_material.set_shader_parameter("fill_amount", 0.5)
+	reset_liquid()
 
 
 func _process(delta: float) -> void:
-	if Input.is_action_pressed("ui_select"):
-		if fill_level < 1.0:
-			fill_level += pour_speed * delta
-			_liquid_material.set_shader_parameter("fill_amount", fill_level)
-			_liquid_material.set_shader_parameter("wave_amplitude", base_wave_amp * 1.5)
-	else:
-		var current_amp: float = _liquid_material.get_shader_parameter("wave_amplitude")
-		_liquid_material.set_shader_parameter("wave_amplitude", lerp(current_amp, base_wave_amp, 0.1))
+	if not _is_pouring:
+		return
+
+	if fill_level < _pour_ceiling:
+		fill_level = minf(fill_level + pour_speed * delta, _pour_ceiling)
+		_liquid_material.set_shader_parameter("fill_amount", fill_level)
+		_liquid_material.set_shader_parameter("wave_amplitude", pour_wave_amp)
+	elif not _pour_max_reached and not _active_pour_ingredient.is_empty():
+		_pour_max_reached = true
+		pour_reached_max.emit(_active_pour_ingredient)
+
+
+func start_pour(liquid_color: Color, ingredient_id: String = "", max_pour_fill: float = 0.5) -> bool:
+	if _is_pouring or fill_level >= 1.0:
+		return false
+
+	_is_pouring = true
+	_pour_start_level = fill_level
+	_pour_ceiling = minf(fill_level + max_pour_fill, 1.0)
+	_active_pour_ingredient = ingredient_id
+	_pour_max_reached = false
+	_kill_wave_tween()
+	change_drink_flavor(liquid_color)
+	return true
+
+
+func stop_pour() -> float:
+	if not _is_pouring:
+		return 0.0
+	return _finish_pour()
+
+
+func reset_liquid() -> void:
+	_is_pouring = false
+	_pour_start_level = 0.0
+	_pour_ceiling = 0.0
+	_active_pour_ingredient = ""
+	fill_level = 0.0
+	_added_fruits.clear()
+	_liquid_material.set_shader_parameter("fill_amount", 0.0)
+	_set_wave_amplitude(0.0)
+
+
+func _finish_pour() -> float:
+	var poured_amount := fill_level - _pour_start_level
+	_is_pouring = false
+	_pour_start_level = 0.0
+	_pour_ceiling = 0.0
+	_active_pour_ingredient = ""
+	_pour_max_reached = false
+	_fade_wave_out()
+	return poured_amount
 
 
 func _physics_process(_delta: float) -> void:
@@ -69,12 +124,32 @@ func _on_bottom_area_body_entered(body: Node2D) -> void:
 
 
 func trigger_slosh() -> void:
-	var tween := create_tween()
+	_kill_wave_tween()
 	slosh_sfx.play()
-	_liquid_material.set_shader_parameter("wave_amplitude", 0.05)
-	tween.tween_property(_liquid_material, "shader_parameter/wave_amplitude", base_wave_amp, 1.2) \
+	_liquid_material.set_shader_parameter("wave_amplitude", slosh_wave_amp)
+	_wave_tween = create_tween()
+	_wave_tween.tween_property(_liquid_material, "shader_parameter/wave_amplitude", 0.0, 1.2) \
 		.set_trans(Tween.TRANS_SINE) \
 		.set_ease(Tween.EASE_OUT)
+
+
+func _fade_wave_out() -> void:
+	_kill_wave_tween()
+	_wave_tween = create_tween()
+	_wave_tween.tween_property(_liquid_material, "shader_parameter/wave_amplitude", 0.0, 0.4) \
+		.set_trans(Tween.TRANS_SINE) \
+		.set_ease(Tween.EASE_OUT)
+
+
+func _set_wave_amplitude(amplitude: float) -> void:
+	_kill_wave_tween()
+	_liquid_material.set_shader_parameter("wave_amplitude", amplitude)
+
+
+func _kill_wave_tween() -> void:
+	if _wave_tween and _wave_tween.is_valid():
+		_wave_tween.kill()
+	_wave_tween = null
 
 
 func change_drink_flavor(new_color: Color) -> void:

@@ -150,11 +150,5 @@ scale = Vector2(0.2, 0.2)
 [node name="IngredientSounds" type="AudioStreamPlayer" parent="." unique_id=1082069886]
 unique_name_in_owner = true
 
-[connection signal="pressed" from="WhiteWine" to="." method="_on_white_wine_pressed"]
-[connection signal="pressed" from="Water" to="." method="_on_water_pressed"]
-[connection signal="pressed" from="Soda" to="." method="_on_soda_pressed"]
-[connection signal="pressed" from="Milk" to="." method="_on_milk_pressed"]
-[connection signal="pressed" from="LimeJuice" to="." method="_on_lime_juice_pressed"]
-[connection signal="pressed" from="CoconutCream" to="." method="_on_coconut_cream_pressed"]
 [connection signal="pressed" from="Mix" to="." method="_on_mix_pressed"]
 [connection signal="pressed" from="Reset" to="." method="_on_reset_pressed"]

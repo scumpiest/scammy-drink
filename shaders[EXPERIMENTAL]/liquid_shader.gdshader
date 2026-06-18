@@ -19,7 +19,7 @@ void fragment() {
 	float range_x = max(polygon_max.x - polygon_min.x, 0.001);
 	float norm_x = (local_pos.x - polygon_min.x) / range_x;
 	float height = 1.0 - clamp((local_pos.y - polygon_min.y) / range_y, 0.0, 1.0);
-	float wave = sin(norm_x * wave_frequency + TIME * wave_speed) * wave_amplitude;
+	float wave = sin(norm_x * wave_frequency + TIME) * wave_amplitude;
 
 	if (height < fill_amount + wave) {
 		COLOR = liquid_color;
