@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dakq4rqibky8y"
+path="res://.godot/imported/Fish add ice.wav-84fb3c96931f2d2adf51c65fa1e2ce14.sample"
+
+[deps]
+
+source_file="res://assets/VO/Fish/Fish add ice.wav"
+dest_files=["res://.godot/imported/Fish add ice.wav-84fb3c96931f2d2adf51c65fa1e2ce14.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

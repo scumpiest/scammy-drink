@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ehh34jqhck21"
+path="res://.godot/imported/Fish add mixed fruits.wav-2068d45711aa41301ba912c2a1b977ba.sample"
+
+[deps]
+
+source_file="res://assets/VO/Fish/Fish add mixed fruits.wav"
+dest_files=["res://.godot/imported/Fish add mixed fruits.wav-2068d45711aa41301ba912c2a1b977ba.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

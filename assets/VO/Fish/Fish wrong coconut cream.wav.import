@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dffra78uvditb"
+path="res://.godot/imported/Fish wrong coconut cream.wav-2772993b689974380d3a9da59aa0fe0c.sample"
+
+[deps]
+
+source_file="res://assets/VO/Fish/Fish wrong coconut cream.wav"
+dest_files=["res://.godot/imported/Fish wrong coconut cream.wav-2772993b689974380d3a9da59aa0fe0c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

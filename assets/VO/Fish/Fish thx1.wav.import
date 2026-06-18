@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b8n3bqwdn4git"
+path="res://.godot/imported/Fish thx1.wav-fb2b1cb287ef42d1aa32cdb1ba2520e8.sample"
+
+[deps]
+
+source_file="res://assets/VO/Fish/Fish thx1.wav"
+dest_files=["res://.godot/imported/Fish thx1.wav-fb2b1cb287ef42d1aa32cdb1ba2520e8.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bwtkkk1yvnhdd"
+path="res://.godot/imported/Fish wrong orange.wav-28c16d01c3cfc3c3041bcd78440a2aa0.sample"
+
+[deps]
+
+source_file="res://assets/VO/Fish/Fish wrong orange.wav"
+dest_files=["res://.godot/imported/Fish wrong orange.wav-28c16d01c3cfc3c3041bcd78440a2aa0.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

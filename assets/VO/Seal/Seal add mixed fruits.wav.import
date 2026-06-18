@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cxsq6qsl8crhs"
+path="res://.godot/imported/Seal add mixed fruits.wav-621539f4d21100a7bb1b88e69e645e34.sample"
+
+[deps]
+
+source_file="res://assets/VO/Seal/Seal add mixed fruits.wav"
+dest_files=["res://.godot/imported/Seal add mixed fruits.wav-621539f4d21100a7bb1b88e69e645e34.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

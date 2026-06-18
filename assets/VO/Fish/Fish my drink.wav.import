@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://boaj5uh21axep"
+path="res://.godot/imported/Fish my drink.wav-ab5ad632a4a9a730ed2787cab90df925.sample"
+
+[deps]
+
+source_file="res://assets/VO/Fish/Fish my drink.wav"
+dest_files=["res://.godot/imported/Fish my drink.wav-ab5ad632a4a9a730ed2787cab90df925.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

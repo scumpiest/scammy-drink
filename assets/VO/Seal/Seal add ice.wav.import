@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://da7730ytyx0i6"
+path="res://.godot/imported/Seal add ice.wav-a7d86f1627873c21ad33555c803f912d.sample"
+
+[deps]
+
+source_file="res://assets/VO/Seal/Seal add ice.wav"
+dest_files=["res://.godot/imported/Seal add ice.wav-a7d86f1627873c21ad33555c803f912d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

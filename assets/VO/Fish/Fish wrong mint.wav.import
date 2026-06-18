@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dmf5hpnthdorg"
+path="res://.godot/imported/Fish wrong mint.wav-3ea219ede52cb041f002a3749fb482bf.sample"
+
+[deps]
+
+source_file="res://assets/VO/Fish/Fish wrong mint.wav"
+dest_files=["res://.godot/imported/Fish wrong mint.wav-3ea219ede52cb041f002a3749fb482bf.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

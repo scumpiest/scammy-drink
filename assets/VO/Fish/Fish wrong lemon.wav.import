@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c6b6exrvs0ab7"
+path="res://.godot/imported/Fish wrong lemon.wav-05857edd10077dab2b9743bceb0018ef.sample"
+
+[deps]
+
+source_file="res://assets/VO/Fish/Fish wrong lemon.wav"
+dest_files=["res://.godot/imported/Fish wrong lemon.wav-05857edd10077dab2b9743bceb0018ef.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

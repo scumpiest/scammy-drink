@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bektagb8ukjx5"
+path="res://.godot/imported/Fish wrong strawberry.wav-c57f8515ab6ac043f406b20e1d63a218.sample"
+
+[deps]
+
+source_file="res://assets/VO/Fish/Fish wrong strawberry.wav"
+dest_files=["res://.godot/imported/Fish wrong strawberry.wav-c57f8515ab6ac043f406b20e1d63a218.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
