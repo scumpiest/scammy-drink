@@ -29,6 +29,12 @@ func _refresh_all_stars() -> void:
 		_drinks_by_key[recipe_key].set_stars(GameManager.get_recipe_stars(recipe_key))
 
 
+func refresh_all_displays() -> void:
+	_refresh_all_stars()
+	for drink in _drinks_by_key.values():
+		drink.refresh_display()
+
+
 func _on_crafting_result(recipe_key: String, _correct_count: int, _missing_ingredients: Array) -> void:
 	var drink = _get_drink(recipe_key)
 	if drink:

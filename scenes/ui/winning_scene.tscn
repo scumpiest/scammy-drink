@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dd4k8k2veq1oa"]
+
+[ext_resource type="Texture2D" uid="uid://cgsihuhloirlv" path="res://assets/Winning.png" id="1_y02k4"]
+[ext_resource type="AudioStream" uid="uid://cll156ylerdhf" path="res://assets/Beach Bossa Nova 2 fix.mp3" id="4_music"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bg"]
+texture = ExtResource("1_y02k4")
+
+[node name="WinningScene" type="Control" unique_id=199516375]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1434686445]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_bg")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1560378606]
+stream = ExtResource("4_music")
+volume_db = -5.0
+autoplay = true
+bus = &"Music"
+parameters/looping = true

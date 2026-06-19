@@ -21,6 +21,7 @@ var customer: Customer
 var _dialogue_debug_enabled: bool = false
 
 var main_menu_scene: String = "uid://ctrh7huvrvaws"
+var winning_scene: String = "res://scenes/ui/winning_scene.tscn"
 
 @export var customer_scene: PackedScene
 @export var lerp_weight: float = 1.0
@@ -60,6 +61,7 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("unlock_all_recipe"):
 		GameManager.unlock_all_recipes()
 		recipe_book.refresh_all_displays()
+		_play_winning_scene()
 
 func spawn_customer() -> Customer:
 	var new_customer: Customer = customer_scene.instantiate() as Customer
@@ -177,9 +179,12 @@ func _on_settings_closed() -> void:
 func _on_recipe_button_pressed() -> void:
 	recipe_book.visible = true
 
-# TODO: Add a victory screen
 func _on_all_recipes_three_star() -> void:
-	recipe_book.visible = true
+	_play_winning_scene()
+
+
+func _play_winning_scene() -> void:
+	SceneManager.switch_scene(winning_scene)
 
 
 func _on_drink_ingredient_added(ingredient: String) -> void:
