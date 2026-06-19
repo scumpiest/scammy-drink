@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://clsctmgs5ri6x"]
+
+[ext_resource type="Script" uid="uid://7shrtn4ltfri" path="res://scenes/intro/intro.gd" id="1_cwtqm"]
+[ext_resource type="Texture2D" uid="uid://5eik87h7ijhi" path="res://assets/intro_scene/Intro1.png" id="2_4pthp"]
+[ext_resource type="Texture2D" uid="uid://4jxv0wd4oevm" path="res://assets/intro_scene/Intro2.png" id="3_njmnl"]
+[ext_resource type="Texture2D" uid="uid://cl1lrvgschepq" path="res://assets/intro_scene/Intro3.png" id="4_tkcp6"]
+[ext_resource type="Texture2D" uid="uid://dnsu53da2wccy" path="res://assets/intro_scene/Intro4.png" id="5_g5gjw"]
+
+[node name="Node2D" type="Node2D" unique_id=1525707154]
+script = ExtResource("1_cwtqm")
+
+[node name="Panel1" type="Sprite2D" parent="." unique_id=588903267]
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(248, 189)
+texture = ExtResource("2_4pthp")
+
+[node name="Panel2" type="Sprite2D" parent="." unique_id=863652025]
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(285, 467)
+texture = ExtResource("3_njmnl")
+
+[node name="Panel3" type="Sprite2D" parent="." unique_id=1487628586]
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(563, 192)
+texture = ExtResource("4_tkcp6")
+
+[node name="Panel4" type="Sprite2D" parent="." unique_id=1464825787]
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(850, 323)
+texture = ExtResource("5_g5gjw")
