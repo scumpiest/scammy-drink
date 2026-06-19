@@ -18,6 +18,8 @@ func _ready() -> void:
 	print(current_target)
 	box_index = 0
 	text_box_list = self.get_children()
+	for item in text_box_list:
+		print(item)
 	text_box_list[box_index].show()
 	
 	counterui.fruits_interactible = false
@@ -30,7 +32,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if current_target and customer and is_instance_valid(customer):
 		customer.position = customer.position.lerp(current_target.global_position, 1.0 - exp(-lerp_weight * delta))
-	#counterui._update_ingredient_tooltip()
+	counterui._update_ingredient_tooltip()
 	
 func _input(event):
 	if event.is_action_pressed("next_tutorial_box"):
@@ -50,6 +52,7 @@ func _input(event):
 func script():
 	if box_index == 2:
 		print("flag ")
+		# BUG: Customer is lobotomized. Will not speak except for initial hello message
 		customer = get_parent().spawn_customer()
 		get_parent().setup_customer(customer)
 	elif box_index == 4:
