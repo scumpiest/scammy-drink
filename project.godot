@@ -21,9 +21,9 @@ GameManager="*uid://xyr0lv1qs230"
 CraftingRecipe="*uid://4jt2wg3mt7fk"
 SceneManager="*uid://b6c1rw377sh4s"
 DialogueBank="*uid://dpciodxygni8q"
-VoiceBank="*res://scripts/voice_bank.gd"
 SignalBus="*uid://bfqr01l1x2hri"
 IngredientNames="*uid://c8k2m5n7p4qwr"
+VoiceBank="*res://scripts/voice_bank.gd"
 
 [display]
 

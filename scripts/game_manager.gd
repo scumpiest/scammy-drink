@@ -125,6 +125,15 @@ func unlock_recipe_ingredient_at(recipe_key: String, index: int) -> void:
 	_update_recipe_unlock_state(recipe_key)
 
 
+func unlock_all_recipes() -> void:
+	for recipe_key in CraftingRecipe.get_recipes():
+		var slots: Array = _ensure_recipe_ingredient_slots(recipe_key)
+		for i in slots.size():
+			slots[i] = true
+		unlocked_recipes[recipe_key] = true
+		recipe_best_stars[recipe_key] = 3
+
+
 func is_recipe_ingredient_unlocked(recipe_key: String, index: int) -> bool:
 	if not unlocked_recipe_ingredients.has(recipe_key):
 		return false
