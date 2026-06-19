@@ -38,6 +38,8 @@ func _ready() -> void:
 	notes.drink_cleared.connect(_on_drink_cleared)
 	notes.line_scratched.connect(_on_line_scratched)
 	settings_panel.closed.connect(_on_settings_closed)
+	if OS.is_debug_build():
+		settings_panel.set_play_tutorial_visible(true)
 	customer = spawn_customer()
 	setup_customer(customer)
 

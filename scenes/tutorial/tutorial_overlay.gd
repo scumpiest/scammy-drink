@@ -8,6 +8,7 @@ const HOLE_PADDING := Vector2(12, 12)
 @onready var _highlight_template: PanelContainer = $OverlayRoot/HighlightBorder
 @onready var _prompt_label: Label = $OverlayRoot/PromptPanel/MarginContainer/Label
 @onready var _prompt_panel: PanelContainer = $OverlayRoot/PromptPanel
+@onready var _continue_hint_panel: PanelContainer = $OverlayRoot/ContinueHintPanel
 
 var _dim_pool: Array[ColorRect] = []
 var _highlight_pool: Array[PanelContainer] = []
@@ -20,6 +21,8 @@ func _ready() -> void:
 	_highlight_template.visible = false
 	_highlight_template.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_prompt_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_continue_hint_panel.visible = false
+	_continue_hint_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	for legacy_panel in [$OverlayRoot/Top, $OverlayRoot/Bottom, $OverlayRoot/Left, $OverlayRoot/Right]:
 		legacy_panel.visible = false
 		legacy_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -115,10 +118,19 @@ func show_highlight_holes(holes: Array, message: String) -> void:
 	_layout_holes(all_holes)
 	_prompt_panel.global_position = prompt_rect.position
 	_overlay_root.move_child(_prompt_panel, -1)
+	if _continue_hint_panel.visible:
+		_overlay_root.move_child(_continue_hint_panel, -1)
+
+
+func set_continue_hint_visible(show_hint: bool) -> void:
+	_continue_hint_panel.visible = show_hint
+	if show_hint:
+		_overlay_root.move_child(_continue_hint_panel, -1)
 
 
 func hide_overlay() -> void:
 	visible = false
+	_continue_hint_panel.visible = false
 	_hide_pool(_dim_pool)
 	_hide_pool(_highlight_pool)
 

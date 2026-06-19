@@ -87,3 +87,32 @@ theme_override_colors/font_color = Color(0.98, 0.94, 0.82, 1)
 theme_override_font_sizes/font_size = 28
 text = "Tutorial prompt"
 autowrap_mode = 3
+
+[node name="ContinueHintPanel" type="PanelContainer" parent="OverlayRoot" unique_id=1982736451]
+visible = false
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -300.0
+offset_top = -56.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_prompt")
+
+[node name="MarginContainer" type="MarginContainer" parent="OverlayRoot/ContinueHintPanel" unique_id=1982736452]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 8
+
+[node name="Label" type="Label" parent="OverlayRoot/ContinueHintPanel/MarginContainer" unique_id=1982736453]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.98, 0.94, 0.82, 1)
+theme_override_font_sizes/font_size = 22
+text = "Press Space to continue"

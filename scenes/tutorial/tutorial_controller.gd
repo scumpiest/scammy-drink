@@ -23,7 +23,6 @@ const MIX_BUTTON_HIGHLIGHT_Y_OFFSET: float = -20.0
 
 var _step: Step = Step.INSPECT_NOTES
 var _waiting_for_space: bool = false
-var _feedback_dialogue_done: bool = false
 
 var _crafting_counter: Node2D
 var _blender: Node2D
@@ -66,7 +65,7 @@ func _input(event: InputEvent) -> void:
 	if not event.is_action_pressed("next_tutorial_box"):
 		return
 	get_viewport().set_input_as_handled()
-	_waiting_for_space = false
+	_set_waiting_for_space(false)
 	_advance_step()
 
 
@@ -75,16 +74,16 @@ func _advance_step() -> void:
 		Step.INSPECT_NOTES:
 			_advance_to_step(Step.POUR_FLUID)
 		Step.CUSTOMER_FEEDBACK:
-			if _feedback_dialogue_done:
-				_advance_to_step(Step.ADD_FRUIT_2)
+			_advance_to_step(Step.ADD_FRUIT_2)
+		Step.COMPLETE:
+			_finish_tutorial()
 		_:
 			pass
 
 
 func _advance_to_step(next_step: Step) -> void:
 	_step = next_step
-	_waiting_for_space = false
-	_feedback_dialogue_done = false
+	_set_waiting_for_space(false)
 
 	match _step:
 		Step.INSPECT_NOTES:
@@ -92,7 +91,7 @@ func _advance_to_step(next_step: Step) -> void:
 				TutorialOverlay.rect_from_control(_notes),
 				"Check the order. Something is wrong! Our coworker gave us the wrong recipe. We need to find a way to fix it."
 			)
-			_waiting_for_space = true
+			_set_waiting_for_space(true)
 		Step.POUR_FLUID:
 			var soda_button: Control = _crafting_counter.get_node("Soda")
 			_show_ingredient_highlight(
@@ -130,8 +129,12 @@ func _advance_to_step(next_step: Step) -> void:
 				Rect2(get_viewport().get_visible_rect().size * 0.5 - Vector2(160, 40), Vector2(320, 80)),
 				"You're ready!"
 			)
-			await get_tree().create_timer(2.0).timeout
-			_finish_tutorial()
+			_set_waiting_for_space(true)
+
+
+func _set_waiting_for_space(waiting: bool) -> void:
+	_waiting_for_space = waiting
+	_overlay.set_continue_hint_visible(waiting)
 
 
 func _show_ingredient_highlight(ingredient_rect: Rect2, message: String) -> void:
@@ -202,8 +205,7 @@ func _on_tutorial_feedback_ready() -> void:
 func _on_ingredient_dialogue_finished() -> void:
 	if _step != Step.CUSTOMER_FEEDBACK:
 		return
-	_feedback_dialogue_done = true
-	_waiting_for_space = true
+	_set_waiting_for_space(true)
 
 
 func _on_line_scratched(line_index: int) -> void:
