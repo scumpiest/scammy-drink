@@ -5,6 +5,23 @@ var chat_templates: Dictionary = {
 	"scratch_name": "We aren't making a {old_item} anymore. Change the name to a {new_item}!",
 	"empty_line_fill": "Perfect, let's add some {new_item} to that blank line.",
 	
+	
+	#Sarah
+	"sarah_1_start": "Ah, hello… tsk… \nSo, I’m guessing you’re my new coworker, huh? \nGod dang it, why do we even need one? \nUghhhh! \nAnyways, put this on and do ur job! \nAnd don’t even think about asking ME for any help! \n... \n. . . . . .",
+	#break -> silence while ... is showing
+	"sarah_2_autoplay_after_one": "Why are you just standing there? \nCan’t you see the customers waiting? \nCome on, what do you think you are here for?",
+	#wait until player clicks on Sarah (she should be the only thing u can click on rn)
+	"sarah_3_clicked_on": "Ughhhh,  What do u want? \nI told you not to ask me for help! \nDamn, it’s not even that hard! Every kid knows how to make that drink and you are still standing here, clueless? Pathetic!",
+	#short break -> silence
+	"sarah_3_autoplay_after_3": "You know what? Cause I’m feeling super nice today I’m actually gonna take the customers orders and write down what to mix in each drink. \nYou can follow instructions, right? \nCause then this should be absolutely no problem for you! \nThere we go, she ain’t gonna last a day wi_h th_s g_niu_ ta_t_c",
+	#can u leave a bit longer breaks inbetween each line of 4?
+	
+	# played at the end of the game (right before or after the winning screen)
+	"sarah_5_end": "Uhhhh, so you are pretty good at this, huh? \nDammet, guess I’m gonna have to get used to having you around! \nHoooray, finally boss found someone to “accompany “ me. Huhhhhh \n… \n. . .",
+	#make sure that there´s silence when ... is showing
+	"sarah_6_end": "Well, at least it doesn’t seem like you’re the worst person on this planet. \nMight as well cope with, huh?",
+	
+	
 	# Seal
 	"seal_hello": "Heyaaa!",
 	"seal_my_drink?": "Uhmm, is that my drink?",
@@ -40,10 +57,10 @@ var chat_templates: Dictionary = {
 	"axolotl_my_drink?": "I assume you are making my drink,\n as I just ordered.",
 	"axolotl_wrong_ingredient": "So, I don't want to be mean at all, \nbut you know that mixing {ingredient} in there leaves you with a weird taste, right?",
 	"axolotl_right_ingredient": "Ummm, actually the drink I ordered has {ingredient} in it, \nso could you please make sure you don't forget that?",
-	"axolotl_thx_1": "Ah, thanks for the drink... You are missing two ingredients, I hope you know that!",
-	"axolotl_thx_2": "Oh, so, this is my drink? It's mid, you forgot one ingredient, that's a 2 Star review for me!",
+	"axolotl_thx_1": "Ah, thanks for the drink... I see you are missing two ingredients, but that´s no problem",
+	"axolotl_thx_2": "Oh, so, this is my drink? It's good, you forgot one ingredient, but I still kinda like it!",
 	"axolotl_thx_3": "Is this what I ordered? This… is… AMAZING! I didn't even know that this drink can taste this good! Thank you so much!",
-	"axolotl_thx_bad": "Errr, are you sure this is what I ordered? I don't think there's any right ingredient in this! This is unacceptable! I'm expecting a refund for this monstrosity!"
+	"axolotl_thx_bad": "Errr, are you sure this is what I ordered? I don't think there's any right ingredient in this! This is unacceptable!"
 	}
 
 
