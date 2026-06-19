@@ -1,6 +1,7 @@
 extends Control
 
 @onready var spawn_marker: Marker2D = $SpawnMarker
+@onready var drink_marker: Marker2D = $DrinkMarker
 @onready var enter_marker: Marker2D = $EnterMarker
 @onready var exit_marker: Marker2D = $ExitMarker
 @onready var crafting_counter: Node2D = $CraftingCounter
@@ -27,6 +28,7 @@ var winning_scene: String = "res://scenes/ui/winning_scene.tscn"
 @export var lerp_weight: float = 1.0
 
 const ARRIVAL_THRESHOLD: float = 8.0
+const SPLASH_SCENE: PackedScene = preload("res://scenes/splash.tscn")
 
 
 func _ready() -> void:
@@ -128,10 +130,19 @@ func _on_customer_exited() -> void:
 
 
 func _on_mix_animation_finished() -> void:
+	await _play_mix_splash()
 	_spawn_drink()
 	notes.show_save_button()
 	if customer and is_instance_valid(customer):
 		customer.on_mix_animation_finished()
+
+
+func _play_mix_splash() -> void:
+	var splash: Node2D = SPLASH_SCENE.instantiate()
+	splash.position = drink_marker.position
+	splash.z_index = 6
+	add_child(splash)
+	await splash.finished
 
 
 func _spawn_drink() -> void:

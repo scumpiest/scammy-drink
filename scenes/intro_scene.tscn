@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://bmp06s35kqqd"]
+
+[ext_resource type="Script" uid="uid://boq5s4umqekis" path="res://scenes/intro_scene.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://c84as5itdbfvw" path="res://assets/Intro_background.png" id="1_tij55"]
+[ext_resource type="Texture2D" uid="uid://bvlfxym4vj0vt" path="res://assets/Intro1.png" id="2_8wqor"]
+[ext_resource type="Texture2D" uid="uid://emrs37iolo12" path="res://assets/Intro3.png" id="3_0f06d"]
+[ext_resource type="Texture2D" uid="uid://bcxj4jrg01ruj" path="res://assets/Intro2.png" id="4_01j2m"]
+[ext_resource type="Texture2D" uid="uid://b3er1udpnisyo" path="res://assets/Intro4.png" id="5_f164h"]
+[ext_resource type="Texture2D" uid="uid://56c1mq213gb2" path="res://assets/Button_template2.png" id="6_button"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_normal"]
+texture = ExtResource("6_button")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pressed"]
+texture = ExtResource("6_button")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hover"]
+texture = ExtResource("6_button")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hover_pressed"]
+texture = ExtResource("6_button")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_disabled"]
+texture = ExtResource("6_button")
+
+[node name="IntroScene" type="Control" unique_id=1049717513]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1327953334]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_tij55")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=203631419]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=2127753764]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer" unique_id=788506627]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer" unique_id=1687109184]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/VBoxContainer" unique_id=1157237048]
+layout_mode = 2
+
+[node name="intro1" type="TextureRect" parent="MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1725739289]
+layout_mode = 2
+texture = ExtResource("2_8wqor")
+
+[node name="intro3" type="TextureRect" parent="MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1348753486]
+layout_mode = 2
+texture = ExtResource("3_0f06d")
+
+[node name="intro2" type="TextureRect" parent="MarginContainer/HBoxContainer/MarginContainer/VBoxContainer" unique_id=93466536]
+layout_mode = 2
+texture = ExtResource("4_01j2m")
+
+[node name="intro4" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=621626843]
+layout_mode = 2
+texture = ExtResource("5_f164h")
+
+[node name="Footer" type="CenterContainer" parent="." unique_id=326120428]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -140.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="StartTutorialButton" type="Button" parent="Footer" unique_id=2132839582]
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.77254903, 0.34509805, 0.15686275, 1)
+theme_override_colors/font_pressed_color = Color(0.9833525, 0.67822146, 0.49259132, 1)
+theme_override_colors/font_hover_color = Color(0.8666667, 0.45882353, 0.16078432, 1)
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxTexture_normal")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_pressed")
+theme_override_styles/hover = SubResource("StyleBoxTexture_hover")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_hover_pressed")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_disabled")
+text = "Start Tutorial"

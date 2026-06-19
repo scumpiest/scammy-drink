@@ -4,6 +4,7 @@ class_name NotesPanel
 signal notes_saved(notes_content: Dictionary)
 signal drink_cleared
 signal line_scratched(line_index: int)
+signal save_button_shown
 
 @onready var drink_name: NoteLine = $MarginContainer/VBoxContainer/DrinkName
 @onready var ingredient1: NoteLine = $MarginContainer/VBoxContainer/VBoxContainer/Ingredient1
@@ -185,6 +186,10 @@ func get_ingredient_line(index: int) -> NoteLine:
 			return ingredient1
 
 
+func get_save_button() -> Button:
+	return _save_button
+
+
 func get_save_button_global_rect() -> Rect2:
 	return _save_button.get_global_rect()
 
@@ -210,6 +215,7 @@ func _ingredient_line_index(line: NoteLine) -> int:
 
 func show_save_button() -> void:
 	_save_button.visible = true
+	save_button_shown.emit()
 
 
 func _hide_save_button() -> void:

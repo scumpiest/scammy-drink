@@ -4,8 +4,7 @@ extends Control
 @onready var settings_panel: Control = $MarginContainer/SettingsMenu
 @onready var menu_panel: Control = $PanelContainer
 
-var play_scene: String = "uid://omqlt0501aof"
-var tutorial_scene: String = "res://scenes/tutorial/tutorial_scene.tscn"
+var intro_scene: String = "res://scenes/intro_scene.tscn"
 
 
 func _ready() -> void:
@@ -13,12 +12,7 @@ func _ready() -> void:
 
 
 func _on_play_pressed() -> void:
-	print("Play is pressed")
-	if not GameManager.tutorial_completed:
-		GameManager.prepare_tutorial("cedevita")
-		SceneManager.switch_scene(tutorial_scene)
-	else:
-		SceneManager.switch_scene(play_scene)
+	SceneManager.switch_scene(intro_scene)
 
 
 func _on_settings_pressed() -> void:

@@ -56,6 +56,7 @@ func _ready() -> void:
 	_recipe_book.get_node("CloseButton").pressed.connect(_on_recipe_book_closed)
 	_customer.tutorial_feedback_ready.connect(_on_tutorial_feedback_ready)
 	_customer.ingredient_dialogue_finished.connect(_on_ingredient_dialogue_finished)
+	_notes.save_button_shown.connect(_on_save_button_shown)
 
 	call_deferred("_begin_tutorial")
 
@@ -128,7 +129,7 @@ func _advance_to_step(next_step: Step) -> void:
 				"Mix the drink!"
 			)
 		Step.SAVE_NOTES:
-			call_deferred("_show_save_highlight")
+			pass
 		Step.CHECK_RECIPE_BOOK:
 			_recipe_button.visible = true
 			_overlay.show_highlight(
@@ -170,11 +171,20 @@ func _dialogue_highlight_rect() -> Rect2:
 	return rect
 
 
+func _on_save_button_shown() -> void:
+	if _step != Step.SAVE_NOTES:
+		return
+	_show_save_highlight()
+
+
 func _show_save_highlight() -> void:
 	if _step != Step.SAVE_NOTES:
 		return
+	await get_tree().process_frame
+	if _step != Step.SAVE_NOTES:
+		return
 	_overlay.show_highlight(
-		_notes.get_save_button_global_rect(),
+		TutorialOverlay.rect_from_control(_notes.get_save_button()),
 		"Save your corrected notes."
 	)
 
