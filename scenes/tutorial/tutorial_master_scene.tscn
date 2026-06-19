@@ -77,11 +77,11 @@ offset_bottom = 193.0
 
 [node name="IntroductionText" type="RichTextLabel" parent="OrderSlip2" unique_id=1708052828]
 layout_mode = 2
-text = "Let's see... She says that to make this drink, you need white wine, lime juice, and apples. Let's go ahead and put those in!!"
+text = "Let's see... She says that to make this drink, you need water, orange, and ice. Let's get started."
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Wine" type="PanelContainer" parent="." unique_id=2003744174]
+[node name="Water" type="PanelContainer" parent="." unique_id=733181885]
 visible = false
 layout_mode = 0
 offset_left = 92.0
@@ -89,13 +89,13 @@ offset_top = 124.0
 offset_right = 439.0
 offset_bottom = 193.0
 
-[node name="IntroductionText" type="RichTextLabel" parent="Wine" unique_id=1660205585]
+[node name="IntroductionText" type="RichTextLabel" parent="Water" unique_id=538905245]
 layout_mode = 2
-text = "Okay, so first, you need some white wine. Hover over the white wine bottle and hold the left mouse button until the blender stops filling with wine."
+text = "Okay, so first, you need some water. Hover over the water bottle and hold the left mouse button until the blender stops filling with water."
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="LimeJuice" type="PanelContainer" parent="." unique_id=1100455202]
+[node name="Orange" type="PanelContainer" parent="." unique_id=246140664]
 visible = false
 layout_mode = 0
 offset_left = 92.0
@@ -103,13 +103,13 @@ offset_top = 124.0
 offset_right = 439.0
 offset_bottom = 193.0
 
-[node name="IntroductionText" type="RichTextLabel" parent="LimeJuice" unique_id=230894256]
+[node name="IntroductionText" type="RichTextLabel" parent="Orange" unique_id=704361799]
 layout_mode = 2
-text = "Now do the same for the lime juice!"
+text = "Now that your liquid ingredient is taken care of, go over here to the solid ingredients and pick up an orange slice and drag it into the blender."
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="FindApples" type="PanelContainer" parent="." unique_id=1846970147]
+[node name="Ice" type="PanelContainer" parent="." unique_id=905092106]
 visible = false
 layout_mode = 0
 offset_left = 92.0
@@ -117,23 +117,9 @@ offset_top = 124.0
 offset_right = 439.0
 offset_bottom = 193.0
 
-[node name="IntroductionText" type="RichTextLabel" parent="FindApples" unique_id=1213652589]
+[node name="IntroductionText" type="RichTextLabel" parent="Ice" unique_id=1014711517]
 layout_mode = 2
-text = "Okay, so now that your liquid ingredients are taken care of, turn your attention to the right-hand side of the screen and find the apples"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Apples" type="PanelContainer" parent="." unique_id=446453689]
-visible = false
-layout_mode = 0
-offset_left = 92.0
-offset_top = 124.0
-offset_right = 439.0
-offset_bottom = 193.0
-
-[node name="IntroductionText" type="RichTextLabel" parent="Apples" unique_id=793915195]
-layout_mode = 2
-text = "Once you have found the apples, go ahead and click and drag an apple into the blender with the right mouse button."
+text = "Nice! Now do the same for the ice."
 horizontal_alignment = 1
 vertical_alignment = 1
 

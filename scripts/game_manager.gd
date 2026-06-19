@@ -52,9 +52,12 @@ func update_inventory(item: String, quantity: int):
 
 ## Adds a random recipe to the recipe orders.
 func add_recipe_order():
-	var new_recipe = CraftingRecipe.get_random_recipe()
+	var new_recipe
+	#if get_node("/root/CounterUi").tutorial_active:
+		#new_recipe = CraftingRecipe.get_recipe_dict().keys()[1]
+	#else:
+	new_recipe = CraftingRecipe.get_random_recipe()
 	recipe_orders.append(new_recipe)
-
 
 func get_order() -> String:
 	

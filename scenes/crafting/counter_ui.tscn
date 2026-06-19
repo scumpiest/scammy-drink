@@ -78,7 +78,7 @@ text = "Let's see... She says that to make this drink, you need white wine, lime
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Wine2" type="PanelContainer" parent="Tutorial" unique_id=1720611894]
+[node name="Water2" type="PanelContainer" parent="Tutorial" unique_id=1720611894]
 visible = false
 layout_mode = 0
 offset_left = 92.0
@@ -86,13 +86,13 @@ offset_top = 124.0
 offset_right = 439.0
 offset_bottom = 193.0
 
-[node name="IntroductionText" type="RichTextLabel" parent="Tutorial/Wine2" unique_id=848285124]
+[node name="IntroductionText" type="RichTextLabel" parent="Tutorial/Water2" unique_id=848285124]
 layout_mode = 2
-text = "Okay, so first, you need some white wine. Hover over the white wine bottle and hold the left mouse button until the blender stops filling with wine."
+text = "Okay, so first, you need some coconut cream. Hover over the white coconut cream can and hold the left mouse button until the blender stops filling with cream."
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="LimeJuice2" type="PanelContainer" parent="Tutorial" unique_id=254069655]
+[node name="Orange2" type="PanelContainer" parent="Tutorial" unique_id=254069655]
 visible = false
 layout_mode = 0
 offset_left = 92.0
@@ -100,13 +100,13 @@ offset_top = 124.0
 offset_right = 439.0
 offset_bottom = 193.0
 
-[node name="IntroductionText" type="RichTextLabel" parent="Tutorial/LimeJuice2" unique_id=1764833509]
+[node name="IntroductionText" type="RichTextLabel" parent="Tutorial/Orange2" unique_id=1764833509]
 layout_mode = 2
-text = "Now do the same for the lime juice!"
+text = "Now that your liquid ingredient is taken care of, go over here to the solid ingredients and pick up some pineapple and drag it into the blender."
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="FindApples2" type="PanelContainer" parent="Tutorial" unique_id=234344858]
+[node name="Ice2" type="PanelContainer" parent="Tutorial" unique_id=234344858]
 visible = false
 layout_mode = 0
 offset_left = 92.0
@@ -114,23 +114,9 @@ offset_top = 124.0
 offset_right = 439.0
 offset_bottom = 193.0
 
-[node name="IntroductionText" type="RichTextLabel" parent="Tutorial/FindApples2" unique_id=969465882]
+[node name="IntroductionText" type="RichTextLabel" parent="Tutorial/Ice2" unique_id=969465882]
 layout_mode = 2
-text = "Okay, so now that your liquid ingredients are taken care of, turn your attention to the right-hand side of the screen and find the apples"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Apples2" type="PanelContainer" parent="Tutorial" unique_id=292525445]
-visible = false
-layout_mode = 0
-offset_left = 92.0
-offset_top = 124.0
-offset_right = 439.0
-offset_bottom = 193.0
-
-[node name="IntroductionText" type="RichTextLabel" parent="Tutorial/Apples2" unique_id=499026084]
-layout_mode = 2
-text = "Once you have found the apples, go ahead and click and drag an apple into the blender with the right mouse button."
+text = "Nice! Now do the same for the ice."
 horizontal_alignment = 1
 vertical_alignment = 1
 

@@ -70,6 +70,13 @@ func update_ingredients(real_ingredients: Array, chance: float) -> void:
 
 	var has_fakes_available: bool = not fake_pool.is_empty()
 
+	if get_parent().tutorial_active:
+		for i in ingredient_lines.size():
+			var ingredient: String = ""
+			fake_pool = ["water", "orange", "ice"]
+			ingredient_lines[i].update_from_order(fake_pool[i])
+			print("flaaag")    
+		return 
 	for i in ingredient_lines.size():
 		var ingredient: String = ""
 
@@ -87,6 +94,7 @@ func update_ingredients(real_ingredients: Array, chance: float) -> void:
 				var random_index: int = randi_range(0, available_fakes.size() - 1)
 				ingredient = available_fakes[random_index]
 
+		
 		used_ingredients.append(ingredient)
 		ingredient_lines[i].update_from_order(ingredient)
 

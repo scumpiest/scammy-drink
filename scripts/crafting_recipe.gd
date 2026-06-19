@@ -97,6 +97,9 @@ func _ready():
 
 func get_random_recipe() -> String:
 	var recipe_list: Array = get_recipes()
+	if get_node("/root/CounterUi").tutorial_active:
+		print(recipe_list[1 ])
+		return recipe_list[1]
 	var random_index: int = randi() % recipe_list.size()
 	return recipe_list[random_index]
 

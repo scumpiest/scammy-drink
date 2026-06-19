@@ -54,9 +54,9 @@ func script():
 		get_parent().setup_customer(customer)
 	elif box_index == 4:
 		counterui.liquids_interactible = true
-	elif box_index == 7:
+	elif box_index == 5:
 		counterui.fruits_interactible = true
-	elif box_index == 8:
+	elif box_index == 7:
 		counterui.mixer_interactible = true
 	elif box_index == 4:
 		pass
