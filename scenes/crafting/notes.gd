@@ -2,6 +2,7 @@ extends PanelContainer
 
 signal notes_saved(notes_content: Dictionary)
 signal drink_cleared
+signal line_scratched
 
 @onready var drink_name: NoteLine = $MarginContainer/VBoxContainer/DrinkName
 @onready var ingredient1: NoteLine = $MarginContainer/VBoxContainer/VBoxContainer/Ingredient1
@@ -82,8 +83,7 @@ func try_scratch_at_position(global_pos: Vector2, replacement: String) -> bool:
 	var lines: Array[NoteLine] = [drink_name, ingredient1, ingredient2, ingredient3]
 	for line in lines:
 		if line.get_global_rect().has_point(global_pos):
-			line.scratch(replacement)
-			return true
+			return _scratch_line(line, replacement)
 	return false
 
 
@@ -103,9 +103,17 @@ func _drop_data(at_position: Vector2, data: Variant) -> void:
 	var global_pos := get_global_transform() * at_position
 	var ingredient_lines: Array[NoteLine] = [ingredient1, ingredient2, ingredient3]
 	for line in ingredient_lines:
-		if line.get_global_rect().has_point(global_pos) and not line.is_scratched:
-			line.scratch(ingredient)
+		if line.get_global_rect().has_point(global_pos):
+			_scratch_line(line, ingredient)
 			return
+
+
+func _scratch_line(line: NoteLine, replacement: String) -> bool:
+	if line.is_scratched:
+		return false
+	line.scratch(replacement)
+	line_scratched.emit()
+	return true
 
 
 func show_save_button() -> void:

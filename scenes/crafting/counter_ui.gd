@@ -35,6 +35,7 @@ func _ready() -> void:
 	crafting_counter.drink_ingredient_added.connect(_on_drink_ingredient_added)
 	crafting_counter.mix_animation_finished.connect(_on_mix_animation_finished)
 	notes.drink_cleared.connect(_on_drink_cleared)
+	notes.line_scratched.connect(_on_line_scratched)
 	settings_panel.closed.connect(_on_settings_closed)
 	customer = spawn_customer()
 	setup_customer(customer)
@@ -141,14 +142,18 @@ func _on_drink_cleared() -> void:
 	crafting_counter.reset()
 
 
+func _on_line_scratched() -> void:
+	$PenSounds.play()
+
+
 func _on_notes_saved(_notes_content: Dictionary) -> void:
 	_notes_saved_for_order = true
-	#print("YAYHAHAHHHAAAAAAAAAAAAAAWAHAOOOOAHAHOOOOOOOOOOYIPPPREEEEEE")
+	$PenSounds.play()
 	if _awaiting_notes_save:
 		_awaiting_notes_save = false
-		$PenSounds.play()
-		
 		_spawn_next_customer()
+	elif customer and is_instance_valid(customer):
+		customer.skip_and_leave()
 
 
 func _spawn_next_customer() -> void:

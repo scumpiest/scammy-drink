@@ -212,6 +212,16 @@ func _play_dialogue_voices(event_names: Array[String], params: Dictionary = {}) 
 		await voice_player.finished
 
 
+func skip_and_leave() -> void:
+	_voice_sequence_id += 1
+	voice_player.stop()
+	bubble_background.visible = false
+	if request.is_empty():
+		return
+	request = ""
+	request_completed.emit()
+
+
 func _reset_dialogue_state() -> void:
 	_ingredients_added_count = 0
 	_has_given_ingredient_hint = false
