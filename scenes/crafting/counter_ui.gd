@@ -10,6 +10,7 @@ extends Control
 @onready var capy_notes: PanelContainer = $CapyNotes
 @onready var _tooltip: PanelContainer = $Tooltip
 @onready var footsteps_player: AudioStreamPlayer = $Footsteps
+@onready var book_sounds: AudioStreamPlayer = $BookSounds
 @onready var settings_overlay: Control = $MarginContainer
 @onready var settings_panel: Control = $MarginContainer/SettingsMenu
 
@@ -40,6 +41,7 @@ func _ready() -> void:
 	notes.drink_cleared.connect(_on_drink_cleared)
 	notes.line_scratched.connect(_on_line_scratched)
 	settings_panel.closed.connect(_on_settings_closed)
+	recipe_book.closed.connect(_play_book_sound)
 	if OS.is_debug_build():
 		settings_panel.set_play_tutorial_visible(true)
 	customer = spawn_customer()
@@ -57,11 +59,9 @@ func _input(event: InputEvent) -> void:
 	if GameManager.tutorial_active:
 		return
 	if event.is_action_pressed("close_recipe"):
-		recipe_book.visible = false
-		$BookSounds.play()
+		_close_recipe_book()
 	if event.is_action_pressed("open_recipe"):
-		recipe_book.visible = true
-		$BookSounds.play()
+		_open_recipe_book()
 	if event.is_action_pressed("toggle_dialogue_debug"):
 		_toggle_dialogue_debug_mode()
 	if event.is_action_pressed("unlock_all_recipe"):
@@ -130,7 +130,7 @@ func _on_customer_exited() -> void:
 
 
 func _on_mix_animation_finished() -> void:
-	await _play_mix_splash()
+	_play_mix_splash()
 	_spawn_drink()
 	notes.show_save_button()
 	if customer and is_instance_valid(customer):
@@ -205,8 +205,22 @@ func _on_settings_closed() -> void:
 	settings_overlay.visible = false
 
 
-func _on_recipe_button_pressed() -> void:
+func _open_recipe_book() -> void:
 	recipe_book.visible = true
+	_play_book_sound()
+
+
+func _close_recipe_book() -> void:
+	recipe_book.visible = false
+	_play_book_sound()
+
+
+func _play_book_sound() -> void:
+	book_sounds.play()
+
+
+func _on_recipe_button_pressed() -> void:
+	_open_recipe_book()
 
 func _on_all_recipes_three_star() -> void:
 	_play_winning_scene()

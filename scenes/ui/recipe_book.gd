@@ -1,5 +1,7 @@
 extends Control
 
+signal closed
+
 @onready var close_button: TextureButton = $CloseButton
 
 var _drinks_by_key: Dictionary = {}
@@ -48,3 +50,4 @@ func _on_crafting_result(recipe_key: String, _correct_count: int, _missing_ingre
 
 func _on_close_button_pressed() -> void:
 	visible = false
+	closed.emit()

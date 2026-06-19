@@ -3,7 +3,9 @@
 [ext_resource type="Script" uid="uid://b0b2rn6m4fxyk" path="res://scenes/ui/main_menu.gd" id="1_7vrkn"]
 [ext_resource type="Texture2D" uid="uid://d1tnwuxwhyoko" path="res://assets/Beach_Background.png" id="2_1g8jr"]
 [ext_resource type="Texture2D" uid="uid://56c1mq213gb2" path="res://assets/Button_template2.png" id="3_1g8jr"]
+[ext_resource type="Texture2D" uid="uid://cchhy6wmf5upp" path="res://assets/Capy.png" id="4_btxxm"]
 [ext_resource type="AudioStream" uid="uid://cll156ylerdhf" path="res://assets/Beach Bossa Nova 2 fix.mp3" id="4_m1kxf"]
+[ext_resource type="Texture2D" uid="uid://b6mgmdrrbfaju" path="res://assets/Coworker.png" id="5_wb0q5"]
 [ext_resource type="PackedScene" uid="uid://c86lgs72w0q84" path="res://scenes/ui/settings_menu.tscn" id="5_x2yvf"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m1kxf"]
@@ -78,7 +80,7 @@ theme_override_constants/margin_top = 25
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=605131397]
 layout_mode = 2
-theme_override_constants/separation = 125
+theme_override_constants/separation = 75
 
 [node name="PanelContainer" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer2" unique_id=788672508]
 layout_mode = 2
@@ -105,17 +107,17 @@ layout_mode = 2
 size_flags_vertical = 8
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer2/CenterContainer" unique_id=1576662415]
-custom_minimum_size = Vector2(500, 100)
+custom_minimum_size = Vector2(350, 80)
 layout_mode = 2
 theme_override_constants/separation = 25
 
 [node name="Play" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer2/CenterContainer/VBoxContainer" unique_id=1351145941]
-custom_minimum_size = Vector2(0, 75)
+custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.77254903, 0.34509805, 0.15686275, 1)
 theme_override_colors/font_pressed_color = Color(0.9833525, 0.67822146, 0.49259132, 1)
 theme_override_colors/font_hover_color = Color(0.8666667, 0.45882353, 0.16078432, 1)
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxTexture_uhagc")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_btxxm")
 theme_override_styles/hover = SubResource("StyleBoxTexture_wb0q5")
@@ -124,12 +126,12 @@ theme_override_styles/disabled = SubResource("StyleBoxTexture_8g5eo")
 text = "Play"
 
 [node name="Settings" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer2/CenterContainer/VBoxContainer" unique_id=1339250090]
-custom_minimum_size = Vector2(0, 75)
+custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.77254903, 0.34509805, 0.15686275, 1)
 theme_override_colors/font_pressed_color = Color(0.9833525, 0.67822146, 0.49259132, 1)
 theme_override_colors/font_hover_color = Color(0.8666667, 0.45882353, 0.16078432, 1)
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxTexture_7suek")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_otr3d")
 theme_override_styles/hover = SubResource("StyleBoxTexture_8ekit")
@@ -138,18 +140,31 @@ theme_override_styles/disabled = SubResource("StyleBoxTexture_877pj")
 text = "Settings"
 
 [node name="Quit" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer2/CenterContainer/VBoxContainer" unique_id=1952061301]
-custom_minimum_size = Vector2(0, 75)
+custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.77254903, 0.34509805, 0.15686275, 1)
 theme_override_colors/font_pressed_color = Color(0.9833525, 0.67822146, 0.49259132, 1)
 theme_override_colors/font_hover_color = Color(0.8666667, 0.45882353, 0.16078432, 1)
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxTexture_ayp64")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_y2j7i")
 theme_override_styles/hover = SubResource("StyleBoxTexture_y1h5l")
 theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_pw24t")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_5dct7")
 text = "Quit"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer2/CenterContainer" unique_id=2038930348]
+layout_mode = 2
+
+[node name="Capy" type="Sprite2D" parent="PanelContainer/MarginContainer/VBoxContainer2/CenterContainer" unique_id=1578712323]
+position = Vector2(120, 195.99998)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_btxxm")
+
+[node name="Coworker" type="Sprite2D" parent="PanelContainer/MarginContainer/VBoxContainer2/CenterContainer" unique_id=568565131]
+position = Vector2(992, 204)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_wb0q5")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1303510016]
 visible = false
