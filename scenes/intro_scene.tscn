@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bcxj4jrg01ruj" path="res://assets/Intro2.png" id="4_01j2m"]
 [ext_resource type="Texture2D" uid="uid://b3er1udpnisyo" path="res://assets/Intro4.png" id="5_f164h"]
 [ext_resource type="Texture2D" uid="uid://56c1mq213gb2" path="res://assets/Button_template2.png" id="6_button"]
+[ext_resource type="AudioStream" uid="uid://bn2db5vtopmci" path="res://assets/sfx/Book.wav" id="8_01j2m"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_normal"]
 texture = ExtResource("6_button")
@@ -98,3 +99,6 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_hover")
 theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_hover_pressed")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_disabled")
 text = "Start Tutorial"
+
+[node name="SFX" type="AudioStreamPlayer" parent="." unique_id=1244114687]
+stream = ExtResource("8_01j2m")

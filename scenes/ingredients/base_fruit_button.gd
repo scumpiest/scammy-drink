@@ -1,3 +1,4 @@
+@tool
 class_name IngredientButton2D
 extends TextureButton
 
