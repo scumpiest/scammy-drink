@@ -10,6 +10,15 @@ signal line_scratched
 @onready var ingredient3: NoteLine = $MarginContainer/VBoxContainer/VBoxContainer/Ingredient3
 @onready var _save_button: Button = $MarginContainer/VBoxContainer/VBoxContainer/Save
 
+const FLUID_KEYS: Array[String] = [
+	"white_wine",
+	"water",
+	"soda",
+	"milk",
+	"lime_juice",
+	"coconut_cream",
+]
+
 var random_chance: float = 0.0
 var notes_content: Dictionary = {}
 
@@ -47,6 +56,7 @@ func get_order_data() -> Dictionary:
 
 
 func update_ingredients(real_ingredients: Array, chance: float) -> void:
+	var ordered_ingredients: Array = _put_fluid_first(real_ingredients)
 	var inventory_keys: Array = GameManager.inventory.keys()
 	var ingredient_lines: Array[NoteLine] = [ingredient1, ingredient2, ingredient3]
 	var used_ingredients: Array[String] = []
@@ -62,21 +72,39 @@ func update_ingredients(real_ingredients: Array, chance: float) -> void:
 		var ingredient: String = ""
 
 		if randf() < chance or not has_fakes_available:
-			ingredient = real_ingredients[i]
+			ingredient = ordered_ingredients[i]
 		else:
 			var available_fakes: Array = []
 			for key in fake_pool:
 				if not used_ingredients.has(key):
+					if i == 0 and not _is_fluid(key):
+						continue
 					available_fakes.append(key)
 
 			if available_fakes.is_empty():
-				ingredient = real_ingredients[i]
+				ingredient = ordered_ingredients[i]
 			else:
 				var random_index: int = randi_range(0, available_fakes.size() - 1)
 				ingredient = available_fakes[random_index]
 
 		used_ingredients.append(ingredient)
 		ingredient_lines[i].update_from_order(ingredient)
+
+
+func _is_fluid(ingredient: String) -> bool:
+	return FLUID_KEYS.has(ingredient)
+
+
+func _put_fluid_first(ingredients: Array) -> Array:
+	var ordered: Array = ingredients.duplicate()
+	for i in ordered.size():
+		if _is_fluid(ordered[i]):
+			if i > 0:
+				var fluid: String = ordered[i]
+				ordered.remove_at(i)
+				ordered.insert(0, fluid)
+			return ordered
+	return ordered
 
 
 func try_scratch_at_position(global_pos: Vector2, replacement: String) -> bool:
