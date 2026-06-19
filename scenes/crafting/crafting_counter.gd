@@ -6,6 +6,7 @@ extends Node2D
 @onready var fruit_pick_sound := preload("res://assets/sfx/Fruit pick.wav")
 
 signal drink_ingredient_added(ingredient: String)
+signal ingredients_changed
 
 const BASE_FRUIT_SCENE: PackedScene = preload("res://scenes/ingredients/base_fruit.tscn")
 
@@ -117,6 +118,21 @@ func _add_ingredient(ingredient: String) -> void:
 		_set_ingredient_buttons_enabled(false)
 		print("Max ingredients reached. Buttons disabled!")
 
+	ingredients_changed.emit()
+
+func get_total_ingredients() -> int:
+	return _get_total_ingredients()
+
+
+func get_mix_button_tooltip() -> String:
+	if not blender.visible:
+		return ""
+	if not blender.is_mix_button_hovered():
+		return ""
+	if get_total_ingredients() >= 3:
+		return "mix the drink!"
+	return "need 3 ingredients"
+
 func _get_total_ingredients() -> int:
 	var total = 0
 	for count in crafting_ingredients.values():
@@ -137,6 +153,8 @@ func reset(enable_buttons: bool = true) -> void:
 		_update_fill_markers()
 	else:
 		glass.set_fill_markers([])
+
+	ingredients_changed.emit()
 
 
 func _set_ingredient_buttons_enabled(enabled: bool) -> void:

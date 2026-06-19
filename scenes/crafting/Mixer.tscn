@@ -7,6 +7,7 @@
 [ext_resource type="Material" uid="uid://b5gubmax0w5xe" path="res://shaders[EXPERIMENTAL]/liquid_shader.tres" id="5_liquid"]
 [ext_resource type="Script" uid="uid://dw31444jtwtd5" path="res://shaders[EXPERIMENTAL]/glass.gd" id="6_glass"]
 [ext_resource type="AudioStream" uid="uid://b58qryyejjiwn" path="res://assets/slosh.mp3" id="7_slosh"]
+[ext_resource type="Material" uid="uid://boutline001" path="res://shaders[EXPERIMENTAL]/outline.tres" id="7_uhhhm"]
 [ext_resource type="Script" uid="uid://37irwg5vqt80" path="res://scenes/crafting/mixer.gd" id="8_mixer"]
 [ext_resource type="AudioStream" uid="uid://htdedqlghhuk" path="res://assets/Mixing drinks sfx.mp3" id="9_iphj6"]
 
@@ -377,6 +378,7 @@ shape = SubResource("RectangleShape2D_glass_detect")
 
 [node name="BlenderTop" type="Sprite2D" parent="Node2D" unique_id=1684222270]
 visible = false
+material = ExtResource("7_uhhhm")
 position = Vector2(0, -710)
 texture = ExtResource("3_sqsos")
 

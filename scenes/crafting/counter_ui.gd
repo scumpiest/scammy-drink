@@ -214,10 +214,16 @@ func _get_missing_ingredient_hint(recipe_ingredients: Dictionary) -> String:
 
 func _update_ingredient_tooltip() -> void:
 	var ingredient_name: String = crafting_counter.get_hovered_ingredient_name()
-	if ingredient_name.is_empty():
-		_tooltip.hide_tooltip()
-	else:
+	if not ingredient_name.is_empty():
 		_tooltip.show_for(ingredient_name, get_global_mouse_position())
+		return
+
+	var mix_tooltip: String = crafting_counter.get_mix_button_tooltip()
+	if not mix_tooltip.is_empty():
+		_tooltip.show_for(mix_tooltip, get_global_mouse_position())
+		return
+
+	_tooltip.hide_tooltip()
 
 
 func _toggle_dialogue_debug_mode() -> void:
