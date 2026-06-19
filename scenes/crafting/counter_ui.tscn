@@ -15,6 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://ctotstsp8umap" path="res://assets/sfx/Beach Ambience.mp3" id="12_ap507"]
 [ext_resource type="Texture2D" uid="uid://oy1xwyhdfuq1" path="res://assets/Counter UI/Play_button.png" id="13_qbp3q"]
 [ext_resource type="Texture2D" uid="uid://ckn4pkbkewt0q" path="res://assets/Counter UI/Cookbook_icon2.png" id="14_00e6r"]
+[ext_resource type="PackedScene" uid="uid://c86lgs72w0q84" path="res://scenes/ui/settings_menu.tscn" id="16_settings"]
 
 [node name="CounterUi" type="Control" unique_id=1949816307]
 layout_mode = 3
@@ -112,7 +113,7 @@ metadata/_edit_lock_ = true
 z_index = 10
 layout_mode = 0
 
-[node name="MainMenuButton" type="TextureButton" parent="." unique_id=1588163996]
+[node name="SettingsButton" type="TextureButton" parent="." unique_id=1588163996]
 z_index = 10
 layout_mode = 0
 offset_left = 840.00006
@@ -142,5 +143,23 @@ texture_focused = ExtResource("14_00e6r")
 visible = false
 layout_mode = 1
 
-[connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1303510017]
+process_mode = 3
+visible = false
+z_index = 100
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_top = 112
+theme_override_constants/margin_right = 200
+theme_override_constants/margin_bottom = 112
+
+[node name="SettingsMenu" parent="MarginContainer" unique_id=1951042490 instance=ExtResource("16_settings")]
+layout_mode = 2
+
+[connection signal="pressed" from="SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="RecipeButton" to="." method="_on_recipe_button_pressed"]

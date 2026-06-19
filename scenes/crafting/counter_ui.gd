@@ -9,6 +9,8 @@ extends Control
 @onready var capy_notes: PanelContainer = $CapyNotes
 @onready var _tooltip: PanelContainer = $Tooltip
 @onready var footsteps_player: AudioStreamPlayer = $Footsteps
+@onready var settings_overlay: Control = $MarginContainer
+@onready var settings_panel: Control = $MarginContainer/SettingsMenu
 
 
 var current_target: Marker2D = null
@@ -23,6 +25,8 @@ var main_menu_scene: String = "uid://ctrh7huvrvaws"
 @export var customer_scene: PackedScene
 @export var lerp_weight: float = 1.0
 
+const ARRIVAL_THRESHOLD: float = 8.0
+
 
 func _ready() -> void:
 	SignalBus.notes_saved.connect(_on_notes_saved)
@@ -31,6 +35,7 @@ func _ready() -> void:
 	crafting_counter.drink_ingredient_added.connect(_on_drink_ingredient_added)
 	crafting_counter.mix_animation_finished.connect(_on_mix_animation_finished)
 	notes.drink_cleared.connect(_on_drink_cleared)
+	settings_panel.closed.connect(_on_settings_closed)
 	customer = spawn_customer()
 	setup_customer(customer)
 
@@ -38,6 +43,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if current_target and customer and is_instance_valid(customer):
 		customer.position = customer.position.lerp(current_target.global_position, 1.0 - exp(-lerp_weight * delta))
+		if current_target == enter_marker:
+			_try_greet_customer_on_arrival()
 	_update_ingredient_tooltip()
 
 func _input(event: InputEvent) -> void:
@@ -74,6 +81,14 @@ func setup_customer(new_customer: Customer) -> void:
 
 func slide_to_marker(marker: Marker2D) -> void:
 	current_target = marker
+
+
+func _try_greet_customer_on_arrival() -> void:
+	if not customer or not is_instance_valid(customer):
+		return
+	if customer.global_position.distance_to(enter_marker.global_position) > ARRIVAL_THRESHOLD:
+		return
+	customer.greet()
 
 
 func _on_request_completed() -> void:
@@ -146,8 +161,12 @@ func _on_request_failed() -> void:
 	crafting_counter.reset()
 
 
-func _on_main_menu_button_pressed() -> void:
-	SceneManager.switch_scene(main_menu_scene)
+func _on_settings_button_pressed() -> void:
+	settings_overlay.visible = true
+
+
+func _on_settings_closed() -> void:
+	settings_overlay.visible = false
 
 
 func _on_recipe_button_pressed() -> void:

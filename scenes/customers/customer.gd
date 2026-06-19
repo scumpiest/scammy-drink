@@ -16,12 +16,12 @@ const SPRITES: Dictionary = {
 @onready var bubble_background: PanelContainer = $BubbleBackground
 @onready var chat_bubble: Label = $BubbleBackground/VBoxContainer/PanelContainer/MarginContainer/ChatBubble
 @onready var sprite: Sprite2D = $Sprite2D
+@onready var voice_player: AudioStreamPlayer2D = $VoicePlayer
 
 const BOP_SPEED: float = 14.0
 const BOP_HEIGHT: float = 10.0
 const MOVE_THRESHOLD_SQUARED: float = 0.25
 const POST_MIX_PAUSE_S: float = 1
-const POST_THANKS_PAUSE_S: float = 2
 const PERSONA_BY_TYPE: Dictionary = {
 	Type.AXOLOTL: "axolotl",
 	Type.FISH: "fish",
@@ -36,11 +36,11 @@ var _sprite_rest_y: float = 0.0
 var _sprite_rest_scale: Vector2 = Vector2.ONE
 var _bop_time: float = 0.0
 var _ingredients_added_count: int = 0
-var _had_wrong_before_two: bool = false
-var _shown_my_drink_with_wrong: bool = false
-var _shown_my_drink_with_right: bool = false
+var _has_given_ingredient_hint: bool = false
 var _dialogue_debug_enabled: bool = false
 var _pending_correct_count: int = -1
+var _voice_sequence_id: int = 0
+var _has_greeted: bool = false
 
 
 func _ready() -> void:
@@ -52,9 +52,15 @@ func _ready() -> void:
 	GameManager.add_recipe_order()
 	request = GameManager.get_order()
 	_reset_dialogue_state()
-	_show_dialogue("hello")
 
 	GameManager.crafting_result.connect(_on_crafting_result)
+
+
+func greet() -> void:
+	if _has_greeted:
+		return
+	_has_greeted = true
+	_show_dialogue("hello")
 
 
 func _process(delta: float) -> void:
@@ -96,8 +102,7 @@ func _complete_order_after_mix(correct_count: int) -> void:
 	await get_tree().create_timer(POST_MIX_PAUSE_S).timeout
 	if request.is_empty():
 		return
-	_show_mix_result_dialogue(correct_count)
-	await get_tree().create_timer(POST_THANKS_PAUSE_S).timeout
+	await _show_mix_result_dialogue(correct_count)
 	if request.is_empty():
 		return
 	request_completed.emit()
@@ -115,22 +120,18 @@ func on_ingredient_feedback(ingredient: String, is_wrong: bool, total_added: int
 	})
 
 	if is_wrong:
-		if total_added <= 2:
-			_had_wrong_before_two = true
-		var events: Array[String] = []
-		if not _shown_my_drink_with_wrong:
-			events.append("my_drink?")
-			_shown_my_drink_with_wrong = true
-		events.append("wrong_ingredient")
-		_show_dialogue_events(events, {"ingredient": ingredient})
+		_show_dialogue_events(_hint_events("wrong_ingredient"), {"ingredient": ingredient})
+	elif total_added == 2:
+		_show_dialogue_events(_hint_events("right_ingredient"), {"ingredient": missing_ingredient_hint})
 
-	if total_added == 2:
-		var events: Array[String] = []
-		if not _had_wrong_before_two and not _shown_my_drink_with_right:
-			events.append("my_drink?")
-			_shown_my_drink_with_right = true
-		events.append("right_ingredient")
-		_show_dialogue_events(events, {"ingredient": missing_ingredient_hint})
+
+func _hint_events(hint_event: String) -> Array[String]:
+	var events: Array[String] = []
+	if not _has_given_ingredient_hint:
+		events.append("my_drink?")
+		_has_given_ingredient_hint = true
+	events.append(hint_event)
+	return events
 
 
 func _show_mix_result_dialogue(correct_count: int) -> void:
@@ -141,17 +142,17 @@ func _show_mix_result_dialogue(correct_count: int) -> void:
 
 	match correct_count:
 		0:
-			_show_dialogue("thx_failed")
+			await _show_dialogue("thx_failed")
 		1:
-			_show_dialogue("thx_1")
+			await _show_dialogue("thx_1")
 		2:
-			_show_dialogue("thx_2")
+			await _show_dialogue("thx_2")
 		3:
-			_show_dialogue("thx_3")
+			await _show_dialogue("thx_3")
 
 
 func _show_dialogue(event_name: String, params: Dictionary = {}) -> void:
-	_show_dialogue_events([event_name], params)
+	await _show_dialogue_events([event_name], params)
 
 
 func _show_dialogue_events(event_names: Array[String], params: Dictionary = {}) -> void:
@@ -174,18 +175,48 @@ func _show_dialogue_events(event_names: Array[String], params: Dictionary = {}) 
 		"events": event_names,
 		"line": chat_bubble.text
 	})
+	await _play_dialogue_voices(event_names, params)
 
 
 func _get_persona_name() -> String:
 	return PERSONA_BY_TYPE.get(customer_type, "seal")
 
 
+func _play_dialogue_voices(event_names: Array[String], params: Dictionary = {}) -> void:
+	_voice_sequence_id += 1
+	var sequence_id: int = _voice_sequence_id
+	voice_player.stop()
+
+	var persona: String = _get_persona_name()
+	for event_name in event_names:
+		if sequence_id != _voice_sequence_id:
+			return
+
+		var path: String = VoiceBank.get_customer_voice_path(persona, event_name, params)
+		var stream: AudioStream = VoiceBank.get_customer_voice(persona, event_name, params)
+		if stream == null:
+			_debug_log("missing_voice_line", {
+				"persona": persona,
+				"event": event_name,
+				"path": path
+			})
+			continue
+
+		_debug_log("voice_line", {
+			"persona": persona,
+			"event": event_name,
+			"path": path
+		})
+		voice_player.stream = stream
+		voice_player.play()
+		await voice_player.finished
+
+
 func _reset_dialogue_state() -> void:
 	_ingredients_added_count = 0
-	_had_wrong_before_two = false
-	_shown_my_drink_with_wrong = false
-	_shown_my_drink_with_right = false
+	_has_given_ingredient_hint = false
 	_pending_correct_count = -1
+	_has_greeted = false
 
 
 func set_dialogue_debug_enabled(enabled: bool) -> void:

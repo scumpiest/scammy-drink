@@ -1,26 +1,29 @@
 extends Control
 
-@onready var settings_panel = $MarginContainer/SettingsMenu
+@onready var settings_overlay: Control = $MarginContainer
+@onready var settings_panel: Control = $MarginContainer/SettingsMenu
+@onready var menu_panel: Control = $PanelContainer
+
 var play_scene: String = "uid://omqlt0501aof"
-var settings_scene: String = "uid://c86lgs72w0q84"
-# Called when the node enters the scene tree for the first time.
+
+
 func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+	settings_panel.closed.connect(_on_settings_closed)
 
 
 func _on_play_pressed() -> void:
 	print("Play is pressed")
 	SceneManager.switch_scene(play_scene)
 
+
 func _on_settings_pressed() -> void:
-	settings_panel.visible = true 
-	settings_panel.z_index = 10
-	mouse_filter = Control.MOUSE_FILTER_IGNORE
+	settings_overlay.visible = true
+	menu_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
+
+
+func _on_settings_closed() -> void:
+	settings_overlay.visible = false
+	menu_panel.mouse_filter = Control.MOUSE_FILTER_STOP
 
 
 func _on_quit_pressed() -> void:

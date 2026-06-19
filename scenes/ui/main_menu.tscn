@@ -66,22 +66,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7vrkn")
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1303510016]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 200
-theme_override_constants/margin_top = 112
-theme_override_constants/margin_right = 200
-theme_override_constants/margin_bottom = 112
-
-[node name="SettingsMenu" parent="MarginContainer" unique_id=1951042489 instance=ExtResource("5_x2yvf")]
-visible = false
-layout_mode = 2
-
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1788284908]
 layout_mode = 0
 offset_right = 1152.0
@@ -166,6 +150,22 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_y1h5l")
 theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_pw24t")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_5dct7")
 text = "Quit"
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1303510016]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_top = 112
+theme_override_constants/margin_right = 200
+theme_override_constants/margin_bottom = 112
+
+[node name="SettingsMenu" parent="MarginContainer" unique_id=1951042489 instance=ExtResource("5_x2yvf")]
+layout_mode = 2
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1438090957]
 stream = ExtResource("4_m1kxf")
