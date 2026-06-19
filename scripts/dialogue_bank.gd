@@ -7,13 +7,13 @@ var chat_templates: Dictionary = {
 	
 	
 	#Sarah
-	"sarah_1_start": "Ah, hello… tsk… \nSo, I’m guessing you’re my new coworker, huh? \nGod dang it, why do we even need one? \nUghhhh! \nAnyways, put this on and do ur job! \nAnd don’t even think about asking ME for any help! \n... \n. . . . . .",
+	"sarah_1_start": "Ah, hello… tsk… \nSo, I’m guessing you’re my new coworker, huh? \nGod dang it, why do we even need one? \nUghhhh! \nAnyways, put this on and do ur job! \nAnd don’t even think about asking ME for any help!",
 	#break -> silence while ... is showing
 	"sarah_2_autoplay_after_one": "Why are you just standing there? \nCan’t you see the customers waiting? \nCome on, what do you think you are here for?",
 	#wait until player clicks on Sarah (she should be the only thing u can click on rn)
 	"sarah_3_clicked_on": "Ughhhh,  What do u want? \nI told you not to ask me for help! \nDamn, it’s not even that hard! Every kid knows how to make that drink and you are still standing here, clueless? Pathetic!",
 	#short break -> silence
-	"sarah_3_autoplay_after_3": "You know what? Cause I’m feeling super nice today I’m actually gonna take the customers orders and write down what to mix in each drink. \nYou can follow instructions, right? \nCause then this should be absolutely no problem for you! \nThere we go, she ain’t gonna last a day wi_h th_s g_niu_ ta_t_c",
+	"sarah_4_autoplay_after_3": "You know what? Cause I’m feeling super nice today I’m actually gonna take the customers orders and write down what to mix in each drink. \nYou can follow instructions, right? \nCause then this should be absolutely no problem for you! \nThere we go, she ain’t gonna last a day with this genius tactic!",
 	#can u leave a bit longer breaks inbetween each line of 4?
 	
 	# played at the end of the game (right before or after the winning screen)
