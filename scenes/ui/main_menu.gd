@@ -5,6 +5,7 @@ extends Control
 @onready var menu_panel: Control = $PanelContainer
 
 var play_scene: String = "uid://omqlt0501aof"
+var tutorial_scene: String = "res://scenes/tutorial/tutorial_scene.tscn"
 
 
 func _ready() -> void:
@@ -13,7 +14,11 @@ func _ready() -> void:
 
 func _on_play_pressed() -> void:
 	print("Play is pressed")
-	SceneManager.switch_scene(play_scene)
+	if not GameManager.tutorial_completed:
+		GameManager.prepare_tutorial("cedevita")
+		SceneManager.switch_scene(tutorial_scene)
+	else:
+		SceneManager.switch_scene(play_scene)
 
 
 func _on_settings_pressed() -> void:

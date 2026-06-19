@@ -32,6 +32,41 @@ var _all_three_star_emitted: bool = false
 
 var can_mix: bool = true
 
+var tutorial_active: bool = false
+var tutorial_completed: bool = false
+
+const PROGRESS_PATH: String = "user://progress.cfg"
+
+
+func _ready() -> void:
+	_load_progress()
+
+
+func _load_progress() -> void:
+	var cfg := ConfigFile.new()
+	if cfg.load(PROGRESS_PATH) != OK:
+		return
+	tutorial_completed = cfg.get_value("progress", "tutorial_completed", false)
+
+
+func _save_progress() -> void:
+	var cfg := ConfigFile.new()
+	cfg.set_value("progress", "tutorial_completed", tutorial_completed)
+	cfg.save(PROGRESS_PATH)
+
+
+func prepare_tutorial(recipe_key: String) -> void:
+	tutorial_active = true
+	recipe_orders.clear()
+	recipe_orders.append(recipe_key)
+
+
+func complete_tutorial() -> void:
+	tutorial_completed = true
+	tutorial_active = false
+	recipe_orders.clear()
+	_save_progress()
+
 
 func save_session_notes(notes_content: Dictionary) -> void:
 	session_notes[notes_content["recipe_key"]] = notes_content

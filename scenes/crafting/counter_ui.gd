@@ -50,6 +50,8 @@ func _process(delta: float) -> void:
 	_update_ingredient_tooltip()
 
 func _input(event: InputEvent) -> void:
+	if GameManager.tutorial_active:
+		return
 	if event.is_action_pressed("close_recipe"):
 		recipe_book.visible = false
 		$BookSounds.play()
@@ -65,7 +67,10 @@ func _input(event: InputEvent) -> void:
 
 func spawn_customer() -> Customer:
 	var new_customer: Customer = customer_scene.instantiate() as Customer
-	new_customer.customer_type = randi() % Customer.Type.size() as Customer.Type
+	if GameManager.tutorial_active:
+		new_customer.customer_type = Customer.Type.SEAL
+	else:
+		new_customer.customer_type = randi() % Customer.Type.size() as Customer.Type
 	new_customer.global_position = spawn_marker.global_position
 	add_child(new_customer)
 	footsteps_player.play()
@@ -78,8 +83,15 @@ func setup_customer(new_customer: Customer) -> void:
 	new_customer.request_failed.connect(_on_request_failed)
 	new_customer.set_dialogue_debug_enabled(_dialogue_debug_enabled)
 	_notes_saved_for_order = false
-	notes.update_display()
+	_refresh_order_notes()
 	slide_to_marker(enter_marker)
+
+
+func _refresh_order_notes() -> void:
+	if GameManager.tutorial_active:
+		notes.set_tutorial_display(GameManager.get_order(), [1, 2] as Array[int])
+	else:
+		notes.update_display()
 
 
 func slide_to_marker(marker: Marker2D) -> void:
@@ -144,13 +156,15 @@ func _on_drink_cleared() -> void:
 	crafting_counter.reset()
 
 
-func _on_line_scratched() -> void:
+func _on_line_scratched(_line_index: int = -1) -> void:
 	$PenSounds.play()
 
 
 func _on_notes_saved(_notes_content: Dictionary) -> void:
 	_notes_saved_for_order = true
 	$PenSounds.play()
+	if GameManager.tutorial_active:
+		return
 	if _awaiting_notes_save:
 		_awaiting_notes_save = false
 		_spawn_next_customer()
@@ -213,6 +227,10 @@ func _get_missing_ingredient_hint(recipe_ingredients: Dictionary) -> String:
 
 
 func _update_ingredient_tooltip() -> void:
+	if GameManager.tutorial_active:
+		_tooltip.hide_tooltip()
+		return
+
 	var ingredient_name: String = crafting_counter.get_hovered_ingredient_name()
 	if not ingredient_name.is_empty():
 		_tooltip.show_for(ingredient_name, get_global_mouse_position())

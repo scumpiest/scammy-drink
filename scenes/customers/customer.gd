@@ -3,6 +3,8 @@ extends Area2D
 
 signal request_completed
 signal request_failed
+signal tutorial_feedback_ready
+signal ingredient_dialogue_finished
 
 enum Type { AXOLOTL, FISH, SEAL, SHARK }
 
@@ -41,6 +43,7 @@ var _dialogue_debug_enabled: bool = false
 var _pending_correct_count: int = -1
 var _voice_sequence_id: int = 0
 var _has_greeted: bool = false
+var _tutorial_feedback_shown: bool = false
 
 
 func _ready() -> void:
@@ -49,7 +52,8 @@ func _ready() -> void:
 	_sprite_rest_scale = sprite.scale
 	_last_position = position
 
-	GameManager.add_recipe_order()
+	if not GameManager.tutorial_active:
+		GameManager.add_recipe_order()
 	request = GameManager.get_order()
 	_reset_dialogue_state()
 
@@ -119,10 +123,22 @@ func on_ingredient_feedback(ingredient: String, is_wrong: bool, total_added: int
 		"missing_hint": missing_ingredient_hint
 	})
 
+	if GameManager.tutorial_active:
+		if ingredient != "pineapple" or _tutorial_feedback_shown:
+			return
+		_tutorial_feedback_shown = true
+		_show_tutorial_ingredient_feedback()
+		return
+
 	if is_wrong:
 		_show_dialogue_events(_hint_events("wrong_ingredient"), {"ingredient": ingredient})
 	elif total_added == 2:
 		_show_dialogue_events(_hint_events("right_ingredient"), {"ingredient": missing_ingredient_hint})
+
+
+func _show_tutorial_ingredient_feedback() -> void:
+	tutorial_feedback_ready.emit()
+	await _show_dialogue_events(_hint_events("right_ingredient"), {"ingredient": "ice"})
 
 
 func _hint_events(hint_event: String) -> Array[String]:
@@ -176,6 +192,7 @@ func _show_dialogue_events(event_names: Array[String], params: Dictionary = {}) 
 		"line": chat_bubble.text
 	})
 	await _play_dialogue_voices(event_names, params)
+	ingredient_dialogue_finished.emit()
 
 
 func _get_persona_name() -> String:
@@ -227,6 +244,7 @@ func _reset_dialogue_state() -> void:
 	_has_given_ingredient_hint = false
 	_pending_correct_count = -1
 	_has_greeted = false
+	_tutorial_feedback_shown = false
 
 
 func set_dialogue_debug_enabled(enabled: bool) -> void:

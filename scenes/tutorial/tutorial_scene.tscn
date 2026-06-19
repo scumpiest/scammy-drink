@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://ddrs6cxunk61u"]
+
+[ext_resource type="PackedScene" uid="uid://omqlt0501aof" path="res://scenes/crafting/counter_ui.tscn" id="1_counter"]
+[ext_resource type="Script" uid="uid://bydlacr35iksd" path="res://scenes/tutorial/tutorial_controller.gd" id="2_controller"]
+[ext_resource type="PackedScene" uid="uid://cl7wl3fyk1lro" path="res://scenes/tutorial/tutorial_overlay.tscn" id="3_overlay"]
+
+[node name="TutorialScene" type="Control" unique_id=1327765518]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("2_controller")
+
+[node name="CounterUi" parent="." unique_id=2057181286 instance=ExtResource("1_counter")]
+layout_mode = 1
+
+[node name="TutorialOverlay" parent="." unique_id=144666444 instance=ExtResource("3_overlay")]

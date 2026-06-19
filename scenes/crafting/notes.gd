@@ -1,14 +1,20 @@
 extends PanelContainer
+class_name NotesPanel
 
 signal notes_saved(notes_content: Dictionary)
 signal drink_cleared
-signal line_scratched
+signal line_scratched(line_index: int)
 
 @onready var drink_name: NoteLine = $MarginContainer/VBoxContainer/DrinkName
 @onready var ingredient1: NoteLine = $MarginContainer/VBoxContainer/VBoxContainer/Ingredient1
 @onready var ingredient2: NoteLine = $MarginContainer/VBoxContainer/VBoxContainer/Ingredient2
 @onready var ingredient3: NoteLine = $MarginContainer/VBoxContainer/VBoxContainer/Ingredient3
 @onready var _save_button: Button = $MarginContainer/VBoxContainer/VBoxContainer/Save
+
+const TUTORIAL_FAKE_BY_LINE: Dictionary = {
+	1: "pineapple",
+	2: "lemon",
+}
 
 const FLUID_KEYS: Array[String] = [
 	"white_wine",
@@ -31,6 +37,37 @@ func update_display() -> void:
 
 	drink_name.update_from_order(order_data["fake_name"])
 	update_ingredients(order_data["ingredients"], random_chance)
+
+
+func set_tutorial_display(recipe_key: String, fake_line_indices: Array[int]) -> void:
+	_hide_save_button()
+	var recipe_data: Dictionary = CraftingRecipe.crafting_dict[recipe_key]
+	var real_ingredients: Array = recipe_data["ingredients"].keys()
+	var ordered_ingredients: Array = _put_fluid_first(real_ingredients)
+	var ingredient_lines: Array[NoteLine] = [ingredient1, ingredient2, ingredient3]
+	var fake_pool: Array[String] = []
+	for key in GameManager.inventory.keys():
+		if not real_ingredients.has(key):
+			fake_pool.append(key)
+	fake_pool.sort()
+	var fake_pick_index: int = 0
+
+	drink_name.update_from_order(recipe_data["fake_name"])
+
+	for i in ingredient_lines.size():
+		var ingredient: String = ""
+		if fake_line_indices.has(i):
+			var preferred: String = TUTORIAL_FAKE_BY_LINE.get(i, "")
+			if not preferred.is_empty() and preferred in fake_pool:
+				ingredient = preferred
+			elif fake_pick_index < fake_pool.size():
+				ingredient = fake_pool[fake_pick_index]
+				fake_pick_index += 1
+			else:
+				ingredient = ordered_ingredients[i]
+		else:
+			ingredient = ordered_ingredients[i]
+		ingredient_lines[i].update_from_order(ingredient)
 
 
 func update_notes_content() -> void:
@@ -136,12 +173,39 @@ func _drop_data(at_position: Vector2, data: Variant) -> void:
 			return
 
 
+func get_ingredient_line(index: int) -> NoteLine:
+	match index:
+		0:
+			return ingredient1
+		1:
+			return ingredient2
+		2:
+			return ingredient3
+		_:
+			return ingredient1
+
+
+func get_save_button_global_rect() -> Rect2:
+	return _save_button.get_global_rect()
+
+
 func _scratch_line(line: NoteLine, replacement: String) -> bool:
 	if line.is_scratched:
 		return false
 	line.scratch(replacement)
-	line_scratched.emit()
+	var line_index: int = _ingredient_line_index(line)
+	line_scratched.emit(line_index)
 	return true
+
+
+func _ingredient_line_index(line: NoteLine) -> int:
+	if line == ingredient1:
+		return 0
+	if line == ingredient2:
+		return 1
+	if line == ingredient3:
+		return 2
+	return -1
 
 
 func show_save_button() -> void:

@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://cl7wl3fyk1lro"]
+
+[ext_resource type="Script" uid="uid://ctsl27chg0ls0" path="res://scenes/tutorial/tutorial_overlay.gd" id="1_overlay"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_highlight"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.95, 0.85, 0.35, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_prompt"]
+bg_color = Color(0.12, 0.1, 0.08, 0.92)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.95, 0.85, 0.35, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="TutorialOverlay" type="CanvasLayer" unique_id=306257579]
+script = ExtResource("1_overlay")
+
+[node name="OverlayRoot" type="Control" parent="." unique_id=784150238]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Top" type="ColorRect" parent="OverlayRoot" unique_id=1446664583]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Bottom" type="ColorRect" parent="OverlayRoot" unique_id=929088571]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Left" type="ColorRect" parent="OverlayRoot" unique_id=1854990121]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Right" type="ColorRect" parent="OverlayRoot" unique_id=425645594]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HighlightBorder" type="PanelContainer" parent="OverlayRoot" unique_id=653931667]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_highlight")
+
+[node name="PromptPanel" type="PanelContainer" parent="OverlayRoot" unique_id=1617389341]
+custom_minimum_size = Vector2(420, 0)
+layout_mode = 0
+offset_right = 420.0
+offset_bottom = 80.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_prompt")
+
+[node name="MarginContainer" type="MarginContainer" parent="OverlayRoot/PromptPanel" unique_id=1418183883]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="OverlayRoot/PromptPanel/MarginContainer" unique_id=1497032567]
+custom_minimum_size = Vector2(380, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.98, 0.94, 0.82, 1)
+theme_override_font_sizes/font_size = 28
+text = "Tutorial prompt"
+autowrap_mode = 3
