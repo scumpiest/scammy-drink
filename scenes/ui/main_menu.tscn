@@ -78,7 +78,7 @@ theme_override_constants/margin_top = 25
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=605131397]
 layout_mode = 2
-theme_override_constants/separation = 75
+theme_override_constants/separation = 125
 
 [node name="PanelContainer" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer2" unique_id=788672508]
 layout_mode = 2
@@ -110,12 +110,12 @@ layout_mode = 2
 theme_override_constants/separation = 25
 
 [node name="Play" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer2/CenterContainer/VBoxContainer" unique_id=1351145941]
-custom_minimum_size = Vector2(0, 100)
+custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.77254903, 0.34509805, 0.15686275, 1)
 theme_override_colors/font_pressed_color = Color(0.9833525, 0.67822146, 0.49259132, 1)
 theme_override_colors/font_hover_color = Color(0.8666667, 0.45882353, 0.16078432, 1)
-theme_override_font_sizes/font_size = 75
+theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxTexture_uhagc")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_btxxm")
 theme_override_styles/hover = SubResource("StyleBoxTexture_wb0q5")
@@ -124,12 +124,12 @@ theme_override_styles/disabled = SubResource("StyleBoxTexture_8g5eo")
 text = "Play"
 
 [node name="Settings" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer2/CenterContainer/VBoxContainer" unique_id=1339250090]
-custom_minimum_size = Vector2(0, 100)
+custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.77254903, 0.34509805, 0.15686275, 1)
 theme_override_colors/font_pressed_color = Color(0.9833525, 0.67822146, 0.49259132, 1)
 theme_override_colors/font_hover_color = Color(0.8666667, 0.45882353, 0.16078432, 1)
-theme_override_font_sizes/font_size = 75
+theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxTexture_7suek")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_otr3d")
 theme_override_styles/hover = SubResource("StyleBoxTexture_8ekit")
@@ -138,12 +138,12 @@ theme_override_styles/disabled = SubResource("StyleBoxTexture_877pj")
 text = "Settings"
 
 [node name="Quit" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer2/CenterContainer/VBoxContainer" unique_id=1952061301]
-custom_minimum_size = Vector2(0, 100)
+custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.77254903, 0.34509805, 0.15686275, 1)
 theme_override_colors/font_pressed_color = Color(0.9833525, 0.67822146, 0.49259132, 1)
 theme_override_colors/font_hover_color = Color(0.8666667, 0.45882353, 0.16078432, 1)
-theme_override_font_sizes/font_size = 75
+theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxTexture_ayp64")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_y2j7i")
 theme_override_styles/hover = SubResource("StyleBoxTexture_y1h5l")
