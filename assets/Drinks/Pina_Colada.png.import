@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://x6pvnojnrg86"
-path="res://.godot/imported/Pina_Colada.png-1121eadf188a807550f5747c4d7c8427.ctex"
+path="res://.godot/imported/Pina_Colada.png-80ff1f4635b36edd5484342c959309f7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Drinks/Pina_Colada.png"
-dest_files=["res://.godot/imported/Pina_Colada.png-1121eadf188a807550f5747c4d7c8427.ctex"]
+source_file="res://assets/drinks/Pina_Colada.png"
+dest_files=["res://.godot/imported/Pina_Colada.png-80ff1f4635b36edd5484342c959309f7.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bqake37wfaqmx"
-path="res://.godot/imported/Rebujito.png-e687fe056419cd78a8c0fe92681fa184.ctex"
+path="res://.godot/imported/Rebujito.png-1f1724b77694c6a51334d8b52c3c2e43.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Drinks/Rebujito.png"
-dest_files=["res://.godot/imported/Rebujito.png-e687fe056419cd78a8c0fe92681fa184.ctex"]
+source_file="res://assets/drinks/Rebujito.png"
+dest_files=["res://.godot/imported/Rebujito.png-1f1724b77694c6a51334d8b52c3c2e43.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dj17no8gef7gh"
-path="res://.godot/imported/Mojito.png-34d53b9307d647cfc877907bee52309a.ctex"
+path="res://.godot/imported/Mojito.png-553e9d2ebcf18abd76232a6be14b36e2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Drinks/Mojito.png"
-dest_files=["res://.godot/imported/Mojito.png-34d53b9307d647cfc877907bee52309a.ctex"]
+source_file="res://assets/drinks/Mojito.png"
+dest_files=["res://.godot/imported/Mojito.png-553e9d2ebcf18abd76232a6be14b36e2.ctex"]
 
 [params]
 
