@@ -1,7 +1,7 @@
 extends Control
 
 @export var WIGGLE_ANGLE_DEGREES: float = 5.0
-@export var WIGGLE_HALF_PERIOD: float = 1
+@export var WIGGLE_PERIOD: float = 1.0
 
 @onready var settings_overlay: Control = $MarginContainer
 @onready var settings_panel: Control = $MarginContainer/SettingsMenu
@@ -33,8 +33,8 @@ func _start_wiggle(sprite: Sprite2D, delay: float = 0.0) -> void:
 	var tween := create_tween().set_loops().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	if delay > 0.0:
 		tween.tween_interval(delay)
-	tween.tween_property(sprite, "rotation", angle, WIGGLE_HALF_PERIOD)
-	tween.tween_property(sprite, "rotation", -angle, WIGGLE_HALF_PERIOD)
+	tween.tween_property(sprite, "rotation", angle, WIGGLE_PERIOD)
+	tween.tween_property(sprite, "rotation", -angle, WIGGLE_PERIOD)
 
 
 func _on_play_pressed() -> void:
