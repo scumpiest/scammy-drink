@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://c5qp7nesymj6d" path="res://assets/Counter UI/White_Wine.png" id="6_sh4g1"]
 [ext_resource type="Texture2D" uid="uid://rfruie3dwwkd" path="res://assets/Counter UI/LimeJuice.png" id="7_d6t5a"]
 [ext_resource type="Texture2D" uid="uid://bjd821s2t37fc" path="res://assets/Counter UI/Coco_Cream.png" id="8_auc77"]
-[ext_resource type="Texture2D" uid="uid://25iy2p8qq3jh" path="res://assets/Rewind.png" id="9_3njbq"]
 [ext_resource type="PackedScene" uid="uid://duin4pr7w8dmd" path="res://scenes/crafting/Mixer.tscn" id="9_gwn08"]
 
 [node name="CraftingCounter" type="Node2D" unique_id=243429001]
@@ -69,15 +68,6 @@ offset_right = 161.0
 offset_bottom = 607.0
 scale = Vector2(0.8, 0.8)
 texture_normal = ExtResource("8_auc77")
-
-[node name="ResetButton" type="TextureButton" parent="." unique_id=1011265565]
-offset_right = 300.0
-offset_bottom = 300.0
-texture_normal = ExtResource("9_3njbq")
-texture_pressed = ExtResource("9_3njbq")
-texture_hover = ExtResource("9_3njbq")
-texture_disabled = ExtResource("9_3njbq")
-texture_focused = ExtResource("9_3njbq")
 
 [node name="MixedFruits" type="Area2D" parent="." unique_id=601262168]
 position = Vector2(888, 576)
