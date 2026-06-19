@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://duin4pr7w8dmd"]
 
 [ext_resource type="Texture2D" uid="uid://f1l313c1xqep" path="res://assets/Mixer/Blender_front.png" id="1_sqsos"]
-[ext_resource type="PackedScene" uid="uid://bhbt3jq4hb8va" path="res://scenes/ingredients/base_fruit.tscn" id="2_geeuf"]
 [ext_resource type="Texture2D" uid="uid://bm8ohqxdrn3ev" path="res://assets/Mixer/Blender_bottom.png" id="3_lnspe"]
 [ext_resource type="Texture2D" uid="uid://dr0ucf67kc80w" path="res://assets/Mixer/Blender_Top1.png" id="3_sqsos"]
 [ext_resource type="Texture2D" uid="uid://dbs2e7cdi5pry" path="res://assets/Mixer/Blender_button.png" id="4_hgirg"]
@@ -11,118 +10,6 @@
 [ext_resource type="Material" uid="uid://boutline001" path="res://shaders[EXPERIMENTAL]/outline.tres" id="7_uhhhm"]
 [ext_resource type="Script" uid="uid://37irwg5vqt80" path="res://scenes/crafting/mixer.gd" id="8_mixer"]
 [ext_resource type="AudioStream" uid="uid://htdedqlghhuk" path="res://assets/Mixing drinks sfx.mp3" id="9_iphj6"]
-[ext_resource type="Texture2D" uid="uid://b2e1pn0o2edo0" path="res://LiquidAnimation/Liquid1.png" id="12_sdncg"]
-[ext_resource type="Texture2D" uid="uid://dnb7o2wc6f4b7" path="res://LiquidAnimation/Liquid2.png" id="13_4uhin"]
-[ext_resource type="Texture2D" uid="uid://bw7lmymfhj6lx" path="res://LiquidAnimation/Liquid3.png" id="14_4c5re"]
-[ext_resource type="Texture2D" uid="uid://bc7iinqwb5mup" path="res://LiquidAnimation/Liquid4.png" id="15_rvueg"]
-[ext_resource type="Texture2D" uid="uid://h2epxvhxhoo1" path="res://LiquidAnimation/Liquid5.png" id="16_hbbq0"]
-[ext_resource type="Texture2D" uid="uid://bbx0rlwop066r" path="res://LiquidAnimation/Liquid6.png" id="17_d4fbx"]
-[ext_resource type="Texture2D" uid="uid://ckjtfinsf0pgc" path="res://LiquidAnimation/Liquid7.png" id="18_1yfty"]
-[ext_resource type="Texture2D" uid="uid://cdxeik6vfedxk" path="res://LiquidAnimation/Liquid8.png" id="19_rbd6k"]
-[ext_resource type="Texture2D" uid="uid://b0jxop883t6mu" path="res://LiquidAnimation/Liquid9.png" id="20_xuel6"]
-[ext_resource type="Texture2D" uid="uid://11ykxlflbprd" path="res://LiquidAnimation/Liquid10.png" id="21_qkyhl"]
-[ext_resource type="Texture2D" uid="uid://i4a52xrxmr7e" path="res://LiquidAnimation/Liquid11.png" id="22_ed2li"]
-[ext_resource type="Texture2D" uid="uid://b3lf3wibfqyqq" path="res://LiquidAnimation/Liquid12.png" id="23_gyg2j"]
-[ext_resource type="Texture2D" uid="uid://t7fc0q1u568j" path="res://LiquidAnimation/Liquid13.png" id="24_3snbu"]
-[ext_resource type="Texture2D" uid="uid://dmexpkeonyfqj" path="res://LiquidAnimation/Liquid14.png" id="25_tqdi1"]
-[ext_resource type="Texture2D" uid="uid://g0phi27snh7n" path="res://LiquidAnimation/Liquid15.png" id="26_8mgj1"]
-[ext_resource type="Texture2D" uid="uid://bu300v6psdf5f" path="res://LiquidAnimation/Liquid16.png" id="27_gjl8g"]
-[ext_resource type="Texture2D" uid="uid://bms7ayuuek2v3" path="res://LiquidAnimation/Liquid17.png" id="28_w40w4"]
-[ext_resource type="Texture2D" uid="uid://bbokm3601wqgl" path="res://LiquidAnimation/Liquid18.png" id="29_msfsc"]
-[ext_resource type="Texture2D" uid="uid://oqdj6n6tmoep" path="res://LiquidAnimation/Liquid19.png" id="30_0gom5"]
-[ext_resource type="Texture2D" uid="uid://b16q05rkwepv6" path="res://LiquidAnimation/Liquid20.png" id="31_xliqk"]
-[ext_resource type="Texture2D" uid="uid://dvret6vsmehm5" path="res://LiquidAnimation/Liquid21.png" id="32_weax5"]
-[ext_resource type="Texture2D" uid="uid://bodgisd37u25h" path="res://LiquidAnimation/Liquid22.png" id="33_sjwtg"]
-[ext_resource type="Texture2D" uid="uid://bqb2kor7dda73" path="res://LiquidAnimation/Liquid23.png" id="34_ol2dr"]
-[ext_resource type="Texture2D" uid="uid://c7p3pi6x6bkdl" path="res://LiquidAnimation/Liquid24.png" id="35_8h5b4"]
-[ext_resource type="Texture2D" uid="uid://b2k4fwoak6g5w" path="res://LiquidAnimation/Liquid25.png" id="36_2o8v7"]
-[ext_resource type="Texture2D" uid="uid://br2hjxxe3uygs" path="res://LiquidAnimation/Liquid26.png" id="37_05grm"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_chyd6"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("12_sdncg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("13_4uhin")
-}, {
-"duration": 1.0,
-"texture": ExtResource("14_4c5re")
-}, {
-"duration": 1.0,
-"texture": ExtResource("15_rvueg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("16_hbbq0")
-}, {
-"duration": 1.0,
-"texture": ExtResource("17_d4fbx")
-}, {
-"duration": 1.0,
-"texture": ExtResource("18_1yfty")
-}, {
-"duration": 1.0,
-"texture": ExtResource("19_rbd6k")
-}, {
-"duration": 1.0,
-"texture": ExtResource("20_xuel6")
-}, {
-"duration": 1.0,
-"texture": ExtResource("21_qkyhl")
-}, {
-"duration": 1.0,
-"texture": ExtResource("22_ed2li")
-}, {
-"duration": 1.0,
-"texture": ExtResource("23_gyg2j")
-}, {
-"duration": 1.0,
-"texture": ExtResource("24_3snbu")
-}, {
-"duration": 1.0,
-"texture": ExtResource("25_tqdi1")
-}, {
-"duration": 1.0,
-"texture": ExtResource("26_8mgj1")
-}, {
-"duration": 1.0,
-"texture": ExtResource("27_gjl8g")
-}, {
-"duration": 1.0,
-"texture": ExtResource("28_w40w4")
-}, {
-"duration": 1.0,
-"texture": ExtResource("29_msfsc")
-}, {
-"duration": 1.0,
-"texture": ExtResource("30_0gom5")
-}, {
-"duration": 1.0,
-"texture": ExtResource("31_xliqk")
-}, {
-"duration": 1.0,
-"texture": ExtResource("32_weax5")
-}, {
-"duration": 1.0,
-"texture": ExtResource("33_sjwtg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("34_ol2dr")
-}, {
-"duration": 1.0,
-"texture": ExtResource("35_8h5b4")
-}, {
-"duration": 1.0,
-"texture": ExtResource("36_2o8v7")
-}, {
-"duration": 1.0,
-"texture": ExtResource("37_05grm")
-}],
-"loop": 1,
-"name": &"default",
-"speed": 8.0
-}]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_glass_splash"]
 particle_flag_disable_z = true
@@ -417,20 +304,6 @@ _data = {
 
 [node name="Blender" type="Node2D" unique_id=1547528332]
 script = ExtResource("8_mixer")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2126107610]
-position = Vector2(0, -9.536743e-07)
-scale = Vector2(4.25, 4.25)
-sprite_frames = SubResource("SpriteFrames_chyd6")
-
-[node name="PlaceholderFruit1" parent="." unique_id=1816019492 instance=ExtResource("2_geeuf")]
-visible = false
-z_index = 10
-position = Vector2(180, -600)
-
-[node name="PlaceholderFruit2" parent="." unique_id=1206604975 instance=ExtResource("2_geeuf")]
-visible = false
-z_index = 10
 
 [node name="BlenderBottom" type="Sprite2D" parent="." unique_id=1933605166]
 texture = ExtResource("3_lnspe")

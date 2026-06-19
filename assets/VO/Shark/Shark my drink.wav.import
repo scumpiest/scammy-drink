@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://drpyrnb0kdthv"
+path="res://.godot/imported/Shark my drink.wav-e31a2e8786a97325b95de5cf9bc7ad0e.sample"
+
+[deps]
+
+source_file="res://assets/VO/Shark/Shark my drink.wav"
+dest_files=["res://.godot/imported/Shark my drink.wav-e31a2e8786a97325b95de5cf9bc7ad0e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
