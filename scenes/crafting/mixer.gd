@@ -19,6 +19,8 @@ func _on_mix_button_pressed() -> void:
 	if GameManager.can_mix:
 		mix_sfx.play()
 		_crafting_counter.mix()
+		# _fluid.visible = true
+		# _fluid.play(&"mix")
 		_animation_player.play(&"mix")
 		_glass.trigger_slosh()
 		_mix_button.disabled = true
