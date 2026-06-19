@@ -9,6 +9,7 @@ enum Step {
 	SCRATCH_LINE_3,
 	MIX,
 	SAVE_NOTES,
+	CHECK_RECIPE_BOOK,
 	COMPLETE,
 }
 
@@ -30,6 +31,7 @@ var _notes: PanelContainer
 var _capy_notes: CapyNotesPanel
 var _customer: Customer
 var _recipe_button: Control
+var _recipe_book: Control
 var _settings_button: Control
 
 
@@ -40,6 +42,7 @@ func _ready() -> void:
 	_capy_notes = _counter_ui.get_node("CapyNotes") as CapyNotesPanel
 	_customer = _counter_ui.customer
 	_recipe_button = _counter_ui.get_node("RecipeButton")
+	_recipe_book = _counter_ui.get_node("RecipeBook")
 	_settings_button = _counter_ui.get_node("SettingsButton")
 
 	_recipe_button.visible = false
@@ -49,6 +52,8 @@ func _ready() -> void:
 	_notes.line_scratched.connect(_on_line_scratched)
 	_crafting_counter.mix_animation_finished.connect(_on_mix_animation_finished)
 	SignalBus.notes_saved.connect(_on_notes_saved)
+	_recipe_button.pressed.connect(_on_recipe_button_pressed)
+	_recipe_book.get_node("CloseButton").pressed.connect(_on_recipe_book_closed)
 	_customer.tutorial_feedback_ready.connect(_on_tutorial_feedback_ready)
 	_customer.ingredient_dialogue_finished.connect(_on_ingredient_dialogue_finished)
 
@@ -124,6 +129,12 @@ func _advance_to_step(next_step: Step) -> void:
 			)
 		Step.SAVE_NOTES:
 			call_deferred("_show_save_highlight")
+		Step.CHECK_RECIPE_BOOK:
+			_recipe_button.visible = true
+			_overlay.show_highlight(
+				TutorialOverlay.rect_from_control(_recipe_button),
+				"You can check the recipe book to see your saved notes."
+			)
 		Step.COMPLETE:
 			_overlay.show_highlight(
 				Rect2(get_viewport().get_visible_rect().size * 0.5 - Vector2(160, 40), Vector2(320, 80)),
@@ -220,7 +231,35 @@ func _on_mix_animation_finished() -> void:
 
 func _on_notes_saved(_notes_content: Dictionary) -> void:
 	if _step == Step.SAVE_NOTES:
-		_advance_to_step(Step.COMPLETE)
+		_advance_to_step(Step.CHECK_RECIPE_BOOK)
+
+
+func _on_recipe_button_pressed() -> void:
+	if _step != Step.CHECK_RECIPE_BOOK:
+		return
+	call_deferred("_show_cedevita_highlight")
+
+
+func _show_cedevita_highlight() -> void:
+	if _step != Step.CHECK_RECIPE_BOOK or not _recipe_book.visible:
+		return
+	var cedevita: Control = _recipe_book.get_drink_panel(GameManager.get_order())
+	if cedevita == null:
+		return
+	var close_button: Control = _recipe_book.get_node("CloseButton")
+	_overlay.show_highlight_rects(
+		[
+			TutorialOverlay.rect_from_control(cedevita),
+			TutorialOverlay.rect_from_control(close_button),
+		],
+		"Your saved notes appear here. Close the book when you're done."
+	)
+
+
+func _on_recipe_book_closed() -> void:
+	if _step != Step.CHECK_RECIPE_BOOK:
+		return
+	_advance_to_step(Step.COMPLETE)
 
 
 func _finish_tutorial() -> void:

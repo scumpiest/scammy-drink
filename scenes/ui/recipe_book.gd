@@ -24,6 +24,10 @@ func _get_drink(recipe_key: String):
 	return _drinks_by_key.get(recipe_key)
 
 
+func get_drink_panel(recipe_key: String) -> Control:
+	return _get_drink(recipe_key)
+
+
 func _refresh_all_stars() -> void:
 	for recipe_key in _drinks_by_key:
 		_drinks_by_key[recipe_key].set_stars(GameManager.get_recipe_stars(recipe_key))

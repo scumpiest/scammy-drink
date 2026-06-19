@@ -119,6 +119,8 @@ func _on_request_completed() -> void:
 func _on_customer_exited() -> void:
 	current_target = null
 	GameManager._set_can_mix(false)
+	if GameManager.tutorial_active:
+		return
 	if _notes_saved_for_order:
 		_spawn_next_customer()
 	else:
