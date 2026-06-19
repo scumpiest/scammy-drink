@@ -19,6 +19,7 @@ z_index = -1
 script = ExtResource("1_0p6h7")
 
 [node name="VoicePlayer" type="AudioStreamPlayer2D" parent="." unique_id=502159557]
+volume_db = -12.5
 bus = &"VO"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2091024564]

@@ -149,6 +149,7 @@ scale = Vector2(0.2, 0.2)
 
 [node name="IngredientSounds" type="AudioStreamPlayer" parent="." unique_id=1082069886]
 unique_name_in_owner = true
+volume_db = -25.0
 
 [connection signal="pressed" from="Mix" to="." method="_on_mix_pressed"]
 [connection signal="pressed" from="Reset" to="." method="_on_reset_pressed"]
