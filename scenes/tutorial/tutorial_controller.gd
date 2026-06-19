@@ -129,7 +129,7 @@ func _advance_to_step(next_step: Step) -> void:
 				"Mix the drink!"
 			)
 		Step.SAVE_NOTES:
-			pass
+			call_deferred("_show_save_highlight")
 		Step.CHECK_RECIPE_BOOK:
 			_recipe_button.visible = true
 			_overlay.show_highlight(

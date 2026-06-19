@@ -82,6 +82,7 @@ volume_db = -8.0
 bus = &"SFX"
 
 [node name="VoicePlayer" type="AudioStreamPlayer" parent="." unique_id=502159558]
+volume_db = -5.0
 bus = &"VO"
 
 [node name="BubbleBackground" type="PanelContainer" parent="." unique_id=19748472]
