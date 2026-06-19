@@ -7,6 +7,7 @@ const TUTORIAL_SCENE: String = "res://scenes/tutorial/tutorial_scene.tscn"
 @onready var _intro3: TextureRect = $MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/intro3
 @onready var _intro4: TextureRect = $MarginContainer/HBoxContainer/intro4
 @onready var _start_button: Button = $Footer/StartTutorialButton
+@onready var sfx: AudioStreamPlayer = $SFX
 
 @export var POP_DURATION: float = 1
 @export var PAUSE_BETWEEN: float = 1
@@ -35,6 +36,7 @@ func _play_intro_sequence() -> void:
 	var tween := create_tween()
 
 	for card: TextureRect in _intro_cards:
+		tween.tween_callback(sfx.play)
 		tween.tween_property(card, "scale", Vector2.ONE, POP_DURATION) \
 			.set_trans(Tween.TRANS_BACK) \
 			.set_ease(Tween.EASE_OUT)
