@@ -7,19 +7,19 @@ var chat_templates: Dictionary = {
 	
 	
 	#Sarah
-	"sarah_1_start": "Ah, hello… tsk… \nSo, I’m guessing you’re my new coworker, huh? \nGod dang it, why do we even need one? \nUghhhh! \nAnyways, put this on and do ur job! \nAnd don’t even think about asking ME for any help!",
+	"sarah_1_start": "Ah, hello… tsk… \nSo, I'm guessing you're my new coworker, huh? \nGod dang it, why do we even need one? \nUghhhh! \nAnyways, put this on and do ur job! \nAnd don't even think about asking ME for any help!",
 	#break -> silence while ... is showing
-	"sarah_2_autoplay_after_one": "Why are you just standing there? \nCan’t you see the customers waiting? \nCome on, what do you think you are here for?",
+	"sarah_2_autoplay_after_one": "Why are you just standing there? \nCan't you see the customers waiting? \nCome on, what do you think you are here for?",
 	#wait until player clicks on Sarah (she should be the only thing u can click on rn)
-	"sarah_3_clicked_on": "Ughhhh,  What do u want? \nI told you not to ask me for help! \nDamn, it’s not even that hard! Every kid knows how to make that drink and you are still standing here, clueless? Pathetic!",
+	"sarah_3_clicked_on": "Ughhhh,  What do u want? \nI told you not to ask me for help! \nDamn, it's not even that hard! Every kid knows how to make that drink and you are still standing here, clueless? Pathetic!",
 	#short break -> silence
-	"sarah_4_autoplay_after_3": "You know what? Cause I’m feeling super nice today I’m actually gonna take the customers orders and write down what to mix in each drink. \nYou can follow instructions, right? \nCause then this should be absolutely no problem for you! \nThere we go, she ain’t gonna last a day with this genius tactic!",
+	"sarah_4_autoplay_after_3": "You know what? Cause I'm feeling super nice today I'm actually gonna take the customers orders and write down what to mix in each drink. \nYou can follow instructions, right? \nCause then this should be absolutely no problem for you! \nThere we go, she ain't gonna last a day with this genius tactic!",
 	#can u leave a bit longer breaks inbetween each line of 4?
 	
 	# played at the end of the game (right before or after the winning screen)
-	"sarah_5_end": "Uhhhh, so you are pretty good at this, huh? \nDammet, guess I’m gonna have to get used to having you around! \nHoooray, finally boss found someone to “accompany “ me. Huhhhhh \n… \n. . .",
+	"sarah_5_end": "Uhhhh, so you are pretty good at this, huh? \nDammet, guess I'm gonna have to get used to having you around! \nHoooray, finally boss found someone to “accompany “ me. Huhhhhh \n… \n. . .",
 	#make sure that there´s silence when ... is showing
-	"sarah_6_end": "Well, at least it doesn’t seem like you’re the worst person on this planet. \nMight as well cope with, huh?",
+	"sarah_6_end": "Well, at least it doesn't seem like you're the worst person on this planet. \nMight as well cope with, huh?",
 	
 	
 	# Seal
