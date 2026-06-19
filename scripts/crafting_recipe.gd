@@ -72,7 +72,7 @@ var party_mix_recipe: Dictionary = {
 	"product": {"party_mix": 1},
 	"random_chance": 0.5,
 	"fake_name": "Hawaiian Punch",
-	"filename": "" # TODO ADD PNG FOR PARTYMIX AND THE FILENAME HERE
+	"filename": "Party_mix.png"
 }
 
 var es_teler_recipe: Dictionary = {

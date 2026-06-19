@@ -1,12 +1,11 @@
 extends Control
 
-const TUTORIAL_SCENE: String = "res://scenes/tutorial/tutorial_scene.tscn"
+const SARAH_SCENE: String = "res://scenes/sarah_scene.tscn"
 
 @onready var _intro1: TextureRect = $MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/intro1
 @onready var _intro2: TextureRect = $MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/intro2
 @onready var _intro3: TextureRect = $MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/intro3
 @onready var _intro4: TextureRect = $MarginContainer/HBoxContainer/intro4
-@onready var _start_button: Button = $Footer/StartTutorialButton
 @onready var sfx: AudioStreamPlayer = $SFX
 
 @export var POP_DURATION: float = 1
@@ -20,9 +19,6 @@ func _ready() -> void:
 	for card: TextureRect in _intro_cards:
 		card.scale = Vector2.ZERO
 		card.modulate.a = 0.0
-
-	_start_button.visible = false
-	_start_button.pressed.connect(_on_start_tutorial_pressed)
 
 	await get_tree().process_frame
 
@@ -43,22 +39,8 @@ func _play_intro_sequence() -> void:
 		tween.parallel().tween_property(card, "modulate:a", 1.0, POP_DURATION * 0.5)
 		tween.tween_interval(PAUSE_BETWEEN)
 
-	tween.tween_callback(_show_start_button)
+	tween.tween_callback(_go_to_sarah_scene)
 
 
-func _show_start_button() -> void:
-	_start_button.visible = true
-	_start_button.scale = Vector2.ZERO
-	_start_button.modulate.a = 0.0
-	_start_button.pivot_offset = _start_button.size / 2.0
-
-	var tween := create_tween()
-	tween.tween_property(_start_button, "scale", Vector2.ONE, POP_DURATION) \
-		.set_trans(Tween.TRANS_BACK) \
-		.set_ease(Tween.EASE_OUT)
-	tween.parallel().tween_property(_start_button, "modulate:a", 1.0, POP_DURATION * 0.5)
-
-
-func _on_start_tutorial_pressed() -> void:
-	GameManager.prepare_tutorial("cedevita")
-	SceneManager.switch_scene(TUTORIAL_SCENE)
+func _go_to_sarah_scene() -> void:
+	SceneManager.switch_scene(SARAH_SCENE)
