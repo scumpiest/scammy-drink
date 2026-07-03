@@ -59,14 +59,14 @@ position = Vector2(1332, 96)
 
 [node name="BGMusic" type="AudioStreamPlayer" parent="." unique_id=821602189]
 stream = ExtResource("4_ccn5l")
-volume_db = -25.0
+volume_db = -15.0
 autoplay = true
 bus = &"Music"
 parameters/looping = true
 
 [node name="Ambience" type="AudioStreamPlayer" parent="." unique_id=18315182]
 stream = ExtResource("12_ap507")
-volume_db = -22.932
+volume_db = -21.0
 autoplay = true
 bus = &"SFX"
 parameters/looping = true
@@ -74,7 +74,7 @@ parameters/looping = true
 [node name="PenSounds" type="AudioStreamPlayer" parent="." unique_id=1564701088]
 unique_name_in_owner = true
 stream = ExtResource("8_qbp3q")
-volume_db = -5.0
+volume_db = -7.0
 bus = &"SFX"
 
 [node name="BookSounds" type="AudioStreamPlayer" parent="." unique_id=31409859]

@@ -184,7 +184,7 @@ layout_mode = 2
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1438090957]
 stream = ExtResource("4_m1kxf")
-volume_db = -5.0
+volume_db = -10.0
 autoplay = true
 bus = &"Music"
 parameters/looping = true

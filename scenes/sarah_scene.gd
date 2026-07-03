@@ -37,6 +37,8 @@ const SARAH_INTRO_VO: Array[AudioStream] = [
 var _current_target: Marker2D = null
 var _moving_sprite: Sprite2D = null
 var _sarah_wiggle_tween: Tween = null
+var _dialogue_active: bool = false
+var _skip_dialogue_line: bool = false
 
 
 func _ready() -> void:
@@ -45,6 +47,15 @@ func _ready() -> void:
 	_start_button.visible = false
 	_start_button.pressed.connect(_on_start_tutorial_pressed)
 	_play_entrance_sequence()
+
+
+func _input(event: InputEvent) -> void:
+	if not _dialogue_active:
+		return
+	if not event.is_action_pressed("next_tutorial_box"):
+		return
+	get_viewport().set_input_as_handled()
+	_skip_dialogue_line = true
 
 
 func _process(delta: float) -> void:
@@ -68,21 +79,30 @@ func _play_entrance_sequence() -> void:
 
 
 func _play_sarah_intro_dialogue() -> void:
+	_dialogue_active = true
 	_setup_bottom_pivot(_sarah)
 	_bubble_background.visible = true
 	_start_sarah_wiggle()
 
 	for i in SARAH_INTRO_EVENTS.size():
+		_skip_dialogue_line = false
 		var event_name: String = SARAH_INTRO_EVENTS[i]
 		_chat_bubble.text = DialogueBank.get_customer_line(SARAH_PERSONA, event_name)
 		await _position_bubble()
 		_voice_player.stream = SARAH_INTRO_VO[i]
 		_voice_player.play()
-		await _voice_player.finished
+		await _wait_for_voice_or_skip()
 
+	_dialogue_active = false
 	_stop_sarah_wiggle()
 	_bubble_background.visible = false
 	_show_start_button()
+
+
+func _wait_for_voice_or_skip() -> void:
+	while _voice_player.playing and not _skip_dialogue_line:
+		await get_tree().process_frame
+	_voice_player.stop()
 
 
 func _show_start_button() -> void:

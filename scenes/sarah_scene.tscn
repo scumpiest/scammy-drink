@@ -66,7 +66,7 @@ texture = ExtResource("4_ce8us")
 
 [node name="Ambience" type="AudioStreamPlayer" parent="." unique_id=1005380427]
 stream = ExtResource("5_a1dej")
-volume_db = -10.0
+volume_db = -20.0
 autoplay = true
 parameters/looping = false
 
@@ -78,11 +78,11 @@ position = Vector2(1008, 488)
 
 [node name="Footsteps" type="AudioStreamPlayer" parent="." unique_id=1821500411]
 stream = ExtResource("6_footsteps")
-volume_db = -8.0
+volume_db = -10.0
 bus = &"SFX"
 
 [node name="VoicePlayer" type="AudioStreamPlayer" parent="." unique_id=502159558]
-volume_db = -5.0
+volume_db = -15.0
 bus = &"VO"
 
 [node name="BubbleBackground" type="PanelContainer" parent="." unique_id=19748472]
